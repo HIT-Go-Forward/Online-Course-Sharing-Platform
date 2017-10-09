@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+{% load i18n %}
+{% trans "Login" as login %}
+<head>
+  <title>{{ login }}</title>
+  <meta charset="UTF-8"> 
+</head>
+<body>
+  <form action="../login/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="{{ login }}"/>
+</body>
+</html>

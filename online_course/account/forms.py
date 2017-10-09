@@ -31,3 +31,19 @@ class RegisterForm(Form):
                 return email
         else:
             raise ValidationError(_('Cannot be blank'))
+
+    def clean_repeat_password(self):
+        if self.cleaned_data['password'] != self.cleaned_data['repeat_password']:
+            raise ValidationError(_('Passwords don\'t match'))
+
+
+class LoginForm(Form):
+    email = CharField(max_length=100, required=True)
+    password = CharField(
+        max_length=100,
+        widget=TextInput(attrs={'type': 'password'}),
+        required=True,
+    )
+
+    def clean_email(self):
+        return self.cleaned_data['email'].lower()

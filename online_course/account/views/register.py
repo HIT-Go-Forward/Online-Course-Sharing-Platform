@@ -1,18 +1,21 @@
+from django.contrib.auth import login
 from django.contrib.auth.models import User
-from django.views.decorators.http import require_POST
 from django.http import JsonResponse
+from django.shortcuts import render
 
 from account.forms import RegisterForm
 
 
-@require_POST()
 def register(request):
-    form = RegisterForm(request.POST)
-    if form.is_valid():
-        email = form.cleaned_data['email']
-        user = User.objects.create_user(email, email, form.cleaned_data['password'])
-        user.save()
-        response = {'code': 0}
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            user = User.objects.create_user(email, email, form.cleaned_data['password'])
+            user.save()
+            login(request, user)
+            return JsonResponse({'code': 0})
+        else:
+            return JsonResponse({'code': -100, 'message': form.errors})
     else:
-        response = {'code': -100, 'message': form.errors}
-    return JsonResponse(response)
+        return render(request, 'account/register.html', {'form': RegisterForm})
