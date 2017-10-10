@@ -3,8 +3,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.http import JsonResponse
 from django.shortcuts import render
-
-from account.forms import LoginForm
+from django.forms import Form
+from django.forms import CharField
+from django.forms import TextInput
 
 
 def login_authenticate(request):
@@ -21,3 +22,15 @@ def login_authenticate(request):
         return JsonResponse({'code': -100, 'message': form.errors})
     else:
         return render(request, 'account/login.html', {'form': LoginForm()})
+
+
+class LoginForm(Form):
+    email = CharField(max_length=100, required=True)
+    password = CharField(
+        max_length=100,
+        widget=TextInput(attrs={'type': 'password'}),
+        required=True,
+    )
+
+    def clean_email(self):
+        return self.cleaned_data['email'].lower()
