@@ -29,3 +29,9 @@ venv\Scripts\activate.bat
 ```
 pip install -r requirements.txt
 ```
+
+4. Migrate the database
+```
+cd online_course
+python manage.py migrate
+```
