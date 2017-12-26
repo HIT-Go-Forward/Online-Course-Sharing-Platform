@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}登录{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    <form action="." method="post">{% csrf_token %}
+        {{ form }}
+        <input type="submit" value="登录"/>
+    </form>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
