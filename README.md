@@ -1,8 +1,12 @@
-# Online-Course-Sharing-Platform
+# Online Course Sharing Platform
 
-Work in progress.
+A *MOOC-like* website that allows people share and learn courses. It supports danmaku and will be deployed on CERNET.
 
-## Setup
+## Documentation
+
+*WRITING*
+
+## Installation
 
 1. Clone this repository
 ```
@@ -35,3 +39,18 @@ pip install -r requirements.txt
 cd online_course
 python manage.py migrate
 ```
+
+## Deployment
+
+**TODO**: *To be filled in future*
+
+
+## Authors
+
+* **Moandor** - *Main Architecture* - [Moandor-y](https://github.com/Moandor-y)
+* **ANDI_Mckee** - *Backend* - [ANDI-Mckee](https://github.com/ANDI-Mckee)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
