@@ -4,7 +4,57 @@ A *MOOC-like* website that allows people share and learn courses. It supports da
 
 ## Documentation
 
-*WRITING*
+### Objects
+
+*SPECIFICATIONS*
+```
+Name: (The name of object)
+Description:
+(A paragraph of description, in Chinese)
+Data List:
+    1. data_1
+        Description: (In Chinese)
+        Data Type: (Data type in database)
+        Note: (OPTIONAL, in Chinese)
+    2. data_2
+    ...
+Note: (OPTIONAL, in Chinese)
+```
+
+* Student
+```
+Name: Student
+Description:
+学生，网站的主要使用者，可以学习课程，不能开放课程
+Data List:
+    1. name
+        Description: 姓名
+        Data Type: (Data type in database)
+        Note: (OPTIONAL, in Chinese)
+```
+
+* Teacher
+* Admin
+ 
+### Prototypes & Data Interfaces
+
+*SPECIFICATIONS*
+```
+Prototype: (An image)
+Page: (Filename of page)
+Description:
+(A paragraph of description, in Chinese)
+Data List:
+    (Data transferred between frontend and backend)
+    1. data_1
+        Description: (In Chinese)
+        Data Type: (Data type in front end)
+        Note: (OPTIONAL, in Chinese)
+    2. data_2
+    ...
+Note: (OPTIONAL, in Chinese)
+    
+ ```
 
 ## Installation
 
