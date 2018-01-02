@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}个人信息{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    {% url 'profile_settings' as form_url %}
+    <form action="{{ url }}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="提交"/>
+    </form>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
