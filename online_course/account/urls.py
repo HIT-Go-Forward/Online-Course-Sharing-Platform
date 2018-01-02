@@ -8,5 +8,5 @@ from account.views.profile import profile_settings
 urlpatterns = [
     url(r'^register/$', register, name='register'),
     url(r'^login/$', login_authenticate, name='login'),
-    url(r'^settings/profile$', profile_settings, name='profile_settings')
+    url(r'^settings/profile/$', profile_settings, name='profile_settings')
 ]
