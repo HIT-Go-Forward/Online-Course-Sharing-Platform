@@ -8,6 +8,12 @@
 {% endblock %}
 
 {% block content %}
+    {% url 'profile_settings' as url_profile_settings %}
+    {% url 'register' as url_register %}
+    {% url 'login' as url_login %}
+    <a href="{{ url_login }}">登录</a>
+    <a href="{{ url_register }}">注册</a>
+    <a href="{{ url_profile_settings }}">个人信息</a>
 {% endblock %}
 
 {% block javascript %}
