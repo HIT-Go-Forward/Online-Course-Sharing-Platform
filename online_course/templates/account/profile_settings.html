@@ -9,7 +9,7 @@
 
 {% block content %}
     {% url 'profile_settings' as form_url %}
-    <form action="{{ url }}" method="post">
+    <form action="{{ url }}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="提交"/>

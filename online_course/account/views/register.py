@@ -15,7 +15,8 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
-            user = User.objects.create_user(email, email, form.cleaned_data['password'])
+            username = form.cleaned_data['username']
+            user = User.objects.create_user(username, email, form.cleaned_data['password'])
             user.save()
             login(request, user)
             return JsonResponse({'code': 0})
