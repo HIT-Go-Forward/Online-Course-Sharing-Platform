@@ -1,20 +1,46 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block title %}登录{% endblock %}
+{% block title %}注册{% endblock %}
 
 {% block css %}
 
 {% endblock %}
 
 {% block content %}
-  <form action="." method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="注册"/>
-  </form>
+    <form action="." method="post" id="register" class="form-horizontal col-md-8 col-md-offset-2">{% csrf_token %}
+        <div class="form-group col-md-8">
+            <label for="id_username" class="col-md-5 control-label">用户名：</label>
+            <div class="col-md-6 text-left">{{ form.username }}</div>
+        </div>
+        <div class="form-group col-md-8">
+            <label for="id_email" class="col-md-5 control-label">邮箱：</label>
+            <div class="col-md-6 text-left">{{ form.email }}</div>
+        </div>
+        <div class="form-group col-md-8">
+            <label for="id_password" class="col-md-5 control-label">密码：</label>
+            <div class="col-md-6 text-left">{{ form.password }}</div>
+        </div>
+        <div class="form-group col-md-8">
+            <label for="id_repeat_password" class="col-md-5 control-label">重复密码：</label>
+            <div class="col-md-6 text-left">{{ form.repeat_password }}</div>
+        </div>
+        <div class="text-center col-md-8">
+            <a class="btn btn-default btn-lg" id="register_submit">注册</a>
+        </div>
+    </form>
 {% endblock %}
 
 {% block javascript %}
-
+<script>
+    {#$(function () {#}
+    {#    var register_submit=$("#register_submit").click(function(){#}
+    {#        $.ajax({#}
+    {#            url:'{% url 'register' %}',#}
+    {#            type:"post",#}
+    {#            data:{""}#}
+    {#        })#}
+    {#    })#}
+    {# })#}
+</script>
 {% endblock %}

@@ -25,10 +25,10 @@ def login_authenticate(request):
 
 
 class LoginForm(Form):
-    email = CharField(max_length=100, required=True)
+    email = CharField(max_length=100, required=True,widget=TextInput(attrs={'type': 'email','class':'input form-control'}))
     password = CharField(
         max_length=100,
-        widget=TextInput(attrs={'type': 'password'}),
+        widget=TextInput(attrs={'type': 'password','class':'input form-control'}),
         required=True,
     )
 

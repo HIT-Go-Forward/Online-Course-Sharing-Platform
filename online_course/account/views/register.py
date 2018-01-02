@@ -27,16 +27,16 @@ def register(request):
 
 
 class RegisterForm(Form):
-    username = CharField(max_length=100, required=True)
-    email = EmailField(max_length=100, required=True)
+    username = CharField(max_length=100, required=True,widget=TextInput(attrs={'type': 'text','class':'input form-control'}))
+    email = EmailField(max_length=100, required=True,widget=TextInput(attrs={'type': 'email','class':'input form-control'}))
     password = CharField(
         max_length=100,
-        widget=TextInput(attrs={'type': 'password'}),
+        widget=TextInput(attrs={'type': 'password','class':'input form-control'}),
         required=True,
     )
     repeat_password = CharField(
         max_length=100,
-        widget=TextInput(attrs={'type': 'password'}),
+        widget=TextInput(attrs={'type': 'password','class':'input form-control'}),
         required=True,
     )
 

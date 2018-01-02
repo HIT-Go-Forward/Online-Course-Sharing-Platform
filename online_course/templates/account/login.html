@@ -8,10 +8,19 @@
 {% endblock %}
 
 {% block content %}
-    <form action="." method="post">{% csrf_token %}
-        {{ form }}
-        <input type="submit" value="登录"/>
-    </form>
+        <form action="." method="post" id="login" class="form-horizontal col-md-8 col-md-offset-2">{% csrf_token %}
+            <div class="form-group col-md-8">
+                <label for="id_email" class="col-md-5 control-label">邮箱：</label>
+                <div class="col-md-6 text-left">{{ form.email }}</div>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="id_password" class="col-md-5 control-label">密码：</label>
+                <div class="col-md-6 text-left">{{ form.password }}</div>
+            </div>
+            <div class="text-center col-md-8">
+                <a class="btn btn-default btn-lg">登录</a>
+            </div>
+        </form>
 {% endblock %}
 
 {% block javascript %}
