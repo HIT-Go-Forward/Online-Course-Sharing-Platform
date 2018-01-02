@@ -2,6 +2,10 @@
 
 A *MOOC-like* website that allows people share and learn courses. It supports *danmaku* and will be deployed on CERNET.
 
+## Documentation
+
+[Click Here](https://hit-go-forward.github.io/Online-Course-Sharing-Platform/) *(Updating)*
+
 ## Installation
 
 1. Clone this repository
