@@ -1,4 +1,3 @@
-from django.utils.translation import ugettext as _
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.http import JsonResponse
@@ -45,12 +44,12 @@ class RegisterForm(Form):
         if email:
             try:
                 User.objects.get(email=email)
-                raise ValidationError(_('Email already exists'))
+                raise ValidationError('邮箱已注册')
             except User.DoesNotExist:
                 return email
         else:
-            raise ValidationError(_('Cannot be blank'))
+            raise ValidationError('邮箱不能为空')
 
     def clean_repeat_password(self):
         if self.cleaned_data['password'] != self.cleaned_data['repeat_password']:
-            raise ValidationError(_('Passwords don\'t match'))
+            raise ValidationError('密码不一致')
