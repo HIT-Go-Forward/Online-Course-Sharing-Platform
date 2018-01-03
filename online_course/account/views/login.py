@@ -14,7 +14,8 @@ def login_authenticate(request):
         if form.is_valid():
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-            user = authenticate(request, username=email, password=password)
+            print(email+" "+password)
+            user = authenticate(request, email=email, password=password)#这儿应该是email
             if user is not None:
                 login(request, user)
                 return JsonResponse({'code': 0})

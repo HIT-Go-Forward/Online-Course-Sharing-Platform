@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}{{ user.username }}的个人信息{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block content %}
+    <div class="header text-center">
+        <h1>这里是{{ user.username }}的个人页面</h1>
+    </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
