@@ -1,0 +1,14 @@
+footer{
+    position: fixed;
+    bottom: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#login{
+    margin-top: 50px;
+}
+#register{
+    margin-top: 50px;
+}
