@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "Introduction\n\n\nA \nMOOC-like\n website that allows people share and learn courses. It supports \ndanmaku\n and will be deployed on CERNET.\n\n\nInstallation\n\n\n\n\nClone this repository\n\n\n\n\ngit clone https://github.com/HIT-Go-Forward/Online-Course-Sharing-Platform.git\ncd Online-Course-Sharing-Platform\n\n\n\n\n\n\nSetup and activate virtual environment\n\n\n\n\n(Linux)\npython3 -m venv venv\nsource venv/bin/activate\n\n(Windows PowerShell)\npython -m venv venv\nvenv\\Scripts\\Activate.ps1\n\n(Windows Command Prompt)\npython -m venv venv\nvenv\\Scripts\\activate.bat\n\n\n\n\n\n\nInstall dependencies\n\n\n\n\npip install -r requirements.txt\n\n\n\n\n\n\nMigrate the database\n\n\n\n\ncd online_course\npython manage.py migrate\n\n\n\n\nDeployment\n\n\nTODO\n: \nTo be filled in future\n\n\nAuthors\n\n\n\n\nMoandor\n - \nMain Architecture\n - \nMoandor-y\n\n\nANDI_Mckee\n - \nProject Management and Backend\n - \nANDI-Mckee\n\n\nhelloworld575\n - \nFrontend\n - \nhelloworld575\n\n\n\n\nLicense\n\n\nThis project is licensed under the MIT License - see the \nLICENSE\n file for details",
+            "text": "Introduction\n\n\nA \nMOOC-like\n website that allows people share and learn courses. It supports \ndanmaku\n and will be deployed on CERNET.\n\n\nInstallation\n\n\n1.\u00a0Clone this repository\n\n\ngit clone https://github.com/HIT-Go-Forward/Online-Course-Sharing-Platform.git\ncd Online-Course-Sharing-Platform\n\n\n\n\n2.\u00a0Setup and activate virtual environment\n\n\n(Linux)\npython3 -m venv venv\nsource venv/bin/activate\n\n(Windows PowerShell)\npython -m venv venv\nvenv\\Scripts\\Activate.ps1\n\n(Windows Command Prompt)\npython -m venv venv\nvenv\\Scripts\\activate.bat\n\n\n\n\n3.\u00a0Install dependencies\n\n\npip install -r requirements.txt\n\n\n\n\n4.\u00a0Migrate the database\n\n\ncd online_course\npython manage.py migrate\n\n\n\n\nDeployment\n\n\nTODO\n: \nTo be filled in future\n\n\nAuthors\n\n\n\n\nMoandor\n - \nMain Architecture\n - \nMoandor-y\n\n\nANDI_Mckee\n - \nProject Management and Backend\n - \nANDI-Mckee\n\n\nhelloworld575\n - \nFrontend\n - \nhelloworld575\n\n\n\n\nLicense\n\n\nThis project is licensed under the MIT License - see the \nLICENSE\n file for details",
             "title": "Home"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#installation",
-            "text": "Clone this repository   git clone https://github.com/HIT-Go-Forward/Online-Course-Sharing-Platform.git\ncd Online-Course-Sharing-Platform   Setup and activate virtual environment   (Linux)\npython3 -m venv venv\nsource venv/bin/activate\n\n(Windows PowerShell)\npython -m venv venv\nvenv\\Scripts\\Activate.ps1\n\n(Windows Command Prompt)\npython -m venv venv\nvenv\\Scripts\\activate.bat   Install dependencies   pip install -r requirements.txt   Migrate the database   cd online_course\npython manage.py migrate",
+            "text": "1.\u00a0Clone this repository  git clone https://github.com/HIT-Go-Forward/Online-Course-Sharing-Platform.git\ncd Online-Course-Sharing-Platform  2.\u00a0Setup and activate virtual environment  (Linux)\npython3 -m venv venv\nsource venv/bin/activate\n\n(Windows PowerShell)\npython -m venv venv\nvenv\\Scripts\\Activate.ps1\n\n(Windows Command Prompt)\npython -m venv venv\nvenv\\Scripts\\activate.bat  3.\u00a0Install dependencies  pip install -r requirements.txt  4.\u00a0Migrate the database  cd online_course\npython manage.py migrate",
             "title": "Installation"
         },
         {
@@ -31,38 +31,38 @@
             "title": "License"
         },
         {
-            "location": "/interactions/styles_setting/",
-            "text": "Style of form\n\n\nThe style of form should be modified in \ncustom Form class\n with \nWIDGET\n.\n\n\nclass MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }\n\n\n\n\nFor more:\n \nClick here",
-            "title": "Styles setting"
+            "location": "/Interactions/Styles_Setting/",
+            "text": "Style of Form\n\n\nThe style of form should be modified in \ncustom Form class\n with \nWIDGET\n.\n\n\nclass MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }\n\n\n\n\nFor more:\n \nClick here",
+            "title": "Styles Setting"
         },
         {
-            "location": "/interactions/styles_setting/#style-of-form",
+            "location": "/Interactions/Styles_Setting/#style-of-form",
             "text": "The style of form should be modified in  custom Form class  with  WIDGET .  class MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }  For more:   Click here",
-            "title": "Style of form"
+            "title": "Style of Form"
         },
         {
-            "location": "/prototypes/accounts_relevant/",
-            "text": "Login\n\n\n\n\nAppearance\n\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\u767b\u5f55\u754c\u9762\n\n\n\n\nRegister\n\n\n\n\nAppearance\n\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\u6ce8\u518c\u754c\u9762\n\n\n\n\nProfile settings\n\n\n\n\nAppearance\n\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\u8bbe\u7f6e\u4e2a\u4eba\u4fe1\u606f",
-            "title": "Accounts relevant"
+            "location": "/Prototypes/Accounts_Relevant/",
+            "text": "Login\n\n\n\n\nAppearance\n\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\u767b\u5f55\u754c\u9762\n\n\n\n\nRegister\n\n\n\n\nAppearance\n\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\u6ce8\u518c\u754c\u9762\n\n\n\n\nProfile Settings\n\n\n\n\nAppearance\n\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\u8bbe\u7f6e\u4e2a\u4eba\u4fe1\u606f",
+            "title": "Accounts Relevant"
         },
         {
-            "location": "/prototypes/accounts_relevant/#login",
+            "location": "/Prototypes/Accounts_Relevant/#login",
             "text": "Appearance     Description   \u767b\u5f55\u754c\u9762",
             "title": "Login"
         },
         {
-            "location": "/prototypes/accounts_relevant/#register",
+            "location": "/Prototypes/Accounts_Relevant/#register",
             "text": "Appearance     Description   \u6ce8\u518c\u754c\u9762",
             "title": "Register"
         },
         {
-            "location": "/prototypes/accounts_relevant/#profile-settings",
+            "location": "/Prototypes/Accounts_Relevant/#profile-settings",
             "text": "Appearance     Description   \u8bbe\u7f6e\u4e2a\u4eba\u4fe1\u606f",
-            "title": "Profile settings"
+            "title": "Profile Settings"
         },
         {
-            "location": "/prototypes/homepage/",
-            "text": "Apperance\n\n\n\n\n\n\n\nDescription\n\u9996\u9875",
+            "location": "/Prototypes/Homepage/",
+            "text": "Appearance\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\n\n\u9996\u9875",
             "title": "Homepage"
         }
     ]
