@@ -1,0 +1,14 @@
+#user-card{
+    padding-right: 0;
+    padding-left: 0;
+    -webkit-box-shadow: 3px 2px 3px #9d9d9d;
+    -moz-box-shadow: 3px 2px 3px #9d9d9d;
+    box-shadow: 3px 2px 3px #9d9d9d;
+    border: 1px solid #888888;
+}
+#leftlist,#mainpart{
+    padding: 0;
+}
+.list-group-item{
+    border-radius: 0;
+}
