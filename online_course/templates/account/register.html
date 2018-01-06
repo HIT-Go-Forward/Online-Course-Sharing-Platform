@@ -32,15 +32,26 @@
 {% endblock %}
 
 {% block javascript %}
+    <script src="{% static 'js/jquery.form.js' %}"></script>
 <script>
-    {#$(function () {#}
-    {#    var register_submit=$("#register_submit").click(function(){#}
-    {#        $.ajax({#}
-    {#            url:'{% url 'register' %}',#}
-    {#            type:"post",#}
-    {#            data:{""}#}
-    {#        })#}
-    {#    })#}
-    {# })#}
+
+    $(function () {
+        $("#register").submit(function () {
+            $(this).ajaxSubmit(function (e) {
+                if(e.code==0){
+                    window.location.href='{% url 'index' %}';
+                }
+                else if(e.code==-200){
+                    alert("该用户已存在");
+                }
+                else{
+                    for(i in e.message){
+                        alert(i+e.message[i]);
+                    }
+                }
+            })
+            return false;
+        });
+    })
 </script>
 {% endblock %}

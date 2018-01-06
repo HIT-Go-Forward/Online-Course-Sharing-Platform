@@ -34,7 +34,7 @@ $(function () {
             data:{"username":$("#id_username").val(),"password":$("#id_password").val(),"csrfmiddlewaretoken":csrftoken},
             success:function(e){
                 if(e.code==0){
-                    window.location.href="{% url 'index' %}";
+                    window.location.href='{{ next }}';
                 }
                 else{
                     alert(e.message);
