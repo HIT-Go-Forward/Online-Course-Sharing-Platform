@@ -11,10 +11,9 @@ def login_authenticate(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data['email']
+            username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            print(email+" "+password)
-            user = authenticate(request, email=email, password=password)#这儿应该是email
+            user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
                 return JsonResponse({'code': 0})
@@ -25,10 +24,14 @@ def login_authenticate(request):
 
 
 class LoginForm(Form):
-    email = CharField(max_length=100, required=True,widget=TextInput(attrs={'type': 'email','class':'input form-control'}))
+    username = CharField(
+        max_length=100,
+        required=True,
+        widget=TextInput(attrs={'type': 'text', 'class': 'input form-control'})
+    )
     password = CharField(
         max_length=100,
-        widget=TextInput(attrs={'type': 'password','class':'input form-control'}),
+        widget=TextInput(attrs={'type': 'password', 'class': 'input form-control'}),
         required=True,
     )
 
