@@ -18,11 +18,30 @@
                 <div class="col-md-6 text-left">{{ form.password }}</div>
             </div>
             <div class="text-center col-md-8">
-                <button type="submit" class="btn btn-default btn-lg">登录</button>
+                <a class="btn btn-default btn-lg" id="login_submit">登录</a>
             </div>
         </form>
 {% endblock %}
 
 {% block javascript %}
-
+<script>
+$(function () {
+    var csrftoken=$("[name=csrfmiddlewaretoken]").val();
+    $("#login_submit").click(function () {
+        $.ajax({
+            url:{% url 'login' %},
+            type:"post",
+            data:{"username":$("#id_username").val(),"password":$("#id_password").val(),"csrfmiddlewaretoken":csrftoken},
+            success:function(e){
+                if(e.code==0){
+                    window.location.href="{% url 'index' %}";
+                }
+                else{
+                    alert(e.message);
+                }
+            },
+        })
+    });
+})
+</script>
 {% endblock %}
