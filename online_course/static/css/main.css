@@ -12,3 +12,17 @@ footer{
 #register{
     margin-top: 50px;
 }
+.jumbotron{
+    margin-top: 5%;
+    border: 1px #838383;
+    border-radius: 5px;
+}
+#success_message{
+    color:#27AE60;
+}
+#warning_message{
+    color: #d58512;
+}
+#error_message{
+    color: #990000;
+}
