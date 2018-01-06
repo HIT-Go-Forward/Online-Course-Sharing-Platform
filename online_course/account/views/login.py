@@ -21,8 +21,13 @@ def login_authenticate(request):
             return JsonResponse({'code': -200, 'message': '邮箱或密码错误'})
         return JsonResponse({'code': -100, 'message': form.errors})
     else:
-        return render(request, 'account/login.html', {
-            'form': LoginForm(), 'next': request.GET.get('next', reverse('index'))})
+        return render(
+            request,
+            'account/login.html', {
+                'form': LoginForm(),
+                'next': request.GET.get('next', reverse('index')),
+            },
+        )
 
 
 class LoginForm(Form):
