@@ -15,6 +15,11 @@ def register(request):
         if form.is_valid():
             email = form.cleaned_data['email']
             username = form.cleaned_data['username']
+
+            # Test whether the user already exists.
+            if User.objects.filter(username=username).exists():
+                return JsonResponse({'code': -200})
+
             user = User.objects.create_user(username, email, form.cleaned_data['password'])
             user.save()
             login(request, user)

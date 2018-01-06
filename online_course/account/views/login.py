@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.forms import Form
 from django.forms import CharField
 from django.forms import TextInput
+from django.urls import reverse
 
 
 def login_authenticate(request):
@@ -20,7 +21,8 @@ def login_authenticate(request):
             return JsonResponse({'code': -200, 'message': '邮箱或密码错误'})
         return JsonResponse({'code': -100, 'message': form.errors})
     else:
-        return render(request, 'account/login.html', {'form': LoginForm()})
+        return render(request, 'account/login.html', {
+            'form': LoginForm(), 'next': request.GET.get('next', reverse('index'))})
 
 
 class LoginForm(Form):
