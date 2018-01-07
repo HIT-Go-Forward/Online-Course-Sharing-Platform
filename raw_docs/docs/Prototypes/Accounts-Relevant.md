@@ -26,7 +26,7 @@
 
 * Appearance
 
-![Profile Settings](img/profile_settings.png)
+![Profile Settings](img/profile-settings.png)
 
 * Description
 
