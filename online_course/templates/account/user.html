@@ -10,6 +10,9 @@
     <div id="user-card" class="col-md-8 col-md-offset-2">
         <div class="col-md-2" id="leftlist">
             <div class="list-group">
+                <a class="list-group-item disabled">
+                    个人中心
+                </a>
                 <a href="#" class="list-group-item active">
                     个人信息
                 </a>
@@ -20,14 +23,54 @@
             </div>
         </div>
         <div class="col-md-10" style="background-color: #79aec8;height: 500px;" id="mainpart">
-            <div id="profile">
-                <table class="table">
-                    <tr>
-                        <td>姓名：</td>
-                        <td>学号：</td>
-                        <td>：</td>
-                    </tr>
-                </table>
+            <div id="profile" class="col-md-5 col-md-offset-1">
+                {% if user.username %}
+                    <table class="table">
+                        <tr>
+                            <td class="col-md-1 item">姓名：</td>
+                            <td class="col-md-5 list">{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-1 item">身份：</td>
+                            {% if user.account_type %}
+                                <td class="col-md-5 list">{{ user.account_type }}</td>
+                            {% else %}
+                                <td class="col-md-5 list">待完善</td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td class="col-md-1 item">生日：</td>
+                            {% if user.birth_date %}
+                                <td class="col-md-5 list">{{ user.birth_date }}</td>
+                            {% else %}
+                                <td class="col-md-5 list">待完善</td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td class="col-md-1 item">公司：</td>
+                            {% if user.company %}
+                                <td class="col-md-5 list">{{ user.company }}</td>
+                            {% else %}
+                                <td class="col-md-5 list">待完善</td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td class="col-md-1 item">学历：</td>
+                            {% if user.degree %}
+                                <td class="col-md-5 list">{{ user.degree }}</td>
+                            {% else %}
+                                <td class="col-md-5 list">待完善</td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td class="col-md-1 item">邮箱：</td>
+                            <td class="col-md-5 list">{{ user.email }}</td>
+                        </tr>
+                    </table>
+                    这是哪儿？
+                {% else %}
+                    <h3>您还没登录，点击<a href="{% url 'login' %}">登录</a></h3>
+                {% endif %}
             </div>
         </div>
     </div>
