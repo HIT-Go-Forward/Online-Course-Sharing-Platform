@@ -28,7 +28,7 @@ def uploaded_filename(instance, filename):
 
 
 def validate_file_extension(value):
-    if not splitext(value.name)[1] in ['.png', '.jpg', '.jpeg']:
+    if not splitext(value.name)[1].lower() in ['.png', '.jpg', '.jpeg']:
         raise ValidationError('Invalid file type')
 
 
