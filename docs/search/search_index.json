@@ -32,7 +32,7 @@
         },
         {
             "location": "/Interactions/Result-Code/",
-            "text": "Login\n\n\nurl: /login/\n\n 0   \u767b\u5f55\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u6216\u5bc6\u7801\u9519\u8bef\n\n\n\n\n\n\nRegister\n\n\nurl: /register/\n\n 0   \u6ce8\u518c\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u5df2\u7ecf\u5b58\u5728",
+            "text": "Login\n\n\nurl: /login/\n\n 0   \u767b\u5f55\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u6216\u5bc6\u7801\u9519\u8bef\n\n\n\n\n\n\nRegister\n\n\nurl: /register/\n\n 0   \u6ce8\u518c\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u5df2\u7ecf\u5b58\u5728\n-201 \u90ae\u7bb1\u5df2\u7ecf\u5b58\u5728",
             "title": "Result Code"
         },
         {
@@ -42,7 +42,7 @@
         },
         {
             "location": "/Interactions/Result-Code/#register",
-            "text": "url: /register/\n\n 0   \u6ce8\u518c\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u5df2\u7ecf\u5b58\u5728",
+            "text": "url: /register/\n\n 0   \u6ce8\u518c\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u5df2\u7ecf\u5b58\u5728\n-201 \u90ae\u7bb1\u5df2\u7ecf\u5b58\u5728",
             "title": "Register"
         },
         {
