@@ -1,5 +1,7 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
+from rest_framework.routers import DefaultRouter
 
+from account.views.avatar import AvatarViewSet
 from account.views.register import register
 from account.views.login import login_authenticate
 from account.views.logout import logout_view
@@ -8,7 +10,13 @@ from account.views.change_password import change_password
 
 from django.views.generic import TemplateView
 
+
+router = DefaultRouter()
+router.register(r'settings/profile/avatar', AvatarViewSet, 'avatar')
+
+
 urlpatterns = [
+    url(r'^', include(router.urls)),
     url(r'^register/$', register, name='register'),
     url(r'^login/$', login_authenticate, name='login'),
     url(r'^logout/$', logout_view, name='logout'),
