@@ -52,10 +52,10 @@
         $(function () {
             $("#register").submit(function () {
                 $(this).ajaxSubmit(function (e) {
-                    if (e.code == 0) {
+                    if (e.code === 0) {
                         window.location.href = '{% url 'index' %}';
                     }
-                    else if (e.code == -200) {
+                    else if (e.code === -200) {
                         {#alert("该用户已存在");#}
                         $("#error_message").text("该用户已存在");
                     }

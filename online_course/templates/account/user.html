@@ -16,58 +16,78 @@
                 <a href="#" class="list-group-item active">
                     个人信息
                 </a>
-                <a href="#" class="list-group-item">修改个人信息</a>
+                <a href="{% url 'profile_settings' %}" class="list-group-item">修改个人信息</a>
                 <a href="#" class="list-group-item">。。。</a>
                 <a href="#" class="list-group-item">。。。</a>
                 <a href="#" class="list-group-item">。。。</a>
             </div>
         </div>
-        <div class="col-md-10" style="background-color: #79aec8;height: 500px;" id="mainpart">
-            <div id="profile" class="col-md-5 col-md-offset-1">
+        <div class="col-md-10" id="mainpart">
+            <div id="profile" class="col-md-10 col-md-offset-1">
                 {% if user.username %}
-                    <table class="table">
-                        <tr>
-                            <td class="col-md-1 item">姓名：</td>
-                            <td class="col-md-5 list">{{ user.username }}</td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-1 item">身份：</td>
-                            {% if user.account_type %}
-                                <td class="col-md-5 list">{{ user.account_type }}</td>
+                    <div class="col-md-6">
+                        <table class="table">
+                            <tr>
+                                <td class="col-md-2 item">用户名：</td>
+                                <td class="col-md-6 list">{{ user.username }}</td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-2 item">身份：</td>
+                                {% if user.account_type %}
+                                    <td class="col-md-6 list">{{ user.account_type }}</td>
+                                {% else %}
+                                    <td class="col-md-6 list">待完善</td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                <td class="col-md-2 item">生日：</td>
+                                {% if user.birth_date %}
+                                    <td class="col-md-6 list">{{ user.birth_date }}</td>
+                                {% else %}
+                                    <td class="col-md-6 list">待完善</td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                <td class="col-md-2 item">公司：</td>
+                                {% if user.company %}
+                                    <td class="col-md-6 list">{{ user.company }}</td>
+                                {% else %}
+                                    <td class="col-md-6 list">待完善</td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                <td class="col-md-2 item">学历：</td>
+                                {% if user.degree %}
+                                    <td class="col-md-6 list">{{ user.degree }}</td>
+                                {% else %}
+                                    <td class="col-md-6 list">待完善</td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                <td class="col-md-2 item">邮箱：</td>
+                                <td class="col-md-6 list">{{ user.email }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-2 img_desc">
+                        <div id="avatar">
+                            {% if user.avatar %}
+                                <img src="{{ user.avatar |striptags }}" class="img-circle" id="my_photo"
+                                     name="user_face">
                             {% else %}
-                                <td class="col-md-5 list">待完善</td>
+                                <img name="user_face" src="{% static 'img/avatar.png' %}" class="img-circle"
+                                     width="270px"
+                                     id="my_photo">
                             {% endif %}
-                        </tr>
-                        <tr>
-                            <td class="col-md-1 item">生日：</td>
-                            {% if user.birth_date %}
-                                <td class="col-md-5 list">{{ user.birth_date }}</td>
+                        </div>
+                        <div id="desc">
+                            {% if user.description %}
+                                <p>{{ user.description }}</p>
                             {% else %}
-                                <td class="col-md-5 list">待完善</td>
+                                <p>您还没有添加描述。</p>
                             {% endif %}
-                        </tr>
-                        <tr>
-                            <td class="col-md-1 item">公司：</td>
-                            {% if user.company %}
-                                <td class="col-md-5 list">{{ user.company }}</td>
-                            {% else %}
-                                <td class="col-md-5 list">待完善</td>
-                            {% endif %}
-                        </tr>
-                        <tr>
-                            <td class="col-md-1 item">学历：</td>
-                            {% if user.degree %}
-                                <td class="col-md-5 list">{{ user.degree }}</td>
-                            {% else %}
-                                <td class="col-md-5 list">待完善</td>
-                            {% endif %}
-                        </tr>
-                        <tr>
-                            <td class="col-md-1 item">邮箱：</td>
-                            <td class="col-md-5 list">{{ user.email }}</td>
-                        </tr>
-                    </table>
-                    这是哪儿？
+                        </div>
+                    </div>
                 {% else %}
                     <h3>您还没登录，点击<a href="{% url 'login' %}">登录</a></h3>
                 {% endif %}
