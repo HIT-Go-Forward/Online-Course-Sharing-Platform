@@ -18,7 +18,7 @@ def login_authenticate(request):
             if user is not None:
                 login(request, user)
                 return JsonResponse({'code': 0})
-            return JsonResponse({'code': -200, 'message': '邮箱或密码错误'})
+            return JsonResponse({'code': -200, 'message': '用户名或密码错误'})
         return JsonResponse({'code': -100, 'message': form.errors})
     else:
         return render(

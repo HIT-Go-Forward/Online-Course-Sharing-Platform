@@ -31,32 +31,47 @@
             "title": "License"
         },
         {
-            "location": "/Interactions/Styles_Setting/",
+            "location": "/Interactions/Result-Code/",
+            "text": "Login\n\n\nurl: /login/\n\n 0   \u767b\u5f55\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u6216\u5bc6\u7801\u9519\u8bef\n\n\n\n\n\n\nRegister\n\n\nurl: /register/\n\n 0   \u6ce8\u518c\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u5df2\u7ecf\u5b58\u5728\n-201 \u90ae\u7bb1\u5df2\u7ecf\u5b58\u5728",
+            "title": "Result Code"
+        },
+        {
+            "location": "/Interactions/Result-Code/#login",
+            "text": "url: /login/\n\n 0   \u767b\u5f55\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u6216\u5bc6\u7801\u9519\u8bef",
+            "title": "Login"
+        },
+        {
+            "location": "/Interactions/Result-Code/#register",
+            "text": "url: /register/\n\n 0   \u6ce8\u518c\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u5df2\u7ecf\u5b58\u5728\n-201 \u90ae\u7bb1\u5df2\u7ecf\u5b58\u5728",
+            "title": "Register"
+        },
+        {
+            "location": "/Interactions/Styles-Setting/",
             "text": "Style of Form\n\n\nThe style of form should be modified in \ncustom Form class\n with \nWIDGET\n.\n\n\nclass MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }\n\n\n\n\nFor more:\n \nClick here",
             "title": "Styles Setting"
         },
         {
-            "location": "/Interactions/Styles_Setting/#style-of-form",
+            "location": "/Interactions/Styles-Setting/#style-of-form",
             "text": "The style of form should be modified in  custom Form class  with  WIDGET .  class MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }  For more:   Click here",
             "title": "Style of Form"
         },
         {
-            "location": "/Prototypes/Accounts_Relevant/",
+            "location": "/Prototypes/Accounts-Relevant/",
             "text": "Login\n\n\n\n\nAppearance\n\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\u767b\u5f55\u754c\u9762\n\n\n\n\nRegister\n\n\n\n\nAppearance\n\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\u6ce8\u518c\u754c\u9762\n\n\n\n\nProfile Settings\n\n\n\n\nAppearance\n\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\u8bbe\u7f6e\u4e2a\u4eba\u4fe1\u606f",
             "title": "Accounts Relevant"
         },
         {
-            "location": "/Prototypes/Accounts_Relevant/#login",
+            "location": "/Prototypes/Accounts-Relevant/#login",
             "text": "Appearance     Description   \u767b\u5f55\u754c\u9762",
             "title": "Login"
         },
         {
-            "location": "/Prototypes/Accounts_Relevant/#register",
+            "location": "/Prototypes/Accounts-Relevant/#register",
             "text": "Appearance     Description   \u6ce8\u518c\u754c\u9762",
             "title": "Register"
         },
         {
-            "location": "/Prototypes/Accounts_Relevant/#profile-settings",
+            "location": "/Prototypes/Accounts-Relevant/#profile-settings",
             "text": "Appearance     Description   \u8bbe\u7f6e\u4e2a\u4eba\u4fe1\u606f",
             "title": "Profile Settings"
         },

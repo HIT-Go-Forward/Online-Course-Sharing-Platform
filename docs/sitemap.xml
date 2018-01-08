@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,8 +12,14 @@
     
         
     <url>
-     <loc>/Interactions/Styles_Setting/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <loc>/Interactions/Result-Code/</loc>
+     <lastmod>2018-01-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Interactions/Styles-Setting/</loc>
+     <lastmod>2018-01-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -22,14 +28,14 @@
     
         
     <url>
-     <loc>/Prototypes/Accounts_Relevant/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <loc>/Prototypes/Accounts-Relevant/</loc>
+     <lastmod>2018-01-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/Prototypes/Homepage/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

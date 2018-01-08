@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Styles Setting - Documentation</title>
+  <title>Result Code - Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Styles Setting";
-    var mkdocs_page_input_path = "Interactions\\Styles_Setting.md";
-    var mkdocs_page_url = "/Interactions/Styles_Setting/";
+    var mkdocs_page_name = "Result Code";
+    var mkdocs_page_input_path = "Interactions\\Result-Code.md";
+    var mkdocs_page_url = "/Interactions/Result-Code/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -58,13 +58,20 @@
     <ul class="subnav">
                 <li class=" current">
                     
-    <a class="current" href="./">Styles Setting</a>
+    <a class="current" href="./">Result Code</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#style-of-form">Style of Form</a></li>
+    <li class="toctree-l3"><a href="#login">Login</a></li>
+    
+
+    <li class="toctree-l3"><a href="#register">Register</a></li>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Styles-Setting/">Styles Setting</a>
                 </li>
     </ul>
 	    </li>
@@ -75,7 +82,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../Prototypes/Accounts_Relevant/">Accounts Relevant</a>
+    <a class="" href="../../Prototypes/Accounts-Relevant/">Accounts Relevant</a>
                 </li>
                 <li class="">
                     
@@ -110,7 +117,7 @@
         
       
     
-    <li>Styles Setting</li>
+    <li>Result Code</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -120,17 +127,23 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="style-of-form">Style of Form</h2>
-<p>The style of form should be modified in <em>custom Form class</em> with <strong>WIDGET</strong>.</p>
-<pre><code>class MyForm(forms.ModelForm):
-    class Meta:
-        model = MyModel
-        widgets = {
-            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
-        }
+                <h2 id="login">Login</h2>
+<pre><code>url: /login/
+
+ 0   登录成功
+-100 表单错误
+-200 用户名或密码错误
 </code></pre>
 
-<p><em>For more:</em> <a href="https://stackoverflow.com/questions/5827590/css-styling-in-django-forms">Click here</a></p>
+<hr />
+<h2 id="register">Register</h2>
+<pre><code>url: /register/
+
+ 0   注册成功
+-100 表单错误
+-200 用户名已经存在
+-201 邮箱已经存在
+</code></pre>
               
             </div>
           </div>
@@ -138,7 +151,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../Prototypes/Accounts_Relevant/" class="btn btn-neutral float-right" title="Accounts Relevant">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Styles-Setting/" class="btn btn-neutral float-right" title="Styles Setting">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -170,7 +183,7 @@
         <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../Prototypes/Accounts_Relevant/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Styles-Setting/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

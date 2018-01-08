@@ -1,6 +1,6 @@
 /uploaded_media/
-/raw_docs/
-
+build-docs.ps1
+run-server.ps1
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
