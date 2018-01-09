@@ -51,18 +51,21 @@
 
         $(function () {
             $("#register").submit(function () {
+                $error=$("#error_message");
+                $error.text('');
                 $(this).ajaxSubmit(function (e) {
                     if (e.code === 0) {
                         window.location.href = '{% url 'index' %}';
                     }
-                    else if (e.code === -200) {
-                        {#alert("该用户已存在");#}
-                        $("#error_message").text("该用户已存在");
+                    if (e.code === -200) {
+                        $error.append("<p>该用户已存在</p>");
                     }
-                    else {
-                        $("#error_message").text('');
+                    if(e.code===-201){
+                        $error.append("<p>该邮箱已存在</p>")
+                    }
+                    if(e.code===-100) {
                         for (i in e.message) {
-                            $("#error_message").append("<p>"+ e.message[i] + "</p>")
+                            $error.append("<p>"+ e.message[i] + "</p>")
                         }
                     }
                 })

@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    {% block default_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+    {% endblock %}
+    {% block css %}{% endblock %}
+</head>
+<body>
+<header>
+    {% include "header.html" %}
+</header>
+<div id="user-card" class="col-md-8 col-md-offset-2">
+    <div class="col-md-2" id="leftlist">
+        <div class="list-group">
+            <a class="list-group-item disabled">
+                个人中心
+            </a>
+            <a href="{% url 'center' %}" class="list-group-item" id="center">
+                个人信息
+            </a>
+            <a href="{% url 'profile_settings' %}" class="list-group-item" id="profile_settings">修改个人信息</a>
+            <a href="#" class="list-group-item">。。。</a>
+            <a href="#" class="list-group-item">。。。</a>
+            <a href="#" class="list-group-item">。。。</a>
+        </div>
+    </div>
+    <div class="col-md-10" id="mainpart">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+<footer>
+    {% include 'footer.html' %}
+</footer>
+{% block default_js %}
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'fontawesome/svg-with-js/js/fontawesome-all.js' %}"></script>
+{% endblock %}
+<script src="{% static 'js/main.js' %}"></script>
+{% block javascript %}
+    <script>
+        $(function () {
+            local = document.location.href.split('/')[3];
+            if (local === "settings") {
+                $("#profile_settings").addClass('active');
+            }
+            else if (local === "center") {
+                $("#center").addClass('active');
+            }
+        })
+    </script>
+{% endblock %}
+</body>
+</html>
