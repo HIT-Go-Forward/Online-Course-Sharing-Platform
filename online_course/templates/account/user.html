@@ -2,10 +2,6 @@
 {% load staticfiles %}
 {% block title %}{{ user.username }} 的个人中心{% endblock %}
 
-{% block css %}
-    <link href="{% static 'css/user.css' %}" type="text/css" rel="stylesheet">
-{% endblock %}
-
 {% block content %}
     <div id="profile" class="col-md-10 col-md-offset-1">
         {% if user.username %}
@@ -18,15 +14,15 @@
                     <tr>
                         <td class="col-md-2 item">身份：</td>
                         {% if user.account_type %}
-                            <td class="col-md-6 list">{{ user.account_type }}</td>
+                            <td class="col-md-6 list">{{ userprofile.account_type }}</td>
                         {% else %}
-                            <td class="col-md-6 list">待完善</td>
+                            <td class="col-md-6 list">学生</td>
                         {% endif %}
                     </tr>
                     <tr>
                         <td class="col-md-2 item">生日：</td>
                         {% if user.birth_date %}
-                            <td class="col-md-6 list">{{ user.birth_date }}</td>
+                            <td class="col-md-6 list">{{ userprofile.birth_date }}</td>
                         {% else %}
                             <td class="col-md-6 list">待完善</td>
                         {% endif %}
@@ -34,7 +30,7 @@
                     <tr>
                         <td class="col-md-2 item">公司：</td>
                         {% if user.company %}
-                            <td class="col-md-6 list">{{ user.company }}</td>
+                            <td class="col-md-6 list">{{ userprofile.company }}</td>
                         {% else %}
                             <td class="col-md-6 list">待完善</td>
                         {% endif %}
@@ -42,7 +38,7 @@
                     <tr>
                         <td class="col-md-2 item">学历：</td>
                         {% if user.degree %}
-                            <td class="col-md-6 list">{{ user.degree }}</td>
+                            <td class="col-md-6 list">{{ userprofile.degree }}</td>
                         {% else %}
                             <td class="col-md-6 list">待完善</td>
                         {% endif %}
@@ -56,7 +52,7 @@
             <div class="col-md-2 img_desc">
                 <div id="avatar">
                     {% if user.avatar %}
-                        <img src="{{ user.avatar |striptags }}" class="img-circle" id="my_photo"
+                        <img src="{{ userprofile.avatar |striptags }}" class="img-circle" id="my_photo"
                              name="user_face">
                     {% else %}
                         <img name="user_face" src="{% static 'img/avatar.png' %}" class="img-circle"
@@ -65,8 +61,8 @@
                     {% endif %}
                 </div>
                 <div id="desc">
-                    {% if user.description %}
-                        <p>{{ user.description }}</p>
+                    {% if userprofile.description %}
+                        <p>{{ userprofile.description }}</p>
                     {% else %}
                         <p>您还没有添加描述。</p>
                     {% endif %}

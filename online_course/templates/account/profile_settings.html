@@ -8,7 +8,7 @@
     <link href="{% static 'head/cropper.min.css' %}" rel="stylesheet">
     <link href="{% static 'head/sitelogo.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
-
+    <link href="{% static 'css/jquery-ui.min.css' %}" rel="stylesheet" type="text/css"/>
     <style type="text/css">
         .avatar-btns button {
             height: 35px;
@@ -25,7 +25,7 @@
         {% if user.username %}
             {% url 'profile_settings' as form_url %}
             <form action="{{ form_url }}" method="post" enctype="multipart/form-data"
-                  class="form-horizontal col-md-6" id="profile_form">
+                  class="form-horizontal col-md-8" id="profile_form">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-4 text-right"><span>用户名：</span></div>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 text-right"><span>身份：</span></div>
-                    <div class="col-md-8 text-left">{{ form.account_type }}</div>
+                    <div class="col-md-3 text-left">{{ form.account_type }}</div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 text-right"><span>生日：</span></div>
@@ -51,7 +51,7 @@
                     <div class="col-md-4 text-right"><span>邮箱：</span></div>
                     <div class="col-md-8 text-left">{{ form.email }}</div>
                 </div>
-                <div id="desc">
+                <div class="row">
                     {{ form.description }}
                 </div>
                 <div class="row text-center">
@@ -178,9 +178,11 @@
 {% endblock %}
 
 {% block default_js %}
+    {#    <script src="https://code.jquery.com/jquery-1.12.4.min.js"#}
+    {#            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>#}
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.form.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'head/cropper.js' %}"></script>
     <script src="{% static 'head/sitelogo.js' %}"></script>
@@ -238,26 +240,33 @@
                 }
             });
         }
+
         {#修改ajax#}
         $(function () {
             $("#profile_form").submit(function () {
-                $error=$("#error_message");
+                $error = $("#error_message");
                 $error.text('');
                 $(this).ajaxSubmit(function (e) {
-                    if (e.code === 0) {
-                        window.location.href = '{% url 'index' %}';
-                    }
-                    else if (e.code === -200) {
-                        {#alert("该用户已存在");#}
-                        $error.text("该用户已存在");
-                    }
-                    else {
-                        for (i in e.message) {
-                            $error.append("<p>"+ e.message[i] + "</p>")
-                        }
-                    }
-                })
+                    {#if (e.code === 0) {#}
+                    {#    window.location.href = "{% url 'index' %}";#}
+                    {# }#}
+                    {#else if (e.code === -200) {#}
+                    {#alert("该用户已存在");#}
+                    {#    $error.text("该用户已存在");#}
+                    {# }#}
+                    {#else {#}
+                    {#    for (i in e.message) {#}
+                    {#        $error.append("<p>"+ e.message[i] + "</p>")#}
+                    {#    }#}
+                    {# }#}
+                    window.location.href = "{% url 'index' %}"
+                });
                 return false;
+            });
+            $("#id_birth_date").datepicker({
+                showButtonPanel:true,
+                dateFormat: 'yy-mm-dd',
+                showMonthAfterYear:true
             });
         })
     </script>

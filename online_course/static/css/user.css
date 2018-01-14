@@ -5,6 +5,7 @@
     -moz-box-shadow: 3px 2px 3px #9d9d9d;
     box-shadow: 3px 2px 3px #9d9d9d;
     border: 1px solid #888888;
+    overflow: hidden;
 }
 #leftlist,#mainpart{
     padding: 0;
@@ -56,6 +57,11 @@
     display: table;
 }
 #profile_submit{
+    margin: 20px auto;
+    display: table;
+}
+
+#change-password-submit{
     margin: 20px auto;
     display: table;
 }
