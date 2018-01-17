@@ -1,5 +1,3 @@
-## Style of Form
-
 The style of form should be modified in *custom Form class* with **WIDGET**.
 
 ```
