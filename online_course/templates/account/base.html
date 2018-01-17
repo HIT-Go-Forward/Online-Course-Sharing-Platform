@@ -25,10 +25,10 @@
             <a href="{% url 'center' %}" class="list-group-item" id="center">
                 个人信息
             </a>
-            <a href="{% url 'profile_settings' %}" class="list-group-item" id="profile_settings">修改个人信息</a>
+            <a href="{% url 'profile_settings' %}" class="list-group-item" id="profile-settings">修改个人信息</a>
             <a href="{% url 'change_password' %}" class="list-group-item" id="change-password">修改密码</a>
-            <a href="#" class="list-group-item">。。。</a>
-            <a href="#" class="list-group-item">。。。</a>
+            <a href="#" class="list-group-item" id="apply-teacher">申请成为教师</a>
+            <a href="#" class="list-group-item" id="course-control">课程管理</a>
         </div>
     </div>
     <div class="col-md-10" id="mainpart">
@@ -45,26 +45,6 @@
     <script src="{% static 'fontawesome/svg-with-js/js/fontawesome-all.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
-{% block javascript %}
-    <script>
-        $(function () {
-            list = document.location.href.split('/');
-            local=list[list.length-2];
-            if (local === "profile") {
-                $("#profile_settings").addClass('active');
-            }
-            else if (local === "center") {
-                $("#center").addClass('active');
-            }
-            else if(local==="change_password"){
-                $("#change-password").addClass("active");
-            };
-            $("input[type='password']").addClass("input form-control");
-            $("input[type='text']").addClass("input form-control");
-            $("select").addClass("form-control")
-        })
-
-    </script>
-{% endblock %}
+{% block javascript %}{% endblock %}
 </body>
 </html>
