@@ -220,19 +220,39 @@
                     var dataUrl = canvas.toDataURL("image/jpeg");
                     var newImg = document.createElement("img");
                     newImg.src = dataUrl;
-                    imagesAjax(dataUrl)
+                    canvas.toBlob(function(blob) {
+                        imagesAjax(dataUrl, blob);
+                    });
                 }
             });
         })
+        
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
 
-        function imagesAjax(src) {
-            var data = {};
-            data.img = src;
-            data.jid = $('#jid').val();
+        function imagesAjax(src, blob) {
+            var data = new FormData();
+            data.append('avatar', blob, 'avatar.png');
             $.ajax({
-                url: 'avatar',
+                url: 'avatar/{{ user.id }}/',
                 data: data,
+                headers: {'X-CSRFTOKEN': getCookie('csrftoken')},
                 type: "put",
+                cache: false,
+                contentType: false,
+                processData: false,
                 success: function (re) {
                     if (re.status === '1') {
                         $('.user_pic img').attr('src', src);
