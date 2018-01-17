@@ -33,7 +33,7 @@
         {
             "location": "/Miscellaneous/",
             "text": "Style Setting\n\n\nThe style of form should be modified in \ncustom Form class\n with \nWIDGET\n.\n\n\nclass MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }\n\n\n\n\nFor more:\n \nClick here",
-            "title": "Style Setting"
+            "title": "Miscellaneous"
         },
         {
             "location": "/Miscellaneous/#style-setting",
