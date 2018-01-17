@@ -31,12 +31,12 @@
             "title": "License"
         },
         {
-            "location": "/Miscellaneous/Styles-Setting/",
+            "location": "/Miscellaneous/",
             "text": "Style Setting\n\n\nThe style of form should be modified in \ncustom Form class\n with \nWIDGET\n.\n\n\nclass MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }\n\n\n\n\nFor more:\n \nClick here",
             "title": "Style Setting"
         },
         {
-            "location": "/Miscellaneous/Styles-Setting/#style-setting",
+            "location": "/Miscellaneous/#style-setting",
             "text": "The style of form should be modified in  custom Form class  with  WIDGET .  class MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }  For more:   Click here",
             "title": "Style Setting"
         },
