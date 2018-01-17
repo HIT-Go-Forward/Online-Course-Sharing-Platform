@@ -32,13 +32,13 @@
         },
         {
             "location": "/Miscellaneous/Styles-Setting/",
-            "text": "Style of Form\n\n\nThe style of form should be modified in \ncustom Form class\n with \nWIDGET\n.\n\n\nclass MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }\n\n\n\n\nFor more:\n \nClick here",
-            "title": "Styles Setting"
+            "text": "Style Setting\n\n\nThe style of form should be modified in \ncustom Form class\n with \nWIDGET\n.\n\n\nclass MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }\n\n\n\n\nFor more:\n \nClick here",
+            "title": "Style Setting"
         },
         {
-            "location": "/Miscellaneous/Styles-Setting/#style-of-form",
+            "location": "/Miscellaneous/Styles-Setting/#style-setting",
             "text": "The style of form should be modified in  custom Form class  with  WIDGET .  class MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }  For more:   Click here",
-            "title": "Style of Form"
+            "title": "Style Setting"
         },
         {
             "location": "/Prototypes/Accounts-Relevant/",
@@ -72,7 +72,7 @@
         },
         {
             "location": "/Prototypes/Homepage/",
-            "text": "Appearance\n\n\n\n\n\n\n\nDescription\n\n\n\n\n\n\n\u9996\u9875",
+            "text": "Appearance",
             "title": "Homepage"
         }
     ]
