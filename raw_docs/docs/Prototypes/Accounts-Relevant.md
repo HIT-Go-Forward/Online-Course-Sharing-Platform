@@ -39,10 +39,6 @@ url: /register/
 
 ![Profile](img/profile.png)
 
-* Result Code
-
-**TODO!!!**
-
 ---
 
 ## Profile Settings
@@ -52,8 +48,12 @@ url: /register/
 ![Profile Settings](img/profile-settings.png)
 
 * Result Code
+```
+url: /settings/profile/
 
-**TODO!!!**
+ 0   修改成功
+-100 表单错误
+```
 
 ---
 
@@ -64,5 +64,9 @@ url: /register/
 ![Change Password](img/change-password.png)
 
 * Result Code
+```
+url: /settings/change_password/
 
-**TODO!!!**
+ 0   修改成功
+-100 表单错误
+```
