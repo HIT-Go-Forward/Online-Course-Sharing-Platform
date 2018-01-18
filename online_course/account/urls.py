@@ -18,9 +18,5 @@ urlpatterns = [
     url(r'^logout/$', logout_view, name='logout'),
     url(r'^settings/profile/$', profile_settings, name='profile_settings'),
     url(r'^settings/change_password/$', change_password, name='change_password'),
-<<<<<<< HEAD
-    url(r'^center/$', TemplateView.as_view(template_name='account/student/user.html'), name='center'),
-=======
     url(r'^center/$', profile_view, name='center'),
->>>>>>> origin/master
 ]

@@ -17,7 +17,7 @@ def profile_view(request):
         profile = UserProfile(user=request.user)
         profile.account_type = 's'
         profile.save()
-    return render(request, 'account/user.html', {'userprofile': profile})
+    return render(request, 'account/student/user.html', {'userprofile': profile})
 
 
 @login_required(login_url=reverse_lazy('login'))
