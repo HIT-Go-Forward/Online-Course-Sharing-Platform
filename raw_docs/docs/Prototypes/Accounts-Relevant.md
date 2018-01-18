@@ -4,9 +4,14 @@
 
 ![Login](img/login.png)
 
-* Description
+* Result Code
+```
+url: /login/
 
-登录界面
+ 0   登录成功
+-100 表单错误
+-200 用户名或密码错误
+```
 
 ---
 
@@ -16,9 +21,27 @@
 
 ![Register](img/register.png)
 
-* Description
+* Result Code
+```
+url: /register/
 
-注册界面
+ 0   注册成功
+-100 表单错误
+-200 用户名已经存在
+-201 邮箱已经存在
+```
+
+---
+
+## Profile
+
+* Appearance
+
+![Profile](img/profile.png)
+
+* Result Code
+
+**TODO!!!**
 
 ---
 
@@ -28,6 +51,18 @@
 
 ![Profile Settings](img/profile-settings.png)
 
-* Description
+* Result Code
 
-设置个人信息
+**TODO!!!**
+
+---
+
+## Change Password
+
+* Appearance
+
+![Change Password](img/change-password.png)
+
+* Result Code
+
+**TODO!!!**

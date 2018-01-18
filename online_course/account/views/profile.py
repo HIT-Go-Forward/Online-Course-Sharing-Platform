@@ -1,13 +1,23 @@
-from django.forms import ModelForm
-from django.forms import CharField
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse
-from django.urls import reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import HttpResponseRedirect
+from django.forms import CharField
+from django.forms import ModelForm
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.urls import reverse_lazy
 
 from account.models import UserProfile
+
+
+@login_required(login_url=reverse_lazy('login'))
+def profile_view(request):
+    try:
+        profile = UserProfile.objects.get(user=request.user)
+    except ObjectDoesNotExist:
+        profile = UserProfile(user=request.user)
+        profile.account_type = 's'
+        profile.save()
+    return render(request, 'account/user.html', {'userprofile': profile})
 
 
 @login_required(login_url=reverse_lazy('login'))
@@ -22,7 +32,8 @@ def profile_settings(request):
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('profile_settings'))
+            return JsonResponse({'code': 0})
+        return JsonResponse({'code': -100, 'message': form.errors})
     else:
         form = ProfileForm(
             instance=profile,
