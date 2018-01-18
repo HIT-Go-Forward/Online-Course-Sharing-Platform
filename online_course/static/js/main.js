@@ -16,7 +16,10 @@ function judge_page() {
     else if (local === "course_control") {
         $("#course-control").addClass("active");
     }
+    else if(local==="apply_manage"){
+        $("#apply-manage").addClass("active");
+    }
     $("input[type='password']").addClass("input form-control");
     $("input[type='text']").addClass("input form-control");
-    $("select").addClass("form-control")
+    $("select").addClass("form-control");
 }

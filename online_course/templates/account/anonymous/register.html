@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}注册{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    {% if not user.username %}
+        <div class="jumbotron col-md-8 col-md-offset-2">
+            <form action="../" method="post" id="register" class="form-horizontal">{% csrf_token %}
+                <div class="form-group col-md-8">
+                    <label for="id_username" class="col-md-5 control-label">用户名：</label>
+                    <div class="col-md-6 text-left">{{ form.username }}</div>
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="id_email" class="col-md-5 control-label">邮箱：</label>
+                    <div class="col-md-6 text-left">{{ form.email }}</div>
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="id_password" class="col-md-5 control-label">密码：</label>
+                    <div class="col-md-6 text-left">{{ form.password }}</div>
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="id_repeat_password" class="col-md-5 control-label">重复密码：</label>
+                    <div class="col-md-6 text-left">{{ form.repeat_password }}</div>
+                </div>
+                <div class="form-group col-md-7 col-md-offset-3 text-center">
+                    <div id="success_message"></div>
+                    <div id="warning_message"></div>
+                    <div id="error_message"></div>
+                </div>
+                <div class="text-center col-md-8">
+                    <button type="submit" class="btn btn-default btn-lg" id="register_submit">注册</button>
+                </div>
+            </form>
+            <p style="margin-top: 10px;">{% trans '已经注册了账号?点击' %}<a href="{% url 'login' %}">{% trans '登录' %}</a></p>
+        </div>
+    {% else %}
+        <div class="jumbotron col-md-8 col-md-offset-2">
+            <h3>您已登录！若想注册新的账户请<a href="{% url 'logout' %}">登出</a></h3>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script>
+
+        $(function () {
+            $("#register").submit(function () {
+                $error=$("#error_message");
+                $error.text('');
+                $(this).ajaxSubmit(function (e) {
+                    if (e.code === 0) {
+                        window.location.href = '{% url 'index' %}';
+                    }
+                    if (e.code === -200) {
+                        $error.append("<p>该用户已存在</p>");
+                    }
+                    if(e.code===-201){
+                        $error.append("<p>该邮箱已存在</p>")
+                    }
+                    if(e.code===-100) {
+                        for (i in e.message) {
+                            $error.append("<p>"+ e.message[i] + "</p>")
+                        }
+                    }
+                })
+                return false;
+            });
+        })
+    </script>
+{% endblock %}

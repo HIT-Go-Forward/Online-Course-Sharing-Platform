@@ -28,7 +28,7 @@ def profile_settings(request):
             instance=profile,
             initial={'email': request.user.email, 'username': request.user.username},
         )
-    return render(request, 'account/profile_settings.html', {'form': form})
+    return render(request, 'account/student/profile_settings.html', {'form': form})
 
 
 class ProfileForm(ModelForm):

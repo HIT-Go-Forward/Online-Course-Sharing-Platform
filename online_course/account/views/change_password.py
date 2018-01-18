@@ -17,4 +17,4 @@ def change_password(request):
             return HttpResponseRedirect(reverse('index'))
     else:
         form = PasswordChangeForm(user=request.user)
-    return render(request, 'account/change_password.html', {'form': form})
+    return render(request, 'account/student/change_password.html', {'form': form})
