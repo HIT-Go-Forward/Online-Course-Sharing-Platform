@@ -1,7 +1,6 @@
 ## Login
 
 * Appearance
-
 ![Login](img/login.png)
 
 * Result Code
@@ -18,7 +17,6 @@ url: /login/
 ## Register
 
 * Appearance
-
 ![Register](img/register.png)
 
 * Result Code
@@ -36,7 +34,6 @@ url: /register/
 ## Profile
 
 * Appearance
-
 ![Profile](img/profile.png)
 
 ---
@@ -44,7 +41,6 @@ url: /register/
 ## Profile Settings
 
 * Appearance
-
 ![Profile Settings](img/profile-settings.png)
 
 * Result Code
@@ -60,7 +56,6 @@ url: /settings/profile/
 ## Change Password
 
 * Appearance
-
 ![Change Password](img/change-password.png)
 
 * Result Code
@@ -70,3 +65,27 @@ url: /settings/change_password/
  0   修改成功
 -100 表单错误
 ```
+
+---
+
+## Apply to be a teacher
+
+* Appearance
+![Apply to be a teacher](img/apply-teacher.png)
+
+* Result Code
+
+TODO
+
+---
+
+## Manage Lessons
+
+* Appearance
+![Manage Lessons](img/manage-lessons.png)
+
+* Result Code
+
+TODO
+
+---
