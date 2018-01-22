@@ -22,29 +22,41 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-{#                    <form class="navbar-form navbar-left">#}
-{#                        <div class="form-group">#}
-{#                            <input type="text" class="form-control" placeholder="请输入课程名">#}
-{#                        </div>#}
-{#                        <button type="submit" class="btn btn-default">搜索</button>#}
-{#                    </form>#}
+                    {#                    <form class="navbar-form navbar-left">#}
+                    {#                        <div class="form-group">#}
+                    {#                            <input type="text" class="form-control" placeholder="请输入课程名">#}
+                    {#                        </div>#}
+                    {#                        <button type="submit" class="btn btn-default">搜索</button>#}
+                    {#                    </form>#}
                 </li>
                 {% if user.is_authenticated %}
-                <li><a href="#">{{ user.username }},你好！</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">管理 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">个人信息</a></li>
-                        <li><a href="#">修改个人信息</a></li>
-                        <li><a href="#">忘记密码</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'logout' %}">登出</a></li>
-{#                        <li><a href="{% url 'logout' %}">登出</a></li>#}
-                    </ul>
-                </li>
+                    <li><a href="#">{{ user.username }},你好！</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">管理 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'center' %}">个人信息</a></li>
+                            <li><a href="{% url 'profile_settings' %}">修改个人信息</a></li>
+                            <li><a href="{% url 'change_password' %}">忘记密码</a></li>
+                            <li><a href="{% url 'my_course' %}">课程学习</a></li>
+                            <li role="separator" class="divider"></li>
+                            {% if userprofile.account_type == 's' %}
+                                <li><a href="{% url 'teacher_apply' %}">教师申请</a></li>
+                            <li role="separator" class="divider"></li>
+                            {% elif userprofile.account_type == 't' %}
+                                <li><a href="{% url 'course_control' %}">课程管理</a></li>
+                            <li role="separator" class="divider"></li>
+                            {% elif userprofile.account_type == 'c' %}
+                                <li><a href="{% url 'apply_manage' %}">教室申请管理</a></li>
+                            <li role="separator" class="divider"></li>
+                            {% endif %}
+                            <li><a href="{% url 'logout' %}">登出</a></li>
+                            {#                        <li><a href="{% url 'logout' %}">登出</a></li>#}
+                        </ul>
+                    </li>
                 {% else %}
-                    <li><p class="navbar-text">您还未登录，请<a href="{% url 'login' %}">登录</a>/<a href="{% url 'register' %}">注册</a></p></li>
+                    <li><p class="navbar-text">您还未登录，请<a href="{% url 'login' %}">登录</a>/<a href="{% url 'register' %}">注册</a>
+                    </p></li>
                 {% endif %}
             </ul>
         </div>
