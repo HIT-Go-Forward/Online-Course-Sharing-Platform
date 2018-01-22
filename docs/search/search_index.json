@@ -1,89 +1,59 @@
 {
     "docs": [
         {
-            "location": "/",
-            "text": "Introduction\n\n\nA \nMOOC-like\n website that allows people share and learn courses. It supports \ndanmaku\n and will be deployed on CERNET.\n\n\nInstallation\n\n\n1.\u00a0Clone this repository\n\n\ngit clone https://github.com/HIT-Go-Forward/Online-Course-Sharing-Platform.git\ncd Online-Course-Sharing-Platform\n\n\n\n\n2.\u00a0Setup and activate virtual environment\n\n\n(Linux)\npython3 -m venv venv\nsource venv/bin/activate\n\n(Windows PowerShell)\npython -m venv venv\nvenv\\Scripts\\Activate.ps1\n\n(Windows Command Prompt)\npython -m venv venv\nvenv\\Scripts\\activate.bat\n\n\n\n\n3.\u00a0Install dependencies\n\n\npip install -r requirements.txt\n\n\n\n\n4.\u00a0Migrate the database\n\n\ncd online_course\npython manage.py migrate\n\n\n\n\nDeployment\n\n\nTODO\n: \nTo be filled in future\n\n\nAuthors\n\n\n\n\nMoandor\n - \nMain Architecture\n - \nMoandor-y\n\n\nANDI_Mckee\n - \nProject Management and Backend\n - \nANDI-Mckee\n\n\nhelloworld575\n - \nFrontend\n - \nhelloworld575\n\n\n\n\nLicense\n\n\nThis project is licensed under the MIT License - see the \nLICENSE\n file for details",
-            "title": "Home"
+            "location": "/\u6742\u9879/",
+            "text": "Form\u7684CSS\u6837\u5f0f\u8bbe\u7f6e\u65b9\u5f0f\n\n\nForm\u7684\u6837\u5f0f\u5e94\u8be5\u5728 \n\u81ea\u5b9a\u4e49\u7684Form\u7c7b\u4e2d\n \u7684 \nWIDGET\n \u91cc\u8bbe\u7f6e\u3002\n\n\n\u4f8b\u5982\uff1a\n\n\nclass MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }\n\n\n\n\n\u4e86\u89e3\u66f4\u591a:\n \n\u70b9\u51fb\u8fd9\u91cc",
+            "title": "\u6742\u9879"
         },
         {
-            "location": "/#introduction",
-            "text": "A  MOOC-like  website that allows people share and learn courses. It supports  danmaku  and will be deployed on CERNET.",
-            "title": "Introduction"
+            "location": "/\u6742\u9879/#formcss",
+            "text": "Form\u7684\u6837\u5f0f\u5e94\u8be5\u5728  \u81ea\u5b9a\u4e49\u7684Form\u7c7b\u4e2d  \u7684  WIDGET  \u91cc\u8bbe\u7f6e\u3002  \u4f8b\u5982\uff1a  class MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }  \u4e86\u89e3\u66f4\u591a:   \u70b9\u51fb\u8fd9\u91cc",
+            "title": "Form\u7684CSS\u6837\u5f0f\u8bbe\u7f6e\u65b9\u5f0f"
         },
         {
-            "location": "/#installation",
-            "text": "1.\u00a0Clone this repository  git clone https://github.com/HIT-Go-Forward/Online-Course-Sharing-Platform.git\ncd Online-Course-Sharing-Platform  2.\u00a0Setup and activate virtual environment  (Linux)\npython3 -m venv venv\nsource venv/bin/activate\n\n(Windows PowerShell)\npython -m venv venv\nvenv\\Scripts\\Activate.ps1\n\n(Windows Command Prompt)\npython -m venv venv\nvenv\\Scripts\\activate.bat  3.\u00a0Install dependencies  pip install -r requirements.txt  4.\u00a0Migrate the database  cd online_course\npython manage.py migrate",
-            "title": "Installation"
+            "location": "/\u9875\u9762\u6587\u6863/\u7528\u6237\u7ba1\u7406\u76f8\u5173/",
+            "text": "\u767b\u5f55\n\n\n\n\n\u63cf\u8ff0\n\n\n\n\n\u4e8c\u7ea7\u9875\u9762\n\u7528\u4e8e\u7528\u6237\u7684\u767b\u5f55\uff0c\u4e09\u79cd\u4e0d\u540c\u7684\u7528\u6237\u90fd\u7528\u540c\u4e00\u4e2a\u5165\u53e3\u767b\u5f55\n\n\n\n\n\n\nURL\n\n\n\n\n/login/\n\n\n\n\n\n\n\u540e\u7aef\u8fd4\u56de\u4fe1\u606f\n\n\n\n\ncode     \u72b6\u6001\u4ee3\u7801\n    0    \u767b\u5f55\u6210\u529f\n   -100  \u8868\u5355\u9519\u8bef\n   -200  \u7528\u6237\u540d\u6216\u5bc6\u7801\u9519\u8bef\nmessage  \u9519\u8bef\u4fe1\u606f\uff08\u6210\u529f\u65f6\u65e0\u6b64\u5b57\u6bb5\uff09\n\n\n\n\n\n\n\u6ce8\u518c\n\n\n\n\n\u63cf\u8ff0\n\n\n\n\n\u4e8c\u7ea7\u9875\u9762\n\u7528\u4e8e\u7528\u6237\u7684\u6ce8\u518c\uff0c\u53ea\u80fd\u6ce8\u518c\u51fa\u5b66\u751f\u8d26\u53f7\u3002\u540e\u7eed\u53ef\u4ee5\u5347\u7ea7\u6210\u8001\u5e08\u8d26\u53f7\uff0c\u4f46\u662f\u7ba1\u7406\u5458\u8d26\u53f7\u53ea\u80fd\u7531\u7f51\u7ad9\u7ba1\u7406\u8005\u7ed9\u51fa\u3002\n\n\n\n\n\n\nURL\n\n\n\n\n/register/\n\n\n\n\n\n\n\u540e\u7aef\u8fd4\u56de\u4fe1\u606f\n\n\n\n\ncode     \u72b6\u6001\u4ee3\u7801\n    0    \u6ce8\u518c\u6210\u529f\n   -100  \u8868\u5355\u9519\u8bef\n   -200  \u7528\u6237\u540d\u5df2\u7ecf\u5b58\u5728\n   -201  \u90ae\u7bb1\u5df2\u7ecf\u5b58\u5728\nmessage  \u9519\u8bef\u4fe1\u606f\uff08\u6210\u529f\u65f6\u65e0\u6b64\u5b57\u6bb5\uff09\n\n\n\n\n\n\n\u4e2a\u4eba\u4fe1\u606f\n\n\n\n\n\u63cf\u8ff0\n\n\n\n\n\u4e8c\u7ea7\u9875\u9762\n\u663e\u793a\u4e00\u4e2a\u7528\u6237\u7684\u4e2a\u4eba\u4fe1\u606f\uff0c\u4e09\u79cd\u4e0d\u540c\u7684\u7528\u6237\u9700\u8981\u6709\u4e0d\u540c\u7684\u663e\u793a\u65b9\u5f0f\u3002\n\n\n\n\n\n\nURL\n\n\n\n\n/center/\n\n\n\n\n\n\n\u540e\u7aef\u8fd4\u56de\u4fe1\u606f\n\n\n\n\n\u65e0\n\n\n\n\n\n\n\u4fee\u6539\u4e2a\u4eba\u4fe1\u606f\n\n\n\n\n\u63cf\u8ff0\n\n\n\n\n\u4e8c\u7ea7\u9875\u9762\n\u4fee\u6539\u4e2a\u4eba\u4fe1\u606f\u7684\u9875\u9762\n\n\n\n\n\n\nURL\n\n\n\n\n/settings/profile/\n\n\n\n\n\n\n\u540e\u7aef\u8fd4\u56de\u4fe1\u606f\n\n\n\n\ncode     \u72b6\u6001\u4ee3\u7801\n    0    \u4fee\u6539\u6210\u529f\n   -100  \u8868\u5355\u9519\u8bef\nmessage  \u9519\u8bef\u4fe1\u606f\uff08\u6210\u529f\u65f6\u65e0\u6b64\u5b57\u6bb5\uff09\n\n\n\n\n\n\n\u4fee\u6539\u5bc6\u7801\n\n\n\n\n\u63cf\u8ff0\n\n\n\n\n\u4e8c\u7ea7\u9875\u9762\n\u7528\u4e8e\u4fee\u6539\u5bc6\u7801\n\n\n\n\n\n\nURL\n\n\n\n\n/settings/change_password/\n\n\n\n\n\n\n\u540e\u7aef\u8fd4\u56de\u4fe1\u606f\n\n\n\n\ncode     \u72b6\u6001\u4ee3\u7801\n    0    \u4fee\u6539\u6210\u529f\n   -100  \u8868\u5355\u9519\u8bef\nmessage  \u9519\u8bef\u4fe1\u606f\uff08\u6210\u529f\u65f6\u65e0\u6b64\u5b57\u6bb5\uff09\n\n\n\n\n\n\n\u7533\u8bf7\u6210\u4e3a\u8001\u5e08\n\n\n\u5f00\u53d1\u4e2d\n\n\n\n\n\u8bfe\u7a0b\u7ba1\u7406\n\n\n\u5f00\u53d1\u4e2d",
+            "title": "\u7528\u6237\u7ba1\u7406\u76f8\u5173"
         },
         {
-            "location": "/#deployment",
-            "text": "TODO :  To be filled in future",
-            "title": "Deployment"
+            "location": "/\u9875\u9762\u6587\u6863/\u7528\u6237\u7ba1\u7406\u76f8\u5173/#_1",
+            "text": "\u63cf\u8ff0   \u4e8c\u7ea7\u9875\u9762\n\u7528\u4e8e\u7528\u6237\u7684\u767b\u5f55\uff0c\u4e09\u79cd\u4e0d\u540c\u7684\u7528\u6237\u90fd\u7528\u540c\u4e00\u4e2a\u5165\u53e3\u767b\u5f55   URL   /login/   \u540e\u7aef\u8fd4\u56de\u4fe1\u606f   code     \u72b6\u6001\u4ee3\u7801\n    0    \u767b\u5f55\u6210\u529f\n   -100  \u8868\u5355\u9519\u8bef\n   -200  \u7528\u6237\u540d\u6216\u5bc6\u7801\u9519\u8bef\nmessage  \u9519\u8bef\u4fe1\u606f\uff08\u6210\u529f\u65f6\u65e0\u6b64\u5b57\u6bb5\uff09",
+            "title": "\u767b\u5f55"
         },
         {
-            "location": "/#authors",
-            "text": "Moandor  -  Main Architecture  -  Moandor-y  ANDI_Mckee  -  Project Management and Backend  -  ANDI-Mckee  helloworld575  -  Frontend  -  helloworld575",
-            "title": "Authors"
+            "location": "/\u9875\u9762\u6587\u6863/\u7528\u6237\u7ba1\u7406\u76f8\u5173/#_2",
+            "text": "\u63cf\u8ff0   \u4e8c\u7ea7\u9875\u9762\n\u7528\u4e8e\u7528\u6237\u7684\u6ce8\u518c\uff0c\u53ea\u80fd\u6ce8\u518c\u51fa\u5b66\u751f\u8d26\u53f7\u3002\u540e\u7eed\u53ef\u4ee5\u5347\u7ea7\u6210\u8001\u5e08\u8d26\u53f7\uff0c\u4f46\u662f\u7ba1\u7406\u5458\u8d26\u53f7\u53ea\u80fd\u7531\u7f51\u7ad9\u7ba1\u7406\u8005\u7ed9\u51fa\u3002   URL   /register/   \u540e\u7aef\u8fd4\u56de\u4fe1\u606f   code     \u72b6\u6001\u4ee3\u7801\n    0    \u6ce8\u518c\u6210\u529f\n   -100  \u8868\u5355\u9519\u8bef\n   -200  \u7528\u6237\u540d\u5df2\u7ecf\u5b58\u5728\n   -201  \u90ae\u7bb1\u5df2\u7ecf\u5b58\u5728\nmessage  \u9519\u8bef\u4fe1\u606f\uff08\u6210\u529f\u65f6\u65e0\u6b64\u5b57\u6bb5\uff09",
+            "title": "\u6ce8\u518c"
         },
         {
-            "location": "/#license",
-            "text": "This project is licensed under the MIT License - see the  LICENSE  file for details",
-            "title": "License"
+            "location": "/\u9875\u9762\u6587\u6863/\u7528\u6237\u7ba1\u7406\u76f8\u5173/#_3",
+            "text": "\u63cf\u8ff0   \u4e8c\u7ea7\u9875\u9762\n\u663e\u793a\u4e00\u4e2a\u7528\u6237\u7684\u4e2a\u4eba\u4fe1\u606f\uff0c\u4e09\u79cd\u4e0d\u540c\u7684\u7528\u6237\u9700\u8981\u6709\u4e0d\u540c\u7684\u663e\u793a\u65b9\u5f0f\u3002   URL   /center/   \u540e\u7aef\u8fd4\u56de\u4fe1\u606f   \u65e0",
+            "title": "\u4e2a\u4eba\u4fe1\u606f"
         },
         {
-            "location": "/Miscellaneous/",
-            "text": "Style Setting\n\n\nThe style of form should be modified in \ncustom Form class\n with \nWIDGET\n.\n\n\nclass MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }\n\n\n\n\nFor more:\n \nClick here",
-            "title": "Miscellaneous"
+            "location": "/\u9875\u9762\u6587\u6863/\u7528\u6237\u7ba1\u7406\u76f8\u5173/#_4",
+            "text": "\u63cf\u8ff0   \u4e8c\u7ea7\u9875\u9762\n\u4fee\u6539\u4e2a\u4eba\u4fe1\u606f\u7684\u9875\u9762   URL   /settings/profile/   \u540e\u7aef\u8fd4\u56de\u4fe1\u606f   code     \u72b6\u6001\u4ee3\u7801\n    0    \u4fee\u6539\u6210\u529f\n   -100  \u8868\u5355\u9519\u8bef\nmessage  \u9519\u8bef\u4fe1\u606f\uff08\u6210\u529f\u65f6\u65e0\u6b64\u5b57\u6bb5\uff09",
+            "title": "\u4fee\u6539\u4e2a\u4eba\u4fe1\u606f"
         },
         {
-            "location": "/Miscellaneous/#style-setting",
-            "text": "The style of form should be modified in  custom Form class  with  WIDGET .  class MyForm(forms.ModelForm):\n    class Meta:\n        model = MyModel\n        widgets = {\n            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),\n        }  For more:   Click here",
-            "title": "Style Setting"
+            "location": "/\u9875\u9762\u6587\u6863/\u7528\u6237\u7ba1\u7406\u76f8\u5173/#_5",
+            "text": "\u63cf\u8ff0   \u4e8c\u7ea7\u9875\u9762\n\u7528\u4e8e\u4fee\u6539\u5bc6\u7801   URL   /settings/change_password/   \u540e\u7aef\u8fd4\u56de\u4fe1\u606f   code     \u72b6\u6001\u4ee3\u7801\n    0    \u4fee\u6539\u6210\u529f\n   -100  \u8868\u5355\u9519\u8bef\nmessage  \u9519\u8bef\u4fe1\u606f\uff08\u6210\u529f\u65f6\u65e0\u6b64\u5b57\u6bb5\uff09",
+            "title": "\u4fee\u6539\u5bc6\u7801"
         },
         {
-            "location": "/Prototypes/Accounts-Relevant/",
-            "text": "Login\n\n\n\n\n\n\nAppearance\n\n\n\n\n\n\n\nResult Code\n\n\n\n\n\n\nurl: /login/\n\n 0   \u767b\u5f55\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u6216\u5bc6\u7801\u9519\u8bef\n\n\n\n\n\n\nRegister\n\n\n\n\n\n\nAppearance\n\n\n\n\n\n\n\nResult Code\n\n\n\n\n\n\nurl: /register/\n\n 0   \u6ce8\u518c\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u5df2\u7ecf\u5b58\u5728\n-201 \u90ae\u7bb1\u5df2\u7ecf\u5b58\u5728\n\n\n\n\n\n\nProfile\n\n\n\n\nAppearance\n\n\n\n\n\n\n\nProfile Settings\n\n\n\n\n\n\nAppearance\n\n\n\n\n\n\n\nResult Code\n\n\n\n\n\n\nurl: /settings/profile/\n\n 0   \u4fee\u6539\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n\n\n\n\n\n\nChange Password\n\n\n\n\n\n\nAppearance\n\n\n\n\n\n\n\nResult Code\n\n\n\n\n\n\nurl: /settings/change_password/\n\n 0   \u4fee\u6539\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n\n\n\n\n\n\nApply to be a teacher\n\n\n\n\n\n\nAppearance\n\n\n\n\n\n\n\nResult Code\n\n\n\n\n\n\nTODO\n\n\n\n\nManage Lessons\n\n\n\n\n\n\nAppearance\n\n\n\n\n\n\n\nResult Code\n\n\n\n\n\n\nTODO",
-            "title": "Accounts Relevant"
+            "location": "/\u9875\u9762\u6587\u6863/\u7528\u6237\u7ba1\u7406\u76f8\u5173/#_6",
+            "text": "\u5f00\u53d1\u4e2d",
+            "title": "\u7533\u8bf7\u6210\u4e3a\u8001\u5e08"
         },
         {
-            "location": "/Prototypes/Accounts-Relevant/#login",
-            "text": "Appearance    Result Code    url: /login/\n\n 0   \u767b\u5f55\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u6216\u5bc6\u7801\u9519\u8bef",
-            "title": "Login"
+            "location": "/\u9875\u9762\u6587\u6863/\u7528\u6237\u7ba1\u7406\u76f8\u5173/#_7",
+            "text": "\u5f00\u53d1\u4e2d",
+            "title": "\u8bfe\u7a0b\u7ba1\u7406"
         },
         {
-            "location": "/Prototypes/Accounts-Relevant/#register",
-            "text": "Appearance    Result Code    url: /register/\n\n 0   \u6ce8\u518c\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef\n-200 \u7528\u6237\u540d\u5df2\u7ecf\u5b58\u5728\n-201 \u90ae\u7bb1\u5df2\u7ecf\u5b58\u5728",
-            "title": "Register"
-        },
-        {
-            "location": "/Prototypes/Accounts-Relevant/#profile",
-            "text": "Appearance",
-            "title": "Profile"
-        },
-        {
-            "location": "/Prototypes/Accounts-Relevant/#profile-settings",
-            "text": "Appearance    Result Code    url: /settings/profile/\n\n 0   \u4fee\u6539\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef",
-            "title": "Profile Settings"
-        },
-        {
-            "location": "/Prototypes/Accounts-Relevant/#change-password",
-            "text": "Appearance    Result Code    url: /settings/change_password/\n\n 0   \u4fee\u6539\u6210\u529f\n-100 \u8868\u5355\u9519\u8bef",
-            "title": "Change Password"
-        },
-        {
-            "location": "/Prototypes/Accounts-Relevant/#apply-to-be-a-teacher",
-            "text": "Appearance    Result Code    TODO",
-            "title": "Apply to be a teacher"
-        },
-        {
-            "location": "/Prototypes/Accounts-Relevant/#manage-lessons",
-            "text": "Appearance    Result Code    TODO",
-            "title": "Manage Lessons"
-        },
-        {
-            "location": "/Prototypes/Homepage/",
-            "text": "Appearance",
-            "title": "Homepage"
+            "location": "/\u9875\u9762\u6587\u6863/\u9996\u9875/",
+            "text": "\u63cf\u8ff0\n\n\n\n\n\u4e00\u7ea7\u9875\u9762\n\u6574\u4e2a\u7f51\u7ad9\u7684\u4e3b\u9875\uff0c\u6682\u65f6\u6ca1\u6709\u4ec0\u4e48\u9700\u8981\u7279\u522b\u6307\u51fa\u7684\u3002\n\n\n\n\n\n\nURL\n\n\n\n\n/\n\n\n\n\n\n\n\u540e\u7aef\u8fd4\u56de\u4fe1\u606f\n\n\n\n\n\u65e0",
+            "title": "\u9996\u9875"
         }
     ]
 }

@@ -7,24 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Homepage - Documentation</title>
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>杂项 - 开发文档</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Homepage";
-    var mkdocs_page_input_path = "Prototypes\\Homepage.md";
-    var mkdocs_page_url = "/Prototypes/Homepage/";
+    var mkdocs_page_name = "\u6742\u9879";
+    var mkdocs_page_input_path = "\u6742\u9879.md";
+    var mkdocs_page_url = "/\u6742\u9879/";
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -35,9 +35,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Documentation</a>
+        <a href="./" class="icon icon-home"> 开发文档</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
@@ -47,30 +47,28 @@
 	<ul class="current">
 	  
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../..">Home</a>
+    <a class="current" href="./">杂项</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#formcss">Form的CSS样式设置方式</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../Miscellaneous/">Miscellaneous</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Prototypes</span>
+    <span class="caption-text">页面文档</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../Accounts-Relevant/">Accounts Relevant</a>
+    <a class="" href="../%E9%A1%B5%E9%9D%A2%E6%96%87%E6%A1%A3/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E7%9B%B8%E5%85%B3/">用户管理相关</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Homepage</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../%E9%A1%B5%E9%9D%A2%E6%96%87%E6%A1%A3/%E9%A6%96%E9%A1%B5/">首页</a>
                 </li>
     </ul>
 	    </li>
@@ -85,7 +83,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Documentation</a>
+        <a href="./">开发文档</a>
       </nav>
 
       
@@ -93,15 +91,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
+    <li><a href="./">Docs</a> &raquo;</li>
     
       
-        
-          <li>Prototypes &raquo;</li>
-        
-      
     
-    <li>Homepage</li>
+    <li>杂项</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -111,10 +105,18 @@
           <div role="main">
             <div class="section">
               
-                <ul>
-<li>Appearance
-<img alt="homepage" src="../img/homepage.png" /></li>
-</ul>
+                <h2 id="formcss">Form的CSS样式设置方式</h2>
+<p>Form的样式应该在 <em>自定义的Form类中</em> 的 <strong>WIDGET</strong> 里设置。</p>
+<p>例如：</p>
+<pre><code>class MyForm(forms.ModelForm):
+    class Meta:
+        model = MyModel
+        widgets = {
+            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
+        }
+</code></pre>
+
+<p><strong>了解更多:</strong> <a href="https://stackoverflow.com/questions/5827590/css-styling-in-django-forms">点击这里</a></p>
               
             </div>
           </div>
@@ -122,8 +124,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../%E9%A1%B5%E9%9D%A2%E6%96%87%E6%A1%A3/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E7%9B%B8%E5%85%B3/" class="btn btn-neutral float-right" title="用户管理相关">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../Accounts-Relevant/" class="btn btn-neutral" title="Accounts Relevant"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -149,15 +151,15 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../Accounts-Relevant/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+        <span style="margin-left: 15px"><a href="../%E9%A1%B5%E9%9D%A2%E6%96%87%E6%A1%A3/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E7%9B%B8%E5%85%B3/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js"></script>
-      <script src="../../search/require.js"></script>
-      <script src="../../search/search.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
 
 </body>
 </html>
