@@ -42,6 +42,7 @@ extra:
 # Extensions
 markdown_extensions:
   - markdown.extensions.codehilite:
+  - markdown.extensions.admonition
   - markdown.extensions.toc:
       permalink: true
     
