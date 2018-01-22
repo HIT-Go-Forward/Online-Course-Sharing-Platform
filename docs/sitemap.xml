@@ -3,7 +3,15 @@
 
     
     <url>
-     <loc>/杂项/</loc>
+     <loc>https://hit-go-forward.github.io/Online-Course-Sharing-Platform/</loc>
+     <lastmod>2018-01-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://hit-go-forward.github.io/Online-Course-Sharing-Platform/杂项/</loc>
      <lastmod>2018-01-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -12,13 +20,13 @@
     
         
     <url>
-     <loc>/页面文档/用户管理相关/</loc>
+     <loc>https://hit-go-forward.github.io/Online-Course-Sharing-Platform/页面文档/首页/</loc>
      <lastmod>2018-01-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/页面文档/首页/</loc>
+     <loc>https://hit-go-forward.github.io/Online-Course-Sharing-Platform/页面文档/用户管理相关/</loc>
      <lastmod>2018-01-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
