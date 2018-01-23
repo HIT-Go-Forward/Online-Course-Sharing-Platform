@@ -5,8 +5,42 @@
 {% block title %}课程管理{% endblock %}
 
 {% block content %}
-    <div id="profile" class="col-md-12 col-md-offset-1">
-
+    <div id="profile" class="col-md-12">
+        <div id="course-release">
+            <a class="btn btn-primary btn-lg pull-right">发布课程 <i class="fa fa-upload" aria-hidden="true"></i></a>
+        </div>
+        <div id="releasing-course">
+            <h3 class="user-head">正在发布的课程</h3>
+            <hr/>
+            <a href="#" class="a-course">
+                <div class="course row">
+                    <div class="course_img col-md-3"><img class="img-responsive img-rounded center-block"
+                                                          src="{% static 'img/course_default.jpg' %}" width="200px">
+                    </div>
+                    <div class="course_intro">
+                        <h3>课程标题</h3>
+                        <h5>作者：<span>hello</span></h5>
+                        <h4>介绍：<span>这是介绍</span></h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="released-course">
+            <h3 class="user-head">已经发布的课程</h3>
+            <hr/>
+            <a href="#" class="a-course">
+                <div class="course row">
+                    <div class="course_img col-md-3"><img class="img-responsive img-rounded center-block"
+                                                          src="{% static 'img/course_default.jpg' %}" width="200px">
+                    </div>
+                    <div class="course_intro">
+                        <h3>课程标题</h3>
+                        <h5>作者：<span>hello</span></h5>
+                        <h4>介绍：<span>这是介绍</span></h4>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
 {% endblock %}
 

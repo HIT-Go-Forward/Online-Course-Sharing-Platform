@@ -5,14 +5,32 @@
 {% block title %}教师申请管理{% endblock %}
 
 {% block content %}
-    <div id="profile" class="col-md-12 col-md-offset-1">
-        <a id="apply" href="#" class="btn btn-default btn-lg">申请</a>
+    <div id="profile" class="col-md-11 col-md-offset-1">
+        <h2 class="user-head">申请名单：</h2>
+        <div id="apply">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th class="col-md-1 text-center">申请人姓名</th>
+                        <th class="col-md-5 text-center">......</th>
+                        <th class="col-md-3 text-center">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>li</td>
+                        <td>......</td>
+                        <td class="handles"><a>同意</a>    <a>拒绝</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}
 {% block javascript %}
     <script>
-    $(function () {
-        judge_page();
-    })
+        $(function () {
+            judge_page();
+        })
     </script>
 {% endblock %}
