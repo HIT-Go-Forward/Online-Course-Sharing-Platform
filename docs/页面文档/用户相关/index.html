@@ -32,7 +32,7 @@
     
     
       
-        <title>首页 - 开发文档</title>
+        <title>用户相关 - 开发文档</title>
       
     
     
@@ -72,6 +72,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -94,7 +98,7 @@
                 开发文档
               </span>
               <span class="md-header-nav__topic">
-                首页
+                用户相关
               </span>
             
           
@@ -254,6 +258,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../%E9%A6%96%E9%A1%B5/" title="首页" class="md-nav__link">
+      首页
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -262,22 +278,70 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
-    <a href="./" title="首页" class="md-nav__link md-nav__link--active">
-      首页
-    </a>
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        用户相关
+      </label>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3/" title="用户相关" class="md-nav__link">
+    <a href="./" title="用户相关" class="md-nav__link md-nav__link--active">
       用户相关
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="登录" class="md-nav__link">
+    登录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="注册" class="md-nav__link">
+    注册
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="个人信息" class="md-nav__link">
+    个人信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="修改个人信息" class="md-nav__link">
+    修改个人信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="修改密码" class="md-nav__link">
+    修改密码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="申请成为老师" class="md-nav__link">
+    申请成为老师
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -305,26 +369,146 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="登录" class="md-nav__link">
+    登录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="注册" class="md-nav__link">
+    注册
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="个人信息" class="md-nav__link">
+    个人信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="修改个人信息" class="md-nav__link">
+    修改个人信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="修改密码" class="md-nav__link">
+    修改密码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="申请成为老师" class="md-nav__link">
+    申请成为老师
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>首页</h1>
+                  <h1>用户相关</h1>
                 
-                <ul>
+                <h2 id="_1">登录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
 <li>描述</li>
 </ul>
-<div class="codehilite"><pre><span></span>一级页面
-整个网站的主页，暂时没有什么需要特别指出的。
+<div class="codehilite"><pre><span></span>二级页面
+用于用户的登录，三种不同的用户都用同一个入口登录
 </pre></div>
 
 
 <ul>
 <li>URL</li>
 </ul>
-<div class="codehilite"><pre><span></span>/
+<div class="codehilite"><pre><span></span>/login/
+</pre></div>
+
+
+<ul>
+<li>后端返回信息</li>
+</ul>
+<div class="codehilite"><pre><span></span>code     状态代码
+    0    登录成功
+   -100  表单错误
+   -200  用户名或密码错误
+message  错误信息（成功时无此字段）
+</pre></div>
+
+
+<hr />
+<h2 id="_2">注册<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>描述</li>
+</ul>
+<div class="codehilite"><pre><span></span>二级页面
+用于用户的注册，只能注册出学生账号。后续可以升级成老师账号，但是管理员账号只能由网站管理者给出。
+</pre></div>
+
+
+<ul>
+<li>URL</li>
+</ul>
+<div class="codehilite"><pre><span></span>/register/
+</pre></div>
+
+
+<ul>
+<li>后端返回信息</li>
+</ul>
+<div class="codehilite"><pre><span></span>code     状态代码
+    0    注册成功
+   -100  表单错误
+   -200  用户名已经存在
+   -201  邮箱已经存在
+message  错误信息（成功时无此字段）
+</pre></div>
+
+
+<hr />
+<h2 id="_3">个人信息<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>描述</li>
+</ul>
+<div class="codehilite"><pre><span></span>二级页面
+显示一个用户的个人信息，三种不同的用户需要有不同的显示方式。
+</pre></div>
+
+
+<ul>
+<li>URL</li>
+</ul>
+<div class="codehilite"><pre><span></span>/profile/
 </pre></div>
 
 
@@ -332,6 +516,91 @@
 <li>后端返回信息</li>
 </ul>
 <div class="codehilite"><pre><span></span>无
+</pre></div>
+
+
+<hr />
+<h2 id="_4">修改个人信息<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>描述</li>
+</ul>
+<div class="codehilite"><pre><span></span>二级页面
+修改个人信息的页面
+</pre></div>
+
+
+<ul>
+<li>URL</li>
+</ul>
+<div class="codehilite"><pre><span></span>/settings/profile/
+</pre></div>
+
+
+<ul>
+<li>后端返回信息</li>
+</ul>
+<div class="codehilite"><pre><span></span>code     状态代码
+    0    修改成功
+   -100  表单错误
+message  错误信息（成功时无此字段）
+</pre></div>
+
+
+<hr />
+<h2 id="_5">修改密码<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>描述</li>
+</ul>
+<div class="codehilite"><pre><span></span>二级页面
+用于修改密码
+</pre></div>
+
+
+<ul>
+<li>URL</li>
+</ul>
+<div class="codehilite"><pre><span></span>/settings/change_password/
+</pre></div>
+
+
+<ul>
+<li>后端返回信息</li>
+</ul>
+<div class="codehilite"><pre><span></span>code     状态代码
+    0    修改成功
+   -100  表单错误
+message  错误信息（成功时无此字段）
+</pre></div>
+
+
+<hr />
+<h2 id="_6">申请成为老师<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>描述</li>
+</ul>
+<div class="codehilite"><pre><span></span>二级页面
+用于申请成为老师
+</pre></div>
+
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>应该使用AJAX发送请求</p>
+</div>
+<ul>
+<li>URL</li>
+</ul>
+<div class="codehilite"><pre><span></span>/teacher_apply/
+</pre></div>
+
+
+<ul>
+<li>后端返回信息</li>
+</ul>
+<div class="codehilite"><pre><span></span>code     状态代码
+    0    申请成功
+   -100  用户已经申请过
+message  错误信息（成功时无此字段）
 </pre></div>
                 
                   
@@ -351,7 +620,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../%E6%9D%82%E9%A1%B9/" title="杂项" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../%E9%A6%96%E9%A1%B5/" title="首页" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -360,19 +629,19 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                杂项
+                首页
               </span>
             </div>
           </a>
         
         
-          <a href="../%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3/" title="用户相关" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3/" title="课程相关" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                用户相关
+                课程相关
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
