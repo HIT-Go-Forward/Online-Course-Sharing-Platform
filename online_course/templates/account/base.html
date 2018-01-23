@@ -20,8 +20,7 @@
     <div class="col-md-2" id="leftlist">
         <div class="list-group">
             <a class="list-group-item disabled">个人中心</a>
-            <a href="{% url 'center' %}" class="list-group-item" id="center" style="margin-right:0;">个人信息<span
-                    style="background-color:blue;">s</span> </a>
+            <a href="{% url 'center' %}" class="list-group-item" id="center" style="margin-right:0;">个人信息</a>
             <a href="{% url 'profile_settings' %}" class="list-group-item" id="profile-settings">修改个人信息</a>
             <a href="{% url 'change_password' %}" class="list-group-item" id="change-password">修改密码</a>
             {#            {% if userprofile.account_type == 's' %}#}
@@ -35,10 +34,10 @@
             {#            {% if userprofile.account_type == 'c' %}#}
             {#                <a href="#" class="list-group-item" id="apply-manage">教师申请管理</a>#}
             {#            {% endif %}#}
-            <a href="#" class="list-group-item" id="apply-teacher">申请成为教师</a>
-            <a href="#" class="list-group-item" id="course-control">正在学习</a>
-            <a href="#" class="list-group-item" id="my-course">课程管理</a>
-            <a href="#" class="list-group-item" id="apply-manage">教师申请管理</a>
+            <a href="{% url 'teacher_apply' %}" class="list-group-item" id="apply-teacher">申请成为教师</a>
+            <a href="{% url 'my_course' %}" class="list-group-item" id="my-course">正在学习</a>
+            <a href="{% url 'course_control' %}" class="list-group-item" id="course-control">课程管理</a>
+            <a href="{% url 'apply_manage' %}" class="list-group-item" id="apply-manage">教师申请管理</a>
         </div>
     </div>
     <div class="col-md-10" id="mainpart">
