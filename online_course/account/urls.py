@@ -8,6 +8,7 @@ from account.views.login import login_authenticate
 from account.views.logout import logout_view
 from account.views.profile import profile_settings, profile_view
 from account.views.register import register
+from account.views.teacher_apply import teacher_apply
 
 router = DefaultRouter()
 router.register(r'settings/profile/avatar', AvatarViewSet, 'avatar')
@@ -20,8 +21,12 @@ urlpatterns = [
     url(r'^settings/profile/$', profile_settings, name='profile_settings'),
     url(r'^settings/change_password/$', change_password, name='change_password'),
     url(r'^center/$', profile_view, name='center'),
-    url(r'^teacher_apply',TemplateView.as_view(template_name='account/student/teacher_apply.html'),name="teacher_apply"),
-    url(r'^apply_manage',TemplateView.as_view(template_name='account/manager/apply_manage.html'),name="apply_manage"),
-    url(r'^course_control',TemplateView.as_view(template_name='account/teacher/course_control.html'),name="course_control"),
-    url(r'^my_course',TemplateView.as_view(template_name='account/student/my_course.html'),name="my_course"),
+    url(r'^teacher_apply/$', teacher_apply, name="teacher_apply"),
+    url(r'^apply_manage', TemplateView.as_view(template_name='account/manager/apply_manage.html'),
+        name="apply_manage"),
+    url(r'^course_control',
+        TemplateView.as_view(template_name='account/teacher/course_control.html'),
+        name="course_control"),
+    url(r'^my_course', TemplateView.as_view(template_name='account/student/my_course.html'),
+        name="my_course"),
 ]

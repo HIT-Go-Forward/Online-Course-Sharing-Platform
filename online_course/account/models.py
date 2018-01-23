@@ -1,15 +1,11 @@
 from datetime import date
-from uuid import uuid4
 from os.path import splitext
+from uuid import uuid4
 
-from django.db import models
-from django.db.models import Model
-from django.db.models import OneToOneField
-from django.db.models import CharField
-from django.db.models import DateField
-from django.db.models import ImageField
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.db import models
+from django.db.models import CharField, DateField, ImageField, Model, OneToOneField, DateTimeField
 
 ACCOUNT_TYPE_CHOICES = (
     ('s', '学生'),
@@ -41,3 +37,8 @@ class UserProfile(Model):
     degree = CharField(max_length=100)
     avatar = ImageField(upload_to=uploaded_filename, validators=[validate_file_extension])
     description = CharField(max_length=10000)
+
+
+class TeacherApplication(Model):
+    user = OneToOneField(User, on_delete=models.CASCADE)
+    timestamp = DateTimeField(auto_now_add=True)
