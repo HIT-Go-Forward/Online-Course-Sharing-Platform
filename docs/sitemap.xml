@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-01-22</lastmod>
+     <lastmod>2018-01-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/杂项/</loc>
-     <lastmod>2018-01-22</lastmod>
+     <lastmod>2018-01-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -21,13 +21,19 @@
         
     <url>
      <loc>/页面文档/首页/</loc>
-     <lastmod>2018-01-22</lastmod>
+     <lastmod>2018-01-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/页面文档/用户管理相关/</loc>
-     <lastmod>2018-01-22</lastmod>
+     <loc>/页面文档/用户相关/</loc>
+     <lastmod>2018-01-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/页面文档/课程相关/</loc>
+     <lastmod>2018-01-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
