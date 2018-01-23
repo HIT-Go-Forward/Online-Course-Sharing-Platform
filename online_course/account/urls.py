@@ -2,6 +2,7 @@ from django.conf.urls import url, include
 from django.views.generic import TemplateView
 from rest_framework.routers import DefaultRouter
 
+from account.views.apply_manage import apply_manage
 from account.views.avatar import AvatarViewSet
 from account.views.change_password import change_password
 from account.views.login import login_authenticate
@@ -22,8 +23,8 @@ urlpatterns = [
     url(r'^settings/change_password/$', change_password, name='change_password'),
     url(r'^center/$', profile_view, name='center'),
     url(r'^teacher_apply/$', teacher_apply, name="teacher_apply"),
-    url(r'^apply_manage', TemplateView.as_view(template_name='account/manager/apply_manage.html'),
-        name="apply_manage"),
+    url(r'^apply_manage/$', apply_manage, name="apply_manage"),
+    url(r'^apply_manage/(?P<page>[0-9]+)/$', apply_manage, name="apply_manage"),
     url(r'^course_control',
         TemplateView.as_view(template_name='account/teacher/course_control.html'),
         name="course_control"),

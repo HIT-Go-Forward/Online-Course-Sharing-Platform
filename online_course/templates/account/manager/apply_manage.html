@@ -18,9 +18,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>li</td>
-                        <td>......</td>
-                        <td class="handles"><a>同意</a>    <a>拒绝</a></td>
+                        {% for application in teacher_applications %}
+                            <td>{{ application.user.username }}</td>
+                            <td>......</td>
+                            <td class="handles"><a>同意</a>    <a>拒绝</a></td>
+                        {% endfor %}
                     </tr>
                 </tbody>
             </table>
