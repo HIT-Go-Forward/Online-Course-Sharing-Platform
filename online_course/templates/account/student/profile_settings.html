@@ -32,6 +32,10 @@
                     <div class="col-md-8 text-left">{{ user.username }}</div>
                 </div>
                 <div class="row">
+                    <div class="col-md-4 text-right"><span>性别：</span></div>
+                    <div class="col-md-3 text-left">{{ form.gender }}</div>
+                </div>
+                <div class="row">
                     <div class="col-md-4 text-right"><span>身份：</span></div>
                     <div class="col-md-3 text-left">{{ form.account_type }}</div>
                 </div>
@@ -221,13 +225,13 @@
                     var dataUrl = canvas.toDataURL("image/jpeg");
                     var newImg = document.createElement("img");
                     newImg.src = dataUrl;
-                    canvas.toBlob(function(blob) {
+                    canvas.toBlob(function (blob) {
                         imagesAjax(dataUrl, blob);
                     });
                 }
             });
         })
-        
+
         function getCookie(name) {
             var cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -286,9 +290,9 @@
                 return false;
             });
             $("#id_birth_date").datepicker({
-                showButtonPanel:true,
+                showButtonPanel: true,
                 dateFormat: 'yy-mm-dd',
-                showMonthAfterYear:true
+                showMonthAfterYear: true
             });
         })
     </script>
