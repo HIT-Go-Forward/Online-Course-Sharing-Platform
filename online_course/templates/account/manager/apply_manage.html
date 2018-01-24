@@ -37,8 +37,8 @@
             judge_page();
             {# 还未完成，需要后端传总页数和当前页数 #}
             {# https://www.jq22.com/jquery-info17338 #}
-            var currentPage = 1;
-            var totalPages = 25;
+            var currentPage = {{ page_num }};
+            var totalPages = {{ total_page }};
             $("#pagination").bootstrapPaginator({
                 bootstrapMajorVersion: 3,
                 currentPage: currentPage,

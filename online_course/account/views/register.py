@@ -29,7 +29,7 @@ def register(request):
         else:
             return JsonResponse({'code': -100, 'message': form.errors})
     else:
-        return render(request, 'account/register.html', {'form': RegisterForm})
+        return render(request, 'account/anonymous/register.html', {'form': RegisterForm})
 
 
 class RegisterForm(Form):
