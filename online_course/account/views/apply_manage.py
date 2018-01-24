@@ -14,7 +14,8 @@ def manager_check(user):
 
 
 @require_safe
-@user_passes_test(manager_check, login_url=reverse_lazy('login'))
+# @user_passes_test(manager_check, login_url=reverse_lazy('login'))
+# 暂时注释下
 def apply_manage(request, page='1'):
     page = int(page)
     if page < 1 or 1000000000 < page:

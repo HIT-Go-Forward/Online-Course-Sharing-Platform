@@ -10,29 +10,47 @@
         <div id="apply">
             <table class="table table-responsive">
                 <thead>
-                    <tr>
-                        <th class="col-md-1 text-center">申请人姓名</th>
-                        <th class="col-md-5 text-center">......</th>
-                        <th class="col-md-3 text-center">操作</th>
-                    </tr>
+                <tr>
+                    <th class="col-md-1 text-center">申请人姓名</th>
+                    <th class="col-md-5 text-center">......</th>
+                    <th class="col-md-3 text-center">操作</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        {% for application in teacher_applications %}
-                            <td>{{ application.user.username }}</td>
-                            <td>......</td>
-                            <td class="handles"><a>同意</a>    <a>拒绝</a></td>
-                        {% endfor %}
-                    </tr>
+                <tr>
+                    {% for application in teacher_applications %}
+                        <td>{{ application.user.username }}</td>
+                        <td>......</td>
+                        <td class="handles"><a>同意</a> <a>拒绝</a></td>
+                    {% endfor %}
+                </tr>
                 </tbody>
             </table>
         </div>
+        <ul class="pull-right" id="pagination"></ul>
     </div>
 {% endblock %}
 {% block javascript %}
+    <script src="{% static 'js/bootstrap-paginator.js' %}"></script>
     <script>
         $(function () {
             judge_page();
+            {# 还未完成，需要后端传总页数和当前页数 #}
+            {# https://www.jq22.com/jquery-info17338 #}
+            var currentPage = 1;
+            var totalPages = 25;
+            $("#pagination").bootstrapPaginator({
+                bootstrapMajorVersion: 3,
+                currentPage: currentPage,
+                numberOfPages: 10,
+                totalPages: totalPages,
+                shouldShowPage: true,
+                useBootstrapTooltip: true,
+                //点击事件
+                onPageClicked: function (event, originalEvent, type, page) {
+                }
+            });
         })
+
     </script>
 {% endblock %}

@@ -6,13 +6,28 @@
 
 {% block content %}
     <div id="profile" class="col-md-12 col-md-offset-1">
-        <a id="apply" href="#" class="btn btn-default btn-lg">申请</a>
+        <a id="apply" class="btn btn-default btn-lg">申请</a>
     </div>
 {% endblock %}
 {% block javascript %}
     <script>
     $(function () {
         judge_page();
+        $("#apply").click(function () {
+            $.ajax({
+                url:'{% url 'teacher_apply' %}',
+                type:'post',
+                headers: {'X-CSRFTOKEN': getCookie('csrftoken')},
+                success:function (msg) {
+                    if(msg.code===0){
+                        alert('申请成功');
+                    }
+                    else if(msg.code===-100){
+                        alert(msg.message);
+                    }
+                }
+            })
+        })
     })
     </script>
 {% endblock %}

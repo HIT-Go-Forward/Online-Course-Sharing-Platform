@@ -23,7 +23,7 @@ def login_authenticate(request):
     else:
         return render(
             request,
-            'account/login.html', {
+            'account/anonymous/login.html', {
                 'form': LoginForm(),
                 'next': request.GET.get('next', reverse('index')),
             },
