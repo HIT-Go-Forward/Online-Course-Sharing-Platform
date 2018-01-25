@@ -1,0 +1,34 @@
+{% extends 'account/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}正在学习{% endblock %}
+
+{% block content %}
+    <div id="profile">
+        {% for course in learning_courses %}
+            <a href="#" class="a-course">
+                <div class="course row">
+                    <div class="course_img col-md-3"><img class="img-responsive img-rounded center-block"
+                                                          src="{{ course.cover.url }}" width="200px">
+                    </div>
+                    <div class="course_intro">
+                        <h3>课程标题: {{ course.title }}</h3>
+                        <h5>教师：{{ course.teacher }}</h5>
+                        <h4>介绍：{{ course.description }}</h4>
+                        <header>开始时间：{{ course.date_start }}</header>
+                        <header>结束时间：{{ course.date_end }}</header>
+                    </div>
+                </div>
+            </a>
+            </div>
+        {% endfor %}
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(function () {
+            judge_page();
+        })
+    </script>
+{% endblock %}
