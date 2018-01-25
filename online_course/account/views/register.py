@@ -1,12 +1,10 @@
 from django.contrib.auth import login
 from django.contrib.auth.models import User
+from django.forms import CharField, EmailField, Form, TextInput, ValidationError
 from django.http import JsonResponse
 from django.shortcuts import render
-from django.forms import Form
-from django.forms import CharField
-from django.forms import EmailField
-from django.forms import TextInput
-from django.forms import ValidationError
+
+from account.models import UserProfile
 
 
 def register(request):
@@ -24,6 +22,9 @@ def register(request):
 
             user = User.objects.create_user(username, email, form.cleaned_data['password'])
             user.save()
+            profile = UserProfile(user=user)
+            profile.account_type = 's'
+            profile.save()
             login(request, user)
             return JsonResponse({'code': 0})
         else:
