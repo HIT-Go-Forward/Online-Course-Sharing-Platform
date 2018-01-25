@@ -1,11 +1,10 @@
 from datetime import date
-from os.path import splitext
-from uuid import uuid4
 
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import CharField, DateField, ImageField, Model, OneToOneField, DateTimeField
+
+from online_course.utils import uploaded_filename, validate_file_extension
 
 ACCOUNT_TYPE_CHOICES = (
     ('s', '学生'),
@@ -16,16 +15,6 @@ GENDER_CHOICES = (
     ('m', '男'),
     ('f', '女'),
 )
-
-
-# noinspection PyUnusedLocal
-def uploaded_filename(instance, filename):
-    return str(uuid4()) + splitext(filename)[1]
-
-
-def validate_file_extension(value):
-    if not splitext(value.name)[1].lower() in ['.png', '.jpg', '.jpeg']:
-        raise ValidationError('Invalid file type')
 
 
 class UserProfile(Model):
