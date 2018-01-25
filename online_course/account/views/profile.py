@@ -11,23 +11,12 @@ from account.models import UserProfile
 
 @login_required(login_url=reverse_lazy('login'))
 def profile_view(request):
-    try:
-        profile = UserProfile.objects.get(user=request.user)
-    except ObjectDoesNotExist:
-        profile = UserProfile(user=request.user)
-        profile.account_type = 's'
-        profile.save()
-    return render(request, 'account/student/user.html', {'userprofile': profile})
+    return render(request, 'account/student/user.html', {'userprofile': request.user.userprofile})
 
 
 @login_required(login_url=reverse_lazy('login'))
 def profile_settings(request):
-    try:
-        profile = UserProfile.objects.get(user=request.user)
-    except ObjectDoesNotExist:
-        profile = UserProfile(user=request.user)
-        profile.account_type = 's'
-        profile.save()
+    profile = request.user.userprofile
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
