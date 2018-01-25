@@ -5,7 +5,7 @@
 {% block title %}教师申请管理{% endblock %}
 
 {% block content %}
-    <div id="profile" class="col-md-11 col-md-offset-1">
+    <div id="profile">
         <h2 class="user-head">申请名单：</h2>
         <div id="apply">
             <table class="table table-responsive">
@@ -27,7 +27,7 @@
                 </tbody>
             </table>
         </div>
-        <ul class="pull-right" id="pagination"></ul>
+        <ul id="pagination"></ul>
     </div>
 {% endblock %}
 {% block javascript %}
@@ -42,12 +42,13 @@
             $("#pagination").bootstrapPaginator({
                 bootstrapMajorVersion: 3,
                 currentPage: currentPage,
-                numberOfPages: 10,
+                numberOfPages: 5,
                 totalPages: totalPages,
                 shouldShowPage: true,
                 useBootstrapTooltip: true,
                 //点击事件
                 onPageClicked: function (event, originalEvent, type, page) {
+                    window.location.href='{% url 'apply_manage' %}'+page;
                 }
             });
         })

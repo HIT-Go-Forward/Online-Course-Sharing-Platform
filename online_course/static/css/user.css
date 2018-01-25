@@ -111,3 +111,8 @@ hr{
     padding-left: 50px;
     padding-right: 50px;
 }
+#pagination{
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+}

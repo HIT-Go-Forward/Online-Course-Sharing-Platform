@@ -44,6 +44,7 @@
         $(function () {
             var csrftoken = $("[name=csrfmiddlewaretoken]").val();
             $("#login_submit").click(function () {
+                $("#error_message").text('');
                 $.ajax({
                     url:{% url 'login' %},
                     type: "post",
