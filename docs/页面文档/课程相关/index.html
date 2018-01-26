@@ -227,8 +227,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../%E6%9D%82%E9%A1%B9/" title="杂项" class="md-nav__link">
-      杂项
+    <a href="../../%E6%9C%AF%E8%AF%AD%E8%A1%A8/" title="术语表" class="md-nav__link">
+      术语表
     </a>
   </li>
 
@@ -307,8 +307,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="课程管理" class="md-nav__link">
-    课程管理
+  <a href="#_1" title="正在学习" class="md-nav__link">
+    正在学习
   </a>
   
 </li>
@@ -324,6 +324,18 @@
         
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../%E6%9D%82%E9%A1%B9/" title="杂项" class="md-nav__link">
+      杂项
+    </a>
   </li>
 
     
@@ -346,8 +358,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="课程管理" class="md-nav__link">
-    课程管理
+  <a href="#_1" title="正在学习" class="md-nav__link">
+    正在学习
   </a>
   
 </li>
@@ -369,8 +381,35 @@
                 
                   <h1>课程相关</h1>
                 
-                <h2 id="_1">课程管理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><em>开发中</em></p>
+                <h2 id="_1">正在学习<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>描述</li>
+</ul>
+<div class="codehilite"><pre><span></span>二级页面
+显示用户正在学习的页面。
+</pre></div>
+
+
+<ul>
+<li>URL</li>
+</ul>
+<div class="codehilite"><pre><span></span>/my_course/
+</pre></div>
+
+
+<ul>
+<li>后端后端<strong>生成的</strong>信息</li>
+</ul>
+<div class="codehilite"><pre><span></span>learning_courses  当前用户正在学习的课程的集合
+    对于每一个course:
+      title       标题
+      description 描述
+      date_start  课程开始时间
+      date_end    课程结束时间
+      cover       封面    * 使用url的时候需要写作course.cover.url
+      students    学习的学生集合
+      teacher     授课教师（一个人）
+</pre></div>
                 
                   
                 
@@ -403,6 +442,20 @@
             </div>
           </a>
         
+        
+          <a href="../../%E6%9D%82%E9%A1%B9/" title="杂项" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                杂项
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

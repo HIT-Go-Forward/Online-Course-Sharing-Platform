@@ -28,6 +28,4 @@ urlpatterns = [
     url(r'^course_control',
         TemplateView.as_view(template_name='account/teacher/course_control.html'),
         name="course_control"),
-    url(r'^my_course', TemplateView.as_view(template_name='account/student/my_course.html'),
-        name="my_course"),
 ]

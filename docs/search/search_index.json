@@ -6,14 +6,19 @@
             "title": "\u5173\u4e8e"
         },
         {
-            "location": "/\u6742\u9879/",
-            "text": "Form\u7684CSS\u6837\u5f0f\u8bbe\u7f6e\u65b9\u5f0f\n\u00b6\n\n\nForm\u7684\u6837\u5f0f\u5e94\u8be5\u5728 \n\u81ea\u5b9a\u4e49\u7684Form\u7c7b\u4e2d\n \u7684 \nWIDGET\n \u91cc\u8bbe\u7f6e\u3002\n\n\n\u4f8b\u5982\uff1a\n\n\nclass\n \nMyForm\n(\nforms\n.\nModelForm\n):\n\n    \nclass\n \nMeta\n:\n\n        \nmodel\n \n=\n \nMyModel\n\n        \nwidgets\n \n=\n \n{\n\n            \n'myfield'\n:\n \nforms\n.\nTextInput\n(\nattrs\n=\n{\n'class'\n:\n \n'myfieldclass'\n}),\n\n        \n}\n\n\n\n\n\n\n\u4e86\u89e3\u66f4\u591a:\n \n\u70b9\u51fb\u8fd9\u91cc",
-            "title": "\u6742\u9879"
+            "location": "/\u672f\u8bed\u8868/",
+            "text": "\u540e\u7aef\u8fd4\u56de\u4fe1\u606f\n\u00b6\n\n\n\u6307\u540e\u7aef\u901a\u8fc7JSON\u8fd4\u56de\u7684\u4fe1\u606f\uff0c\u9700\u8981\u524d\u7aef\u901a\u8fc7AJAX\u5904\u7406\n\n\n\u540e\u7aef\n\u751f\u6210\u7684\n\u4fe1\u606f\n\u00b6\n\n\n\u6307\u540e\u7aef\u76f4\u63a5\u751f\u6210\u7684\u4fe1\u606f\uff0c\u9700\u8981\u4f7f\u7528django\u7684\u8bed\u6cd5\u8fdb\u884c\u5904\u7406",
+            "title": "\u672f\u8bed\u8868"
         },
         {
-            "location": "/\u6742\u9879/#formcss",
-            "text": "Form\u7684\u6837\u5f0f\u5e94\u8be5\u5728  \u81ea\u5b9a\u4e49\u7684Form\u7c7b\u4e2d  \u7684  WIDGET  \u91cc\u8bbe\u7f6e\u3002  \u4f8b\u5982\uff1a  class   MyForm ( forms . ModelForm ): \n     class   Meta : \n         model   =   MyModel \n         widgets   =   { \n             'myfield' :   forms . TextInput ( attrs = { 'class' :   'myfieldclass' }), \n         }   \u4e86\u89e3\u66f4\u591a:   \u70b9\u51fb\u8fd9\u91cc",
-            "title": "Form\u7684CSS\u6837\u5f0f\u8bbe\u7f6e\u65b9\u5f0f"
+            "location": "/\u672f\u8bed\u8868/#_1",
+            "text": "\u6307\u540e\u7aef\u901a\u8fc7JSON\u8fd4\u56de\u7684\u4fe1\u606f\uff0c\u9700\u8981\u524d\u7aef\u901a\u8fc7AJAX\u5904\u7406",
+            "title": "\u540e\u7aef\u8fd4\u56de\u4fe1\u606f"
+        },
+        {
+            "location": "/\u672f\u8bed\u8868/#_2",
+            "text": "\u6307\u540e\u7aef\u76f4\u63a5\u751f\u6210\u7684\u4fe1\u606f\uff0c\u9700\u8981\u4f7f\u7528django\u7684\u8bed\u6cd5\u8fdb\u884c\u5904\u7406",
+            "title": "\u540e\u7aef\u751f\u6210\u7684\u4fe1\u606f"
         },
         {
             "location": "/\u9875\u9762\u6587\u6863/\u9996\u9875/",
@@ -62,13 +67,23 @@
         },
         {
             "location": "/\u9875\u9762\u6587\u6863/\u8bfe\u7a0b\u76f8\u5173/",
-            "text": "\u8bfe\u7a0b\u7ba1\u7406\n\u00b6\n\n\n\u5f00\u53d1\u4e2d",
+            "text": "\u6b63\u5728\u5b66\u4e60\n\u00b6\n\n\n\n\n\u63cf\u8ff0\n\n\n\n\n\u4e8c\u7ea7\u9875\u9762\n\u663e\u793a\u7528\u6237\u6b63\u5728\u5b66\u4e60\u7684\u9875\u9762\u3002\n\n\n\n\n\n\n\nURL\n\n\n\n\n/my_course/\n\n\n\n\n\n\n\n\u540e\u7aef\u540e\u7aef\n\u751f\u6210\u7684\n\u4fe1\u606f\n\n\n\n\nlearning_courses  \u5f53\u524d\u7528\u6237\u6b63\u5728\u5b66\u4e60\u7684\u8bfe\u7a0b\u7684\u96c6\u5408\n    \u5bf9\u4e8e\u6bcf\u4e00\u4e2acourse:\n      title       \u6807\u9898\n      description \u63cf\u8ff0\n      date_start  \u8bfe\u7a0b\u5f00\u59cb\u65f6\u95f4\n      date_end    \u8bfe\u7a0b\u7ed3\u675f\u65f6\u95f4\n      cover       \u5c01\u9762    * \u4f7f\u7528url\u7684\u65f6\u5019\u9700\u8981\u5199\u4f5ccourse.cover.url\n      students    \u5b66\u4e60\u7684\u5b66\u751f\u96c6\u5408\n      teacher     \u6388\u8bfe\u6559\u5e08\uff08\u4e00\u4e2a\u4eba\uff09",
             "title": "\u8bfe\u7a0b\u76f8\u5173"
         },
         {
             "location": "/\u9875\u9762\u6587\u6863/\u8bfe\u7a0b\u76f8\u5173/#_1",
-            "text": "\u5f00\u53d1\u4e2d",
-            "title": "\u8bfe\u7a0b\u7ba1\u7406"
+            "text": "\u63cf\u8ff0   \u4e8c\u7ea7\u9875\u9762\n\u663e\u793a\u7528\u6237\u6b63\u5728\u5b66\u4e60\u7684\u9875\u9762\u3002   URL   /my_course/   \u540e\u7aef\u540e\u7aef \u751f\u6210\u7684 \u4fe1\u606f   learning_courses  \u5f53\u524d\u7528\u6237\u6b63\u5728\u5b66\u4e60\u7684\u8bfe\u7a0b\u7684\u96c6\u5408\n    \u5bf9\u4e8e\u6bcf\u4e00\u4e2acourse:\n      title       \u6807\u9898\n      description \u63cf\u8ff0\n      date_start  \u8bfe\u7a0b\u5f00\u59cb\u65f6\u95f4\n      date_end    \u8bfe\u7a0b\u7ed3\u675f\u65f6\u95f4\n      cover       \u5c01\u9762    * \u4f7f\u7528url\u7684\u65f6\u5019\u9700\u8981\u5199\u4f5ccourse.cover.url\n      students    \u5b66\u4e60\u7684\u5b66\u751f\u96c6\u5408\n      teacher     \u6388\u8bfe\u6559\u5e08\uff08\u4e00\u4e2a\u4eba\uff09",
+            "title": "\u6b63\u5728\u5b66\u4e60"
+        },
+        {
+            "location": "/\u6742\u9879/",
+            "text": "Form\u7684CSS\u6837\u5f0f\u8bbe\u7f6e\u65b9\u5f0f\n\u00b6\n\n\nForm\u7684\u6837\u5f0f\u5e94\u8be5\u5728 \n\u81ea\u5b9a\u4e49\u7684Form\u7c7b\u4e2d\n \u7684 \nWIDGET\n \u91cc\u8bbe\u7f6e\u3002\n\n\n\u4f8b\u5982\uff1a\n\n\nclass\n \nMyForm\n(\nforms\n.\nModelForm\n):\n\n    \nclass\n \nMeta\n:\n\n        \nmodel\n \n=\n \nMyModel\n\n        \nwidgets\n \n=\n \n{\n\n            \n'myfield'\n:\n \nforms\n.\nTextInput\n(\nattrs\n=\n{\n'class'\n:\n \n'myfieldclass'\n}),\n\n        \n}\n\n\n\n\n\n\n\u4e86\u89e3\u66f4\u591a:\n \n\u70b9\u51fb\u8fd9\u91cc",
+            "title": "\u6742\u9879"
+        },
+        {
+            "location": "/\u6742\u9879/#formcss",
+            "text": "Form\u7684\u6837\u5f0f\u5e94\u8be5\u5728  \u81ea\u5b9a\u4e49\u7684Form\u7c7b\u4e2d  \u7684  WIDGET  \u91cc\u8bbe\u7f6e\u3002  \u4f8b\u5982\uff1a  class   MyForm ( forms . ModelForm ): \n     class   Meta : \n         model   =   MyModel \n         widgets   =   { \n             'myfield' :   forms . TextInput ( attrs = { 'class' :   'myfieldclass' }), \n         }   \u4e86\u89e3\u66f4\u591a:   \u70b9\u51fb\u8fd9\u91cc",
+            "title": "Form\u7684CSS\u6837\u5f0f\u8bbe\u7f6e\u65b9\u5f0f"
         }
     ]
 }

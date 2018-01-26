@@ -49,8 +49,10 @@ markdown_extensions:
 # Page tree
 pages:
   - 关于: index.md
-  - 杂项: 杂项.md
+  - 术语表: 术语表.md
   - 页面文档:
     - 首页: 页面文档/首页.md
     - 用户相关: 页面文档/用户相关.md
     - 课程相关: 页面文档/课程相关.md
+  - 杂项: 杂项.md
+
