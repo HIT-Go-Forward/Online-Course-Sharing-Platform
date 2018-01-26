@@ -10,7 +10,7 @@
 {% block content %}
     {% if not user.username %}
         <div class="jumbotron col-md-8 col-md-offset-2">
-            <form action="../" method="post" id="register" class="form-horizontal">{% csrf_token %}
+            <form action="." method="post" id="register" class="form-horizontal">{% csrf_token %}
                 <div class="form-group col-md-8">
                     <label for="id_username" class="col-md-5 control-label">用户名：</label>
                     <div class="col-md-6 text-left">{{ form.username }}</div>
@@ -48,11 +48,16 @@
 {% block javascript %}
     <script src="{% static 'js/jquery.form.js' %}"></script>
     <script>
-
         $(function () {
             $("#register").submit(function () {
                 $error=$("#error_message");
+                $warning=$("#warning_message");
                 $error.text('');
+                $warning.text('');
+                if($('#id_password')!==$('#id_repeat_password')){
+                    $warning.append("<p>密码不一致</p>");
+                    return false;
+                }
                 $(this).ajaxSubmit(function (e) {
                     if (e.code === 0) {
                         window.location.href = '{% url 'index' %}';
@@ -68,7 +73,7 @@
                             $error.append("<p>"+ e.message[i] + "</p>")
                         }
                     }
-                })
+                });
                 return false;
             });
         })
