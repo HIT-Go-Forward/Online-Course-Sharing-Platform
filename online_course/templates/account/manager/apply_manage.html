@@ -19,9 +19,20 @@
                 <tbody>
                 <tr>
                     {% for application in teacher_applications %}
+                        {% url 'approve_application' application.id as url_approve %}
+                        {% url 'deny_application' application.id as url_deny %}
                         <td>{{ application.user.username }}</td>
                         <td>......</td>
-                        <td class="handles"><a>同意</a> <a>拒绝</a></td>
+                        <td class="handles">
+                            <form action="{{ url_approve }}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" value="同意"/>
+                            </form>
+                            <form action="{{ url_deny }}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" value="拒绝"/>
+                            </form>
+                        </td>
                     {% endfor %}
                 </tr>
                 </tbody>
