@@ -35,6 +35,7 @@
     {% else %}
         <div class="jumbotron col-md-8 col-md-offset-2">
             <h3>您已登录！点击<a href="{% url 'logout' %}">登出</a></h3>
+            <a class="btn btn-primary btn-lg" id="back">返回</a>
         </div>
     {% endif %}
 {% endblock %}
@@ -42,6 +43,9 @@
 {% block javascript %}
     <script>
         $(function () {
+            $("#back").click(function () {
+                window.location.href='{{ next }}'
+            });
             var csrftoken = $("[name=csrfmiddlewaretoken]").val();
             $("#login_submit").click(function () {
                 $("#error_message").text('');

@@ -1,21 +1,10 @@
 {% extends 'base.html' %}
+
 {% load staticfiles %}
 
-{% block title %}主页{% endblock %}
-
-{% block css %}
-
-{% endblock %}
+{% block title %}发布课程{% endblock %}
 
 {% block content %}
-    {% url 'profile_settings' as url_profile_settings %}
-    {% url 'register' as url_register %}
-    {% url 'login' as url_login %}
-    {% url 'logout' as url_logout %}
-    <a href="{{ url_login }}">登录</a>
-    <a href="{{ url_register }}">注册</a>
-    <a href="{{ url_profile_settings }}">个人信息</a>
-    <a href="{{ url_logout }}">登出</a>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
         Launch demo modal
