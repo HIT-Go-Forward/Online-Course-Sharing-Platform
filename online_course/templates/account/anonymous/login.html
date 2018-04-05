@@ -10,27 +10,28 @@
 {% block content %}
     {% if not user.username %}
         <div class="jumbotron col-md-8 col-md-offset-2">
-            <form action="../" method="post" id="login" class="form-horizontal">{% csrf_token %}
-                <div class="form-group col-md-7">
-                    <label for="id_username" class="col-md-5 control-label">用户名：</label>
-                    <div class="col-md-6 text-left">{{ form.username }}</div>
+            <img src = '{% static 'img/account_filler.jpg' %}' class="col-md-5 img-responsive">
+            <form action="../" method="post" id="login" class="form-horizontal col-md-4 col-md-offset-1">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.username }}
                 </div>
-                <div class="form-group col-md-7">
-                    <label for="id_password" class="col-md-5 control-label">密码：</label>
-                    <div class="col-md-6 text-left">{{ form.password }}</div>
+                <div class="form-group">
+                    <div class="text-left">{{ form.password }}</div>
                 </div>
-                <div class="form-group col-md-7 col-md-offset-3 text-center">
+                <div class="form-group text-center">
                     <div id="success_message"></div>
                     <div id="warning_message"></div>
                     <div id="error_message"></div>
                 </div>
-                <div class="text-center col-md-7">
+                <div class="form-group text-center">
+                    <p style="margin-top: 10px;">{% trans '忘记密码?' %}<a href="#">{% trans '重置' %}</a></p>
+                    <p style="margin-top: 10px;">{% trans '如果您还没有账号,点击' %}<a href="{% url 'register' %}">{% trans '注册' %}</a></p>
+                </div>
+                <div class="text-center">
                     <a class="btn btn-default btn-lg" id="login_submit">登录</a>
                 </div>
             </form>
-            <p style="margin-top: 10px;">{% trans '忘记密码?' %}<a href="#">{% trans '重置' %}</a></p>
-            <p style="margin-top: 10px;">{% trans '如果您还没有账号,点击' %}<a href="{% url 'register' %}">{% trans '注册' %}</a>
-            </p>
         </div>
     {% else %}
         <div class="jumbotron col-md-8 col-md-offset-2">
@@ -46,6 +47,10 @@
             $("#back").click(function () {
                 window.location.href='{{ next }}'
             });
+
+            $("#id_username").attr({'placeholder':"用户名"});
+            $("#id_password").attr({'placeholder':"密码"});
+
             var csrftoken = $("[name=csrfmiddlewaretoken]").val();
             $("#login_submit").click(function () {
                 $("#error_message").text('');

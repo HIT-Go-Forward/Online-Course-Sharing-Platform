@@ -10,33 +10,47 @@
 {% block content %}
     {% if not user.username %}
         <div class="jumbotron col-md-8 col-md-offset-2">
-            <form action="." method="post" id="register" class="form-horizontal">{% csrf_token %}
-                <div class="form-group col-md-8">
-                    <label for="id_username" class="col-md-5 control-label">用户名：</label>
-                    <div class="col-md-6 text-left">{{ form.username }}</div>
+            <img src="{% static 'img/account_filler.jpg' %}" class="col-md-5 img-responsive">
+            <form action="." method="post" id="register" class="form-horizontal col-md-4 col-md-offset-1">{% csrf_token %}
+                <div class="form-group">
+                    <div class="text-left">{{ form.username }}</div>
+                    <div class="hidden">
+                        <i aria-hidden="true" id="ajaxUsername"></i>
+                    </div>
                 </div>
-                <div class="form-group col-md-8">
-                    <label for="id_email" class="col-md-5 control-label">邮箱：</label>
-                    <div class="col-md-6 text-left">{{ form.email }}</div>
+                <div class="form-group">
+                    <div class="text-left">{{ form.email }}</div>
+                    <div class="hidden">
+                        <i aria-hidden="true" id="ajaxEmail"></i>
+                    </div>
                 </div>
-                <div class="form-group col-md-8">
-                    <label for="id_password" class="col-md-5 control-label">密码：</label>
-                    <div class="col-md-6 text-left">{{ form.password }}</div>
+                <div class="form-group">
+                    <div class="text-left">{{ form.password }}</div>
+                    <div class="password-judge">
+                        <div class="pwd-bar"></div>
+                        <div class="pwd-bar-on"></div>
+                        <div class="pwd-msg">
+                            <span>弱</span>
+                            <span>中</span>
+                            <span>强</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group col-md-8">
-                    <label for="id_repeat_password" class="col-md-5 control-label">重复密码：</label>
-                    <div class="col-md-6 text-left">{{ form.repeat_password }}</div>
+                <div class="form-group">
+                    <div class="text-left">{{ form.repeat_password }}</div>
                 </div>
-                <div class="form-group col-md-7 col-md-offset-3 text-center">
+                <div class="form-group text-center">
                     <div id="success_message"></div>
                     <div id="warning_message"></div>
                     <div id="error_message"></div>
                 </div>
-                <div class="text-center col-md-8">
+                <div class="form-group text-center">
+                    <p style="margin-top: 10px;">{% trans '已经注册了账号?点击' %}<a href="{% url 'login' %}">{% trans '登录' %}</a></p>
+                </div>
+                <div class="text-center">
                     <button type="submit" class="btn btn-default btn-lg" id="register_submit">注册</button>
                 </div>
             </form>
-            <p style="margin-top: 10px;">{% trans '已经注册了账号?点击' %}<a href="{% url 'login' %}">{% trans '登录' %}</a></p>
         </div>
     {% else %}
         <div class="jumbotron col-md-8 col-md-offset-2">
@@ -44,17 +58,59 @@
         </div>
     {% endif %}
 {% endblock %}
-
 {% block javascript %}
     <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <script>
         $(function () {
+            $username = $("#id_username");
+            $password = $("#id_password");
+            $email = $("#id_email");
+            $repeat_password =  $("#id_repeat_password");
+            $register_submit = $("#register_submit");
+
+            $username.attr({'placeholder':"用户名"});
+            $password.attr({'placeholder':"密码"});
+            $email.attr({'placeholder':"邮箱"});
+            $repeat_password.attr({'placeholder':"重复密码"});
+
+            {#等一个可以返回用户名或email是否存在的ajax#}
+            {#$username.onchange(getUsername());#}
+            {#$email.onchange(getEmail());#}
+            var $pwd_judge=$(".password-judge");
+            var $pwd_msg=$(".passowrd-msg");
+            $pwd_judge.hide();
+            $password.keyup(function () {
+                if(!password_judge($password.val())){
+                    $pwd_msg.text("密码长度太短，请至少使用6个字符或数字");
+                    $register_submit.attr('disabled','disabled')
+                }
+                else{
+                    $pwd_msg.text("");
+                };
+            });
+            $password.focus(function () {
+                $pwd_judge.show('normal');
+            });
+            $repeat_password.blur(function(){
+                if($password.val()===$repeat_password.val()){
+                    $pwd_judge.hide('normal');
+                    $pwd_msg.text('');
+                    $register_submit.removeAttr('disabled');
+                }
+                else{
+                    $pwd_msg.text("两次密码不一致");
+                    $register_submit.attr('disabled','disabled');
+                }
+            });
+
+
             $("#register").submit(function () {
                 $error=$("#error_message");
                 $warning=$("#warning_message");
                 $error.text('');
                 $warning.text('');
-                if($('#id_password')!==$('#id_repeat_password')){
+                if($password.val()!==$repeat_password.val()){
                     $warning.append("<p>密码不一致</p>");
                     return false;
                 }

@@ -6,12 +6,7 @@ footer{
     -ms-user-select: none;
     user-select: none;
 }
-#login{
-    margin-top: 50px;
-}
-#register{
-    margin-top: 50px;
-}
+
 .jumbotron{
     margin-top: 5%;
     border: 1px #838383;
