@@ -3,14 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+    <!-- 这里配置jdbc driver, 用户名密码等数据库相关信息 -->
     <properties>
         <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/byq" />
-        <property name="username" value="root" />
-        <property name="password" value="123456789" />
+        <property name="url" value="jdbc:mysql://host:port/database" />
+        <property name="username" value="name" />
+        <property name="password" value="password" />
 
     </properties>
 
+    <!-- 自动扫描的实体类, 可用于mapper中的返回类型 -->
     <typeAliases>
         <package name="hit.to.go.entity" />
     </typeAliases>
@@ -27,7 +30,8 @@
         </environment>
     </environments>
 
+    <!-- 在这里添加每个写好的mapper -->
     <mappers>
-        <mapper resource="mybatis/mapper/UserMapper.xml"/>
+        <mapper resource="mybatis/mapper/MapperName.xml"/>
     </mappers>
 </configuration>
