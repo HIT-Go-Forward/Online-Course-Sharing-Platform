@@ -5,9 +5,10 @@
 <configuration>
     <properties>
         <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/byq" />
+        <property name="url" value="jdbc:mysql://39.106.156.178:3306/zabbix" />
         <property name="username" value="root" />
         <property name="password" value="123456789" />
+
     </properties>
 
     <typeAliases>
@@ -28,5 +29,6 @@
 
     <mappers>
         <mapper resource="mybatis/mapper/UserMapper.xml"/>
+        <mapper resource="mybatis/mapper/FileMapper.xml"/>
     </mappers>
 </configuration>

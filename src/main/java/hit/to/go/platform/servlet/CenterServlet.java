@@ -1,6 +1,5 @@
-package hit.to.go.servlet;
+package hit.to.go.platform.servlet;
 
-import com.mysql.cj.jdbc.AbandonedConnectionCleanupThread;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.DispatcherServlet;

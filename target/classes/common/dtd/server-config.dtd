@@ -1,0 +1,4 @@
+<!ELEMENT server (media-server?)>
+<!ELEMENT media-server (address, port?)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT port (#PCDATA)>

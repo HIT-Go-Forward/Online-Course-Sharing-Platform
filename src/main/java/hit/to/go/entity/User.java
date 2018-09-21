@@ -8,36 +8,19 @@ import java.util.Date;
 public class User {
     private Integer id;
     private String name;
-    private Integer authLv;
-    private String phone;
-    private String address;
-    private String education;
-    private String job;
+    private Integer type;
+    private String sex;
     private Date birthday;
-    private Integer score;
-    private boolean selected;
-
-    public User() {
-    }
-
-    public boolean isSelected() {
-        return this.selected;
-    }
-
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
-
-    public Integer getScore() {
-        return this.score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
+    private String email;
+    private Integer education;
+    private String school;
+    private String intro;
+    private String note;
+    private String phone;
+    private String img;
 
     public Integer getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Integer id) {
@@ -45,58 +28,90 @@ public class User {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public Integer getAuthLv() {
-        return this.authLv;
+    public Integer getType() {
+        return type;
     }
 
-    public void setAuthLv(Integer authLv) {
-        this.authLv = authLv;
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getEducation() {
+        return education;
+    }
+
+    public void setEducation(Integer education) {
+        this.education = education;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public String getPhone() {
-        return this.phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getAddress() {
-        return this.address;
+    public String getImg() {
+        return img;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getEducation() {
-        return this.education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    public String getJob() {
-        return this.job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
-    }
-
-    public Date getBirthday() {
-        return this.birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setImg(String img) {
+        this.img = img;
     }
 }

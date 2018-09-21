@@ -5,15 +5,35 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
-
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
   </context-param>
 
+  <filter>
+    <filter-name>RequestFilter</filter-name>
+    <filter-class>hit.to.go.platform.filter.RequestFilter</filter-class>
+  </filter>
+
+  <filter>
+    <filter-name>UserAuthorityFilter</filter-name>
+    <filter-class>hit.to.go.platform.filter.UserAuthorityFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>RequestFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>UserAuthorityFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+
+</filter-mapping>
+
   <servlet>
     <servlet-name>dispatcher</servlet-name>
-    <servlet-class>hit.to.go.servlet.CenterServlet</servlet-class>
+    <servlet-class>hit.to.go.platform.servlet.CenterServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
 
