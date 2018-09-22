@@ -59,6 +59,7 @@ public class MediaTransmissionUtil {
             byte[] data = resp.body().bytes();
             response.setContentLengthLong(resp.body().contentLength());
             response.setContentType(resp.body().contentType().type());
+            
             for (String n : resp.headers().names()) {
                 response.setHeader(n, resp.header(n));
             }

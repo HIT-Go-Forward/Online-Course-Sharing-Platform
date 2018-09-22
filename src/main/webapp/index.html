@@ -5,6 +5,34 @@
     <title>Title</title>
 </head>
 <body>
-<video src="/5.media" controls></video>
+<label for="video">video:<input type="text" id="video" placeholder="请输入视频ID"></label>
+<button id="videoBtn">go</button><br>
+<video src="5.media" controls width="600px" height="400px"></video>
+<br>
+<label for="img">img: <input type="text" id="img" placeholder="请输入图片ID"></label>
+<button id="imgBtn">go</button>
+<br>
+<img src="2.media" alt="" width="600px" height="400px">
+<br>
 </body>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        var $video = $("#video");
+        var $img = $("#img");
+        var $vBtn = $("#videoBtn");
+        var $iBtn = $("#imgBtn");
+
+        $vBtn.click(function () {
+            $("video").attr("src", $video.val() + ".media");
+        });
+
+        $iBtn.click(function () {
+            $("img").attr("src", $img.val() + ".media");
+        });
+    });
+</script>
 </html>
