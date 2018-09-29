@@ -10,6 +10,6 @@ public class TestMailUtil {
 
     @Test
     public void testSend() {
-        MailUtil.send("1103255088@qq.com", "It works!");
+//        MailUtil.send("1103255088@qq.com", "It works!");
     }
 }

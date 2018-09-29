@@ -76,14 +76,14 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/sendValidateCode")
-    public String sendValidateCode(String to) {
+    public String sendValidateCode(String email) {
         boolean update = false;
         String code;
         Map<String, Object> map;
 
         Date now = new Date();
         ValidateCodeMapper mapper = MybatisProxy.create(ValidateCodeMapper.class);
-        ValidateCode vc = mapper.queryValidateCode(to);
+        ValidateCode vc = mapper.queryValidateCode(email);
         if (vc != null) {
             // 判断距上次请求是否小于一分钟
             if (now.getTime() - vc.getDate().getTime() < 60000) return RequestResults.forbidden("请于一分钟之后再试!");
@@ -94,14 +94,14 @@ public class UserAuthorityController {
 
         map.put("code", code);
         map.put("date", now);
-        map.put("email", to);
+        map.put("email", email);
 
         Integer rows = null;
         boolean flag;
         if (update) rows = mapper.updateValidateCode(map);
         else rows = mapper.insertValidateCode(map);
         if (rows != null && rows.equals(1)) {
-            flag = MailUtil.send(to, SystemConfig.getMailConfig().getTemplate(MailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", code));
+            flag = MailUtil.send(email, SystemConfig.getMailConfig().getTemplate(MailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", code));
             if (flag) return RequestResults.success();
         }
         return RequestResults.error("邮件发送失败, 请稍后再试~");

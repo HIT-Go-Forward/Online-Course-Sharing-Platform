@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,8 +29,8 @@ public class SystemConfig {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
-            InputStream input = SystemConfig.class.getResourceAsStream("/server-config.xml");
-            Document document = db.parse(input);
+            URL url = SystemConfig.class.getClassLoader().getResource("/server-config.xml");
+            Document document = db.parse(url.toString());
             NodeList nodeList = document.getElementsByTagName("server");
             Node server = nodeList.item(0);
             nodeList = server.getChildNodes();

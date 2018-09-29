@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="hit.to.go.test.TestValidate" time="0.001" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.class.path" value="E:\Projects\web\HitToGo\togoserver\target\test-classes;E:\Projects\web\HitToGo\togoserver\target\classes;C:\Users\Snxt\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Snxt\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Snxt\.m2\repository\org\slf4j\slf4j-log4j12\1.7.7\slf4j-log4j12-1.7.7.jar;C:\Users\Snxt\.m2\repository\org\slf4j\slf4j-api\1.7.7\slf4j-api-1.7.7.jar;C:\Users\Snxt\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\Snxt\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-webmvc\4.3.18.RELEASE\spring-webmvc-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-aop\4.3.18.RELEASE\spring-aop-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-beans\4.3.18.RELEASE\spring-beans-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-context\4.3.18.RELEASE\spring-context-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-core\4.3.18.RELEASE\spring-core-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-expression\4.3.18.RELEASE\spring-expression-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-web\4.3.18.RELEASE\spring-web-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\mybatis\mybatis\3.4.2\mybatis-3.4.2.jar;C:\Users\Snxt\.m2\repository\mysql\mysql-connector-java\8.0.12\mysql-connector-java-8.0.12.jar;C:\Users\Snxt\.m2\repository\com\google\protobuf\protobuf-java\2.6.0\protobuf-java-2.6.0.jar;C:\Users\Snxt\.m2\repository\org\apache\tomcat\tomcat-api\8.5.30\tomcat-api-8.5.30.jar;C:\Users\Snxt\.m2\repository\org\apache\tomcat\tomcat-servlet-api\8.5.30\tomcat-servlet-api-8.5.30.jar;C:\Users\Snxt\.m2\repository\com\squareup\okhttp3\okhttp\3.11.0\okhttp-3.11.0.jar;C:\Users\Snxt\.m2\repository\com\squareup\okio\okio\1.14.0\okio-1.14.0.jar;C:\Users\Snxt\.m2\repository\com\sun\mail\javax.mail\1.6.2\javax.mail-1.6.2.jar;C:\Users\Snxt\.m2\repository\javax\activation\activation\1.1\activation-1.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\Snxt\AppData\Local\Temp\surefire7322269869905561878\surefirebooter6836584451577382743.jar C:\Users\Snxt\AppData\Local\Temp\surefire7322269869905561878 2018-09-29T19-35-04_163-jvmRun1 surefire5927711948608958110tmp surefire_07563744633561099263tmp"/>
+    <property name="surefire.test.class.path" value="E:\Projects\web\HitToGo\togoserver\target\test-classes;E:\Projects\web\HitToGo\togoserver\target\classes;C:\Users\Snxt\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Snxt\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Snxt\.m2\repository\org\slf4j\slf4j-log4j12\1.7.7\slf4j-log4j12-1.7.7.jar;C:\Users\Snxt\.m2\repository\org\slf4j\slf4j-api\1.7.7\slf4j-api-1.7.7.jar;C:\Users\Snxt\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\Snxt\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-webmvc\4.3.18.RELEASE\spring-webmvc-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-aop\4.3.18.RELEASE\spring-aop-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-beans\4.3.18.RELEASE\spring-beans-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-context\4.3.18.RELEASE\spring-context-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-core\4.3.18.RELEASE\spring-core-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-expression\4.3.18.RELEASE\spring-expression-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\springframework\spring-web\4.3.18.RELEASE\spring-web-4.3.18.RELEASE.jar;C:\Users\Snxt\.m2\repository\org\mybatis\mybatis\3.4.2\mybatis-3.4.2.jar;C:\Users\Snxt\.m2\repository\mysql\mysql-connector-java\8.0.12\mysql-connector-java-8.0.12.jar;C:\Users\Snxt\.m2\repository\com\google\protobuf\protobuf-java\2.6.0\protobuf-java-2.6.0.jar;C:\Users\Snxt\.m2\repository\org\apache\tomcat\tomcat-api\8.5.30\tomcat-api-8.5.30.jar;C:\Users\Snxt\.m2\repository\org\apache\tomcat\tomcat-servlet-api\8.5.30\tomcat-servlet-api-8.5.30.jar;C:\Users\Snxt\.m2\repository\com\squareup\okhttp3\okhttp\3.11.0\okhttp-3.11.0.jar;C:\Users\Snxt\.m2\repository\com\squareup\okio\okio\1.14.0\okio-1.14.0.jar;C:\Users\Snxt\.m2\repository\com\sun\mail\javax.mail\1.6.2\javax.mail-1.6.2.jar;C:\Users\Snxt\.m2\repository\javax\activation\activation\1.1\activation-1.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Snxt"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_144\jre"/>
+    <property name="basedir" value="E:\Projects\web\HitToGo\togoserver"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\Snxt\AppData\Local\Temp\surefire7322269869905561878\surefirebooter6836584451577382743.jar"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_144\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_144-b01"/>
+    <property name="user.name" value="Snxt"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Snxt\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Snxt\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2018.2.2"/>
+    <property name="java.version" value="1.8.0_144"/>
+    <property name="user.dir" value="E:\Projects\web\HitToGo\togoserver"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ActiveTcl\bin;C:\Program Files\Java\jdk1.8.0_144\bin;C:\Program Files\Java\jdk1.8.0_144\jre\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Graphviz2.38\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\MySQL\MySQL Server 5.7\bin;E:\environments\php;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\nasm;C:\Bochs-2.6.8;C:\Program Files (x86)\Intel\Phone Flash Tool;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Python27;C:\Python27\Scripts;C:\Users\Snxt\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Snxt\AppData\Local\Programs\Python\Python36-32\;E:\Environments\Anaconda2-4.2.0;E:\Environments\Anaconda2-4.2.0\Scripts;E:\Environments\Anaconda2-4.2.0\Library\bin;E:\Environments\hadooponwindows-master\bin;E:\Environments\spark-2.3.0-bin-hadoop2.7\bin;F:\Software\cmder;E:\Environments\apache-tomcat-7.0.90\lib;E:\Environments\apache-tomcat-7.0.90\bin;C:\WINDOWS\System32\OpenSSH\;F:\Software\matlab\runtime\win64;F:\Software\matlab\bin;F:\Software\Ultraedit;E:\Environments\maven\apache-maven-3.5.4\bin;F:\Software\nodejs\;C:\Users\Snxt\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Snxt\AppData\Local\Programs\Python\Python36-32\;C:\Users\Snxt\AppData\Local\Microsoft\WindowsApps;C:\Users\Snxt\AppData\Local\atom\bin;;F:\Software\Microsoft VS Code\bin;C:\Users\Snxt\AppData\Local\Microsoft\WindowsApps;C:\Users\Snxt\AppData\Roaming\npm;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.144-b01"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="testGenValidateCode" classname="hit.to.go.test.TestValidate" time="0"/>
+</testsuite>
