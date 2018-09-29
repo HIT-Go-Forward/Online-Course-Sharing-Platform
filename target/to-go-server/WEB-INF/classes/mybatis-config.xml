@@ -5,7 +5,7 @@
 <configuration>
     <properties>
         <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://39.106.156.178:3306/zabbix" />
+        <property name="url" value="jdbc:mysql://39.106.156.178:3306/zabbix?useUnicode=true&amp;characterEncoding=UTF-8" />
         <property name="username" value="root" />
         <property name="password" value="123456789" />
 
@@ -28,7 +28,8 @@
     </environments>
 
     <mappers>
-        <mapper resource="mybatis/mapper/UserMapper.xml"/>
-        <mapper resource="mybatis/mapper/FileMapper.xml"/>
+        <mapper resource="mybatis/mapper/UserMapper.xml" />
+        <mapper resource="mybatis/mapper/FileMapper.xml" />
+        <mapper resource="mybatis/mapper/ValidateCodeMapper.xml" />
     </mappers>
 </configuration>

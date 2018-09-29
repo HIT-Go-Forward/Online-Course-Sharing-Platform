@@ -5,34 +5,59 @@
     <title>Title</title>
 </head>
 <body>
-<label for="video">video:<input type="text" id="video" placeholder="请输入视频ID"></label>
-<button id="videoBtn">go</button><br>
-<video src="5.media" controls width="600px" height="400px"></video>
+<form action="/authority/signUp.action">
+    <label>name:<input type="text" name="name"></label><br>
+    <label>password:<input type="password" name="password"></label><br>
+    <label>sex:
+        <select name="sex">
+            <option value="F">男</option>
+            <option value="M">女</option>
+        </select>
+    </label><br>
+    <label>type:<input type="text" name="type"></label><br>
+    <label>birthday:<input type="date" name="birthday"></label><br>
+    <label>email:<input type="email" name="email"></label><br>
+    <label>education<input type="text" name="education"></label><br>
+    <label>school<input type="text" name="school"></label><br>
+    <label>intro<input type="text" name="intro"></label><br>
+    <label>note<input type="text" name="note"></label><br>
+    <label>phone<input type="text" name="phone"></label><br>
+    <label>img<input type="text" name="img"></label><br>
+    <input type="submit" value="ok">
+</form>
+
+<label>email:<input type="email" id="email"></label>
+<button id="sendEmail">发送验证邮件</button>
 <br>
-<label for="img">img: <input type="text" id="img" placeholder="请输入图片ID"></label>
-<button id="imgBtn">go</button>
-<br>
-<img src="2.media" alt="" width="600px" height="400px">
-<br>
-</body>
-<script
-        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+<label>验证:<input type="text" id="validateCode"></label>
+<button id="validate">验证</button>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
         crossorigin="anonymous"></script>
+
 <script>
     $(function () {
-        var $video = $("#video");
-        var $img = $("#img");
-        var $vBtn = $("#videoBtn");
-        var $iBtn = $("#imgBtn");
+        var $email = $("#email");
+        var $validateCode = $("#validateCode");
 
-        $vBtn.click(function () {
-            $("video").attr("src", $video.val() + ".media");
+        var $sendEmail = $("#sendEmail");
+        var $validate = $("#validate");
+
+        $sendEmail.click(function () {
+            $.getJSON("/authority/sendValidateCode.action", {to: $email.val()}, function (response) {
+                console.log("send response:" + response);
+            })
         });
 
-        $iBtn.click(function () {
-            $("img").attr("src", $img.val() + ".media");
+        $validate.click(function () {
+            $.getJSON("/authority/validateCode.action", {email: $email.val(), code: $validateCode.val()}, function (response) {
+                console.log("validate response:" + response);
+            })
         });
+
     });
 </script>
+</body>
 </html>

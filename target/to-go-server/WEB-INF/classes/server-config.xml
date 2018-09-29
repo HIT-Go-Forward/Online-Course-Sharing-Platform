@@ -2,7 +2,25 @@
 <!DOCTYPE server SYSTEM 'common/dtd/server-config.dtd'>
 <server>
     <media-server>
-        <address>localhost</address>
-        <port>80</port>
+        <address>http://47.94.148.40:8080/media-server</address>
+        <port>8080</port>
     </media-server>
+
+    <mail>
+        <account>15846376962@163.com</account>
+        <password>cfmy0714..</password>
+        <auth-code>byq0714</auth-code>
+        <smtp-host>smtp.163.com</smtp-host>
+        <templates>
+            <template>
+                <key>validateCodeMail</key>
+                <value>
+                    您此次操作的验证码是 {validateCode},15分钟内有效.
+                    注意信息安全, 请勿透露给他人!
+                    祝您生活愉快~
+                    --Hit-Go-Forward团队
+                </value>
+            </template>
+        </templates>
+    </mail>
 </server>

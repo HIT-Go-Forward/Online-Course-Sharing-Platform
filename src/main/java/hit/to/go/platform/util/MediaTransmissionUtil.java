@@ -13,19 +13,6 @@ import java.util.Enumeration;
  * Created by 班耀强 on 2018/9/21
  */
 public class MediaTransmissionUtil {
-    public static Response transmission(String url) {
-        OkHttpClient client = new OkHttpClient();
-        Request req = new Request.Builder()
-                .url(url)
-                .build();
-
-        try (Response response = client.newCall(req).execute()) {
-            return response;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     public static void transmission(Integer id, HttpServletRequest request, HttpServletResponse response) {
         Response resp;
@@ -34,7 +21,6 @@ public class MediaTransmissionUtil {
         if (url == null) {
             try {
                 response.sendError(404);
-                return;
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -59,7 +45,7 @@ public class MediaTransmissionUtil {
             byte[] data = resp.body().bytes();
             response.setContentLengthLong(resp.body().contentLength());
             response.setContentType(resp.body().contentType().type());
-            
+
             for (String n : resp.headers().names()) {
                 response.setHeader(n, resp.header(n));
             }

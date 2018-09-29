@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE server SYSTEM 'common/dtd/server-config.dtd'>
+<server>
+    <media-server>
+        <address>http://xx.xx.xx.xx/media-server</address>
+        <port>8080</port>
+    </media-server>
+
+    <mail>
+        <account>xxxxxx@163.com</account>
+        <password>xxxxx</password>
+        <auth-code>xxxx</auth-code>
+        <smtp-host>smtp.163.com</smtp-host>
+        <templates>
+            <template>
+                <key>validateCodeMail</key>
+                <value>
+                    您此次操作的验证码是 {validateCode},15分钟内有效.
+                    注意信息安全, 请勿透露给他人!
+                    祝您生活愉快~
+                    --Hit-Go-Forward团队
+                </value>
+            </template>
+        </templates>
+    </mail>
+</server>

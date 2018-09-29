@@ -1,4 +1,4 @@
-package hit.to.go.entity;
+package hit.to.go.entity.user;
 
 import java.util.Date;
 
@@ -18,6 +18,15 @@ public class User {
     private String note;
     private String phone;
     private String img;
+    private boolean isVisitor;
+
+    public User() {
+        this.isVisitor = false;
+    }
+
+    public User(boolean isVisitor) {
+        this.isVisitor = isVisitor;
+    }
 
     public Integer getId() {
         return id;
@@ -113,5 +122,9 @@ public class User {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public boolean isVisitor() {
+        return isVisitor;
     }
 }

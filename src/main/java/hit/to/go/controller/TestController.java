@@ -2,7 +2,7 @@ package hit.to.go.controller;
 
 import hit.to.go.database.dao.UserMapper;
 import hit.to.go.database.mybatis.MybatisProxy;
-import hit.to.go.entity.User;
+import hit.to.go.entity.user.User;
 import hit.to.go.platform.protocol.RequestResults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TestController {
     private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
-    @RequestMapping("/test")
+    @RequestMapping("/queryUser")
     public String testMethod(Integer id) {
         if (id != null) {
             UserMapper mapper = MybatisProxy.create(UserMapper.class);
             User user = mapper.queryById(id);
-            return RequestResults.success(user);
+            if (user != null) return RequestResults.success(user);
         }
         return RequestResults.notFound(null);
     }

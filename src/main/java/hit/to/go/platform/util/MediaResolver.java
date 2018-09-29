@@ -15,7 +15,7 @@ public class MediaResolver {
 
     public static String getRealUrl(Integer id) {
         FileMapper mapper = MybatisProxy.create(FileMapper.class);
-        String url = SystemConfig.MEDIA_ADDRESS + mapper.queryUrlById(id);
+        String url = SystemConfig.getMediaAddress() + mapper.queryUrlById(id);
         logger.debug("查询资源地址 {}", url);
         return url;
     }

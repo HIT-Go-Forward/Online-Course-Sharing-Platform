@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hit.to.go.database.dao.ValidateCodeMapper">
+    <resultMap id="baseResultMap" type="validateCode">
+        <id column="id" property="id" />
+        <result column="email" property="email" />
+        <result column="code" property="code" />
+        <result column="date" property="date" />
+        <result column="state" property="state" />
+    </resultMap>
+
+    <update id="updateValidateCode" parameterType="java.util.Map" >
+        update validate_code set code = #{code}, date = #{date}, state = 0 where email = #{email}
+    </update>
+
+    <update id="becomeInvalid" parameterType="java.lang.String">
+        update validate_code set state = 1 where email = #{email}
+    </update>
+
+    <insert id="insertValidateCode" parameterType="java.util.Map" >
+        insert into validate_code
+        (email, code, date)
+        values
+        (#{email}, #{code}, #{date})
+    </insert>
+
+    <select id="queryValidateCode" parameterType="java.lang.String" resultMap="baseResultMap" >
+        select * from validate_code where email = #{email}
+    </select>
+</mapper>

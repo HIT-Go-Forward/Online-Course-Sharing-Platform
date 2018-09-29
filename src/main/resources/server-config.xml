@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE server SYSTEM 'common/dtd/server-config.dtd'>
-<server>
-    <media-server>
-        <address>localhost</address>
-        <port>80</port>
-    </media-server>
-</server>
