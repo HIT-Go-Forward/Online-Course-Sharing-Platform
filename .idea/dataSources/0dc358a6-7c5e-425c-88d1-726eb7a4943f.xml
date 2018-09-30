@@ -1315,104 +1315,114 @@
       <Position>13</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;4&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="311" parent="240" name="imgfk">
+    <index id="311" parent="240" name="user_user_email_uindex">
+      <ColNames>user_email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="312" parent="240" name="imgfk">
       <ColNames>user_img</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="312" parent="240" name="PRIMARY">
+    <key id="313" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="313" parent="240" name="imgfk">
+    <key id="314" parent="240" name="user_user_email_uindex">
+      <ColNames>user_email</ColNames>
+      <UnderlyingIndexName>user_user_email_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="315" parent="240" name="imgfk">
       <ColNames>user_img</ColNames>
       <RefSchemaName>zabbix</RefSchemaName>
       <RefTableName>file</RefTableName>
       <RefColNames>file_id</RefColNames>
     </foreign-key>
-    <column id="314" parent="241" name="user_power_id">
+    <column id="316" parent="241" name="user_power_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="241" name="user_power_action">
+    <column id="317" parent="241" name="user_power_action">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="241" name="power">
+    <column id="318" parent="241" name="power">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="241" name="para">
+    <column id="319" parent="241" name="para">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="241" name="result">
+    <column id="320" parent="241" name="result">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="241" name="note">
+    <column id="321" parent="241" name="note">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="320" parent="241" name="PRIMARY">
+    <key id="322" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_power_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="321" parent="242" name="id">
+    <column id="323" parent="242" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="242" name="email">
+    <column id="324" parent="242" name="email">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="323" parent="242" name="code">
+    <column id="325" parent="242" name="code">
       <Position>3</Position>
       <DataType>varchar(6)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="242" name="date">
+    <column id="326" parent="242" name="date">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="325" parent="242" name="state">
+    <column id="327" parent="242" name="state">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="326" parent="242" name="validate_code_email_uindex">
+    <index id="328" parent="242" name="validate_code_email_uindex">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="327" parent="242" name="PRIMARY">
+    <key id="329" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="328" parent="242" name="validate_code_email_uindex">
+    <key id="330" parent="242" name="validate_code_email_uindex">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>validate_code_email_uindex</UnderlyingIndexName>
     </key>

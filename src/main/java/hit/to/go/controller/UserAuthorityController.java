@@ -8,6 +8,7 @@ import hit.to.go.entity.validate.ValidateCode;
 import hit.to.go.platform.MailConfig;
 import hit.to.go.platform.PlatformAttrKey;
 import hit.to.go.platform.SystemConfig;
+import hit.to.go.platform.protocol.RequestResult;
 import hit.to.go.platform.protocol.RequestResults;
 import hit.to.go.platform.util.MailUtil;
 import hit.to.go.platform.util.Validate;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
@@ -30,32 +33,63 @@ import java.util.Map;
 public class UserAuthorityController {
 
     @RequestMapping("/register")
-    public String register(@RequestParam Map<String, String> map) {
+    public String register(@RequestParam Map<String, String> map, HttpServletResponse response) {
+        String code = map.get("code");
+        String name = map.get("name");
+        String password = map.get("password");
+        String email = map.get("email");
+        if (code != null && name != null && password != null && email != null) {
+            String result = validateCode(code, email);
+            if (result.equals("success")) {
+                UserMapper mapper = MybatisProxy.create(UserMapper.class);
+                Integer id = mapper.selectEmail(email);
+
+                if (id != null) return RequestResults.forbidden("该邮箱已被注册, 请重试!");
+
+                Integer rows = mapper.register(map);
+                if (rows != null && rows.equals(1))
+                    return RequestResults.success(map.get("user_id"));
+
+                return RequestResults.error();
+            }
+            return RequestResults.forbidden(result) ;
+        }
+
+        return RequestResults.forbidden("请确认已填写全部必填信息!");
+    }
+
+    @RequestMapping("/completeInfo")
+    public String completeInfo(@RequestParam Map<String, String> paras) {
         UserMapper mapper = MybatisProxy.create(UserMapper.class);
-        Integer id = mapper.signUp(map);
-        if (id != null && id.equals(1)) return RequestResults.success(map.get("user_id"));
-        return RequestResults.badRequest("请检查必需字段是否为空!");
+        String id = paras.get("id");
+        String password = paras.get("password");
+
+        if (id != null && password != null) {
+            Integer rows = mapper.completeInfo(paras);
+            if (rows != null && rows.equals(1)) return RequestResults.success();
+            return RequestResults.error("保存失败!");
+        }
+
+        return RequestResults.forbidden("完善账号信息需要账号密码!");
     }
 
     @RequestMapping("/login")
-    public String login(@RequestParam Map<String, String> map, HttpSession session) {
-        String id, password;
+    public String login(@RequestParam Map<String, String> map) {
+        String id, email, password;
         id = map.get("id");
+        email = map.get("email");
         password = map.get("password");
-        if (id != null && password != null) {
-            User user = (User) session.getAttribute(PlatformAttrKey.ATTR_USER);
-            if (user != null && user.getId().equals(Integer.valueOf(id)))
-                return RequestResults.forbidden("请勿重复登录!");
-            else {
-                UserMapper mapper = MybatisProxy.create(UserMapper.class);
-                user = mapper.login(map);
-                if (user != null) {
-                    session.setAttribute(PlatformAttrKey.ATTR_USER, user);
-                    return RequestResults.success(user);
-                }
-            }
-        }
-        return RequestResults.badRequest("用户名或密码错误!");
+
+        if (id == null && email == null || password == null) return RequestResults.forbidden("密码不能为空, 账号或邮箱必须提供其一");
+        UserMapper mapper = MybatisProxy.create(UserMapper.class);
+
+        Map<String, String> result;
+        if (id != null) result = mapper.loginById(map);
+        else result = mapper.loginByEmail(map);
+
+        if (result != null) return RequestResults.success(result);
+
+        return RequestResults.forbidden("账号或密码错误!");
     }
 
     @RequestMapping("/logout")
@@ -109,10 +143,16 @@ public class UserAuthorityController {
 
     @RequestMapping("/validateCode")
     public String validateCode(@RequestParam Map<String, String> map) {
-        Date now = new Date();
-
         String email = map.get("email");
         String code = map.get("code");
+
+        String result = validateCode(code, email);
+        if (result.equals("success")) return RequestResults.success();
+        return RequestResults.forbidden(result);
+    }
+
+    private String validateCode(String code, String email) {
+        Date now = new Date();
 
         if (email != null && code != null) {
             ValidateCodeMapper mapper = MybatisProxy.create(ValidateCodeMapper.class);
@@ -121,12 +161,13 @@ public class UserAuthorityController {
             if (vc != null && (now.getTime() - vc.getDate().getTime() < 900000)) {
                 if (vc.getState().equals(ValidateCode.STATE_VALID) && vc.getCode().equals(code)) {
                     mapper.becomeInvalid(email);
-                    return RequestResults.success();
+                    return "success";
                 }
-                return RequestResults.error("验证码错误或已失效, 请重试!");
+                return "验证码错误或已失效, 请重试!";
             }
+            return "验证码已超时, 请重试!";
         }
 
-        return RequestResults.error("验证码与邮箱均不能为空");
+        return "验证码与邮箱均不能为空";
     }
 }

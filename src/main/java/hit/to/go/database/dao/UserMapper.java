@@ -12,5 +12,17 @@ public interface UserMapper {
 
     Integer signUp(Map<String, String> map);
 
+    Integer register(Map<String, String> map);
+
     User login(Map<String, String> map);
+
+    Integer completeInfo(Map<String, String> map);
+
+    Integer changePassword(Map<String, String> map);
+
+    Integer selectEmail(String email);
+
+    Map<String, String> loginById(Map<String, String> paras);
+
+    Map<String, String> loginByEmail(Map<String, String> paras);
 }

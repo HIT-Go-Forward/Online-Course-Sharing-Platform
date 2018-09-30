@@ -1,6 +1,6 @@
 <!ELEMENT server (media-server?, mail?)>
 
-<!ELEMENT media-server (address, port)>
+<!ELEMENT media-server (address)>
 <!ELEMENT address (#PCDATA)>
 <!ELEMENT port (#PCDATA)>
 
