@@ -10,17 +10,17 @@ import java.util.Map;
 public interface UserMapper {
     User queryById(int id);
 
-    Integer signUp(Map<String, String> map);
-
     Integer register(Map<String, String> map);
-
-    User login(Map<String, String> map);
 
     Integer completeInfo(Map<String, String> map);
 
     Integer changePassword(Map<String, String> map);
 
-    Integer selectEmail(String email);
+    Integer selectIdByEmail(String email);
+
+    String selectEmailById(Integer id);
+
+    String selectPassword(Integer id);
 
     Map<String, String> loginById(Map<String, String> paras);
 

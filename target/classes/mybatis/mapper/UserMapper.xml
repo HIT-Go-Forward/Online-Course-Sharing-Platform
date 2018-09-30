@@ -57,8 +57,12 @@
         where user_id = #{id}
     </update>
 
-    <select id="selectEmail" parameterType="String" resultType="String">
+    <select id="selectIdByEmail" parameterType="String" resultType="Integer">
         select user_id from user where user_email = #{email}
+    </select>
+
+    <select id="selectEmailById" parameterType="Integer" resultType="String">
+        select user_email from user where user_id = #{id}
     </select>
 
     <select id="loginById" parameterType="java.util.Map" resultType="java.util.Map">
@@ -67,5 +71,9 @@
 
     <select id="loginByEmail" parameterType="java.util.Map" resultType="java.util.Map">
         select * from user where user_email = #{email} and password = #{password}
+    </select>
+
+    <select id="selectPassword" parameterType="Integer" resultType="String">
+        select password from user where user_id = #{id}
     </select>
 </mapper>
