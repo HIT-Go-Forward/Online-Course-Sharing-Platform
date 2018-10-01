@@ -4,11 +4,12 @@ import hit.to.go.database.dao.UserMapper;
 import hit.to.go.database.dao.ValidateCodeMapper;
 import hit.to.go.database.mybatis.MybatisProxy;
 import hit.to.go.entity.user.User;
+import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.entity.validate.ValidateCode;
 import hit.to.go.platform.MailConfig;
 import hit.to.go.platform.PlatformAttrKey;
 import hit.to.go.platform.SystemConfig;
-import hit.to.go.platform.protocol.RequestResult;
+import hit.to.go.platform.SystemStorage;
 import hit.to.go.platform.protocol.RequestResults;
 import hit.to.go.platform.util.MailUtil;
 import hit.to.go.platform.util.Validate;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -74,54 +74,60 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/login")
-    public String login(@RequestParam Map<String, String> map) {
-        String id, email, password;
-        id = map.get("id");
-        email = map.get("email");
-        password = map.get("password");
-
-        if (id == null && email == null || password == null) return RequestResults.forbidden("密码不能为空, 账号或邮箱必须提供其一");
+    public String login(Integer id, String email, String password) {
+        if (id == null && email == null || password == null) return RequestResults.forbidden("密码不能为空且账号或邮箱必须提供其一");
         UserMapper mapper = MybatisProxy.create(UserMapper.class);
 
-        Map<String, String> result;
-        if (id != null) result = mapper.loginById(map);
-        else result = mapper.loginByEmail(map);
+        UserWithPassword user = null;
+        if (id != null) user = mapper.selectUserById(id);
+        else user = mapper.selectUserByEmail(email);
 
-        if (result != null) return RequestResults.success(result);
-
+        if (user != null && user.getPassword().equals(password)) {
+            SystemStorage.setOnlineUser(user.getId().toString(), user);
+            return RequestResults.success(user);
+        }
         return RequestResults.forbidden("账号或密码错误!");
     }
 
     @RequestMapping("/logout")
-    public String logout(HttpSession session) {
-        session.removeAttribute(PlatformAttrKey.ATTR_USER);
-        return RequestResults.success();
+    public String logout(String id, String password) {
+        if (id != null && password != null) {
+            UserWithPassword user = SystemStorage.getOnlineUser(id);
+            if (user != null && user.getPassword().equals(password)) {
+                SystemStorage.removeOnlineUser(id);
+                return RequestResults.success();
+            }
+            return RequestResults.invalidAccountOrPassword();
+        }
+        return RequestResults.wrongParameters();
     }
 
     @RequestMapping("/changePassword")
     public String changePassword(Integer id, String oldPassword, String newPassword, String code) {
         if (id != null && oldPassword != null && newPassword != null && code != null) {
-            UserMapper mapper = MybatisProxy.create(UserMapper.class);
-            String email = mapper.selectEmailById(id);
-            String result = null;
-            if (email != null ) {
-                result = validateCode(code, email);
-                if (result.equals("success")) {
-                    String password = mapper.selectPassword(id);
-                    if (password != null && password.equals(oldPassword)) {
+            UserWithPassword user = SystemStorage.getOnlineUser(id.toString());
+            if (user != null) {
+                if (user.getPassword().equals(oldPassword)) {
+                    String result = validateCode(code, user.getEmail());
+                    if (result.equals("success")) {
+                        UserMapper mapper = MybatisProxy.create(UserMapper.class);
                         Map<String, String> paras = new HashMap<>();
                         paras.put("id", id.toString());
                         paras.put("password", newPassword);
                         Integer rows = mapper.changePassword(paras);
-                        if (rows != null && rows.equals(1)) return RequestResults.success();
+                        if (rows != null && rows.equals(1)) {
+                            SystemStorage.removeOnlineUser(id.toString());
+                            return RequestResults.success();
+                        }
+                        return RequestResults.error("更新失败!");
                     }
-                    return RequestResults.forbidden("原密码错误!");
+                    return RequestResults.forbidden(result);
                 }
-                return RequestResults.forbidden(result);
+                return RequestResults.forbidden("密码错误!");
             }
-            return RequestResults.forbidden("用户不存在!");
+            return RequestResults.forbidden("用户未登录!");
         }
-        return RequestResults.error("请检查必填信息是否完整!");
+        return RequestResults.wrongParameters();
     }
 
     @RequestMapping("/getUserInfo")
@@ -175,6 +181,18 @@ public class UserAuthorityController {
         String result = validateCode(code, email);
         if (result.equals("success")) return RequestResults.success();
         return RequestResults.forbidden(result);
+    }
+
+    @RequestMapping("/uniqueEmail")
+    public String uniqueEmail(String email) {
+        if (email != null) {
+            UserMapper mapper = MybatisProxy.create(UserMapper.class);
+            Integer id = mapper.selectIdByEmail(email);
+            if (id != null) return RequestResults.forbidden("该邮箱已被注册!");
+            return RequestResults.success("邮箱未被注册, 可以使用!");
+        }
+
+        return RequestResults.badRequest("email不能为空");
     }
 
     private String validateCode(String code, String email) {

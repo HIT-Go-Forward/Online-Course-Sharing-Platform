@@ -16,6 +16,22 @@
         <result column="img" jdbcType="VARCHAR" property="img" />
     </resultMap>
 
+    <resultMap id="passwordResultMap" type="userWithPassword">
+        <id column="user_id" jdbcType="INTEGER" property="id" />
+        <result column="user_name" jdbcType="VARCHAR" property="name" />
+        <result column="user_type" jdbcType="INTEGER" property="type" />
+        <result column="user_sex" jdbcType="VARCHAR" property="sex" />
+        <result column="birthday" jdbcType="DATE" property="birthday" />
+        <result column="user_email" jdbcType="VARCHAR" property="email" />
+        <result column="user_education" jdbcType="VARCHAR" property="education" />
+        <result column="user_school" jdbcType="VARCHAR" property="school" />
+        <result column="user_intro" jdbcType="VARCHAR" property="intro" />
+        <result column="note" jdbcType="VARCHAR" property="note" />
+        <result column="user_phone" jdbcType="VARCHAR" property="phone" />
+        <result column="img" jdbcType="VARCHAR" property="img" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+    </resultMap>
+
     <select id="queryById" parameterType="INTEGER" resultMap="BaseResultMap">
         select user.*, file.file_url img from user left outer join file on user.user_img = file.file_id where user.user_id = #{id}
     </select>
@@ -75,5 +91,17 @@
 
     <select id="selectPassword" parameterType="Integer" resultType="String">
         select password from user where user_id = #{id}
+    </select>
+
+    <select id="selectUser" parameterType="java.util.Map" resultMap="passwordResultMap">
+        select * from user where user_id = #{id} and password = #{password}
+    </select>
+
+    <select id="selectUserById" parameterType="Integer" resultMap="passwordResultMap">
+        select * from user where user_id = #{id}
+    </select>
+
+    <select id="selectUserByEmail" parameterType="String" resultMap="passwordResultMap">
+        select * from user where user_email = #{email}
     </select>
 </mapper>

@@ -6,6 +6,13 @@ import java.util.Date;
  * Created by 班耀强 on 2018/9/18
  */
 public class User {
+    public static final int TYPE_ADMIN = 2;
+    public static final int TYPE_TEACHER = 3;
+    public static final int TYPE_STUDENT = 4;
+    public static final int TYPE_VISITOR = 5;
+    public static final int TYPE_FORBIDDEN_USER = 6;
+
+
     private Integer id;
     private String name;
     private Integer type;

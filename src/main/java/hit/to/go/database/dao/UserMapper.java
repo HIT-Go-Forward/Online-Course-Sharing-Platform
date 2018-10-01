@@ -1,6 +1,7 @@
 package hit.to.go.database.dao;
 
 import hit.to.go.entity.user.User;
+import hit.to.go.entity.user.UserWithPassword;
 
 import java.util.Map;
 
@@ -25,4 +26,10 @@ public interface UserMapper {
     Map<String, String> loginById(Map<String, String> paras);
 
     Map<String, String> loginByEmail(Map<String, String> paras);
+
+    UserWithPassword selectUser(Map<String, String> paras);
+
+    UserWithPassword selectUserById(Integer id);
+
+    UserWithPassword selectUserByEmail(String email);
 }

@@ -32,7 +32,10 @@ public class MybatisProxy {
                             e.printStackTrace();
                             return null;
                         } finally {
-                            if (session != null) session.close();
+                            if (session != null) {
+                                session.close();
+                                session = null;
+                            }
                         }
                         return result;
                     })

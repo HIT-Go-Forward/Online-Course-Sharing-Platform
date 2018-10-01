@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class ValidateCode {
     public static final int STATE_VALID = 0;
-    public static final int STATE_INVALIDA = 1;
+    public static final int STATE_INVALID = 1;
 
     private Integer id;
     private String email;

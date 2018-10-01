@@ -28,6 +28,22 @@ public class RequestResults {
         return forbidden("Forbidden");
     }
 
+    public static String invalidAccountOrPassword() {
+        return forbidden("账号或密码错误!");
+    }
+
+    public static String needLogin() {
+        return forbidden("未登录用户无权操作!");
+    }
+
+    public static String haveNoRight() {
+        return forbidden("您所属的用户类型无权操作!");
+    }
+
+    public static String wrongParameters() {
+        return forbidden("请求参数错误!");
+    }
+
     public static String forbidden(Object data) {
         return JSON.toJson(new RequestResult(403, data));
     }
