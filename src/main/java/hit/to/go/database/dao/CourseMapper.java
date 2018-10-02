@@ -14,11 +14,11 @@ public interface CourseMapper {
 
     Integer saveDraft(Map<String, String> paras);
 
-    Integer releaseDraftCourse(String id);
+    Integer releaseDraftCourse(Map<String, String> paras);
 
-    Integer acceptCourseApply(Integer id);
+    Integer acceptCourseApply(String id);
 
-    Integer rejectCourseApply(Integer id);
+    Integer rejectCourseApply(String id);
 
     List<StudyCourse> getAllStudentCourses(String id);
 

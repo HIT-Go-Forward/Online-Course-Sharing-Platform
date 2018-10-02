@@ -5,4 +5,6 @@ package hit.to.go.platform;
  */
 public class PlatformAttrKey {
     public static final String ATTR_USER = "attr-user";
+
+    public static final String DEFAULT_COURSE_IMG = "2";
 }
