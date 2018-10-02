@@ -22,6 +22,7 @@
         apply.apply_handler_id = #{handlerId},
         apply.apply_handler_time = #{handleTime},
         apply.apply_state = 2,
+        apply.apply_handle_note = #{note, jdbcType=VARCHAR},
         user.user_type = 3
         where apply_id = #{id} and apply.apply_user_id = user.user_id and apply_state = 1
     </update>
@@ -30,7 +31,22 @@
         update apply set
         apply_state = 3,
         apply_handler_time = #{handleTime},
-        apply_handler_id = #{handlerId}
+        apply_handler_id = #{handlerId},
+        apply_handle_note = #{note, jdbcType=VARCHAR},
         where apply_id = #{id} and apply_state = 1
     </update>
+
+    <select id="getAllApplies" resultMap="baseResultMap">
+        select * from apply;
+    </select>
+
+    <select id="getAllUnhandledApplies" resultMap="baseResultMap">
+        select * from apply
+        where apply_state = 1;
+    </select>
+
+    <select id="getAllHandledApplies" resultMap="baseResultMap">
+        select * from apply
+        where apply_state = 2 or apply_state = 3
+    </select>
 </mapper>

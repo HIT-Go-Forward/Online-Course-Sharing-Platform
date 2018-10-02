@@ -10,6 +10,7 @@ import hit.to.go.platform.MailConfig;
 import hit.to.go.platform.PlatformAttrKey;
 import hit.to.go.platform.SystemConfig;
 import hit.to.go.platform.SystemStorage;
+import hit.to.go.platform.protocol.RequestResult;
 import hit.to.go.platform.protocol.RequestResults;
 import hit.to.go.platform.util.MailUtil;
 import hit.to.go.platform.util.Validate;
@@ -58,7 +59,7 @@ public class UserAuthorityController {
         return RequestResults.forbidden("请确认已填写全部必填信息!");
     }
 
-    @RequestMapping("/completeInfo")
+    @RequestMapping("/modifyInfo")
     public String completeInfo(@RequestParam Map<String, String> paras) {
         UserMapper mapper = MybatisProxy.create(UserMapper.class);
         String id = paras.get("id");
@@ -70,7 +71,7 @@ public class UserAuthorityController {
             return RequestResults.error("保存失败!");
         }
 
-        return RequestResults.forbidden("完善账号信息需要账号密码!");
+        return RequestResults.needLogin();
     }
 
     @RequestMapping("/login")
@@ -83,6 +84,8 @@ public class UserAuthorityController {
         else user = mapper.selectUserByEmail(email);
 
         if (user != null && user.getPassword().equals(password)) {
+            if (user.getType() == User.TYPE_FORBIDDEN_USER) return RequestResults.forbidden("该账号已被封禁,请自觉遵守网络规定!");
+
             SystemStorage.setOnlineUser(user.getId().toString(), user);
             return RequestResults.success(user);
         }

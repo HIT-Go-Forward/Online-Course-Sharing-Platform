@@ -17,6 +17,7 @@ public class Apply {
     private Integer handlerId;
     private Integer state;
     private Date handleTime;
+    private String handleNote;
 
     public Integer getId() {
         return id;
@@ -72,5 +73,13 @@ public class Apply {
 
     public void setHandleTime(Date handleTime) {
         this.handleTime = handleTime;
+    }
+
+    public String getHandleNote() {
+        return handleNote;
+    }
+
+    public void setHandleNote(String handleNote) {
+        this.handleNote = handleNote;
     }
 }

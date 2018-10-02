@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,7 +47,7 @@ public class ApplyController {
     }
 
     @RequestMapping("/acceptTeacherApply")
-    public String acceptTeacherApply(String handlerId, String password, String id) {
+    public String acceptTeacherApply(String handlerId, String password, String id, String note) {
         if (handlerId != null && password != null && id != null) {
             UserWithPassword admin = SystemStorage.getOnlineUser(handlerId);
             if (admin == null) return RequestResults.needLogin();
@@ -58,6 +59,7 @@ public class ApplyController {
             paras.put("id", id);
             paras.put("handlerId", handlerId);
             paras.put("handleTime", now);
+            paras.put("note", note);
 
             Integer result = mapper.acceptApply(paras);
             if (result != null && result.equals(2)) return RequestResults.success();
@@ -68,7 +70,7 @@ public class ApplyController {
     }
 
     @RequestMapping("/rejectTeacherApply")
-    public String rejectTeacherApply(String handlerId, String password, String id) {
+    public String rejectTeacherApply(String handlerId, String password, String id, String note) {
         if (handlerId != null && password != null && id != null) {
             UserWithPassword admin = SystemStorage.getOnlineUser(handlerId);
             if (admin == null) return RequestResults.needLogin();
@@ -80,11 +82,31 @@ public class ApplyController {
             paras.put("id", id);
             paras.put("handlerId", handlerId);
             paras.put("handleTime", now);
+            paras.put("note", note);
 
             Integer result = mapper.rejectApply(paras);
             if (result != null && result.equals(1)) return RequestResults.success();
             else if (result != null && result.equals(0)) return RequestResults.forbidden("该申请已被处理!");
             return RequestResults.error();
+        }
+        return RequestResults.wrongParameters();
+    }
+
+    @RequestMapping("/getApplies")
+    public String getAllApplies(String id, String password, String type) {
+        if (id != null && password != null) {
+            UserWithPassword admin = SystemStorage.getOnlineUser(id);
+            if (admin == null) return RequestResults.needLogin();
+            if (!admin.getPassword().equals(password)) return RequestResults.invalidAccountOrPassword();
+            if (admin.getType() != User.TYPE_ADMIN) return RequestResults.haveNoRight();
+
+            ApplyMapper mapper = MybatisProxy.create(ApplyMapper.class);
+            List<Apply> result;
+            if (type == null || type.equals("all")) result = mapper.getAllApplies();
+            else if (type.equals("unhandled")) result = mapper.getAllUnhandledApplies();
+            else if (type.equals("handled")) result = mapper.getAllHandledApplies();
+            else return RequestResults.forbidden("错误的type参数!");
+            return RequestResults.success(result);
         }
         return RequestResults.wrongParameters();
     }
