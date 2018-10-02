@@ -4,7 +4,7 @@
     <resultMap id="courseMap" type="hit.to.go.entity.course.Course">
         <id column="course_id" property="id" />
         <result column="course_name" property="name" />
-        <result column="_course_teacher_id" property="teacherId" />
+        <result column="course_teacher_id" property="teacherId" />
         <result column="course_intro" property="intro" />
         <result column="course_img" property="img" />
         <result column="note" property="note" />
@@ -18,7 +18,7 @@
     <resultMap id="studyCourseMap" type="hit.to.go.entity.course.StudyCourse">
         <id column="course_id" property="id" />
         <result column="course_name" property="name" />
-        <result column="_course_teacher_id" property="teacherId" />
+        <result column="course_teacher_id" property="teacherId" />
         <result column="course_intro" property="intro" />
         <result column="course_img" property="img" />
         <result column="note" property="note" />
@@ -78,6 +78,18 @@
         update course set course_state = 3 where course_id = #{id} and course_state = 2
     </update>
 
+    <update id="updateDraftCourse" parameterType="String">
+        update course set
+        course_name = #{name},
+        course_intro = #{intro, jdbcType=VARCHAR},
+        note = #{note, jdbcType=VARCHAR},
+        course_img = #{img, jdbcType=INTEGER},
+        course_state = 1,
+        course_label = #{label, jdbcType=VARCHAR},
+        course_lesson_num = #{lessionNum, jdbcType=INTEGER}
+        where course_state = 1 and course_teacher_id = ${id} and course_id = #{courseId}
+    </update>
+
     <select id="getAllTeacherCourses" parameterType="String" resultMap="courseMap">
         select * from course where course_teacher_id = #{id}
     </select>
@@ -99,5 +111,25 @@
     <select id="getLearnedCourses" parameterType="String" resultMap="studyCourseMap">
         select * from course, study
         where course.course_id = study_course_id and study_user_id = #{id} and study_state = 3
+    </select>
+
+    <select id="getCourseById" parameterType="String" resultMap="courseMap">
+        select * from course where course_id = #{courseId}
+    </select>
+
+    <select id="getAllDraftCourses" parameterType="String" resultMap="courseMap">
+        select * from course where course_state = 1 and course_teacher_id = #{id}
+    </select>
+
+    <select id="getAllApplyingCourses" parameterType="String" resultMap="courseMap">
+        select * from course where course_state = 2 and course_teacher_id = #{id}
+    </select>
+
+    <select id="getAllRejectedCourses" parameterType="String" resultMap="courseMap">
+        select * from course where course_state = 3 and course_teacher_id = #{id}
+    </select>
+
+    <select id="getAllReleasedCourses" parameterType="String" resultMap="courseMap">
+        select * from course where course_state = 4 and course_teacher_id = #{id}
     </select>
 </mapper>

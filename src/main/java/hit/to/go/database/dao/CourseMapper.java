@@ -16,6 +16,8 @@ public interface CourseMapper {
 
     Integer releaseDraftCourse(Map<String, String> paras);
 
+    Integer updateDraftCourse(Map<String, String> paras);
+
     Integer acceptCourseApply(String id);
 
     Integer rejectCourseApply(String id);
@@ -29,4 +31,14 @@ public interface CourseMapper {
     List<StudyCourse> getLearnedCourses(String id);
 
     List<Course> getAllTeacherCourses(String id);
+
+    List<Course> getAllDraftCourses(String id);
+
+    List<Course> getAllApplyingCourses(String id);
+
+    List<Course> getAllReleasedCourses(String id);
+
+    List<Course> getAllRejectedCourses(String id);
+
+    Course getCourseById(String id);
 }

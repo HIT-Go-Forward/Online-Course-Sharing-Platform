@@ -1,11 +1,14 @@
 package hit.to.go.controller;
 
 import hit.to.go.database.dao.CourseMapper;
+import hit.to.go.database.dao.UserMapper;
 import hit.to.go.database.mybatis.MybatisProxy;
+import hit.to.go.entity.course.Course;
 import hit.to.go.entity.user.User;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.PlatformAttrKey;
 import hit.to.go.platform.SystemStorage;
+import hit.to.go.platform.protocol.RequestResult;
 import hit.to.go.platform.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,6 +68,27 @@ public class CourseController {
         return RequestResults.wrongParameters();
     }
 
+    @RequestMapping("/updateDraftCourse")
+    public String updateDraftCourse(@RequestParam Map<String, String> paras) {
+        String id, password, courseId, courseName;
+        id = paras.get("id");
+        password = paras.get("password");
+        courseId = paras.get("courseId");
+        courseName = paras.get("courseName");
+        if (id != null && password != null && courseId != null && courseName != null) {
+            UserWithPassword teacher = SystemStorage.getOnlineUser(id);
+            if (teacher == null) return RequestResults.needLogin();
+            else if (!teacher.getPassword().equals(password)) return RequestResults.invalidAccountOrPassword();
+            else if (teacher.getType() != User.TYPE_TEACHER) return RequestResults.haveNoRight();
+            CourseMapper mapper = MybatisProxy.create(CourseMapper.class);
+            Integer rows = mapper.updateDraftCourse(paras);
+            if (rows != null && rows.equals(1)) return RequestResults.success();
+            return RequestResults.error();
+        }
+
+        return RequestResults.wrongParameters();
+    }
+
     @RequestMapping("/releaseDraftCourse")
     public String releaseDraftCourse(String id, String password, String courseId) {
         if (id != null && password != null && courseId != null) {
@@ -93,9 +117,10 @@ public class CourseController {
             CourseMapper mapper = MybatisProxy.create(CourseMapper.class);
             if (user.getType() == User.TYPE_TEACHER) {
                 if (type == null || type.equals("all")) return RequestResults.success(mapper.getAllTeacherCourses(id));
-                else if (type.equals("draft")) return RequestResults.success();
-                else if (type.equals("applying")) return RequestResults.success();
-                else if (type.equals("released")) return RequestResults.success();
+                else if (type.equals("draft")) return RequestResults.success(mapper.getAllDraftCourses(id));
+                else if (type.equals("applying")) return RequestResults.success(mapper.getAllApplyingCourses(id));
+                else if (type.equals("rejected")) return RequestResults.success(mapper.getAllRejectedCourses(id));
+                else if (type.equals("released")) return RequestResults.success(mapper.getAllReleasedCourses(id));
                 return RequestResults.forbidden("错误的type参数!");
             } else {
                 if (type == null || type.equals("all")) return RequestResults.success(mapper.getAllStudentCourses(id));
@@ -104,6 +129,20 @@ public class CourseController {
                 else if (type.equals("learned")) return RequestResults.success(mapper.getLearnedCourses(id));
                 return RequestResults.forbidden("错误的type参数!");
             }
+        }
+        return RequestResults.wrongParameters();
+    }
+
+    @RequestMapping("/getCourseById")
+    public String getCourseById(String id, String password, String courseId) {
+        if (id != null && password != null && courseId != null) {
+            UserWithPassword user = SystemStorage.getOnlineUser(id);
+            if (user == null) return RequestResults.needLogin();
+            else if (!user.getPassword().equals(password)) return RequestResults.invalidAccountOrPassword();
+            CourseMapper mapper = MybatisProxy.create(CourseMapper.class);
+
+            Course course = mapper.getCourseById(courseId);
+            return RequestResults.success(course);
         }
         return RequestResults.wrongParameters();
     }
