@@ -43,9 +43,11 @@ public class RequestFilter implements Filter {
         } else if (url.endsWith(".action")) {
             Cookie[] cookies = request.getCookies();
             RequestWrapper requestWrapper = new RequestWrapper(request);
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("id")) requestWrapper.addParameter("id", cookie.getValue());
-                else if (cookie.getName().equals("password")) requestWrapper.addParameter("password", cookie.getValue());
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("id")) requestWrapper.addParameter("id", cookie.getValue());
+                    else if (cookie.getName().equals("password")) requestWrapper.addParameter("password", cookie.getValue());
+                }
             }
             filterChain.doFilter(requestWrapper, response);
             return;

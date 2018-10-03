@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efd27cd5-bdd6-4518-ae6b-f23351d28da7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dc358a6-7c5e-425c-88d1-726eb7a4943f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0dc358a6-7c5e-425c-88d1-726eb7a4943f.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -178,7 +176,7 @@
           <entry key="dummy" value="19" />
           <entry key="gitignore" value="78" />
           <entry key="html" value="1486" />
-          <entry key="java" value="30924" />
+          <entry key="java" value="30941" />
           <entry key="jsp" value="92" />
           <entry key="md" value="1" />
           <entry key="sql" value="206" />
@@ -191,7 +189,7 @@
         <counts>
           <entry key="DTD" value="393" />
           <entry key="HTML" value="1486" />
-          <entry key="JAVA" value="30924" />
+          <entry key="JAVA" value="30941" />
           <entry key="JSP" value="92" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="318" />
@@ -211,7 +209,7 @@
           <entry key="gitignore" value="3" />
           <entry key="history" value="2" />
           <entry key="html" value="6" />
-          <entry key="java" value="118" />
+          <entry key="java" value="122" />
           <entry key="jsp" value="1" />
           <entry key="md" value="3" />
           <entry key="properties" value="1" />
@@ -230,7 +228,7 @@
           <entry key="DTD" value="4" />
           <entry key="Database Element" value="34" />
           <entry key="HTML" value="6" />
-          <entry key="JAVA" value="118" />
+          <entry key="JAVA" value="122" />
           <entry key="JSP" value="1" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="7" />
@@ -253,15 +251,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CourseMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="57" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="14" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/history">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -271,77 +260,16 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/history/History.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/ApplyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+            <state relative-caret-position="531">
+              <caret line="112" column="1" lean-forward="true" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
               <folding>
-                <element signature="e#279#280#0" expanded="true" />
-                <element signature="e#316#317#0" expanded="true" />
-                <element signature="e#344#345#0" expanded="true" />
-                <element signature="e#378#379#0" expanded="true" />
-                <element signature="e#407#408#0" expanded="true" />
-                <element signature="e#452#453#0" expanded="true" />
-                <element signature="e#488#489#0" expanded="true" />
-                <element signature="e#524#525#0" expanded="true" />
-                <element signature="e#555#556#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#673#674#0" expanded="true" />
-                <element signature="e#700#701#0" expanded="true" />
-                <element signature="e#738#739#0" expanded="true" />
-                <element signature="e#770#771#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/history/CourseHistory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-              <folding>
-                <element signature="e#646#647#0" expanded="true" />
-                <element signature="e#679#680#0" expanded="true" />
-                <element signature="e#731#732#0" expanded="true" />
-                <element signature="e#775#776#0" expanded="true" />
-                <element signature="e#812#813#0" expanded="true" />
-                <element signature="e#844#845#0" expanded="true" />
-                <element signature="e#895#896#0" expanded="true" />
-                <element signature="e#937#938#0" expanded="true" />
-                <element signature="e#969#970#0" expanded="true" />
-                <element signature="e#997#998#0" expanded="true" />
-                <element signature="e#1039#1040#0" expanded="true" />
-                <element signature="e#1073#1074#0" expanded="true" />
-                <element signature="e#1104#1105#0" expanded="true" />
-                <element signature="e#1131#1132#0" expanded="true" />
-                <element signature="e#1171#1172#0" expanded="true" />
-                <element signature="e#1203#1204#0" expanded="true" />
-                <element signature="e#1234#1235#0" expanded="true" />
-                <element signature="e#1260#1261#0" expanded="true" />
-                <element signature="e#1299#1300#0" expanded="true" />
-                <element signature="e#1329#1330#0" expanded="true" />
-                <element signature="e#1362#1363#0" expanded="true" />
-                <element signature="e#1390#1391#0" expanded="true" />
-                <element signature="e#1433#1434#0" expanded="true" />
-                <element signature="e#1467#1468#0" expanded="true" />
-                <element signature="e#1499#1500#0" expanded="true" />
-                <element signature="e#1527#1528#0" expanded="true" />
-                <element signature="e#1569#1570#0" expanded="true" />
-                <element signature="e#1603#1604#0" expanded="true" />
-                <element signature="e#1638#1639#0" expanded="true" />
-                <element signature="e#1668#1669#0" expanded="true" />
-                <element signature="e#1715#1716#0" expanded="true" />
-                <element signature="e#1753#1754#0" expanded="true" />
-                <element signature="e#1790#1791#0" expanded="true" />
-                <element signature="e#1822#1823#0" expanded="true" />
-                <element signature="e#1873#1874#0" expanded="true" />
-                <element signature="e#1915#1916#0" expanded="true" />
-                <element signature="e#1948#1949#0" expanded="true" />
-                <element signature="e#1976#1977#0" expanded="true" />
-                <element signature="e#2019#2020#0" expanded="true" />
-                <element signature="e#2053#2054#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#applyTeacher#0;class#ApplyController#0" />
+                <element signature="method#acceptTeacherApply#0;class#ApplyController#0" />
+                <element signature="method#rejectTeacherApply#0;class#ApplyController#0" />
+                <element signature="method#getAllApplies#0;class#ApplyController#0" />
               </folding>
             </state>
           </provider>
@@ -368,11 +296,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+            <state relative-caret-position="442">
+              <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -387,13 +315,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/MediaController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="135" column="13" lean-forward="true" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#register#0;class#UserAuthorityController#0" />
+                <element signature="method#completeInfo#0;class#UserAuthorityController#0" />
+                <element signature="method#login#0;class#UserAuthorityController#0" />
+                <element signature="method#logout#0;class#UserAuthorityController#0" />
+                <element signature="method#changePassword#0;class#UserAuthorityController#0" />
+                <element signature="method#getUserInfo#0;class#UserAuthorityController#0" />
+                <element signature="method#sendValidateCode#0;class#UserAuthorityController#0" />
+                <element signature="method#validateCode#0;class#UserAuthorityController#0" />
+                <element signature="method#uniqueEmail#0;class#UserAuthorityController#0" />
+                <element signature="method#validateCode#1;class#UserAuthorityController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="442">
+              <caret line="138" column="11" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#newCourse#0;class#CourseController#0" />
+                <element signature="method#saveCourseDraft#0;class#CourseController#0" />
+                <element signature="method#updateDraftCourse#0;class#CourseController#0" />
                 <element signature="method#releaseDraftCourse#0;class#CourseController#0" />
                 <element signature="method#getCourses#0;class#CourseController#0" />
                 <element signature="method#getCourseById#0;class#CourseController#0" />
@@ -403,13 +364,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/HistoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="52" column="71" selection-start-line="52" selection-start-column="71" selection-end-line="52" selection-end-column="71" />
+            <state relative-caret-position="408">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#addNewHistory#0;class#HistoryController#0" />
+                <element signature="method#getCourseHistory#0;class#HistoryController#0" />
               </folding>
             </state>
           </provider>
@@ -485,7 +448,6 @@
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/PlatformAttrKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/MediaController.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/protocol/RequestWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/develop/OnlyForDevelopController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/CourseMapper.java" />
@@ -499,6 +461,7 @@
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/develop/HistoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/HistoryMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/HistoryController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java" />
       </list>
     </option>
   </component>
@@ -541,9 +504,9 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="358" />
-    <option name="y" value="21" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="183" />
+    <option name="y" value="33" />
     <option name="width" value="1574" />
     <option name="height" value="1015" />
   </component>
@@ -930,7 +893,7 @@
       <workItem from="1538440036322" duration="8344000" />
       <workItem from="1538450489513" duration="5786000" />
       <workItem from="1538458884727" duration="9026000" />
-      <workItem from="1538520904335" duration="4658000" />
+      <workItem from="1538520904335" duration="5627000" />
     </task>
     <servers />
   </component>
@@ -967,10 +930,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154241000" />
+    <option name="totallyTimeSpent" value="155210000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="358" y="21" width="1574" height="1015" extended-state="0" />
+    <frame x="183" y="33" width="1574" height="1015" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19815059" />
@@ -983,14 +946,14 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3625" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3625" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.36225596" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32992327" />
       <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.2090909" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2090909" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.33068183" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
@@ -1002,8 +965,8 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.14091219" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.19682959" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.14068693" />
+      <window_info anchor="right" id="Database" order="6" weight="0.19682959" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -1053,6 +1016,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1213,16 +1179,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/ApplyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="108" column="50" selection-start-line="108" selection-start-column="50" selection-end-line="108" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/protocol/RequestWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1243,13 +1199,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/MediaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/PlatformAttrKey.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1261,13 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1292,25 +1234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#register#0;class#UserAuthorityController#0" />
-            <element signature="method#completeInfo#0;class#UserAuthorityController#0" />
-            <element signature="method#login#0;class#UserAuthorityController#0" />
-            <element signature="method#logout#0;class#UserAuthorityController#0" />
-            <element signature="method#changePassword#0;class#UserAuthorityController#0" />
-            <element signature="method#getUserInfo#0;class#UserAuthorityController#0" />
-            <element signature="method#sendValidateCode#0;class#UserAuthorityController#0" />
-            <element signature="method#validateCode#0;class#UserAuthorityController#0" />
-            <element signature="method#validateCode#1;class#UserAuthorityController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/CourseMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1322,13 +1245,6 @@
       </provider>
     </entry>
     <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/course">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/history">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1429,21 +1345,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#newCourse#0;class#CourseController#0" />
-            <element signature="method#releaseDraftCourse#0;class#CourseController#0" />
-            <element signature="method#getCourses#0;class#CourseController#0" />
-            <element signature="method#getCourseById#0;class#CourseController#0" />
-            <element signature="method#handleCourseApply#0;class#CourseController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/HistoryMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1461,13 +1362,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/HistoryController.java">
+    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/history">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/MediaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="52" column="71" selection-start-line="52" selection-start-column="71" selection-end-line="52" selection-end-column="71" />
+        <state relative-caret-position="306">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/ApplyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="112" column="1" lean-forward="true" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#applyTeacher#0;class#ApplyController#0" />
+            <element signature="method#acceptTeacherApply#0;class#ApplyController#0" />
+            <element signature="method#rejectTeacherApply#0;class#ApplyController#0" />
+            <element signature="method#getAllApplies#0;class#ApplyController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="135" column="13" lean-forward="true" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#register#0;class#UserAuthorityController#0" />
+            <element signature="method#completeInfo#0;class#UserAuthorityController#0" />
+            <element signature="method#login#0;class#UserAuthorityController#0" />
+            <element signature="method#logout#0;class#UserAuthorityController#0" />
+            <element signature="method#changePassword#0;class#UserAuthorityController#0" />
+            <element signature="method#getUserInfo#0;class#UserAuthorityController#0" />
+            <element signature="method#sendValidateCode#0;class#UserAuthorityController#0" />
+            <element signature="method#validateCode#0;class#UserAuthorityController#0" />
+            <element signature="method#uniqueEmail#0;class#UserAuthorityController#0" />
+            <element signature="method#validateCode#1;class#UserAuthorityController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="138" column="11" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#newCourse#0;class#CourseController#0" />
+            <element signature="method#saveCourseDraft#0;class#CourseController#0" />
+            <element signature="method#updateDraftCourse#0;class#CourseController#0" />
+            <element signature="method#releaseDraftCourse#0;class#CourseController#0" />
+            <element signature="method#getCourses#0;class#CourseController#0" />
+            <element signature="method#getCourseById#0;class#CourseController#0" />
+            <element signature="method#handleCourseApply#0;class#CourseController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/HistoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addNewHistory#0;class#HistoryController#0" />
+            <element signature="method#getCourseHistory#0;class#HistoryController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
         </state>
       </provider>
     </entry>
