@@ -62,7 +62,7 @@
           #{img, jdbcType=INTEGER},
           1,
           #{label, jdbcType=VARCHAR},
-          #{lessionNum, jdbcType=INTEGER}
+          #{lessonNum, jdbcType=INTEGER}
         )
     </insert>
 
@@ -80,13 +80,13 @@
 
     <update id="updateDraftCourse" parameterType="String">
         update course set
-        course_name = #{name},
+        course_name = #{courseName},
         course_intro = #{intro, jdbcType=VARCHAR},
         note = #{note, jdbcType=VARCHAR},
         course_img = #{img, jdbcType=INTEGER},
         course_state = 1,
         course_label = #{label, jdbcType=VARCHAR},
-        course_lesson_num = #{lessionNum, jdbcType=INTEGER}
+        course_lesson_num = #{lessonNum, jdbcType=INTEGER}
         where course_state = 1 and course_teacher_id = ${id} and course_id = #{courseId}
     </update>
 

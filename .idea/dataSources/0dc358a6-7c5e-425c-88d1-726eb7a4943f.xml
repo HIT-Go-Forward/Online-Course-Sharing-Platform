@@ -1052,6 +1052,7 @@
       <Position>6</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;2&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="262" parent="236" name="course_state">

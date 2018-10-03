@@ -70,17 +70,19 @@ public class CourseController {
 
     @RequestMapping("/updateDraftCourse")
     public String updateDraftCourse(@RequestParam Map<String, String> paras) {
-        String id, password, courseId, courseName;
+        String id, password, courseId, courseName, img;
         id = paras.get("id");
         password = paras.get("password");
         courseId = paras.get("courseId");
         courseName = paras.get("courseName");
+        img = paras.get("img");
         if (id != null && password != null && courseId != null && courseName != null) {
             UserWithPassword teacher = SystemStorage.getOnlineUser(id);
             if (teacher == null) return RequestResults.needLogin();
             else if (!teacher.getPassword().equals(password)) return RequestResults.invalidAccountOrPassword();
             else if (teacher.getType() != User.TYPE_TEACHER) return RequestResults.haveNoRight();
             CourseMapper mapper = MybatisProxy.create(CourseMapper.class);
+            if (img == null) paras.put("img", PlatformAttrKey.DEFAULT_COURSE_IMG);
             Integer rows = mapper.updateDraftCourse(paras);
             if (rows != null && rows.equals(1)) return RequestResults.success();
             return RequestResults.error();
