@@ -32,6 +32,7 @@ public class RequestFilter implements Filter {
         String url = request.getRequestURI();
         logger.debug("请求资源 {}", url);
 
+        response.setHeader("Access-Control-Allow-Origin", "*");
         if (!(url.equals("/") || url.endsWith(".media") || url.endsWith(".action"))) {
             response.sendError(403, "本服务只接受.media或.action请求");
             return;
