@@ -76,13 +76,16 @@ public class ApplyController {
         return RequestResults.error();
     }
 
-    @RequestMapping("/getApplies")
-    public String getAllApplies(String type) {
+    @RequestMapping("/getManageableApplies")
+    public String getAllApplies(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String type) {
         ApplyMapper mapper = MybatisProxy.create(ApplyMapper.class);
+        Map<String, String> paras = new HashMap<>();
+        paras.put("id", user.getId().toString());
+        paras.put("power", user.getType().toString());
         List<Apply> result;
-        if (type == null || type.equals("all")) result = mapper.getAllApplies();
-        else if (type.equals("unhandled")) result = mapper.getAllUnhandledApplies();
-        else if (type.equals("handled")) result = mapper.getAllHandledApplies();
+        if (type == null || type.equals("all")) result = mapper.getAllApplies(paras);
+        else if (type.equals("unhandled")) result = mapper.getAllUnhandledApplies(paras);
+        else if (type.equals("handled")) result = mapper.getAllHandledApplies(paras);
         else return RequestResults.forbidden("错误的type参数!");
         return RequestResults.success(result);
     }

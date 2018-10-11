@@ -44,17 +44,26 @@
         where apply_id = #{applyId} and apply_state = 1
     </update>
 
-    <select id="getAllApplies" resultMap="baseResultMap">
-        select * from apply;
+    <select id="getAllApplies" parameterType="Map" resultMap="baseResultMap">
+        select * from apply where 1 = 1
+        <if test="power != 2">
+            and apply_user_id = #{id}
+        </if>
     </select>
 
-    <select id="getAllUnhandledApplies" resultMap="baseResultMap">
+    <select id="getAllUnhandledApplies" parameterType="Map" resultMap="baseResultMap">
         select * from apply
-        where apply_state = 1;
+        where apply_state = 1
+        <if test="power != 2">
+            and apply_user_id = #{id}
+        </if>
     </select>
 
-    <select id="getAllHandledApplies" resultMap="baseResultMap">
+    <select id="getAllHandledApplies" parameterType="Map" resultMap="baseResultMap">
         select * from apply
-        where apply_state = 2 or apply_state = 3
+        where (apply_state = 2 or apply_state = 3)
+        <if test="power != 2">
+            and apply_user_id = #{id}
+        </if>
     </select>
 </mapper>

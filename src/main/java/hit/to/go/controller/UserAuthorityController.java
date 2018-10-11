@@ -71,26 +71,6 @@ public class UserAuthorityController {
         return RequestResults.error("保存失败!");
     }
 
-//    @RequestMapping("/login")
-//    public String login(HttpSession session, String id, String email, String password) {
-//        if (id == null && email == null || password == null) return RequestResults.forbidden("密码不能为空且账号或邮箱必须提供其一");
-//        UserMapper mapper = MybatisProxy.create(UserMapper.class);
-//
-//        UserWithPassword user = null;
-//        if (id != null) user = mapper.selectUserById(id);
-//        else user = mapper.selectUserByEmail(email);
-//
-//        if (user != null && user.getPassword().equals(password)) {
-//            if (user.getType() == User.TYPE_FORBIDDEN_USER) return RequestResults.forbidden("该账号已被封禁,请自觉遵守网络规定!");
-//
-//            SystemStorage.setOnlineUser(user.getId().toString(), user);
-//            session.setAttribute(AttrKey.ATTR_USER, user);
-//
-//            return RequestResults.success(user);
-//        }
-//        return RequestResults.forbidden("账号或密码错误!");
-//    }
-
     @RequestMapping("/login")
     public String login(HttpSession session, String account, String password) {
         if (account != null && password != null) {
@@ -145,7 +125,7 @@ public class UserAuthorityController {
 
     @RequestMapping("/getUserInfo")
     public String getUserInfo(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String id) {
-        if (id != null && !id.equals(user.getId())) {
+        if (id != null && !id.equals(user.getId().toString())) {
             UserMapper mapper = MybatisProxy.create(UserMapper.class);
             User u = mapper.queryById(id);
             if (u == null) return RequestResults.notFound("用户不存在！");

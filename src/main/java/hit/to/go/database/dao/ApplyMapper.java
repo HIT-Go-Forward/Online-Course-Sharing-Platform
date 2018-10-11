@@ -17,9 +17,9 @@ public interface ApplyMapper {
 
     Integer rejectApply(Map<String, Object> paras);
 
-    List<Apply> getAllApplies();
+    List<Apply> getAllApplies(Map<String, String> paras);
 
-    List<Apply> getAllUnhandledApplies();
+    List<Apply> getAllUnhandledApplies(Map<String, String> paras);
 
-    List<Apply> getAllHandledApplies();
+    List<Apply> getAllHandledApplies(Map<String, String> paras);
 }
