@@ -14,7 +14,7 @@ import java.util.Enumeration;
  */
 public class MediaTransmissionUtil {
 
-    public static void transmission(Integer id, HttpServletRequest request, HttpServletResponse response) {
+    public static void transmission(String id, HttpServletRequest request, HttpServletResponse response) {
         Response resp;
         OutputStream out;
         String url = MediaResolver.getRealUrl(id);

@@ -6,6 +6,14 @@ package hit.to.go.entity.user;
 public class UserWithPassword extends User {
     private String password;
 
+    public UserWithPassword() {
+        super();
+    }
+
+    public UserWithPassword(boolean isVisitor) {
+        super(isVisitor);
+    }
+
     public String getPassword() {
         return password;
     }

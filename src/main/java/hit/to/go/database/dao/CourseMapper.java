@@ -40,5 +40,7 @@ public interface CourseMapper {
 
     List<Course> getAllRejectedCourses(String id);
 
+    List<Course> getManageableCourses(Map<String, String> paras);
+
     Course getCourseById(String id);
 }

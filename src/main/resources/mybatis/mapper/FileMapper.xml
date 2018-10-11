@@ -6,7 +6,7 @@
     </resultMap>
 
 
-    <select id="queryUrlById" parameterType="INTEGER" resultType="String">
+    <select id="queryUrlById" parameterType="String" resultType="String">
       select file_url from file where file_id = #{id}
     </select>
 </mapper>

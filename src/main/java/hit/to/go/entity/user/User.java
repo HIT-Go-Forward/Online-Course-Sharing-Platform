@@ -33,6 +33,7 @@ public class User {
 
     public User(boolean isVisitor) {
         this.isVisitor = isVisitor;
+        if (isVisitor) this.type = TYPE_VISITOR;
     }
 
     public Integer getId() {

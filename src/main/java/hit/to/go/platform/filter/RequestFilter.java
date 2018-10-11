@@ -12,6 +12,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by 班耀强 on 2018/9/20
@@ -32,11 +34,13 @@ public class RequestFilter implements Filter {
         String url = request.getRequestURI();
         logger.debug("请求资源 {}", url);
 
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        if (!(url.equals("/") || url.endsWith(".media") || url.endsWith(".action"))) {
-            response.sendError(403, "本服务只接受.media或.action请求");
-            return;
-        } else if (url.endsWith(".media")) {
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        response.setHeader("Access-Control-Max-Age", "3600");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, Access-Token");
+
+        if (url.endsWith(".media")) {
             url = "/media" + url.replaceAll("\\.media", ".action");
             logger.debug("转发 {}", url);
             request.getRequestDispatcher(url).forward(request, response);
@@ -51,6 +55,10 @@ public class RequestFilter implements Filter {
                 }
             }
             filterChain.doFilter(requestWrapper, response);
+            return;
+        } else if (url.matches("^/video/course\\d+$")) {
+            url = url.replaceFirst("(course\\d+)", "$1.action");
+            request.getRequestDispatcher(url).forward(request, response);
             return;
         }
 

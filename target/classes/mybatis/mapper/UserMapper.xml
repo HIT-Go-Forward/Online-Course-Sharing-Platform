@@ -32,7 +32,7 @@
         <result column="password" jdbcType="VARCHAR" property="password" />
     </resultMap>
 
-    <select id="queryById" parameterType="INTEGER" resultMap="BaseResultMap">
+    <select id="queryById" parameterType="String" resultMap="BaseResultMap">
         select user.*, file.file_url img from user left outer join file on user.user_img = file.file_id where user.user_id = #{id}
     </select>
 
@@ -64,7 +64,7 @@
         user_intro = #{intro, jdbcType=VARCHAR},
         note = #{note, jdbcType=VARCHAR},
         user_phone = #{phone, jdbcType=VARCHAR}
-        where user_id = #{id} and password = #{password}
+        where user_id = #{id}
     </update>
 
     <update id="changePassword" parameterType="java.util.Map">
@@ -77,7 +77,7 @@
         select user_id from user where user_email = #{email}
     </select>
 
-    <select id="selectEmailById" parameterType="Integer" resultType="String">
+    <select id="selectEmailById" parameterType="String" resultType="String">
         select user_email from user where user_id = #{id}
     </select>
 
@@ -89,7 +89,7 @@
         select * from user where user_email = #{email} and password = #{password}
     </select>
 
-    <select id="selectPassword" parameterType="Integer" resultType="String">
+    <select id="selectPassword" parameterType="String" resultType="String">
         select password from user where user_id = #{id}
     </select>
 
@@ -97,7 +97,7 @@
         select * from user where user_id = #{id} and password = #{password}
     </select>
 
-    <select id="selectUserById" parameterType="Integer" resultMap="passwordResultMap">
+    <select id="selectUserById" parameterType="String" resultMap="passwordResultMap">
         select * from user where user_id = #{id}
     </select>
 

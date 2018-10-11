@@ -36,14 +36,20 @@
 
     <insert id="addNewCourse" parameterType="Map" useGeneratedKeys="true" keyProperty="course_id">
         insert into course
-        (course_name, course_teacher_id, course_intro, note, course_img, course_state, course_label, course_lesson_num)
+        (course_name, course_teacher_id, course_intro, note,
+        <if test="img != null">
+            course_img,
+        </if>
+        course_state, course_label, course_lesson_num)
         values
         (
           #{courseName},
           #{id},
           #{courseIntro, jdbcType=VARCHAR},
           #{note, jdbcType=VARCHAR},
-          #{img, jdbcType=INTEGER},
+          <if test="img != null">
+              #{img},
+          </if>
           2,
           #{label, jdbcType=VARCHAR},
           #{lessonNum, jdbcType=INTEGER}
@@ -52,14 +58,20 @@
 
     <insert id="saveDraft" parameterType="Map" useGeneratedKeys="true" keyProperty="course_id">
         insert into course
-        (course_name, course_teacher_id, course_intro, note, course_img, course_state, course_label, course_lesson_num)
+        (course_name, course_teacher_id, course_intro, note,
+        <if test="img != null">
+            course_img,
+        </if>
+        course_state, course_label, course_lesson_num)
         values
         (
           #{courseName},
           #{id},
           #{courseIntro, jdbcType=VARCHAR},
           #{note, jdbcType=VARCHAR},
-          #{img, jdbcType=INTEGER},
+          <if test="img != null">
+            #{img},
+          </if>
           1,
           #{label, jdbcType=VARCHAR},
           #{lessonNum, jdbcType=INTEGER}
@@ -83,7 +95,9 @@
         course_name = #{courseName},
         course_intro = #{intro, jdbcType=VARCHAR},
         note = #{note, jdbcType=VARCHAR},
-        course_img = #{img, jdbcType=INTEGER},
+        <if test="img != null">
+            course_img = #{img, jdbcType=INTEGER},
+        </if>
         course_state = 1,
         course_label = #{label, jdbcType=VARCHAR},
         course_lesson_num = #{lessonNum, jdbcType=INTEGER}
@@ -131,5 +145,27 @@
 
     <select id="getAllReleasedCourses" parameterType="String" resultMap="courseMap">
         select * from course where course_state = 4 and course_teacher_id = #{id}
+    </select>
+
+    <select id="getManageableCourses" parameterType="Map" resultMap="courseMap">
+        select course.* from course, user where 1 = 1
+        <choose>
+            <when test="type == 'accepted'">
+                and course_state = 4
+            </when>
+            <when test="type == 'rejected'">
+                and course_state = 3
+            </when>
+            <when test="type == 'applying'">
+                and course_state = 2
+            </when>
+            <when test="type == null or type == 'all'">
+                and course_state > 1
+            </when>
+            <otherwise>
+                and course_state = -1000
+            </otherwise>
+        </choose>
+        and user.user_id = #{id} and user.user_type = 2
     </select>
 </mapper>

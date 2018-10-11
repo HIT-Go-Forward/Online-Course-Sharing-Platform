@@ -11,10 +11,27 @@ import java.util.Map;
  */
 public class RequestWrapper extends HttpServletRequestWrapper {
     private Map<String, String[]> paras = new HashMap<>();
+    private String uri;
 
     public RequestWrapper(HttpServletRequest request) {
         super(request);
-        this.paras.putAll(request.getParameterMap());
+        Map<String, String[]> map = request.getParameterMap();
+        for (String key : map.keySet()) {
+            String[] values = map.get(key);
+            if (values == null || values.length == 0 || values[0].equals("")) continue;
+            paras.put(key, values);
+        }
+
+        uri = request.getRequestURI();
+    }
+
+    public void setRequestURI(String uri) {
+        this.uri = uri;
+    }
+
+    @Override
+    public String getRequestURI() {
+        return uri;
     }
 
     public void addParameter(String key, Object value) {

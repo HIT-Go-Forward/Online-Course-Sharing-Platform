@@ -9,9 +9,9 @@ import java.util.Map;
  * Created by 班耀强 on 2018/9/18
  */
 public interface UserMapper {
-    User queryById(int id);
+    User queryById(String id);
 
-    Integer register(Map<String, String> map);
+    Integer register(Map<String, Object> map);
 
     Integer completeInfo(Map<String, String> map);
 
@@ -19,9 +19,9 @@ public interface UserMapper {
 
     Integer selectIdByEmail(String email);
 
-    String selectEmailById(Integer id);
+    String selectEmailById(String id);
 
-    String selectPassword(Integer id);
+    String selectPassword(String id);
 
     Map<String, String> loginById(Map<String, String> paras);
 
@@ -29,7 +29,7 @@ public interface UserMapper {
 
     UserWithPassword selectUser(Map<String, String> paras);
 
-    UserWithPassword selectUserById(Integer id);
+    UserWithPassword selectUserById(String id);
 
     UserWithPassword selectUserByEmail(String email);
 }

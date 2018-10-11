@@ -11,6 +11,8 @@ import java.util.Map;
 public interface ApplyMapper {
     Integer applyTeacher(Map<String, Object> paras);
 
+    Integer applyToBeTeacher(Map<String, Object> paras);
+
     Integer acceptApply(Map<String, Object> paras);
 
     Integer rejectApply(Map<String, Object> paras);

@@ -23,7 +23,7 @@ public class MediaController {
     private static final Logger logger = LoggerFactory.getLogger(MediaController.class);
 
     @RequestMapping("/{id}")
-    public String getMedia(@PathVariable Integer id, HttpServletRequest request, HttpServletResponse response) {
+    public String getMedia(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
         MediaTransmissionUtil.transmission(id, request, response);
         return null;
     }

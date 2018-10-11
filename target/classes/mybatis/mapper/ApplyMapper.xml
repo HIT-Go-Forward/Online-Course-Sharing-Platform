@@ -13,8 +13,16 @@
 
     <insert id="applyTeacher" parameterType="Map" keyProperty="apply_id" useGeneratedKeys="true">
         insert into apply
-        (apply_user_id, apply_time, apply_note) VALUES
+        (apply_user_id, apply_time, apply_note)
+        VALUES
         (#{userId}, #{time}, #{note, jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="applyToBeTeacher" parameterType="Map" keyProperty="apply_id" useGeneratedKeys="true">
+        insert into apply
+        (apply_user_id, apply_time, apply_note)
+        select #{userId}, #{time}, #{note, jdbcType=VARCHAR}
+        from DUAL where not exists (select * from apply where apply_user_id = #{userId} and apply_state = 1)
     </insert>
 
     <update id="acceptApply" parameterType="Map">
@@ -24,7 +32,7 @@
         apply.apply_state = 2,
         apply.apply_handle_note = #{note, jdbcType=VARCHAR},
         user.user_type = 3
-        where apply_id = #{id} and apply.apply_user_id = user.user_id and apply_state = 1
+        where apply_id = #{applyId} and apply.apply_user_id = user.user_id and apply_state = 1
     </update>
 
     <update id="rejectApply" parameterType="Map">
@@ -32,8 +40,8 @@
         apply_state = 3,
         apply_handler_time = #{handleTime},
         apply_handler_id = #{handlerId},
-        apply_handle_note = #{note, jdbcType=VARCHAR},
-        where apply_id = #{id} and apply_state = 1
+        apply_handle_note = #{note, jdbcType=VARCHAR}
+        where apply_id = #{applyId} and apply_state = 1
     </update>
 
     <select id="getAllApplies" resultMap="baseResultMap">

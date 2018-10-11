@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 public class MediaResolver {
     private static final Logger logger = LoggerFactory.getLogger(MediaResolver.class);
 
-    public static String getRealUrl(Integer id) {
+    public static String getRealUrl(String id) {
         FileMapper mapper = MybatisProxy.create(FileMapper.class);
         String url = SystemConfig.getMediaAddress() + mapper.queryUrlById(id);
         logger.debug("查询资源地址 {}", url);

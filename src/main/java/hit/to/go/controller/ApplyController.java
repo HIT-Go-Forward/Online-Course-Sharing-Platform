@@ -6,12 +6,14 @@ import hit.to.go.database.mybatis.MybatisProxy;
 import hit.to.go.entity.Apply;
 import hit.to.go.entity.user.User;
 import hit.to.go.entity.user.UserWithPassword;
+import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.SystemStorage;
 import hit.to.go.platform.protocol.RequestResult;
 import hit.to.go.platform.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -26,88 +28,62 @@ import java.util.Map;
 @ResponseBody
 public class ApplyController {
     @RequestMapping("/applyTeacher")
-    public String applyTeacher(String id, String password, String note) {
-        if (id != null && password != null) {
-            Date now = new Date();
-            Map<String, Object> paras = new HashMap<>();
-            paras.put("userId", id);
-            paras.put("time", now);
-            paras.put("note", note);
-            UserWithPassword user = SystemStorage.getOnlineUser(id);
-            if (user == null) return RequestResults.needLogin();
-            if (!user.getPassword().equals(password)) return RequestResults.invalidAccountOrPassword();
-            if (user.getType() != User.TYPE_STUDENT) return RequestResults.haveNoRight();
+    public String applyTeacher(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String note) {
+        Date now = new Date();
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("userId", user.getId());
+        paras.put("time", now);
+        paras.put("note", note);
 
-            ApplyMapper mapper = MybatisProxy.create(ApplyMapper.class);
-            Integer result = mapper.applyTeacher(paras);
-            if (result != null && result.equals(1)) return RequestResults.success(paras.get("apply_id"));
-            return RequestResults.error();
-        }
-        return RequestResults.wrongParameters();
+        ApplyMapper mapper = MybatisProxy.create(ApplyMapper.class);
+        Integer result = mapper.applyToBeTeacher(paras);
+        if (result != null && result.equals(1)) return RequestResults.success(paras.get("apply_id"));
+        else if (result != null && result.equals(0)) return RequestResults.forbidden("您有待处理的申请，请耐心等待管理员处理后再申请！");
+        return RequestResults.error();
     }
 
     @RequestMapping("/acceptTeacherApply")
-    public String acceptTeacherApply(String handlerId, String password, String id, String note) {
-        if (handlerId != null && password != null && id != null) {
-            UserWithPassword admin = SystemStorage.getOnlineUser(handlerId);
-            if (admin == null) return RequestResults.needLogin();
-            if (!admin.getPassword().equals(password)) return RequestResults.invalidAccountOrPassword();
-            if (admin.getType() != User.TYPE_ADMIN) return RequestResults.haveNoRight();
-            Date now = new Date();
-            ApplyMapper mapper = MybatisProxy.create(ApplyMapper.class);
-            Map<String, Object> paras = new HashMap<>();
-            paras.put("id", id);
-            paras.put("handlerId", handlerId);
-            paras.put("handleTime", now);
-            paras.put("note", note);
+    public String acceptTeacherApply(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String applyId, String note) {
+        if (applyId == null) return RequestResults.wrongParameters();
+        Date now = new Date();
+        ApplyMapper mapper = MybatisProxy.create(ApplyMapper.class);
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("applyId", applyId);
+        paras.put("handlerId", user.getId());
+        paras.put("handleTime", now);
+        paras.put("note", note);
 
-            Integer result = mapper.acceptApply(paras);
-            if (result != null && result.equals(2)) return RequestResults.success();
-            else if (result != null && result.equals(0)) return RequestResults.forbidden("该申请已被处理!");
-            return RequestResults.error();
-        }
-        return RequestResults.wrongParameters();
+        Integer result = mapper.acceptApply(paras);
+        if (result != null && result.equals(2)) return RequestResults.success();
+        else if (result != null && result.equals(0)) return RequestResults.forbidden("该申请已被处理!");
+        return RequestResults.error();
     }
 
     @RequestMapping("/rejectTeacherApply")
-    public String rejectTeacherApply(String handlerId, String password, String id, String note) {
-        if (handlerId != null && password != null && id != null) {
-            UserWithPassword admin = SystemStorage.getOnlineUser(handlerId);
-            if (admin == null) return RequestResults.needLogin();
-            if (!admin.getPassword().equals(password)) return RequestResults.invalidAccountOrPassword();
-            if (admin.getType() != User.TYPE_ADMIN) return RequestResults.haveNoRight();
-            Date now = new Date();
-            ApplyMapper mapper = MybatisProxy.create(ApplyMapper.class);
-            Map<String, Object> paras = new HashMap<>();
-            paras.put("id", id);
-            paras.put("handlerId", handlerId);
-            paras.put("handleTime", now);
-            paras.put("note", note);
+    public String rejectTeacherApply(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String applyId, String note) {
+        if (applyId == null) return RequestResults.wrongParameters();
+        Date now = new Date();
+        ApplyMapper mapper = MybatisProxy.create(ApplyMapper.class);
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("applyId", applyId);
+        paras.put("handlerId", user.getId());
+        paras.put("handleTime", now);
+        paras.put("note", note);
 
-            Integer result = mapper.rejectApply(paras);
-            if (result != null && result.equals(1)) return RequestResults.success();
-            else if (result != null && result.equals(0)) return RequestResults.forbidden("该申请已被处理!");
-            return RequestResults.error();
-        }
-        return RequestResults.wrongParameters();
+        Integer result = mapper.rejectApply(paras);
+        if (result != null && result.equals(1)) return RequestResults.success();
+        else if (result != null && result.equals(0)) return RequestResults.forbidden("该申请已被处理!");
+        return RequestResults.error();
     }
 
     @RequestMapping("/getApplies")
-    public String getAllApplies(String id, String password, String type) {
-        if (id != null && password != null) {
-            UserWithPassword admin = SystemStorage.getOnlineUser(id);
-            if (admin == null) return RequestResults.needLogin();
-            if (!admin.getPassword().equals(password)) return RequestResults.invalidAccountOrPassword();
-            if (admin.getType() != User.TYPE_ADMIN) return RequestResults.haveNoRight();
-
-            ApplyMapper mapper = MybatisProxy.create(ApplyMapper.class);
-            List<Apply> result;
-            if (type == null || type.equals("all")) result = mapper.getAllApplies();
-            else if (type.equals("unhandled")) result = mapper.getAllUnhandledApplies();
-            else if (type.equals("handled")) result = mapper.getAllHandledApplies();
-            else return RequestResults.forbidden("错误的type参数!");
-            return RequestResults.success(result);
-        }
-        return RequestResults.wrongParameters();
+    public String getAllApplies(String type) {
+        ApplyMapper mapper = MybatisProxy.create(ApplyMapper.class);
+        List<Apply> result;
+        if (type == null || type.equals("all")) result = mapper.getAllApplies();
+        else if (type.equals("unhandled")) result = mapper.getAllUnhandledApplies();
+        else if (type.equals("handled")) result = mapper.getAllHandledApplies();
+        else return RequestResults.forbidden("错误的type参数!");
+        return RequestResults.success(result);
     }
 }
