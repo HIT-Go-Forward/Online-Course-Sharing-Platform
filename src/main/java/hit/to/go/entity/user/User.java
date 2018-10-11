@@ -12,6 +12,7 @@ public class User {
     public static final int TYPE_VISITOR = 5;
     public static final int TYPE_FORBIDDEN_USER = 6;
 
+    public static final String DEFAULT_VISITOR_NAME = "默认游客名";
 
     private Integer id;
     private String name;
@@ -33,7 +34,11 @@ public class User {
 
     public User(boolean isVisitor) {
         this.isVisitor = isVisitor;
-        if (isVisitor) this.type = TYPE_VISITOR;
+        if (isVisitor) {
+            this.id = -1;
+            this.type = TYPE_VISITOR;
+            this.name = DEFAULT_VISITOR_NAME;
+        }
     }
 
     public Integer getId() {

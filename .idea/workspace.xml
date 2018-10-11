@@ -8,10 +8,21 @@
   <component name="ChangeListManager">
     <list default="true" id="efd27cd5-bdd6-4518-ae6b-f23351d28da7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/ApplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/ApplyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ApplyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ApplyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ApplyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ApplyMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/SystemVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/SystemVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/UserAuthorityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/UserAuthorityFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ROOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/filter/RequestFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/filter/RequestFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/controller/UserAuthorityController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/platform/filter/RequestFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/platform/filter/RequestFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestMailUtil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestMailUtil.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestMediaTransmissionUtil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestMediaTransmissionUtil.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestValidate.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestValidate.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/hit.to.go.test.TestMailUtil.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/hit.to.go.test.TestMailUtil.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/hit.to.go.test.TestMediaTransmissionUtil.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/hit.to.go.test.TestMediaTransmissionUtil.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/hit.to.go.test.TestValidate.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/hit.to.go.test.TestValidate.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -145,20 +156,20 @@
     <session id="-1941050134">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="43" />
+          <entry key="project.closed" value="45" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="6" />
           <entry key="project.open.time.13" value="3" />
           <entry key="project.open.time.14" value="3" />
           <entry key="project.open.time.15" value="5" />
-          <entry key="project.open.time.16" value="2" />
+          <entry key="project.open.time.16" value="3" />
           <entry key="project.open.time.17" value="3" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.23" value="2" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.31" value="1" />
@@ -167,7 +178,7 @@
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="44" />
+          <entry key="project.opened" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -178,12 +189,12 @@
           <entry key="dummy" value="19" />
           <entry key="gitignore" value="78" />
           <entry key="html" value="4958" />
-          <entry key="java" value="35843" />
+          <entry key="java" value="37125" />
           <entry key="jsp" value="92" />
           <entry key="md" value="1" />
           <entry key="sql" value="208" />
           <entry key="txt" value="23" />
-          <entry key="xml" value="8431" />
+          <entry key="xml" value="8433" />
           <entry key="xml-template" value="198" />
         </counts>
       </usages-collector>
@@ -192,13 +203,13 @@
           <entry key="CSS" value="1" />
           <entry key="DTD" value="393" />
           <entry key="HTML" value="4957" />
-          <entry key="JAVA" value="35843" />
+          <entry key="JAVA" value="37125" />
           <entry key="JSP" value="92" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="318" />
           <entry key="SQL" value="355" />
           <entry key="Scratch" value="1008" />
-          <entry key="XML" value="8815" />
+          <entry key="XML" value="8817" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -212,7 +223,7 @@
           <entry key="gitignore" value="3" />
           <entry key="history" value="2" />
           <entry key="html" value="9" />
-          <entry key="java" value="176" />
+          <entry key="java" value="180" />
           <entry key="jsp" value="1" />
           <entry key="md" value="3" />
           <entry key="properties" value="1" />
@@ -232,7 +243,7 @@
           <entry key="DTD" value="4" />
           <entry key="Database Element" value="56" />
           <entry key="HTML" value="9" />
-          <entry key="JAVA" value="176" />
+          <entry key="JAVA" value="180" />
           <entry key="JSP" value="1" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="7" />
@@ -256,59 +267,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/ApplyController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="62" column="49" lean-forward="true" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
-              <folding>
-                <element signature="method#applyTeacher#0;class#ApplyController#0" />
-                <element signature="method#acceptTeacherApply#0;class#ApplyController#0" />
-                <element signature="method#rejectTeacherApply#0;class#ApplyController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ApplyMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ApplyMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/user">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="226" lean-forward="true" selection-start-line="226" selection-end-line="226" />
+            <state relative-caret-position="415">
+              <caret line="89" column="93" lean-forward="true" selection-start-line="89" selection-start-column="93" selection-end-line="89" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#register#0;class#UserAuthorityController#0" />
                 <element signature="method#modifyInfo#0;class#UserAuthorityController#0" />
-                <element signature="method#login#0;class#UserAuthorityController#0" />
-                <element signature="method#logout#0;class#UserAuthorityController#0" />
                 <element signature="method#changePassword#0;class#UserAuthorityController#0" />
-                <element signature="method#getUserInfo#0;class#UserAuthorityController#0" />
                 <element signature="method#sendValidateCode#0;class#UserAuthorityController#0" />
                 <element signature="method#sendValidateCodeToCurrentUser#0;class#UserAuthorityController#0" />
                 <element signature="method#validateCode#0;class#UserAuthorityController#0" />
@@ -319,7 +286,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/SystemVariable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/user_power">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -340,8 +316,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="121" column="5" lean-forward="true" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+            <state relative-caret-position="527">
+              <caret line="121" column="5" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
               <folding>
                 <element signature="method#newCourse#0;class#CourseController#0" />
                 <element signature="method#saveCourseDraft#0;class#CourseController#0" />
@@ -358,10 +334,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="55" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/UserAuthorityFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="59" column="80" selection-start-line="59" selection-start-column="80" selection-end-line="59" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/HistoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="80" column="1" lean-forward="true" selection-start-line="80" selection-start-column="1" selection-end-line="80" selection-end-column="1" />
+            <state relative-caret-position="1088">
+              <caret line="80" column="1" selection-start-line="80" selection-start-column="1" selection-end-line="80" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -437,10 +440,7 @@
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/UserWithPassword.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/ErrorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/platform/ErrorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/SystemVariable.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/develop/OnlyForDevelopController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/UserAuthorityFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/HistoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/FileMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/FileMapper.xml" />
@@ -449,7 +449,6 @@
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/MediaController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/test.html" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/protocol/RequestWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" />
@@ -457,10 +456,14 @@
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/CourseMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CourseMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ApplyMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/ApplyController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ApplyMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/SystemVariable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/UserAuthorityFilter.java" />
       </list>
     </option>
   </component>
@@ -509,10 +512,10 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="734" />
-    <option name="y" value="7" />
-    <option name="width" value="1439" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="434" />
+    <option name="y" value="55" />
+    <option name="width" value="1721" />
     <option name="height" value="985" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -525,6 +528,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -623,6 +628,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="go" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="togoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="togoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="go" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
               <item name="validate" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -653,16 +668,6 @@
               <item name="go" type="462c0819:PsiDirectoryNode" />
               <item name="platform" type="462c0819:PsiDirectoryNode" />
               <item name="protocol" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="togoserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="togoserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="go" type="462c0819:PsiDirectoryNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="togoserver" type="b2602c69:ProjectViewProjectNode" />
@@ -742,8 +747,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -955,7 +958,9 @@
       <workItem from="1539135616022" duration="2619000" />
       <workItem from="1539162597488" duration="8339000" />
       <workItem from="1539219752933" duration="4802000" />
-      <workItem from="1539237506573" duration="11217000" />
+      <workItem from="1539237506573" duration="11649000" />
+      <workItem from="1539252039635" duration="714000" />
+      <workItem from="1539260911710" duration="6986000" />
     </task>
     <servers />
   </component>
@@ -992,7 +997,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216058000" />
+    <option name="totallyTimeSpent" value="224190000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1004,10 +1009,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="429" y="38" width="1439" height="985" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49863762" visible="true" weight="0.18636693" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49863762" visible="true" weight="0.14552239" />
       <window_info id="Structure" order="1" sideWeight="0.5013624" side_tool="true" weight="0.20258328" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1017,14 +1022,14 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21052632" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39479393" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32978722" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32992327" />
       <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.20352942" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.20329025" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32978722" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.329718" />
@@ -1036,8 +1041,8 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.1160261" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.14503263" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.08528785" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.14498934" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -1102,24 +1107,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/SystemVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="78" selection-start-line="7" selection-start-column="78" selection-end-line="7" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/SystemStorage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1141,10 +1132,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6205">
           <caret line="396" column="25" selection-start-line="396" selection-start-column="25" selection-end-line="396" selection-end-column="25" />
-          <folding>
-            <element signature="e#35161#35162#0" expanded="true" />
-            <element signature="e#35199#35200#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1252,13 +1239,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/UserAuthorityFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1322,17 +1302,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/ApplyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="64" column="48" lean-forward="true" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
+        <state relative-caret-position="561">
+          <caret line="91" column="1" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
+          <folding>
+            <element signature="method#applyTeacher#0;class#ApplyController#0" />
+            <element signature="method#acceptTeacherApply#0;class#ApplyController#0" />
+            <element signature="method#rejectTeacherApply#0;class#ApplyController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/validate_code">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ApplyMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ApplyMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="66" column="13" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1343,17 +1335,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/apply">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/HistoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="80" column="1" lean-forward="true" selection-start-line="80" selection-start-column="1" selection-end-line="80" selection-end-column="1" />
+        <state relative-caret-position="1088">
+          <caret line="80" column="1" selection-start-line="80" selection-start-column="1" selection-end-line="80" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/validate_code">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="121" column="5" lean-forward="true" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+        <state relative-caret-position="527">
+          <caret line="121" column="5" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
           <folding>
             <element signature="method#newCourse#0;class#CourseController#0" />
             <element signature="method#saveCourseDraft#0;class#CourseController#0" />
@@ -1368,18 +1374,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/user_power">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/SystemVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="226" lean-forward="true" selection-start-line="226" selection-end-line="226" />
+        <state relative-caret-position="415">
+          <caret line="89" column="93" lean-forward="true" selection-start-line="89" selection-start-column="93" selection-end-line="89" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#register#0;class#UserAuthorityController#0" />
             <element signature="method#modifyInfo#0;class#UserAuthorityController#0" />
-            <element signature="method#login#0;class#UserAuthorityController#0" />
-            <element signature="method#logout#0;class#UserAuthorityController#0" />
             <element signature="method#changePassword#0;class#UserAuthorityController#0" />
-            <element signature="method#getUserInfo#0;class#UserAuthorityController#0" />
             <element signature="method#sendValidateCode#0;class#UserAuthorityController#0" />
             <element signature="method#sendValidateCodeToCurrentUser#0;class#UserAuthorityController#0" />
             <element signature="method#validateCode#0;class#UserAuthorityController#0" />
@@ -1389,43 +1420,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ApplyMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/UserAuthorityFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ApplyMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/ApplyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="62" column="49" lean-forward="true" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
-          <folding>
-            <element signature="method#applyTeacher#0;class#ApplyController#0" />
-            <element signature="method#acceptTeacherApply#0;class#ApplyController#0" />
-            <element signature="method#rejectTeacherApply#0;class#ApplyController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/apply">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/user_power">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+        <state relative-caret-position="323">
+          <caret line="59" column="80" selection-start-line="59" selection-start-column="80" selection-end-line="59" selection-end-column="80" />
         </state>
       </provider>
     </entry>

@@ -50,6 +50,7 @@ public class RequestFilter implements Filter {
             RequestWrapper requestWrapper = new RequestWrapper(request);
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
+                    logger.debug("收到 Cookie {}={}", cookie.getName(), cookie.getValue());
                     if (cookie.getName().equals("id")) requestWrapper.addParameter("id", cookie.getValue());
                     else if (cookie.getName().equals("password")) requestWrapper.addParameter("password", cookie.getValue());
                 }

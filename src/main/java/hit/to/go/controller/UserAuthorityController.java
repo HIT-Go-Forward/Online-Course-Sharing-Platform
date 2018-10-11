@@ -1,5 +1,6 @@
 package hit.to.go.controller;
 
+import com.sun.deploy.net.HttpResponse;
 import hit.to.go.database.dao.UserMapper;
 import hit.to.go.database.dao.ValidateCodeMapper;
 import hit.to.go.database.mybatis.MybatisProxy;
@@ -9,6 +10,7 @@ import hit.to.go.entity.validate.ValidateCode;
 import hit.to.go.platform.MailConfig;
 import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.SystemConfig;
+import hit.to.go.platform.SystemVariable;
 import hit.to.go.platform.protocol.RequestResults;
 import hit.to.go.platform.util.MailUtil;
 import hit.to.go.platform.util.Validate;
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,7 +74,7 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/login")
-    public String login(HttpSession session, String account, String password) {
+    public String login(HttpSession session, HttpServletResponse response, String account, String password) {
         if (account != null && password != null) {
             UserWithPassword user = null;
             UserMapper mapper = MybatisProxy.create(UserMapper.class);
@@ -84,6 +86,8 @@ public class UserAuthorityController {
             if (user != null) {
                 if (user.getPassword().equals(password)) {
                     session.setAttribute(AttrKey.ATTR_USER, user);
+                    response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
+                    response.addCookie(SystemVariable.newPasswordCookie(user.getPassword()));
                     return RequestResults.success(user);
                 }
                 return RequestResults.forbidden("账号或密码错误！");
@@ -93,7 +97,9 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/logout")
-    public String logout(HttpSession session) {
+    public String logout(HttpSession session, HttpServletResponse response) {
+        response.addCookie(SystemVariable.newDeleteIdCookie());
+        response.addCookie(SystemVariable.newDeletePasswordCookie());
         session.removeAttribute(AttrKey.ATTR_USER);
         return RequestResults.success();
     }
@@ -125,7 +131,7 @@ public class UserAuthorityController {
 
     @RequestMapping("/getUserInfo")
     public String getUserInfo(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String id) {
-        if (id != null && !id.equals(user.getId().toString())) {
+        if (id != null && user.getId() != null && !id.equals(user.getId().toString())) {
             UserMapper mapper = MybatisProxy.create(UserMapper.class);
             User u = mapper.queryById(id);
             if (u == null) return RequestResults.notFound("用户不存在！");
