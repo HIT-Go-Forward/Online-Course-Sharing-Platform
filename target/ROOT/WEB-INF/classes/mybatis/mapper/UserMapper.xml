@@ -9,11 +9,20 @@
         <result column="birthday" jdbcType="DATE" property="birthday" />
         <result column="user_email" jdbcType="VARCHAR" property="email" />
         <result column="user_education" jdbcType="VARCHAR" property="education" />
-        <result column="user_school" jdbcType="VARCHAR" property="school" />
         <result column="user_intro" jdbcType="VARCHAR" property="intro" />
         <result column="note" jdbcType="VARCHAR" property="note" />
         <result column="user_phone" jdbcType="VARCHAR" property="phone" />
         <result column="img" jdbcType="VARCHAR" property="img" />
+
+        <association property="school" javaType="School">
+            <id column="school_id" property="id"/>
+            <result column="school_name" property="name" />
+            <result column="school_code" property="code" />
+            <result column="school_depart" property="depart" />
+            <result column="school_location" property="location" />
+            <result column="school_level" property="level" />
+            <result column="school_type" property="type" />
+        </association>
     </resultMap>
 
     <resultMap id="passwordResultMap" type="userWithPassword">
@@ -24,20 +33,30 @@
         <result column="birthday" jdbcType="DATE" property="birthday" />
         <result column="user_email" jdbcType="VARCHAR" property="email" />
         <result column="user_education" jdbcType="VARCHAR" property="education" />
-        <result column="user_school" jdbcType="VARCHAR" property="school" />
         <result column="user_intro" jdbcType="VARCHAR" property="intro" />
         <result column="note" jdbcType="VARCHAR" property="note" />
         <result column="user_phone" jdbcType="VARCHAR" property="phone" />
         <result column="img" jdbcType="VARCHAR" property="img" />
         <result column="password" jdbcType="VARCHAR" property="password" />
+
+        <association property="school" javaType="School">
+            <id column="school_id" property="id"/>
+            <result column="school_name" property="name" />
+            <result column="school_code" property="code" />
+            <result column="school_depart" property="depart" />
+            <result column="school_location" property="location" />
+            <result column="school_level" property="level" />
+            <result column="school_type" property="type" />
+        </association>
     </resultMap>
 
     <select id="queryById" parameterType="String" resultMap="BaseResultMap">
-        select user.*, file.file_url img from user left outer join file on user.user_img = file.file_id where user.user_id = #{id}
+        select user.*, file.file_url img from  user left outer join file on user.user_img = file.file_id left join school on user.user_school = school.school_id
+        where user.user_id = #{id}
     </select>
 
     <select id="login" parameterType="java.util.Map" resultMap="BaseResultMap">
-        select user.*, file.file_url img from user left outer join file on user.user_img = file.file_id
+        select user.*, file.file_url img from  user left outer join file on user.user_img = file.file_id left join school on user.user_school = school.school_id
         where user.user_id = #{id} and user.password = #{password}
     </select>
 
@@ -82,11 +101,11 @@
     </select>
 
     <select id="loginById" parameterType="java.util.Map" resultType="java.util.Map">
-        select * from user where user_id = #{id} and password = #{password}
+        select user.*, school.* from user left join school on user.user_school = school.school_id where user_id = #{id} and password = #{password}
     </select>
 
     <select id="loginByEmail" parameterType="java.util.Map" resultType="java.util.Map">
-        select * from user where user_email = #{email} and password = #{password}
+        select user.*, school.* from user left join school on user.user_school = school.school_id where user_email = #{email} and password = #{password}
     </select>
 
     <select id="selectPassword" parameterType="String" resultType="String">
@@ -94,14 +113,14 @@
     </select>
 
     <select id="selectUser" parameterType="java.util.Map" resultMap="passwordResultMap">
-        select * from user where user_id = #{id} and password = #{password}
+        select user.*, school.* from user left join school on user.user_school = school.school_id where user_id = #{id} and password = #{password}
     </select>
 
     <select id="selectUserById" parameterType="String" resultMap="passwordResultMap">
-        select * from user where user_id = #{id}
+        select user.*, school.* from user left join school on user.user_school = school.school_id where user_id = #{id}
     </select>
 
     <select id="selectUserByEmail" parameterType="String" resultMap="passwordResultMap">
-        select * from user where user_email = #{email}
+        select user.*, school.* from user left join school on user.user_school = school.school_id where user_email = #{email}
     </select>
 </mapper>

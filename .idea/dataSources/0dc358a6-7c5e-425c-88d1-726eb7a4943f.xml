@@ -1235,45 +1235,45 @@
       <RefTableName>course</RefTableName>
       <RefColNames>course_id</RefColNames>
     </foreign-key>
-    <column id="296" parent="239" name="id">
+    <column id="296" parent="239" name="school_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="239" name="name">
+    <column id="297" parent="239" name="school_name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="239" name="code">
+    <column id="298" parent="239" name="school_code">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="239" name="depart">
+    <column id="299" parent="239" name="school_depart">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="239" name="location">
+    <column id="300" parent="239" name="school_location">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="239" name="level">
+    <column id="301" parent="239" name="school_level">
       <Position>6</Position>
       <DataType>varchar(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="239" name="type">
+    <column id="302" parent="239" name="school_type">
       <Position>7</Position>
       <DataType>varchar(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="303" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>school_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="304" parent="240" name="study_id">
@@ -1371,7 +1371,7 @@
     </column>
     <column id="321" parent="241" name="user_school">
       <Position>8</Position>
-      <DataType>varchar(40)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="322" parent="241" name="user_intro">
@@ -1407,116 +1407,126 @@
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="328" parent="241" name="imgfk">
+    <index id="328" parent="241" name="user_school_school_id_fk">
+      <ColNames>user_school</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="329" parent="241" name="imgfk">
       <ColNames>user_img</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="329" parent="241" name="PRIMARY">
+    <key id="330" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="330" parent="241" name="user_user_email_uindex">
+    <key id="331" parent="241" name="user_user_email_uindex">
       <ColNames>user_email</ColNames>
       <UnderlyingIndexName>user_user_email_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="331" parent="241" name="imgfk">
+    <foreign-key id="332" parent="241" name="user_school_school_id_fk">
+      <ColNames>user_school</ColNames>
+      <RefSchemaName>zabbix</RefSchemaName>
+      <RefTableName>school</RefTableName>
+      <RefColNames>school_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="333" parent="241" name="imgfk">
       <ColNames>user_img</ColNames>
       <RefSchemaName>zabbix</RefSchemaName>
       <RefTableName>file</RefTableName>
       <RefColNames>file_id</RefColNames>
     </foreign-key>
-    <column id="332" parent="242" name="user_power_id">
+    <column id="334" parent="242" name="user_power_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="333" parent="242" name="user_power_action">
+    <column id="335" parent="242" name="user_power_action">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="334" parent="242" name="power">
+    <column id="336" parent="242" name="power">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="242" name="para">
+    <column id="337" parent="242" name="para">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="242" name="result">
+    <column id="338" parent="242" name="result">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="242" name="note">
+    <column id="339" parent="242" name="note">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="338" parent="242" name="user_power_user_power_action_uindex">
+    <index id="340" parent="242" name="user_power_user_power_action_uindex">
       <ColNames>user_power_action</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="339" parent="242" name="PRIMARY">
+    <key id="341" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_power_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="340" parent="242" name="user_power_user_power_action_uindex">
+    <key id="342" parent="242" name="user_power_user_power_action_uindex">
       <ColNames>user_power_action</ColNames>
       <UnderlyingIndexName>user_power_user_power_action_uindex</UnderlyingIndexName>
     </key>
-    <column id="341" parent="243" name="id">
+    <column id="343" parent="243" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="342" parent="243" name="email">
+    <column id="344" parent="243" name="email">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="343" parent="243" name="code">
+    <column id="345" parent="243" name="code">
       <Position>3</Position>
       <DataType>varchar(6)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="344" parent="243" name="date">
+    <column id="346" parent="243" name="date">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="345" parent="243" name="state">
+    <column id="347" parent="243" name="state">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="346" parent="243" name="validate_code_email_uindex">
+    <index id="348" parent="243" name="validate_code_email_uindex">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="347" parent="243" name="PRIMARY">
+    <key id="349" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="348" parent="243" name="validate_code_email_uindex">
+    <key id="350" parent="243" name="validate_code_email_uindex">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>validate_code_email_uindex</UnderlyingIndexName>
     </key>

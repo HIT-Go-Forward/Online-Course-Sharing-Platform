@@ -1,5 +1,7 @@
 package hit.to.go.entity.user;
 
+import hit.to.go.entity.school.School;
+
 import java.util.Date;
 
 /**
@@ -12,7 +14,7 @@ public class User {
     public static final int TYPE_VISITOR = 5;
     public static final int TYPE_FORBIDDEN_USER = 6;
 
-    public static final String DEFAULT_VISITOR_NAME = "默认游客名";
+    public static final String DEFAULT_VISITOR_NAME = "只是个游客";
 
     private Integer id;
     private String name;
@@ -21,7 +23,7 @@ public class User {
     private Date birthday;
     private String email;
     private Integer education;
-    private String school;
+    private School school;
     private String intro;
     private String note;
     private String phone;
@@ -97,11 +99,11 @@ public class User {
         this.education = education;
     }
 
-    public String getSchool() {
+    public School getSchool() {
         return school;
     }
 
-    public void setSchool(String school) {
+    public void setSchool(School school) {
         this.school = school;
     }
 

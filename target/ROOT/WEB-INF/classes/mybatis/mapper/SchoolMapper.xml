@@ -2,17 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="hit.to.go.database.dao.SchoolMapper">
     <resultMap id="schoolMap" type="school">
-        <id column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="code" property="code" />
-        <result column="depart" property="depart" />
-        <result column="location" property="location" />
-        <result column="level" property="level" />
-        <result column="type" property="type" />
+        <id column="school_id" property="id"/>
+        <result column="school_name" property="name" />
+        <result column="school_code" property="code" />
+        <result column="school_depart" property="depart" />
+        <result column="school_location" property="location" />
+        <result column="school_level" property="level" />
+        <result column="school_type" property="type" />
     </resultMap>
 
     <select id="querySchool" parameterType="String" resultMap="schoolMap">
         <bind name="pattern" value="'%' + keyword + '%'" />
-        select * from school where name like #{pattern}
+        select * from school where school_name like #{pattern}
     </select>
 </mapper>

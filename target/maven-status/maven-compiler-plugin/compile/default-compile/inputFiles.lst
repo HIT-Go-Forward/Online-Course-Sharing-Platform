@@ -29,13 +29,16 @@ E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\entity\Apply.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\platform\protocol\RequestWrapper.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\controller\MediaController.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\platform\SystemVariable.java
+E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\controller\SchoolController.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\database\mybatis\MybatisProxy.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\controller\ApplyController.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\controller\HistoryController.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\entity\course\Course.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\platform\MailConfig.java
+E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\entity\school\School.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\platform\util\MailUtil.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\database\mybatis\DatabaseFactory.java
+E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\database\dao\SchoolMapper.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\entity\course\LessionCourse.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\database\dao\ActionMapper.java
 E:\Projects\web\HitToGo\togoserver\src\main\java\hit\to\go\database\dao\HistoryMapper.java
