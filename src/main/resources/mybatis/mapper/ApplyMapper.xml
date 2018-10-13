@@ -6,8 +6,10 @@
         <result column="apply_user_id" property="userId" />
         <result column="apply_time" property="time" />
         <result column="apply_handler_id" property="handlerId" />
+        <result column="apply_note" property="note" />
         <result column="apply_state" property="state" />
         <result column="apply_handler_time" property="handleTime" />
+        <result column="apply_handle_note" property="handleNote" />
     </resultMap>
 
 
