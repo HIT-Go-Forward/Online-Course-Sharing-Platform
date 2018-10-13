@@ -14,24 +14,28 @@ public final class SystemVariable {
 
     public static Cookie newDeleteIdCookie() {
         Cookie cookie = new Cookie("id", "");
+        cookie.setPath("/");
         cookie.setMaxAge(0);
         return cookie;
     }
 
     public static Cookie newDeletePasswordCookie() {
         Cookie cookie = new Cookie("password", "");
+        cookie.setPath("/");
         cookie.setMaxAge(0);
         return cookie;
     }
 
     public static Cookie newIdCookie(String id) {
         Cookie cookie = new Cookie("id", id);
+        cookie.setPath("/");
         cookie.setMaxAge(TIME_S_7_DAYS);
         return cookie;
     }
 
     public static Cookie newPasswordCookie(String password) {
         Cookie cookie = new Cookie("password", password);
+        cookie.setPath("/");
         cookie.setMaxAge(TIME_S_7_DAYS);
         return cookie;
     }

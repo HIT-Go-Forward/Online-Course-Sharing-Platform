@@ -1,6 +1,5 @@
 package hit.to.go.controller;
 
-import com.sun.deploy.net.HttpResponse;
 import hit.to.go.database.dao.UserMapper;
 import hit.to.go.database.dao.ValidateCodeMapper;
 import hit.to.go.database.mybatis.MybatisProxy;
@@ -37,7 +36,7 @@ public class UserAuthorityController {
     private static final Logger logger = LoggerFactory.getLogger(UserAuthorityController.class);
 
     @RequestMapping("/register")
-    public String register(@RequestParam Map<String, Object> map, HttpSession session) {
+    public String register(@RequestParam Map<String, Object> map, HttpSession session, HttpServletResponse response) {
         Object code = map.get("code");
         Object name = map.get("name");
         Object password = map.get("password");
@@ -55,6 +54,8 @@ public class UserAuthorityController {
                     Object uid = map.get("user_id");
                     UserWithPassword user = mapper.selectUserById(uid.toString());
                     session.setAttribute(AttrKey.ATTR_USER, user);
+                    response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
+                    response.addCookie(SystemVariable.newPasswordCookie(user.getPassword()));
                     return RequestResults.success(user);
                 }
                 return RequestResults.error();
