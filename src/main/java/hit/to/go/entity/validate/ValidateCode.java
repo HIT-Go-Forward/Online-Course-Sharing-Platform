@@ -15,6 +15,15 @@ public class ValidateCode {
     private Date date;
     private Integer state;
 
+    public ValidateCode() {}
+
+    public ValidateCode(String email, String code) {
+        this.email = email;
+        this.code = code;
+        this.date = new Date();
+        this.state = STATE_VALID;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -17,6 +17,7 @@ public class SchoolController {
 
     @RequestMapping("/querySchool")
     public String querySchool(String keyword) {
+        if (keyword == null) return RequestResults.success(null);
         SchoolMapper mapper = MybatisProxy.create(SchoolMapper.class);
         return RequestResults.success(mapper.querySchool(keyword));
     }

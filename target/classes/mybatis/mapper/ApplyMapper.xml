@@ -5,11 +5,34 @@
         <id column="apply_id" property="id" />
         <result column="apply_user_id" property="userId" />
         <result column="apply_time" property="time" />
-        <result column="apply_handler_id" property="handlerId" />
         <result column="apply_note" property="note" />
         <result column="apply_state" property="state" />
         <result column="apply_handler_time" property="handleTime" />
         <result column="apply_handle_note" property="handleNote" />
+
+        <association property="handler" javaType="User">
+            <id column="user_id" jdbcType="INTEGER" property="id" />
+            <result column="user_name" jdbcType="VARCHAR" property="name" />
+            <result column="user_type" jdbcType="INTEGER" property="type" />
+            <result column="user_sex" jdbcType="VARCHAR" property="sex" />
+            <result column="birthday" jdbcType="DATE" property="birthday" />
+            <result column="user_email" jdbcType="VARCHAR" property="email" />
+            <result column="user_education" jdbcType="VARCHAR" property="education" />
+            <result column="user_intro" jdbcType="VARCHAR" property="intro" />
+            <result column="note" jdbcType="VARCHAR" property="note" />
+            <result column="user_phone" jdbcType="VARCHAR" property="phone" />
+            <result column="img" jdbcType="VARCHAR" property="img" />
+
+            <association property="school" javaType="School">
+                <id column="school_id" property="id"/>
+                <result column="school_name" property="name" />
+                <result column="school_code" property="code" />
+                <result column="school_depart" property="depart" />
+                <result column="school_location" property="location" />
+                <result column="school_level" property="level" />
+                <result column="school_type" property="type" />
+            </association>
+        </association>
     </resultMap>
 
 
@@ -47,14 +70,19 @@
     </update>
 
     <select id="getAllApplies" parameterType="Map" resultMap="baseResultMap">
-        select * from apply where 1 = 1
+        select  apply.*, user.*, school.* from
+        apply left join user on apply.apply_handler_id = user.user_id
+        left join school on user.user_school = school.school_id
+        where 1 = 1
         <if test="power != 2">
             and apply_user_id = #{id}
         </if>
     </select>
 
     <select id="getAllUnhandledApplies" parameterType="Map" resultMap="baseResultMap">
-        select * from apply
+        select  apply.*, user.*, school.* from
+        apply left join user on apply.apply_handler_id = user.user_id
+        left join school on user.user_school = school.school_id
         where apply_state = 1
         <if test="power != 2">
             and apply_user_id = #{id}
@@ -62,7 +90,9 @@
     </select>
 
     <select id="getAllHandledApplies" parameterType="Map" resultMap="baseResultMap">
-        select * from apply
+        select apply.*, user.*, school.* from
+        apply left join user on apply.apply_handler_id = user.user_id
+        left join school on user.user_school = school.school_id
         where (apply_state = 2 or apply_state = 3)
         <if test="power != 2">
             and apply_user_id = #{id}

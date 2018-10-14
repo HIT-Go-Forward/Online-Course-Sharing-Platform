@@ -5,6 +5,5 @@ package hit.to.go.platform;
  */
 public class AttrKey {
     public static final String ATTR_USER = "attr-user";
-
-    public static final String DEFAULT_COURSE_IMG = "2";
+    public static final String ATTR_VALIDATE_CODE = "attr_validate_code";
 }

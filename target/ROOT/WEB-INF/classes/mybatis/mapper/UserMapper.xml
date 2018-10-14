@@ -76,6 +76,7 @@
 
     <update id="completeInfo" parameterType="java.util.Map">
         update user set
+        user_name = #{name},
         user_sex = #{sex, jdbcType=VARCHAR},
         birthday = #{birthday, jdbcType=VARCHAR},
         user_education = #{education, jdbcType=INTEGER},

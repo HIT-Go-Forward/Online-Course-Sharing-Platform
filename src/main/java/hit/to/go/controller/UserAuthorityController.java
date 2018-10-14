@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.w3c.dom.Attr;
 
 import javax.servlet.http.*;
 import java.util.Date;
@@ -41,36 +42,38 @@ public class UserAuthorityController {
         Object name = map.get("name");
         Object password = map.get("password");
         Object email = map.get("email");
-        if (code != null && name != null && password != null && email != null) {
-            String result = validateCode(code.toString(), email.toString());
-            if (result.equals("success")) {
-                UserMapper mapper = MybatisProxy.create(UserMapper.class);
-                Integer id = mapper.selectIdByEmail(email.toString());
+        if (code == null || name == null || password == null || email == null) return RequestResults.wrongParameters();
+        String result = validate(code.toString(), email.toString(), session);
+        if (result.equals("success")) {
+            UserMapper mapper = MybatisProxy.create(UserMapper.class);
+            Integer rows = mapper.register(map);
+            if (rows == null) return RequestResults.dataBaseWriteError();
+            else if (rows.equals(0)) return RequestResults.forbidden("该邮箱已被注册");
 
-                if (id != null) return RequestResults.forbidden("该邮箱已被注册, 请重试!");
+            UserWithPassword user = mapper.selectUserByEmail(email.toString());
+            session.setAttribute(AttrKey.ATTR_USER, user);
+            response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
+            response.addCookie(SystemVariable.newPasswordCookie(user.getPassword()));
 
-                Integer rows = mapper.register(map);
-                if (rows != null && rows.equals(1)) {
-                    Object uid = map.get("user_id");
-                    UserWithPassword user = mapper.selectUserById(uid.toString());
-                    session.setAttribute(AttrKey.ATTR_USER, user);
-                    response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
-                    response.addCookie(SystemVariable.newPasswordCookie(user.getPassword()));
-                    return RequestResults.success(user);
-                }
-                return RequestResults.error();
-            }
-            return RequestResults.forbidden(result) ;
+            return RequestResults.success(user);
         }
-        return RequestResults.forbidden("请确认已填写全部必填信息!");
+
+
+        return RequestResults.forbidden(result);
     }
 
     @RequestMapping("/modifyInfo")
-    public String modifyInfo(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, @RequestParam Map<String, String> paras) {
+    public String modifyInfo(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, @RequestParam Map<String, String> paras, HttpSession session) {
         paras.put("id", user.getId().toString());
+        if (paras.get("name") == null) return RequestResults.wrongParameters();
         UserMapper mapper = MybatisProxy.create(UserMapper.class);
         Integer rows = mapper.completeInfo(paras);
-        if (rows != null && rows.equals(1)) return RequestResults.success();
+        user = mapper.selectUserById(user.getId().toString());
+
+        if (rows != null && rows.equals(1)) {
+            session.setAttribute(AttrKey.ATTR_USER, user);
+            return RequestResults.success(user);
+        }
         return RequestResults.error("保存失败!");
     }
 
@@ -81,7 +84,7 @@ public class UserAuthorityController {
             UserMapper mapper = MybatisProxy.create(UserMapper.class);
             if (account.matches("^\\d+$")) {
                 user = mapper.selectUserById(account);
-            } else if (account.matches("^\\w+@\\w+(\\.\\w+)*$")) {
+            } else if (account.matches("^\\w+@\\w+$")) {
                 user = mapper.selectUserByEmail(account);
             } else return RequestResults.forbidden("请输入正确的账号！");
             if (user != null) {
@@ -106,28 +109,24 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/changePassword")
-    public String changePassword(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String oldPassword, String newPassword, String code, HttpSession session) {
-        // TODO 可优化数据库查询
-        if (oldPassword != null && newPassword != null && code != null) {
-            if (user.getPassword().equals(oldPassword)) {
-                String result = validateCode(code, user.getEmail());
-                if (result.equals("success")) {
-                    UserMapper mapper = MybatisProxy.create(UserMapper.class);
-                    Map<String, String> paras = new HashMap<>();
-                    paras.put("id", user.getId().toString());
-                    paras.put("password", newPassword);
-                    Integer rows = mapper.changePassword(paras);
-                    if (rows != null && rows.equals(1)) {
-                        session.removeAttribute(AttrKey.ATTR_USER);
-                        return RequestResults.success();
-                    }
-                    return RequestResults.error("更新失败!");
-                }
-                return RequestResults.forbidden(result);
-            }
-            return RequestResults.forbidden("密码错误!");
+    public String changePassword(String oldPassword, String newPassword, String code, HttpSession session, @SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
+        if (oldPassword == null || newPassword == null || code == null) return RequestResults.wrongParameters();
+        if (!user.getPassword().equals(oldPassword)) return RequestResults.forbidden("原密码错误");
+
+        String result = validate(code, user.getEmail(), session);
+        if (!result.equals("success")) return RequestResults.forbidden(result);
+
+        UserMapper mapper = MybatisProxy.create(UserMapper.class);
+        Map<String, String> paras = new HashMap<>();
+        paras.put("id", user.getId().toString());
+        paras.put("password", newPassword);
+        Integer rows = mapper.changePassword(paras);
+        if (rows == null || rows.equals(0)) return RequestResults.dataBaseWriteError();
+        else if (rows.equals(1)) {
+            session.removeAttribute(AttrKey.ATTR_USER);
+            return RequestResults.success();
         }
-        return RequestResults.wrongParameters();
+        return RequestResults.error();
     }
 
     @RequestMapping("/getUserInfo")
@@ -142,80 +141,52 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/sendValidateCode")
-    public String sendValidateCode(String email) {
+    public String sendValidateCode(String email, HttpSession session) {
         if (email == null) return RequestResults.wrongParameters();
-        boolean update = false;
-        String code;
-        Map<String, Object> map;
-
         Date now = new Date();
-        ValidateCodeMapper mapper = MybatisProxy.create(ValidateCodeMapper.class);
-        ValidateCode vc = mapper.queryValidateCode(email);
-        if (vc != null) {
-            // 判断距上次请求是否小于一分钟
-            if (now.getTime() - vc.getDate().getTime() < 60000) return RequestResults.forbidden("请于一分钟之后再试!");
-            update = true;
-        }
-        map = new HashMap<>();
-        code = Validate.genValidateCode();
+        ValidateCode code = (ValidateCode) session.getAttribute(AttrKey.ATTR_VALIDATE_CODE);
 
-        map.put("code", code);
-        map.put("date", now);
-        map.put("email", email);
+        if (code != null && now.getTime() - code.getDate().getTime() < SystemVariable.TIME_MS_1_MINUTE)
+            return RequestResults.forbidden("请于一分钟之后再试");
 
-        logger.debug("email :{}", email);
-        boolean flag;
-
-        flag = MailUtil.send(email, SystemConfig.getMailConfig().getTemplate(MailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", code));
+        String c = Validate.genValidateCode();
+        code = new ValidateCode(email, c);
+        boolean flag = MailUtil.send(email, SystemConfig.getMailConfig().getTemplate(MailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", c));
         if (flag) {
-            if (update) mapper.updateValidateCode(map);
-            else mapper.insertValidateCode(map);
+            session.setAttribute(AttrKey.ATTR_VALIDATE_CODE, code);
             return RequestResults.success();
         }
+
         return RequestResults.error("邮件发送失败, 请稍后再试~");
     }
 
     @RequestMapping("/sendValidateCodeToCurrentUser")
-    public String sendValidateCodeToCurrentUser(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
+    public String sendValidateCodeToCurrentUser(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, HttpSession session) {
         String email = user.getEmail();
-        boolean update = false;
-        String code;
-        Map<String, Object> map;
-
+        if (email == null) return RequestResults.wrongParameters();
         Date now = new Date();
-        ValidateCodeMapper mapper = MybatisProxy.create(ValidateCodeMapper.class);
-        ValidateCode vc = mapper.queryValidateCode(email);
-        if (vc != null) {
-            // 判断距上次请求是否小于一分钟
-            if (now.getTime() - vc.getDate().getTime() < 60000) return RequestResults.forbidden("请于一分钟之后再试!");
-            update = true;
-        }
-        map = new HashMap<>();
-        code = Validate.genValidateCode();
+        ValidateCode code = (ValidateCode) session.getAttribute(AttrKey.ATTR_VALIDATE_CODE);
 
-        map.put("code", code);
-        map.put("date", now);
-        map.put("email", email);
+        if (code != null && now.getTime() - code.getDate().getTime() < SystemVariable.TIME_MS_1_MINUTE)
+            return RequestResults.forbidden("请于一分钟之后再试");
 
-        Integer rows = null;
-        boolean flag;
-        if (update) rows = mapper.updateValidateCode(map);
-        else rows = mapper.insertValidateCode(map);
-        if (rows != null && rows.equals(1)) {
-            flag = MailUtil.send(email, SystemConfig.getMailConfig().getTemplate(MailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", code));
-            if (flag) return RequestResults.success();
+        String c = Validate.genValidateCode();
+
+        code = new ValidateCode(email, c);
+        boolean flag = MailUtil.send(email, SystemConfig.getMailConfig().getTemplate(MailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", c));
+        if (flag) {
+            session.setAttribute(AttrKey.ATTR_VALIDATE_CODE, code);
+            return RequestResults.success();
         }
+
         return RequestResults.error("邮件发送失败, 请稍后再试~");
     }
 
     @RequestMapping("/validateCode")
-    public String validateCode(@RequestParam Map<String, String> map) {
-        String email = map.get("email");
-        String code = map.get("code");
-
+    public String validateCode(String email, String code, HttpSession session) {
         if (email == null || code == null) return RequestResults.wrongParameters();
 
-        String result = validateCode(code, email);
+        String result = validate(code, email, session);
         if (result.equals("success")) return RequestResults.success();
         return RequestResults.forbidden(result);
     }
@@ -232,22 +203,17 @@ public class UserAuthorityController {
         return RequestResults.badRequest("email不能为空");
     }
 
-    private String validateCode(String code, String email) {
+    private String validate(String code, String email, HttpSession session) {
         Date now = new Date();
-
-        if (email != null && code != null) {
-            ValidateCodeMapper mapper = MybatisProxy.create(ValidateCodeMapper.class);
-            ValidateCode vc = mapper.queryValidateCode(email);
-
-            if (vc != null && (now.getTime() - vc.getDate().getTime() < 900000)) {
-                if (vc.getState().equals(ValidateCode.STATE_VALID) && vc.getCode().equalsIgnoreCase(code)) {
-                    mapper.becomeInvalid(email);
-                    return "success";
-                }
-                return "验证码错误或已失效, 请重试!";
-            }
-            return "验证码已超时, 请重试!";
+        ValidateCode vc = (ValidateCode) session.getAttribute(AttrKey.ATTR_VALIDATE_CODE);
+        if (vc == null) return "请先获取验证码";
+        else if (!vc.getCode().equalsIgnoreCase(code) || !vc.getEmail().equals(email)) return "验证码错误";
+        else if (vc.getState().equals(ValidateCode.STATE_INVALID)) return "验证码已失效";
+        else if (now.getTime() - vc.getDate().getTime() > SystemVariable.TIME_MS_15_MINUTES) return "验证码已过期";
+        else {
+//            session.removeAttribute(AttrKey.ATTR_VALIDATE_CODE);
+            vc.setState(ValidateCode.STATE_INVALID);
+            return "success";
         }
-        return "验证码与邮箱均不能为空";
     }
 }

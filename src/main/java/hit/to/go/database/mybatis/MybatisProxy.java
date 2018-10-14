@@ -2,6 +2,9 @@ package hit.to.go.database.mybatis;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +13,8 @@ import java.util.Map;
  * Created by 班耀强 on 2018/8/24
  */
 public class MybatisProxy {
+    private static final Logger logger = LoggerFactory.getLogger(MybatisProxy.class);
+
     private static Map<Class<?>, Object> cachedProxy = new HashMap<>();
 
 //    @SuppressWarnings("unchecked")
@@ -57,9 +62,18 @@ public class MybatisProxy {
                     try {
                         session = sessionFactory.openSession(true);
                         result = method.invoke(session.getMapper(clazz), args);
-                        session.commit(true);
+                        session.commit();
                     } catch (Exception e){
-                        if (session != null) session.rollback(true);
+                        logger.error("数据库操作出错 {}", e.getMessage());
+                        try {
+                            if (session != null) {
+                                logger.debug("数据库回滚");
+                                session.rollback();
+                            }
+                        } catch (Exception exception) {
+                            logger.error("数据库回滚出错 {}", e.getMessage());
+                            exception.printStackTrace();
+                        }
                         e.printStackTrace();
                         return null;
                     } finally {

@@ -24,6 +24,10 @@ public class RequestResults {
         return JSON.toJson(new RequestResult(500, data));
     }
 
+    public static String dataBaseWriteError() {
+        return error("数据库写入失败！");
+    }
+
     public static String forbidden() {
         return forbidden("Forbidden");
     }

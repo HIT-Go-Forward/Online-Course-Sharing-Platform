@@ -1,5 +1,7 @@
 package hit.to.go.entity;
 
+import hit.to.go.entity.user.User;
+
 import java.util.Date;
 
 /**
@@ -14,7 +16,8 @@ public class Apply {
     private Integer userId;
     private Date time;
     private String note;
-    private Integer handlerId;
+//    private Integer handlerId;
+    private User handler;
     private Integer state;
     private Date handleTime;
     private String handleNote;
@@ -51,12 +54,12 @@ public class Apply {
         this.note = note;
     }
 
-    public Integer getHandlerId() {
-        return handlerId;
+    public User getHandler() {
+        return handler;
     }
 
-    public void setHandlerId(Integer handlerId) {
-        this.handlerId = handlerId;
+    public void setHandler(User handler) {
+        this.handler = handler;
     }
 
     public Integer getState() {
