@@ -84,7 +84,7 @@ public class UserAuthorityController {
             UserMapper mapper = MybatisProxy.create(UserMapper.class);
             if (account.matches("^\\d+$")) {
                 user = mapper.selectUserById(account);
-            } else if (account.matches("^\\w+@\\w+$")) {
+            } else if (account.matches("^\\w+@.+$")) {
                 user = mapper.selectUserByEmail(account);
             } else return RequestResults.forbidden("请输入正确的账号！");
             if (user != null) {
