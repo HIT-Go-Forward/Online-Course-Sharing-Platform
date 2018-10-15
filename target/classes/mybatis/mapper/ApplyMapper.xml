@@ -3,12 +3,35 @@
 <mapper namespace="hit.to.go.database.dao.ApplyMapper">
     <resultMap id="baseResultMap" type="apply">
         <id column="apply_id" property="id" />
-        <result column="apply_user_id" property="userId" />
         <result column="apply_time" property="time" />
         <result column="apply_note" property="note" />
         <result column="apply_state" property="state" />
         <result column="apply_handler_time" property="handleTime" />
         <result column="apply_handle_note" property="handleNote" />
+
+        <association property="applyUser" javaType="User">
+            <id column="apply_user_id" jdbcType="INTEGER" property="id" />
+            <result column="apply_user_name" jdbcType="VARCHAR" property="name" />
+            <result column="apply_user_type" jdbcType="INTEGER" property="type" />
+            <result column="apply_user_sex" jdbcType="VARCHAR" property="sex" />
+            <result column="apply_birthday" jdbcType="DATE" property="birthday" />
+            <result column="apply_user_email" jdbcType="VARCHAR" property="email" />
+            <result column="apply_user_education" jdbcType="VARCHAR" property="education" />
+            <result column="apply_user_intro" jdbcType="VARCHAR" property="intro" />
+            <result column="apply_note" jdbcType="VARCHAR" property="note" />
+            <result column="apply_user_phone" jdbcType="VARCHAR" property="phone" />
+            <result column="apply_img" jdbcType="VARCHAR" property="img" />
+
+            <association property="school" javaType="School">
+                <id column="apply_school_id" property="id"/>
+                <result column="apply_school_name" property="name" />
+                <result column="apply_school_code" property="code" />
+                <result column="apply_school_depart" property="depart" />
+                <result column="apply_school_location" property="location" />
+                <result column="apply_school_level" property="level" />
+                <result column="apply_school_type" property="type" />
+            </association>
+        </association>
 
         <association property="handler" javaType="User">
             <id column="user_id" jdbcType="INTEGER" property="id" />
@@ -34,6 +57,23 @@
             </association>
         </association>
     </resultMap>
+
+    <sql id="columns">
+        apply.*,
+        u1.user_id as apply_user_id, u1.user_name as apply_user_name, u1.user_sex as apply_user_sex,
+        u1.birthday as apply_birthday, u1.user_email as apply_user_email, u1.user_education as apply_user_education,
+        u1.user_school as apply_user_school, u1.user_intro as apply_user_intro, u1.note as apply_note,
+        u1.user_phone as apply_user_phone, u1.user_img as apply_user_img, u1.user_type as apply_user_type,
+        u2.*,
+        s1.school_id as apply_school_id, s1.school_name as apply_school_name, s1.school_code as apply_school_code,
+        s1.school_depart as apply_school_depart, s1.school_location as apply_achool_location,
+        s1.school_level as apply_school_level, s1.school_type as apply_school_type,
+        s2.*
+        from apply left join user u1 on apply.apply_user_id = u1.user_id
+        left join school s1 on u1.user_school = s1.school_id
+        left join user u2 on apply.apply_handler_id = u2.user_id
+        left join school s2 on u2.user_school = s2.school_id
+    </sql>
 
 
     <insert id="applyTeacher" parameterType="Map" keyProperty="apply_id" useGeneratedKeys="true">
@@ -70,9 +110,8 @@
     </update>
 
     <select id="getAllApplies" parameterType="Map" resultMap="baseResultMap">
-        select  apply.*, user.*, school.* from
-        apply left join user on apply.apply_handler_id = user.user_id
-        left join school on user.user_school = school.school_id
+        select
+        <include refid="columns" />
         where 1 = 1
         <if test="power != 2">
             and apply_user_id = #{id}
@@ -80,9 +119,8 @@
     </select>
 
     <select id="getAllUnhandledApplies" parameterType="Map" resultMap="baseResultMap">
-        select  apply.*, user.*, school.* from
-        apply left join user on apply.apply_handler_id = user.user_id
-        left join school on user.user_school = school.school_id
+        select
+        <include refid="columns" />
         where apply_state = 1
         <if test="power != 2">
             and apply_user_id = #{id}
@@ -90,9 +128,8 @@
     </select>
 
     <select id="getAllHandledApplies" parameterType="Map" resultMap="baseResultMap">
-        select apply.*, user.*, school.* from
-        apply left join user on apply.apply_handler_id = user.user_id
-        left join school on user.user_school = school.school_id
+        select
+        <include refid="columns" />
         where (apply_state = 2 or apply_state = 3)
         <if test="power != 2">
             and apply_user_id = #{id}

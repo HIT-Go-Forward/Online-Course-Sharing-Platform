@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="hit.to.go.database.dao.CourseMapper">
+    <resultMap id="studyCourseMap" type="hit.to.go.entity.course.Study">
+        <id column="study_id" property="id"/>
+        <result column="study_date" property="date"/>
+        <result column="study_state" property="state"/>
+        <association property="user" javaType="hit.to.go.entity.user.User">
+            <id column="study_user_id" jdbcType="INTEGER" property="id" />
+            <result column="study_user_name" jdbcType="VARCHAR" property="name" />
+            <result column="study_user_type" jdbcType="INTEGER" property="type" />
+            <result column="study_user_sex" jdbcType="VARCHAR" property="sex" />
+            <result column="study_birthday" jdbcType="DATE" property="birthday" />
+            <result column="study_user_email" jdbcType="VARCHAR" property="email" />
+            <result column="study_user_education" jdbcType="VARCHAR" property="education" />
+            <result column="study_user_intro" jdbcType="VARCHAR" property="intro" />
+            <result column="study_note" jdbcType="VARCHAR" property="note" />
+            <result column="study_user_phone" jdbcType="VARCHAR" property="phone" />
+            <result column="study_user_img" jdbcType="VARCHAR" property="img" />
+
+            <association property="school" javaType="School">
+                <id column="study_school_id" property="id"/>
+                <result column="study_school_name" property="name" />
+                <result column="study_school_code" property="code" />
+                <result column="study_school_depart" property="depart" />
+                <result column="study_school_location" property="location" />
+                <result column="study_school_level" property="level" />
+                <result column="study_school_type" property="type" />
+            </association>
+        </association>
+        <collection property="course" resultMap="courseMap"/>
+    </resultMap>
+
     <resultMap id="courseMap" type="hit.to.go.entity.course.Course">
         <id column="course_id" property="id" />
         <result column="course_name" property="name" />
-        <result column="course_teacher_id" property="teacherId" />
         <result column="course_intro" property="intro" />
         <result column="course_img" property="img" />
         <result column="note" property="note" />
@@ -13,26 +42,55 @@
         <result column="course_user_num" property="userNum" />
         <result column="course_lesson_num" property="lessonNum" />
         <result column="course_grade" property="grade" />
+        <association property="teacher" javaType="User">
+            <id column="user_id" jdbcType="INTEGER" property="id" />
+            <result column="user_name" jdbcType="VARCHAR" property="name" />
+            <result column="user_type" jdbcType="INTEGER" property="type" />
+            <result column="user_sex" jdbcType="VARCHAR" property="sex" />
+            <result column="birthday" jdbcType="DATE" property="birthday" />
+            <result column="user_email" jdbcType="VARCHAR" property="email" />
+            <result column="user_education" jdbcType="VARCHAR" property="education" />
+            <result column="user_intro" jdbcType="VARCHAR" property="intro" />
+            <result column="note" jdbcType="VARCHAR" property="note" />
+            <result column="user_phone" jdbcType="VARCHAR" property="phone" />
+            <result column="user_img" jdbcType="VARCHAR" property="img" />
+
+            <association property="school" javaType="School">
+                <id column="school_id" property="id"/>
+                <result column="school_name" property="name" />
+                <result column="school_code" property="code" />
+                <result column="school_depart" property="depart" />
+                <result column="school_location" property="location" />
+                <result column="school_level" property="level" />
+                <result column="school_type" property="type" />
+            </association>
+        </association>
     </resultMap>
 
-    <resultMap id="studyCourseMap" type="hit.to.go.entity.course.StudyCourse">
-        <id column="course_id" property="id" />
-        <result column="course_name" property="name" />
-        <result column="course_teacher_id" property="teacherId" />
-        <result column="course_intro" property="intro" />
-        <result column="course_img" property="img" />
-        <result column="note" property="note" />
-        <result column="course_state" property="state" />
-        <result column="course_label" property="label" />
-        <result column="course_user_num" property="userNum" />
-        <result column="course_lesson_num" property="lessonNum" />
-        <result column="course_grade" property="grade" />
-        <result column="study_id" property="studyId" />
-        <result column="study_user_id" property="studentId" />
-        <result column="study_date" property="date" />
-        <result column="study_state" property="studyState" />
-    </resultMap>
+    <sql id="courseColumns">
+      course.*, user.*, school.* from
+      course left join user on course.course_teacher_id = user.user_id
+      left join school on user.user_school = school.school_id
+    </sql>
 
+    <sql id="studyCourseColumns">
+      study.*, course.*,
+      u1.user_id as study_user_id, u1.user_name as study_user_name, u1.user_sex as study_user_sex,
+      u1.birthday as study_birthday, u1.user_email as study_user_email, u1.user_education as study_user_education,
+      u1.user_school as study_user_school, u1.user_intro as study_user_intro, u1.note as study_note,
+      u1.user_phone as study_user_phone, u1.user_img as study_user_img, u1.user_type as study_user_type,
+      s1.school_id as study_school_id, s1.school_name as study_school_name, s1.school_code as study_school_code,
+      s1.school_depart as study_school_depart, s1.school_location as study_achool_location,
+      s1.school_level as study_school_level, s1.school_type as study_school_type,
+      u2.*, s2.*
+      from
+      study left join course on study.study_course_id = course.course_id
+      left join user u1 on course.course_teacher_id = u1.user_id
+      left join school s1 on u1.user_school = s1.school_id
+      left join user u2 on course.course_teacher_id = u2.user_id
+      left join school s2 on u2.user_school = s2.school_id
+
+    </sql>
 
     <insert id="addNewCourse" parameterType="Map" useGeneratedKeys="true" keyProperty="course_id">
         insert into course
@@ -104,51 +162,76 @@
         where course_state = 1 and course_teacher_id = ${id} and course_id = #{courseId}
     </update>
 
+    <select id="getAllAvailableCourses" resultMap="courseMap">
+        select
+        <include refid="courseColumns"/>
+        where course.course_state = 4
+    </select>
+
     <select id="getAllTeacherCourses" parameterType="String" resultMap="courseMap">
-        select * from course where course_teacher_id = #{id}
+        select
+        <include refid="courseColumns"/>
+        from course where course_teacher_id = #{id}
     </select>
 
     <select id="getAllStudentCourses" parameterType="String" resultMap="studyCourseMap">
-        select * from course, study where course.course_id = study_course_id and study_user_id = #{id}
+        select
+        <include refid="studyCourseColumns"/>
+        where course.course_id = study_course_id and study_user_id = #{id}
     </select>
 
     <select id="getJoinedCourses" parameterType="String" resultMap="studyCourseMap">
-        select * from course, study
+        selec
+        <include refid="studyCourseColumns"/>
         where course.course_id = study_course_id and study_user_id = #{id} and study_state = 1
     </select>
 
     <select id="getLearningCourses" parameterType="String" resultMap="studyCourseMap">
-        select * from course, study
+        select
+        <include refid="studyCourseColumns"/>
         where course.course_id = study_course_id and study_user_id = #{id} and study_state = 2
     </select>
 
     <select id="getLearnedCourses" parameterType="String" resultMap="studyCourseMap">
-        select * from course, study
+        select
+        <include refid="studyCourseColumns"/>
         where course.course_id = study_course_id and study_user_id = #{id} and study_state = 3
     </select>
 
     <select id="getCourseById" parameterType="String" resultMap="courseMap">
-        select * from course where course_id = #{courseId}
+        select
+        <include refid="courseColumns"/>
+        where course_id = #{courseId}
     </select>
 
     <select id="getAllDraftCourses" parameterType="String" resultMap="courseMap">
-        select * from course where course_state = 1 and course_teacher_id = #{id}
+        select
+        <include refid="courseColumns"/>
+        where course_state = 1 and course_teacher_id = #{id}
     </select>
 
     <select id="getAllApplyingCourses" parameterType="String" resultMap="courseMap">
-        select * from course where course_state = 2 and course_teacher_id = #{id}
+        select
+        <include refid="courseColumns"/>
+        where course_state = 2 and course_teacher_id = #{id}
     </select>
 
     <select id="getAllRejectedCourses" parameterType="String" resultMap="courseMap">
-        select * from course where course_state = 3 and course_teacher_id = #{id}
+        select
+        <include refid="courseColumns"/>
+        where course_state = 3 and course_teacher_id = #{id}
     </select>
 
     <select id="getAllReleasedCourses" parameterType="String" resultMap="courseMap">
-        select * from course where course_state = 4 and course_teacher_id = #{id}
+        select
+        <include refid="courseColumns"/>
+        where course_state = 4 and course_teacher_id = #{id}
     </select>
 
     <select id="getManageableCourses" parameterType="Map" resultMap="courseMap">
-        select course.* from course, user where 1 = 1
+        select
+        <include refid="courseColumns"/>
+        where 1 = 1
         <choose>
             <when test="type == 'accepted'">
                 and course_state = 4
@@ -166,6 +249,5 @@
                 and course_state = -1000
             </otherwise>
         </choose>
-        and user.user_id = #{id} and user.user_type = 2
     </select>
 </mapper>

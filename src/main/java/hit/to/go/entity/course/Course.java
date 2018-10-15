@@ -1,5 +1,7 @@
 package hit.to.go.entity.course;
 
+import hit.to.go.entity.user.User;
+
 /**
  * Created by 班耀强 on 2018/10/2
  */
@@ -10,7 +12,8 @@ public class Course {
 
     private Integer id;
     private String name;
-    private Integer teacherId;
+//    private Integer teacherId;
+    private User teacher;
     private String intro;
     private String img;
     private String note;
@@ -37,12 +40,12 @@ public class Course {
         this.name = name;
     }
 
-    public Integer getTeacherId() {
-        return teacherId;
+    public User getTeacherId() {
+        return teacher;
     }
 
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacherId(User teacher) {
+        this.teacher = teacher;
     }
 
     public String getIntro() {

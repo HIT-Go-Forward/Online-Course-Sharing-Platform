@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -76,6 +77,7 @@ public class HistoryController {
     @RequestMapping("/getCourseHistory")
     public String getCourseHistory(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
         HistoryMapper mapper = MybatisProxy.create(HistoryMapper.class);
-        return RequestResults.success(mapper.getCourseHistory(user.getId().toString()));
+        List<CourseHistory> result = mapper.getCourseHistory(user.getId().toString());
+        return RequestResults.success(result);
     }
 }

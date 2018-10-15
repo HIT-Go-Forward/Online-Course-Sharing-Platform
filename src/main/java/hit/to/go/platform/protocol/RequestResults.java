@@ -1,12 +1,26 @@
 package hit.to.go.platform.protocol;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
+
+import java.lang.reflect.Type;
+import java.util.Date;
 
 /**
  * Created by 班耀强 on 2018/9/20
  */
 public class RequestResults {
-    private static final Gson JSON = new Gson();
+    private static Gson JSON;
+
+    static {
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
+            public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+                return new Date(json.getAsJsonPrimitive().getAsLong());
+            }
+        });
+        builder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        JSON = builder.create();
+    }
 
     public static String success() {
         return success("success");

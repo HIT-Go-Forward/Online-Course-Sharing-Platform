@@ -60,15 +60,15 @@ public class MybatisProxy {
                     SqlSession session = null;
                     Object result = null;
                     try {
-                        session = sessionFactory.openSession(true);
+                        session = sessionFactory.openSession(false);
                         result = method.invoke(session.getMapper(clazz), args);
-                        session.commit();
+                        session.commit(true);
                     } catch (Exception e){
                         logger.error("数据库操作出错 {}", e.getMessage());
                         try {
                             if (session != null) {
                                 logger.debug("数据库回滚");
-                                session.rollback();
+                                session.rollback(true);
                             }
                         } catch (Exception exception) {
                             logger.error("数据库回滚出错 {}", e.getMessage());
