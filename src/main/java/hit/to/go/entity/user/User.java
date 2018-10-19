@@ -1,6 +1,7 @@
 package hit.to.go.entity.user;
 
 import hit.to.go.entity.school.School;
+import hit.to.go.platform.SystemConfig;
 
 import java.util.Date;
 

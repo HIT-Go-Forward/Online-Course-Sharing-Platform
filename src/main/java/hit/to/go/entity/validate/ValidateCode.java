@@ -5,6 +5,7 @@ import java.util.Date;
 /**
  * Created by 班耀强 on 2018/9/29
  */
+
 public class ValidateCode {
     public static final int STATE_VALID = 0;
     public static final int STATE_INVALID = 1;

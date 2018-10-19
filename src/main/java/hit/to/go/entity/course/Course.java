@@ -1,6 +1,7 @@
 package hit.to.go.entity.course;
 
 import hit.to.go.entity.user.User;
+import hit.to.go.platform.SystemConfig;
 
 /**
  * Created by 班耀强 on 2018/10/2
@@ -100,8 +101,8 @@ public class Course {
         return lessonNum;
     }
 
-    public void setLessonNum(Integer lessionNum) {
-        this.lessonNum = lessionNum;
+    public void setLessonNum(Integer lessonNum) {
+        this.lessonNum = lessonNum;
     }
 
     public Integer getGrade() {

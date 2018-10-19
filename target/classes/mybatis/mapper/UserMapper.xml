@@ -50,15 +50,10 @@
         </association>
     </resultMap>
 
-    <select id="queryById" parameterType="String" resultMap="BaseResultMap">
-        select user.*, file.file_url img from  user left outer join file on user.user_img = file.file_id left join school on user.user_school = school.school_id
-        where user.user_id = #{id}
-    </select>
-
-    <select id="login" parameterType="java.util.Map" resultMap="BaseResultMap">
-        select user.*, file.file_url img from  user left outer join file on user.user_img = file.file_id left join school on user.user_school = school.school_id
-        where user.user_id = #{id} and user.password = #{password}
-    </select>
+    <sql id="userColumns">
+        user.*, school.*, file.file_url img from user left join school on user.user_id = school.school_id
+        left join file on user.user_img = file.file_id
+    </sql>
 
     <insert id="signUp" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="user_id">
         insert into user
@@ -102,11 +97,15 @@
     </select>
 
     <select id="loginById" parameterType="java.util.Map" resultType="java.util.Map">
-        select user.*, school.* from user left join school on user.user_school = school.school_id where user_id = #{id} and password = #{password}
+        select
+        <include refid="userColumns"/>
+        where user_id = #{id} and password = #{password}
     </select>
 
     <select id="loginByEmail" parameterType="java.util.Map" resultType="java.util.Map">
-        select user.*, school.* from user left join school on user.user_school = school.school_id where user_email = #{email} and password = #{password}
+        select
+        <include refid="userColumns"/>
+        where user_email = #{email} and password = #{password}
     </select>
 
     <select id="selectPassword" parameterType="String" resultType="String">
@@ -114,14 +113,32 @@
     </select>
 
     <select id="selectUser" parameterType="java.util.Map" resultMap="passwordResultMap">
-        select user.*, school.* from user left join school on user.user_school = school.school_id where user_id = #{id} and password = #{password}
+        select
+        <include refid="userColumns"/>
+        where user_id = #{id} and password = #{password}
     </select>
 
     <select id="selectUserById" parameterType="String" resultMap="passwordResultMap">
-        select user.*, school.* from user left join school on user.user_school = school.school_id where user_id = #{id}
+        select
+        <include refid="userColumns"/>
+        where user_id = #{id}
     </select>
 
     <select id="selectUserByEmail" parameterType="String" resultMap="passwordResultMap">
-        select user.*, school.* from user left join school on user.user_school = school.school_id where user_email = #{email}
+        select
+        <include refid="userColumns"/>
+        where user_email = #{email}
+    </select>
+
+    <select id="queryById" parameterType="String" resultMap="BaseResultMap">
+        select
+        <include refid="userColumns"/>
+        where user.user_id = #{id}
+    </select>
+
+    <select id="login" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <include refid="userColumns"/>
+        where user.user_id = #{id} and user.password = #{password}
     </select>
 </mapper>

@@ -1,7 +1,6 @@
 package hit.to.go.controller;
 
-import hit.to.go.platform.protocol.RequestResults;
-import hit.to.go.platform.util.MediaTransmissionUtil;
+import hit.to.go.platform.util.ResourceTransmissionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,7 @@ public class MediaController {
 
     @RequestMapping("/{id}")
     public String getMedia(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
-        MediaTransmissionUtil.transmission(id, request, response);
+        ResourceTransmissionUtil.transmission(id, request, response);
         return null;
     }
 }

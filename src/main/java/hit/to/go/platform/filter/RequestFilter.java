@@ -1,9 +1,6 @@
 package hit.to.go.platform.filter;
 
 import hit.to.go.platform.protocol.RequestWrapper;
-import hit.to.go.platform.util.MediaResolver;
-import hit.to.go.platform.util.MediaTransmissionUtil;
-import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,8 +9,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by 班耀强 on 2018/9/20

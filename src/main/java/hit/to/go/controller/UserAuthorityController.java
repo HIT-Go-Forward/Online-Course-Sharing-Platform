@@ -1,7 +1,6 @@
 package hit.to.go.controller;
 
 import hit.to.go.database.dao.UserMapper;
-import hit.to.go.database.dao.ValidateCodeMapper;
 import hit.to.go.database.mybatis.MybatisProxy;
 import hit.to.go.entity.user.User;
 import hit.to.go.entity.user.UserWithPassword;
@@ -96,6 +95,7 @@ public class UserAuthorityController {
                 }
                 return RequestResults.forbidden("账号或密码错误！");
             }
+            return RequestResults.error();
         }
         return RequestResults.forbidden("请填写账号密码！");
     }
@@ -130,10 +130,10 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/getUserInfo")
-    public String getUserInfo(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String id) {
-        if (id != null && user.getId() != null && !id.equals(user.getId().toString())) {
+    public String getUserInfo(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String userId) {
+        if (userId != null && user.getId() != null && !userId.equals(user.getId().toString())) {
             UserMapper mapper = MybatisProxy.create(UserMapper.class);
-            User u = mapper.queryById(id);
+            User u = mapper.selectUserById(userId);
             if (u == null) return RequestResults.notFound("用户不存在！");
             return RequestResults.success(u);
         }

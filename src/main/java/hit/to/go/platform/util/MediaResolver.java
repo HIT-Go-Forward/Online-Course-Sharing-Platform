@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
  */
 public class MediaResolver {
     private static final Logger logger = LoggerFactory.getLogger(MediaResolver.class);
+    public static final String RESOURCE_SERVER_ADDRESS = "http://localhost:10080/media-server";
+
 
     public static String getRealUrl(String id) {
         FileMapper mapper = MybatisProxy.create(FileMapper.class);

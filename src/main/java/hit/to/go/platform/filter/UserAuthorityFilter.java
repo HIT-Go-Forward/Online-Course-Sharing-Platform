@@ -32,8 +32,6 @@ public class UserAuthorityFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
 
-        logger.debug("当前用户session id {}", session.getId());
-
         String url = request.getRequestURI();
         logger.debug("AuthorityFilter-请求资源 {}", url);
 
