@@ -7,65 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efd27cd5-bdd6-4518-ae6b-f23351d28da7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dc358a6-7c5e-425c-88d1-726eb7a4943f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0dc358a6-7c5e-425c-88d1-726eb7a4943f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/MediaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UploadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ApplyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ApplyMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/FileMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/FileMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ValidateCodeMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/LessionCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/LessonCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/entity/validate/ValidateCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/entity/validate/ValidateCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/RequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/UserAuthorityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/UserAuthorityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/util/MediaResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/util/MediaResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/util/MediaTransmissionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/util/ResourceTransmissionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ValidateCodeMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hit/to/go/test/TestMediaTransmissionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hit/to/go/test/TestResourceTransmissionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/controller/MediaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/controller/MediaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/protocol/RequestResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hit/to/go/platform/protocol/RequestResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/FileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/FileMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/controller/UploadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/controller/UploadController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/controller/UserAuthorityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/controller/UserAuthorityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/database/dao/ValidateCodeMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/database/mybatis/MybatisProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/database/mybatis/MybatisProxy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/entity/course/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/entity/course/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/entity/course/LessionCourse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/entity/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/entity/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/entity/validate/ValidateCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/entity/validate/ValidateCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/filter/RequestFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/filter/RequestFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/filter/UserAuthorityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/filter/UserAuthorityFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/util/MediaResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/util/MediaResolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/util/MediaTransmissionUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/mybatis/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/mybatis/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/mybatis/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/mybatis/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/mybatis/mapper/ValidateCodeMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/controller/MediaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/controller/MediaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/database/dao/FileMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/database/dao/FileMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/protocol/RequestResults.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/hit/to/go/platform/protocol/RequestResults.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/mybatis/mapper/FileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/mybatis/mapper/FileMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/controller/UploadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/controller/UploadController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/controller/UserAuthorityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/controller/UserAuthorityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/database/dao/ValidateCodeMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/database/mybatis/MybatisProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/database/mybatis/MybatisProxy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/entity/course/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/entity/course/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/entity/course/LessionCourse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/entity/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/entity/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/entity/validate/ValidateCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/entity/validate/ValidateCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/platform/filter/RequestFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/platform/filter/RequestFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/platform/filter/UserAuthorityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/platform/filter/UserAuthorityFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/platform/util/MediaResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/platform/util/MediaResolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/platform/util/MediaTransmissionUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/ValidateCodeMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestMailUtil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestMailUtil.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestMediaTransmissionUtil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestMediaTransmissionUtil.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestValidate.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-hit.to.go.test.TestValidate.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/hit.to.go.test.TestMailUtil.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/hit.to.go.test.TestMailUtil.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/hit.to.go.test.TestValidate.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/hit.to.go.test.TestValidate.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/hit/to/go/test/TestMediaTransmissionUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/database/dao/FileMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/database/dao/FileMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hit/to/go/platform/protocol/RequestResults.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hit/to/go/platform/protocol/RequestResults.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/FileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/FileMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -107,20 +65,6 @@
         <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="zabbix: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="apply: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="zabbix: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="course: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="zabbix: schema" type="c314c289:MysqlImplModel$Schema" />
         <item name="file: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
       <path>
@@ -128,7 +72,7 @@
         <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="zabbix: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="user: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="lesson: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -220,10 +164,10 @@
     <session id="-1941050134">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="60" />
-          <entry key="project.open.time.10" value="4" />
+          <entry key="project.closed" value="65" />
+          <entry key="project.open.time.10" value="5" />
           <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="10" />
+          <entry key="project.open.time.12" value="12" />
           <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="6" />
           <entry key="project.open.time.15" value="5" />
@@ -233,32 +177,32 @@
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.23" value="2" />
+          <entry key="project.open.time.23" value="3" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="61" />
+          <entry key="project.opened" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="ValidateCodeMapper" value="531" />
-          <entry key="cell" value="1198" />
+          <entry key="cell" value="1254" />
           <entry key="dtd" value="393" />
           <entry key="dummy" value="27" />
           <entry key="gitignore" value="78" />
           <entry key="html" value="4958" />
-          <entry key="java" value="44405" />
+          <entry key="java" value="46535" />
           <entry key="jsp" value="92" />
           <entry key="md" value="1" />
-          <entry key="sql" value="654" />
-          <entry key="txt" value="29" />
-          <entry key="xml" value="11511" />
+          <entry key="sql" value="785" />
+          <entry key="txt" value="89" />
+          <entry key="xml" value="12805" />
           <entry key="xml-template" value="198" />
         </counts>
       </usages-collector>
@@ -267,13 +211,13 @@
           <entry key="CSS" value="1" />
           <entry key="DTD" value="393" />
           <entry key="HTML" value="4957" />
-          <entry key="JAVA" value="44405" />
+          <entry key="JAVA" value="46535" />
           <entry key="JSP" value="92" />
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="332" />
-          <entry key="SQL" value="551" />
-          <entry key="Scratch" value="1516" />
-          <entry key="XML" value="11827" />
+          <entry key="PLAIN_TEXT" value="392" />
+          <entry key="SQL" value="731" />
+          <entry key="Scratch" value="1572" />
+          <entry key="XML" value="13072" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -283,12 +227,14 @@
           <entry key="class" value="8" />
           <entry key="course" value="7" />
           <entry key="dtd" value="4" />
-          <entry key="file" value="10" />
+          <entry key="file" value="12" />
+          <entry key="fxml" value="1" />
           <entry key="gitignore" value="3" />
           <entry key="history" value="4" />
           <entry key="html" value="12" />
-          <entry key="java" value="260" />
+          <entry key="java" value="269" />
           <entry key="jsp" value="1" />
+          <entry key="lesson" value="1" />
           <entry key="md" value="3" />
           <entry key="properties" value="1" />
           <entry key="rnc" value="1" />
@@ -297,9 +243,9 @@
           <entry key="sql" value="8" />
           <entry key="study" value="4" />
           <entry key="user" value="22" />
-          <entry key="user_power" value="14" />
+          <entry key="user_power" value="15" />
           <entry key="validate_code" value="8" />
-          <entry key="xml" value="91" />
+          <entry key="xml" value="102" />
           <entry key="xml-template" value="4" />
         </counts>
       </usages-collector>
@@ -307,9 +253,9 @@
         <counts>
           <entry key="CLASS" value="8" />
           <entry key="DTD" value="4" />
-          <entry key="Database Element" value="85" />
+          <entry key="Database Element" value="89" />
           <entry key="HTML" value="12" />
-          <entry key="JAVA" value="260" />
+          <entry key="JAVA" value="269" />
           <entry key="JSP" value="1" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="7" />
@@ -317,7 +263,7 @@
           <entry key="RNG Compact" value="1" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="7" />
-          <entry key="XML" value="92" />
+          <entry key="XML" value="104" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.spring.boot.run.usages" />
@@ -334,96 +280,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/LessonMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
+            <state relative-caret-position="408">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/UserWithPassword.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/protocol/RequestResults.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="663">
+              <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/Course.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/FileMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="60" column="15" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/util/ResourceTransmissionUtil.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CourseMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="43" column="44" lean-forward="true" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;method#upload#0;class#ResourceTransmissionUtil#0" />
-              </folding>
+            <state relative-caret-position="799">
+              <caret line="47" column="76" selection-start-line="47" selection-start-column="76" selection-end-line="47" selection-end-column="76" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="120" column="49" lean-forward="true" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0.jar!/okhttp3/MultipartBody.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/LessonCourse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UploadController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1068">
-              <caret line="36" column="66" lean-forward="true" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
-              <folding>
-                <element signature="e#2221#2222#0" expanded="true" />
-                <element signature="e#2273#2274#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/FileMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/file">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -437,6 +333,51 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="82" column="46" lean-forward="true" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UploadController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="100" column="54" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="54" />
+              <folding>
+                <element signature="e#1522#1523#0" expanded="true" />
+                <element signature="e#1560#1561#0" expanded="true" />
+                <element signature="e#4746#4747#0" expanded="true" />
+                <element signature="e#4798#4799#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/FileMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -444,10 +385,10 @@
       <list>
         <option value="spring-beans.schema" />
         <option value="Enum" />
-        <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -474,12 +415,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/SystemStorage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/UserWithPassword.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/ErrorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/platform/ErrorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/develop/OnlyForDevelopController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/FileMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/MediaController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/test.html" />
@@ -496,7 +431,6 @@
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/UserSchool.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/SchoolMapper.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
         <option value="0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/school.sql" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/SchoolController.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/AttrKey.java" />
@@ -504,14 +438,12 @@
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/Apply.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ApplyMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/Study.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/protocol/RequestResults.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/HistoryController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0dc358a6-7c5e-425c-88d1-726eb7a4943f/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/mybatis/MybatisProxy.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CourseMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ApplyMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ValidateCodeMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/validate/ValidateCode.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/filter/UserAuthorityFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/util/MediaResolver.java" />
@@ -519,12 +451,21 @@
         <option value="$PROJECT_DIR$/src/main/resources/server-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/LessonCourse.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/Course.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/protocol/RequestResults.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/LessonCourse.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/LessonMapper.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/Lesson.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/LessonMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/LessonMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/entity/resource/Resource.java" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/platform/util/ResourceTransmissionUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UploadController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/FileMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hit/to/go/controller/UploadController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/FileMapper.xml" />
       </list>
     </option>
   </component>
@@ -574,10 +515,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="145" />
-    <option name="y" value="46" />
+    <option name="x" value="506" />
     <option name="width" value="1753" />
-    <option name="height" value="951" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -589,6 +529,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -687,17 +628,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="go" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="togoserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="togoserver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="go" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="validate" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="togoserver" type="b2602c69:ProjectViewProjectNode" />
@@ -727,6 +658,16 @@
               <item name="go" type="462c0819:PsiDirectoryNode" />
               <item name="platform" type="462c0819:PsiDirectoryNode" />
               <item name="protocol" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="togoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="togoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="go" type="462c0819:PsiDirectoryNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="togoserver" type="b2602c69:ProjectViewProjectNode" />
@@ -791,6 +732,33 @@
               <item name="togoserver" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
               <item name="ROOT" type="462c0819:PsiDirectoryNode" />
+              <item name="temp" type="462c0819:PsiDirectoryNode" />
+              <item name="16" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="togoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="togoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="ROOT" type="462c0819:PsiDirectoryNode" />
+              <item name="temp" type="462c0819:PsiDirectoryNode" />
+              <item name="16" type="462c0819:PsiDirectoryNode" />
+              <item name="1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="togoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="togoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="ROOT" type="462c0819:PsiDirectoryNode" />
+              <item name="temp" type="462c0819:PsiDirectoryNode" />
+              <item name="16" type="462c0819:PsiDirectoryNode" />
+              <item name="1" type="462c0819:PsiDirectoryNode" />
+              <item name="2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="togoserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="togoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="ROOT" type="462c0819:PsiDirectoryNode" />
               <item name="videos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -802,7 +770,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -821,7 +788,7 @@
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.16041848" />
     <property name="project.structure.side.proportion" value="0.2606438" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1032,7 +999,12 @@
       <workItem from="1539675519973" duration="4565000" />
       <workItem from="1539857909459" duration="5654000" />
       <workItem from="1539864498659" duration="1513000" />
-      <workItem from="1539935001655" duration="13766000" />
+      <workItem from="1539935001655" duration="18159000" />
+      <workItem from="1539999094812" duration="4162000" />
+      <workItem from="1540015812854" duration="8670000" />
+      <workItem from="1540041947990" duration="175000" />
+      <workItem from="1540042150227" duration="2565000" />
+      <workItem from="1540082997611" duration="4606000" />
     </task>
     <servers />
   </component>
@@ -1069,7 +1041,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328436000" />
+    <option name="totallyTimeSpent" value="353007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1081,10 +1053,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="145" y="46" width="1753" height="951" extended-state="0" />
+    <frame x="139" y="0" width="1753" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49863762" visible="true" weight="0.18133491" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49863762" visible="true" weight="0.20023626" />
       <window_info id="Structure" order="1" sideWeight="0.5013624" side_tool="true" weight="0.20258328" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1093,15 +1065,15 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.14828432" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4976651" visible="true" weight="0.41421568" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.23752712" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4976651" visible="true" weight="0.22234273" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37132353" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966645" weight="0.32867885" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966645" weight="0.32866243" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32992327" />
       <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.25813448" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.22776572" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50100064" side_tool="true" weight="0.329718" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32978722" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.329718" />
@@ -1114,7 +1086,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.15612648" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.16361488" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.12581217" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -1153,83 +1125,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/HistoryMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/apply">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/SystemStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar!/com/google/gson/Gson.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="76" column="52" lean-forward="true" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/HistoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/history">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ApplyMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="69" column="83" lean-forward="true" selection-start-line="67" selection-start-column="8" selection-end-line="69" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0dc358a6-7c5e-425c-88d1-726eb7a4943f/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/study">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/course">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/SchoolController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ValidateCodeMapper.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/ValidateCodeMapper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/mybatis/MybatisProxy.java">
@@ -1253,31 +1148,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CourseMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="76" selection-start-line="47" selection-start-column="76" selection-end-line="47" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="105" column="32" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/ApplyController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1292,13 +1166,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/protocol/RequestResults.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="37" column="37" lean-forward="true" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1346,13 +1213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1378,13 +1238,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
           <caret line="50" column="17" lean-forward="true" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/file">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1420,33 +1273,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="60" column="15" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/UserWithPassword.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="120" column="49" lean-forward="true" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1457,10 +1283,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1547">
+          <caret line="146" selection-start-line="146" selection-end-line="146" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/user/UserWithPassword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UserAuthorityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="120" column="49" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/LessonMapper.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/LessonCourse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/Lesson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/TemplateMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/lesson">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/LessonMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ApplyMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1683" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/util/ResourceTransmissionUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="43" column="44" lean-forward="true" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+        <state relative-caret-position="459">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#upload#0;class#ResourceTransmissionUtil#0" />
@@ -1468,10 +1366,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/course/LessonCourse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/entity/resource/Resource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/HistoryMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ActionMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CourseMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="76" selection-start-line="47" selection-start-column="76" selection-end-line="47" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/LessonMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/platform/protocol/RequestResults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/FileMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/FileMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://0dc358a6-7c5e-425c-88d1-726eb7a4943f/schema/zabbix/table/file">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1482,21 +1438,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UploadController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/CourseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1068">
-          <caret line="36" column="66" lean-forward="true" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
-          <folding>
-            <element signature="e#2221#2222#0" expanded="true" />
-            <element signature="e#2273#2274#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="164">
+          <caret line="82" column="46" lean-forward="true" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/database/dao/FileMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hit/to/go/controller/UploadController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        <state relative-caret-position="367">
+          <caret line="100" column="54" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="54" />
+          <folding>
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1560#1561#0" expanded="true" />
+            <element signature="e#4746#4747#0" expanded="true" />
+            <element signature="e#4798#4799#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

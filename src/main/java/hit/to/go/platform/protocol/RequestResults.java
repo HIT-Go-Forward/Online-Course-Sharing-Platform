@@ -62,6 +62,10 @@ public class RequestResults {
         return forbidden("请求参数错误!");
     }
 
+    public static String wrongParameters(String data) {
+        return forbidden("请求参数错误:" + data);
+    }
+
     public static String forbidden(Object data) {
         return JSON.toJson(new RequestResult(403, data));
     }

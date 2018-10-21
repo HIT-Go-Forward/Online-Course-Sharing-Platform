@@ -1,5 +1,7 @@
 package hit.to.go.database.dao;
 
+import hit.to.go.entity.resource.Resource;
+
 import java.util.Map;
 
 /**
@@ -8,5 +10,7 @@ import java.util.Map;
 public interface FileMapper {
     String queryUrlById(String id);
 
-    Integer newFile(Map<String, Object> paras);
+    Integer addNewFile(Resource file);
+
+    Integer updateFile(Resource file);
 }

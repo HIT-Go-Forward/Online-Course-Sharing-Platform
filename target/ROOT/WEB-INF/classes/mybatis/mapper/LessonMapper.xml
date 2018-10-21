@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hit.to.go.database.dao.LessonMapper">
+    <resultMap id="lessonMap" type="hit.to.go.entity.course.Lesson">
+        <id column="lesson_id" property="id"/>
+        <result column="lesson_num" property="num"/>
+        <result column="lesson_title" property="title"/>
+        <result column="lesson_intro" property="intro"/>
+        <result column="note" property="note"/>
+        <result column="video_url" property="videoUrl"/>
+        <result column="file_url" property="fileUrl"/>
+        <result column="lesson_course_id" property="courseId"/>
+    </resultMap>
+
+    <sql id="lessonColumns">
+        lesson.*, f1.file_url as video_url, f2.file_url as file_url
+        from lesson left join file f1 on lesson.lesson_video_id = file.file_id
+        left join file f2 on lesson.lesson_file_id = file.file_id
+    </sql>
+
+
+    <insert id="addNewLesson" parameterType="Map" useGeneratedKeys="true" keyProperty="lesson_id">
+
+    </insert>
+
+    <select id="getAllLessons" parameterType="String" resultMap="lessonMap">
+      select
+      <include refid="lessonColumns"/>
+      where lesson_course_id = #{courseId}
+    </select>
+
+    <select id="getLessonById" parameterType="String" resultMap="lessonMap">
+      select
+      <include refid="lessonColumns"/>
+      where lesson_id = #{lessonId}
+    </select>
+</mapper>

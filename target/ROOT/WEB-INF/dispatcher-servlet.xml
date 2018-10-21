@@ -19,8 +19,8 @@
         </property>
     </bean>
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="10000000"/>
-        <property name="maxUploadSizePerFile" value="1000000"/>
+        <property name="maxUploadSize" value="10737418240"/>
+        <property name="maxUploadSizePerFile" value="1073741824"/>
         <property name="defaultEncoding" value="utf-8"/>
     </bean>
     <context:component-scan base-package="hit.to.go.controller" />
