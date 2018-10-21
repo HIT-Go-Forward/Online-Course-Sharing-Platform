@@ -249,4 +249,17 @@
             </otherwise>
         </choose>
     </select>
+
+    <sql id="courseTypeColumns">
+        course_type.course_type_id as id,
+        course_type.course_type_name as name,
+        course_type.course_type_level as level,
+        course_type.course_type_parent as parent
+        from course_type
+    </sql>
+
+    <select id="getAllCourseType" resultType="courseType">
+      select
+      <include refid="courseTypeColumns"/>
+    </select>
 </mapper>

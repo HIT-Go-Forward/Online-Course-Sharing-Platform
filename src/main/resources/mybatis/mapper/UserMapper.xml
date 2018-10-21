@@ -51,7 +51,7 @@
     </resultMap>
 
     <sql id="userColumns">
-        user.*, school.*, file.file_url img from user left join school on user.user_id = school.school_id
+        user.*, school.*, file.file_url img from user left join school on user.user_school = school.school_id
         left join file on user.user_img = file.file_id
     </sql>
 

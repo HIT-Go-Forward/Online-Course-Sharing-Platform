@@ -150,4 +150,10 @@ public class CourseController {
 
         return RequestResults.wrongParameters();
     }
+
+    @RequestMapping("/getAllCourseType")
+    public String getAllCourseType() {
+        CourseMapper mapper = MybatisProxy.create(CourseMapper.class);
+        return RequestResults.success(mapper.getAllCourseType());
+    }
 }

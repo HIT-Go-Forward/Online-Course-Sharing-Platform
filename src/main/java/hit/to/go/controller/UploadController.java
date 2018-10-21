@@ -35,8 +35,9 @@ public class UploadController {
 
     private static String TEMP_FILE_DIR = null;
 
-    private static final String RESOURCE_NAME = "%%%resource_file%%%";
-    private static final String MEDIA_SERVER_RESOURCE_DIR = "resource";
+    private static final String RESOURCE_NAME = "%%%resource_file%%%";  // 统一资源名称
+    private static final String MEDIA_SERVER_RESOURCE_DIR = "resource"; // 资源服务器资源根目录
+    private static final String COURSE_FILE_DIR = "other";  // 课程附件文件夹
 
     private ServletContext context;
 
@@ -56,17 +57,22 @@ public class UploadController {
                 fileType = Resource.TYPE_IMG;
                 break;
             case "courseImg":
-                if (!user.getType().equals(User.TYPE_TEACHER)) return RequestResults.haveNoRight();
+                if (user.getType() > User.TYPE_TEACHER) return RequestResults.haveNoRight();
                 if (courseId == null) return RequestResults.wrongParameters("courseId");
                 storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, user.getId().toString(), courseId, file.getOriginalFilename());
                 fileType = Resource.TYPE_IMG;
-
                 break;
-            case "courseVideo":
-                if (!user.getType().equals(User.TYPE_TEACHER)) return RequestResults.haveNoRight();
+            case "lessonVideo":
+                if (user.getType() > User.TYPE_TEACHER) return RequestResults.haveNoRight();
                 if (courseId == null || lessonId == null) return RequestResults.wrongParameters();
                 storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, user.getId().toString(), courseId, lessonId, file.getOriginalFilename());
                 fileType = Resource.TYPE_VIDEO;
+                break;
+            case "lessonFile":
+                if (user.getType() > User.TYPE_TEACHER) return RequestResults.haveNoRight();
+                if (courseId == null || lessonId == null) return RequestResults.wrongParameters();
+                storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, user.getId().toString(), courseId, lessonId, COURSE_FILE_DIR, file.getOriginalFilename());
+                fileType = Resource.TYPE_OTHER;
                 break;
                 default:
                     return RequestResults.wrongParameters("type");

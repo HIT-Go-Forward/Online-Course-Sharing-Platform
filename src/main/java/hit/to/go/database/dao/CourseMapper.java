@@ -1,6 +1,7 @@
 package hit.to.go.database.dao;
 
 import hit.to.go.entity.course.Course;
+import hit.to.go.entity.course.CourseType;
 import hit.to.go.entity.course.StudyCourse;
 
 import java.util.List;
@@ -43,4 +44,6 @@ public interface CourseMapper {
     List<Course> getManageableCourses(Map<String, String> paras);
 
     Course getCourseById(String id);
+
+    List<CourseType> getAllCourseType();
 }
