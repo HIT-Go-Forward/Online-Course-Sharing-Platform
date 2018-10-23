@@ -1,9 +1,11 @@
 package hit.to.go.controller;
 
 import hit.to.go.database.dao.FileMapper;
+import hit.to.go.database.dao.UserMapper;
 import hit.to.go.database.mybatis.MybatisProxy;
 import hit.to.go.entity.resource.Resource;
 import hit.to.go.entity.user.User;
+import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.protocol.RequestResult;
 import hit.to.go.platform.protocol.RequestResults;
@@ -23,6 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by 班耀强 on 2018/10/13
@@ -46,7 +50,7 @@ public class UploadController {
     }
 
     @RequestMapping("upload")
-    public String upload(MultipartFile file, String type, String courseId, String lessonId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String upload(MultipartFile file, String type, String courseId, String lessonId, @SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
         if (type == null || file == null) return RequestResults.wrongParameters();
         if (TEMP_FILE_DIR == null) TEMP_FILE_DIR = context.getRealPath("/temp");
         String storePath;
@@ -103,7 +107,17 @@ public class UploadController {
             if (tmpFile.delete()) logger.debug("文件 {} 上传成功， 清除本地缓存", storePath);
             else logger.debug("文件 {} 本地缓存清除失败", storePath);
 
-            if (result.getData().equals("success")) rows = mapper.addNewFile(resource);
+            if (result.getData().equals("success")) {
+                if (type.equals("userImg")) {
+                    UserMapper userMapper = MybatisProxy.create(UserMapper.class);
+                    Map<String, Object> paras = new HashMap<>();
+                    paras.put("img", resource.getId());
+                    paras.put("id", user.getId());
+                    paras.put("password", user.getPassword());
+                    userMapper.setUserImg(paras);
+                }
+                rows = mapper.addNewFile(resource);
+            }
             else if (result.getData().equals("override")) rows = mapper.updateFile(resource);
             if (rows != null && rows.equals(1)) return RequestResults.success(resource);
             return RequestResults.dataBaseWriteError();

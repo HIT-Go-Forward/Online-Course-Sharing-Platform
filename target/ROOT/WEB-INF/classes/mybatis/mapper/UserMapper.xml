@@ -88,6 +88,11 @@
         where user_id = #{id}
     </update>
 
+    <update id="setUserImg" parameterType="String">
+        update user set user_img = #{img}
+        where user_id = #{id} and password = #{password}
+    </update>
+
     <select id="selectIdByEmail" parameterType="String" resultType="Integer">
         select user_id from user where user_email = #{email}
     </select>
