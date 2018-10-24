@@ -2,7 +2,6 @@ package hit.to.go.controller;
 
 import hit.to.go.database.dao.FileMapper;
 import hit.to.go.database.dao.UserMapper;
-import hit.to.go.database.mybatis.MybatisProxy;
 import hit.to.go.entity.resource.Resource;
 import hit.to.go.entity.user.User;
 import hit.to.go.entity.user.UserWithPassword;
@@ -12,17 +11,14 @@ import hit.to.go.platform.protocol.RequestResults;
 import hit.to.go.platform.util.ResourceTransmissionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
@@ -33,6 +29,7 @@ import java.util.Map;
  */
 @Controller
 @ResponseBody
+@Transactional
 @RequestMapping("/resource")
 public class UploadController {
     private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
@@ -44,9 +41,13 @@ public class UploadController {
     private static final String COURSE_FILE_DIR = "other";  // 课程附件文件夹
 
     private ServletContext context;
+    private FileMapper fileMapper;
+    private UserMapper userMapper;
 
-    public UploadController(ServletContext context) {
+    public UploadController(ServletContext context, FileMapper fileMapper, UserMapper userMapper) {
         this.context = context;
+        this.fileMapper = fileMapper;
+        this.userMapper = userMapper;
     }
 
     @RequestMapping("upload")
@@ -101,7 +102,6 @@ public class UploadController {
             resource.setUrl(storePath);
             resource.setUserId(user.getId());
 
-            FileMapper mapper = MybatisProxy.create(FileMapper.class);
             Integer rows = null;
 
             if (tmpFile.delete()) logger.debug("文件 {} 上传成功， 清除本地缓存", storePath);
@@ -109,16 +109,15 @@ public class UploadController {
 
             if (result.getData().equals("success")) {
                 if (type.equals("userImg")) {
-                    UserMapper userMapper = MybatisProxy.create(UserMapper.class);
                     Map<String, Object> paras = new HashMap<>();
                     paras.put("img", resource.getId());
                     paras.put("id", user.getId());
                     paras.put("password", user.getPassword());
                     userMapper.setUserImg(paras);
                 }
-                rows = mapper.addNewFile(resource);
+                rows = fileMapper.addNewFile(resource);
             }
-            else if (result.getData().equals("override")) rows = mapper.updateFile(resource);
+            else if (result.getData().equals("override")) rows = fileMapper.updateFile(resource);
             if (rows != null && rows.equals(1)) return RequestResults.success(resource);
             return RequestResults.dataBaseWriteError();
         }

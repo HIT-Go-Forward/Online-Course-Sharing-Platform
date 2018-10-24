@@ -1,15 +1,12 @@
 package hit.to.go.controller;
 
 import hit.to.go.database.dao.HistoryMapper;
-import hit.to.go.database.mybatis.MybatisProxy;
 import hit.to.go.entity.history.CourseHistory;
-import hit.to.go.entity.history.History;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
-import hit.to.go.platform.SystemStorage;
-import hit.to.go.platform.protocol.RequestResult;
 import hit.to.go.platform.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -24,39 +21,14 @@ import java.util.Map;
  */
 @Controller
 @ResponseBody
+@Transactional
 @RequestMapping("/history")
 public class HistoryController {
+    private HistoryMapper historyMapper;
 
-//    @RequestMapping("/addNewHistory")
-//    public String addNewHistory(String id, String password, String courseId) {
-//        if (id != null && password != null && courseId != null) {
-//            UserWithPassword user = SystemStorage.getOnlineUser(id);
-//            if (user == null) return RequestResults.needLogin();
-//            else if (!user.getPassword().equals(password)) return RequestResults.invalidAccountOrPassword();
-//            Date now = new Date();
-//            Map<String, Object> paras = new HashMap<>();
-//            paras.put("id", id);
-//            paras.put("courseId", courseId);
-//            paras.put("date", now);
-//            HistoryMapper mapper = MybatisProxy.create(HistoryMapper.class);
-//            Integer rows = mapper.addNewHistory(paras);
-//            if (rows != null && rows.equals(1)) return RequestResults.success();
-//            return RequestResults.error();
-//        }
-//        return RequestResults.wrongParameters();
-//    }
-//
-//    @RequestMapping("/getCourseHistory")
-//    public String getCourseHistory(String id, String password) {
-//        if (id != null && password != null) {
-//            UserWithPassword user = SystemStorage.getOnlineUser(id);
-//            if (user == null) return RequestResults.needLogin();
-//            else if (!user.getPassword().equals(password)) return RequestResults.invalidAccountOrPassword();
-//            HistoryMapper mapper = MybatisProxy.create(HistoryMapper.class);
-//            return RequestResults.success(mapper.getCourseHistory(id));
-//        }
-//        return RequestResults.wrongParameters();
-//    }
+    public HistoryController(HistoryMapper historyMapper) {
+        this.historyMapper = historyMapper;
+    }
 
     @RequestMapping("/addNewHistory")
     public String addNewHistory(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String courseId) {
@@ -66,8 +38,7 @@ public class HistoryController {
             paras.put("id", user.getId());
             paras.put("courseId", courseId);
             paras.put("date", now);
-            HistoryMapper mapper = MybatisProxy.create(HistoryMapper.class);
-            Integer rows = mapper.addNewHistory(paras);
+            Integer rows = historyMapper.addNewHistory(paras);
             if (rows != null && rows.equals(1)) return RequestResults.success();
             return RequestResults.error();
         }
@@ -76,8 +47,7 @@ public class HistoryController {
 
     @RequestMapping("/getCourseHistory")
     public String getCourseHistory(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
-        HistoryMapper mapper = MybatisProxy.create(HistoryMapper.class);
-        List<CourseHistory> result = mapper.getCourseHistory(user.getId().toString());
+        List<CourseHistory> result = historyMapper.getCourseHistory(user.getId().toString());
         return RequestResults.success(result);
     }
 }

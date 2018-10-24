@@ -4,6 +4,7 @@ import hit.to.go.database.dao.ActionMapper;
 import hit.to.go.database.mybatis.MybatisProxy;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
+import hit.to.go.platform.exception.InvalidParametersException;
 import hit.to.go.platform.protocol.RequestResults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,12 @@ import java.util.Map;
 public class OnlyForDevelopController {
     private static final Logger logger = LoggerFactory.getLogger(OnlyForDevelopController.class);
 
+    private ActionMapper actionMapper;
+
+    public OnlyForDevelopController(ActionMapper actionMapper) {
+        this.actionMapper = actionMapper;
+    }
+
     @RequestMapping("/testCookie")
     public String testCoolie(String id, String password) {
         Map<String, String> paras = new HashMap<>();
@@ -34,12 +41,16 @@ public class OnlyForDevelopController {
 
     @RequestMapping("/getAllActions")
     public String getAllActions() {
-        ActionMapper actionMapper = MybatisProxy.create(ActionMapper.class);
         return RequestResults.success(actionMapper.getAllActions());
     }
 
     @RequestMapping("/testSession")
     public String testSession(@SessionAttribute(AttrKey.ATTR_USER)UserWithPassword user) {
         return RequestResults.success(user);
+    }
+
+    @RequestMapping("/testException")
+    public String testException() {
+        throw new InvalidParametersException();
     }
 }

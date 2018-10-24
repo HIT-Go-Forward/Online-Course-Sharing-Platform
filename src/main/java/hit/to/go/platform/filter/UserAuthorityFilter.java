@@ -59,9 +59,6 @@ public class UserAuthorityFilter implements Filter {
                 }
             }
         }
-
-        logger.debug("当前用户权限等级 {}", user.getType());
-
         if (!url.startsWith("/video/course") && url.endsWith(".action")) {
             if (!url.startsWith("/develop/")) {
                 Integer p = SystemStorage.getActionPower(url);
@@ -81,7 +78,5 @@ public class UserAuthorityFilter implements Filter {
     }
 
     @Override
-    public void destroy() {
-
-    }
+    public void destroy() {}
 }
