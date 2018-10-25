@@ -8,6 +8,7 @@ import hit.to.go.platform.MailConfig;
 import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.SystemConfig;
 import hit.to.go.platform.SystemVariable;
+import hit.to.go.platform.exception.RequestHandleException;
 import hit.to.go.platform.protocol.RequestResults;
 import hit.to.go.platform.util.MailUtil;
 import hit.to.go.platform.util.Validate;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.w3c.dom.Attr;
 
 import javax.servlet.http.*;
 import java.util.Date;
@@ -51,8 +53,8 @@ public class UserAuthorityController {
         String result = validate(code.toString(), email.toString(), session);
         if (result.equals("success")) {
             Integer rows = userMapper.register(map);
-            if (rows == null) return RequestResults.dataBaseWriteError();
-            else if (rows.equals(0)) return RequestResults.forbidden("该邮箱已被注册");
+            if (rows == null) throw new RequestHandleException(RequestResults.dataBaseWriteError());
+            else if (rows.equals(0)) throw new RequestHandleException(RequestResults.forbidden("该邮箱已被注册"));
 
             UserWithPassword user = userMapper.selectUserByEmail(email.toString());
             session.setAttribute(AttrKey.ATTR_USER, user);
@@ -75,7 +77,7 @@ public class UserAuthorityController {
             session.setAttribute(AttrKey.ATTR_USER, user);
             return RequestResults.success(user);
         }
-        return RequestResults.error("保存失败!");
+        throw new RequestHandleException(RequestResults.error("保存失败!"));
     }
 
     @RequestMapping("/login")
@@ -109,6 +111,21 @@ public class UserAuthorityController {
         return RequestResults.success();
     }
 
+    @RequestMapping("/updateUserImg")
+    public String updateUserImg(String fileId, @SessionAttribute(AttrKey.ATTR_USER) User user, HttpSession session) {
+        if (fileId == null) return RequestResults.wrongParameters();
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("id", user.getId());
+        paras.put("img", fileId);
+        Integer rows = userMapper.updateUserImg(paras);
+        if (rows != null && rows.equals(1)) {
+            user = userMapper.selectUserById(user.getId().toString());
+            session.setAttribute(AttrKey.ATTR_USER, user);
+            return RequestResults.success(user);
+        }
+        throw new RequestHandleException(RequestResults.dataBaseWriteError());
+    }
+
     @RequestMapping("/changePassword")
     public String changePassword(String oldPassword, String newPassword, String code, HttpSession session, @SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
         if (oldPassword == null || newPassword == null || code == null) return RequestResults.wrongParameters();
@@ -126,7 +143,7 @@ public class UserAuthorityController {
             session.removeAttribute(AttrKey.ATTR_USER);
             return RequestResults.success();
         }
-        return RequestResults.error();
+        throw new RequestHandleException(RequestResults.error());
     }
 
     @RequestMapping("/getUserInfo")
@@ -199,6 +216,29 @@ public class UserAuthorityController {
         }
 
         return RequestResults.badRequest("email不能为空");
+    }
+
+    @RequestMapping("/autoLogin")
+    public String autoLogin(String $cookiePassword, String $cookieId, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+        if ($cookieId != null && $cookiePassword != null) {
+            UserWithPassword user = userMapper.selectUserById($cookieId);
+            if (user != null && user.getPassword().equals($cookiePassword)) {
+                session.setAttribute(AttrKey.ATTR_USER, user);
+                logger.debug("用户{}自动登陆成功", user.getName());
+            } else {
+                logger.debug("用户名或密码错误， 删除cookie");
+                response.addCookie(SystemVariable.newDeleteIdCookie());
+                response.addCookie(SystemVariable.newDeletePasswordCookie());
+            }
+            try {
+                logger.debug("转发回原请求 {}", request.getRequestURI());
+                request.getRequestDispatcher(request.getRequestURI()).forward(request, response);
+            } catch (Exception e) {
+                logger.debug("转发失败!");
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
     private String validate(String code, String email, HttpSession session) {

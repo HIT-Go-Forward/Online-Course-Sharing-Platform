@@ -13,4 +13,6 @@ public interface FileMapper {
     Integer addNewFile(Resource file);
 
     Integer updateFile(Resource file);
+
+    String selectFileIdByUrl(String url);
 }

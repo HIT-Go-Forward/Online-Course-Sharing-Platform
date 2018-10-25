@@ -1,13 +1,16 @@
 package hit.to.go.controller;
 
+import hit.to.go.database.dao.CourseMapper;
 import hit.to.go.database.dao.FileMapper;
 import hit.to.go.database.dao.UserMapper;
 import hit.to.go.entity.resource.Resource;
 import hit.to.go.entity.user.User;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
+import hit.to.go.platform.exception.RequestHandleException;
 import hit.to.go.platform.protocol.RequestResult;
 import hit.to.go.platform.protocol.RequestResults;
+import hit.to.go.platform.protocol.RequestWrapper;
 import hit.to.go.platform.util.ResourceTransmissionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +22,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
@@ -36,48 +41,59 @@ public class UploadController {
 
     private static String TEMP_FILE_DIR = null;
 
-    private static final String RESOURCE_NAME = "%%%resource_file%%%";  // 统一资源名称
+    private static final String TYPE_USER_IMG = "userImg";
+    private static final String TYPE_COURSE_IMG = "courseImg";
+    private static final String TYPE_LESSON_VIDEO = "lessonVideo";
+    private static final String TYPE_LESSON_FILE = "lessonFile";
+
+    private static final String RESOURCE_NAME = "$$$resource_file$$$";  // 统一资源名称
     private static final String MEDIA_SERVER_RESOURCE_DIR = "resource"; // 资源服务器资源根目录
     private static final String COURSE_FILE_DIR = "other";  // 课程附件文件夹
 
     private ServletContext context;
     private FileMapper fileMapper;
     private UserMapper userMapper;
+    private CourseMapper courseMapper;
 
-    public UploadController(ServletContext context, FileMapper fileMapper, UserMapper userMapper) {
+    public UploadController(ServletContext context, FileMapper fileMapper, UserMapper userMapper, CourseMapper courseMapper) {
         this.context = context;
         this.fileMapper = fileMapper;
         this.userMapper = userMapper;
+        this.courseMapper = courseMapper;
     }
 
     @RequestMapping("upload")
-    public String upload(MultipartFile file, String type, String courseId, String lessonId, @SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
+    public String upload(MultipartFile file, String type, String courseId, String lessonId, @SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, HttpServletRequest request, HttpServletResponse response) {
         if (type == null || file == null) return RequestResults.wrongParameters();
         if (TEMP_FILE_DIR == null) TEMP_FILE_DIR = context.getRealPath("/temp");
-        String storePath;
+        String storePath, dispatchPath;
         Integer fileType;
         switch (type) {
-            case "userImg":
+            case TYPE_USER_IMG:
                 storePath =  buildPath(MEDIA_SERVER_RESOURCE_DIR, user.getId().toString(), file.getOriginalFilename());
                 fileType = Resource.TYPE_IMG;
+                dispatchPath = "/authority/updateUserImg.action";
                 break;
-            case "courseImg":
+            case TYPE_COURSE_IMG:
                 if (user.getType() > User.TYPE_TEACHER) return RequestResults.haveNoRight();
                 if (courseId == null) return RequestResults.wrongParameters("courseId");
                 storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, user.getId().toString(), courseId, file.getOriginalFilename());
                 fileType = Resource.TYPE_IMG;
+                dispatchPath = "/course/updateCourseImg.action";
                 break;
-            case "lessonVideo":
+            case TYPE_LESSON_VIDEO:
                 if (user.getType() > User.TYPE_TEACHER) return RequestResults.haveNoRight();
                 if (courseId == null || lessonId == null) return RequestResults.wrongParameters();
                 storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, user.getId().toString(), courseId, lessonId, file.getOriginalFilename());
                 fileType = Resource.TYPE_VIDEO;
+                dispatchPath = "/course/updateLessonVideo.action";
                 break;
-            case "lessonFile":
+            case TYPE_LESSON_FILE:
                 if (user.getType() > User.TYPE_TEACHER) return RequestResults.haveNoRight();
                 if (courseId == null || lessonId == null) return RequestResults.wrongParameters();
                 storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, user.getId().toString(), courseId, lessonId, COURSE_FILE_DIR, file.getOriginalFilename());
                 fileType = Resource.TYPE_OTHER;
+                dispatchPath = "/course/updateLessonFile.action";
                 break;
                 default:
                     return RequestResults.wrongParameters("type");
@@ -107,19 +123,28 @@ public class UploadController {
             if (tmpFile.delete()) logger.debug("文件 {} 上传成功， 清除本地缓存", storePath);
             else logger.debug("文件 {} 本地缓存清除失败", storePath);
 
-            if (result.getData().equals("success")) {
-                if (type.equals("userImg")) {
-                    Map<String, Object> paras = new HashMap<>();
-                    paras.put("img", resource.getId());
-                    paras.put("id", user.getId());
-                    paras.put("password", user.getPassword());
-                    userMapper.setUserImg(paras);
-                }
-                rows = fileMapper.addNewFile(resource);
+            if (result.getData().equals("success")) rows = fileMapper.addNewFile(resource);
+            else if (result.getData().equals("override")) {
+                rows = fileMapper.updateFile(resource);
+                if (rows == null || !rows.equals(1)) rows = fileMapper.addNewFile(resource);
             }
-            else if (result.getData().equals("override")) rows = fileMapper.updateFile(resource);
-            if (rows != null && rows.equals(1)) return RequestResults.success(resource);
-            return RequestResults.dataBaseWriteError();
+            if (rows != null && rows.equals(1)) {
+                String fileId = fileMapper.selectFileIdByUrl(storePath);
+                RequestWrapper requestWrapper = new RequestWrapper(request);
+                requestWrapper.addParameter("fileId", fileId);
+                requestWrapper.addParameter("courseId", courseId);
+                requestWrapper.addParameter("lessonId", lessonId);
+                try {
+                    logger.debug("转发请求到{}", dispatchPath);
+                    request.getRequestDispatcher(dispatchPath).forward(requestWrapper, response);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+            // TODO delete media server file
+            throw new RequestHandleException(RequestResults.dataBaseWriteError());
         }
         return RequestResults.error(result.getData());
     }

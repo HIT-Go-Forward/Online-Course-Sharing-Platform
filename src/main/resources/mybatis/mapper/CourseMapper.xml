@@ -35,13 +35,21 @@
         <id column="course_id" property="id" />
         <result column="course_name" property="name" />
         <result column="course_intro" property="intro" />
-        <result column="course_img" property="img" />
+        <result column="file_url" property="img" />
         <result column="note" property="note" />
         <result column="course_state" property="state" />
         <result column="course_label" property="label" />
         <result column="course_user_num" property="userNum" />
         <result column="course_lesson_num" property="lessonNum" />
         <result column="course_grade" property="grade" />
+        <result column="study_course_img" property="img" />
+        <result column="course_brief" property="brief" />
+        <result column="course_needs" property="needs" />
+        <result column="course_books" property="books" />
+        <result column="course_create_date" property="createDate"/>
+        <result column="course_release_date" property="releaseDate"/>
+        <result column="course_update_date" property="updateDate"/>
+        <result column="course_sum_time" property="sumTime"/>
         <association property="teacher" javaType="User">
             <id column="user_id" jdbcType="INTEGER" property="id" />
             <result column="user_name" jdbcType="VARCHAR" property="name" />
@@ -53,7 +61,7 @@
             <result column="user_intro" jdbcType="VARCHAR" property="intro" />
             <result column="note" jdbcType="VARCHAR" property="note" />
             <result column="user_phone" jdbcType="VARCHAR" property="phone" />
-            <result column="user_img" jdbcType="VARCHAR" property="img" />
+            <result column="teacher_img" jdbcType="VARCHAR" property="img" />
 
             <association property="school" javaType="School">
                 <id column="school_id" property="id"/>
@@ -65,31 +73,41 @@
                 <result column="school_type" property="type" />
             </association>
         </association>
+        <association property="type" javaType="CourseType">
+            <id column="course_type_id" property="id"/>
+            <result column="course_type_name" property="name"/>
+        </association>
     </resultMap>
 
     <sql id="courseColumns">
-      course.*, user.*, school.* from
+      course.*, user.*, school.*, f1.file_url as study_course_img, f2.file_url as teacher_img, course_type.* from
       course left join user on course.course_teacher_id = user.user_id
       left join school on user.user_school = school.school_id
+      left join file f1 on course.course_img = f1.file_id
+      left join file f2 on user.user_img = f2.file_id
+      left join course_type on course.course_type_id = course_type.course_type_id
     </sql>
 
     <sql id="studyCourseColumns">
-      study.*, course.*,
+      study.*, course.*,, course_type.*
       u1.user_id as study_user_id, u1.user_name as study_user_name, u1.user_sex as study_user_sex,
       u1.birthday as study_birthday, u1.user_email as study_user_email, u1.user_education as study_user_education,
       u1.user_school as study_user_school, u1.user_intro as study_user_intro, u1.note as study_note,
-      u1.user_phone as study_user_phone, u1.user_img as study_user_img, u1.user_type as study_user_type,
+      u1.user_phone as study_user_phone, u1.user_type as study_user_type,
       s1.school_id as study_school_id, s1.school_name as study_school_name, s1.school_code as study_school_code,
       s1.school_depart as study_school_depart, s1.school_location as study_achool_location,
       s1.school_level as study_school_level, s1.school_type as study_school_type,
-      u2.*, s2.*
+      u2.*, s2.*, f1.file_url as study_user_img, f2.file_url as teacher_img, f3.file_url as study_course_img
       from
       study left join course on study.study_course_id = course.course_id
       left join user u1 on study.study_user_id = u1.user_id
       left join school s1 on u1.user_school = s1.school_id
       left join user u2 on course.course_teacher_id = u2.user_id
       left join school s2 on u2.user_school = s2.school_id
-
+      left join file f1 on u1.user_img = f1.file_id
+      left join file f2 on u2.user_img = f2.file_id
+      left join file f3 on course.course_img = f3.file_id
+      left join course_type on course.course_type_id = course_type.course_type_id
     </sql>
 
     <insert id="addNewCourse" parameterType="Map" useGeneratedKeys="true" keyProperty="course_id">
@@ -135,6 +153,11 @@
           #{lessonNum, jdbcType=INTEGER}
         )
     </insert>
+
+    <update id="updateCourseImg" parameterType="Map">
+        update course set course_img = #{img}
+        where course_id = #{courseId} and course_teacher_id = #{teacherId}
+    </update>
 
     <update id="releaseDraftCourse" parameterType="String">
         update course set course_state = 2 where course_id = #{courseId} and course_teacher_id = #{id} and course_state = 1
@@ -261,5 +284,18 @@
     <select id="getAllCourseType" resultType="courseType">
       select
       <include refid="courseTypeColumns"/>
+    </select>
+
+    <resultMap id="courseChapterMap" type="hit.to.go.entity.course.CourseChapter">
+        <id column="lesson_id" property="id"/>
+        <result column="lesson_chapter_num" property="chapterNum"/>
+        <result column="lesson_chapter_title" property="chapterTitle"/>
+        <result column="lesson_num" property="sectionNum"/>
+        <result column="lesson_title" property="sectionTitle"/>
+    </resultMap>
+
+    <select id="getCourseChapters" parameterType="String" resultMap="courseChapterMap">
+      select lesson_id, lesson_num, lesson_title, lesson_chapter_num, lesson_chapter_title
+      from lesson where lesson_course_id = #{courseId}
     </select>
 </mapper>

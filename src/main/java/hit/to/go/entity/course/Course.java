@@ -3,6 +3,8 @@ package hit.to.go.entity.course;
 import hit.to.go.entity.user.User;
 import hit.to.go.platform.SystemConfig;
 
+import java.util.Date;
+
 /**
  * Created by 班耀强 on 2018/10/2
  */
@@ -23,7 +25,14 @@ public class Course {
     private Integer userNum;
     private Integer lessonNum;
     private Integer grade;
-
+    private Date createDate;
+    private Date releaseDate;
+    private Date updateDate;
+    private String brief;
+    private String needs;
+    private String books;
+    private String sumTime;
+    private CourseType type;
 
     public Integer getId() {
         return id;
@@ -111,5 +120,77 @@ public class Course {
 
     public void setGrade(Integer grade) {
         this.grade = grade;
+    }
+
+    public User getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(User teacher) {
+        this.teacher = teacher;
+    }
+
+    public String getNeeds() {
+        return needs;
+    }
+
+    public void setNeeds(String needs) {
+        this.needs = needs;
+    }
+
+    public String getBooks() {
+        return books;
+    }
+
+    public void setBooks(String books) {
+        this.books = books;
+    }
+
+    public String getBrief() {
+        return brief;
+    }
+
+    public void setBrief(String brief) {
+        this.brief = brief;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getSumTime() {
+        return sumTime;
+    }
+
+    public void setSumTime(String sumTime) {
+        this.sumTime = sumTime;
+    }
+
+    public CourseType getType() {
+        return type;
+    }
+
+    public void setType(CourseType type) {
+        this.type = type;
     }
 }

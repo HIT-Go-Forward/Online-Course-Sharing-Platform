@@ -1,7 +1,5 @@
 package hit.to.go.platform.filter;
 
-import hit.to.go.database.dao.UserMapper;
-import hit.to.go.database.mybatis.MybatisProxy;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.SystemStorage;
@@ -37,28 +35,19 @@ public class UserAuthorityFilter implements Filter {
 
         UserWithPassword user = (UserWithPassword) session.getAttribute(AttrKey.ATTR_USER);
         if (user == null) {
-            String id = request.getParameter("id");
-            String password = request.getParameter("password");
+            String id = request.getParameter("$cookieId");
+            String password = request.getParameter("$cookiePassword");
 
             if (id == null || password == null) {
                 logger.debug("未自动登录的用户请求 {}", url);
                 user = new UserWithPassword(true);
                 session.setAttribute(AttrKey.ATTR_USER, user);
             } else {
-                UserMapper mapper = MybatisProxy.create(UserMapper.class);
-                user = mapper.selectUserById(id);
-                if (user != null && user.getPassword().equals(password)) {
-                    logger.debug("自动登录的用户 {}", user.getId());
-                    session.setAttribute(AttrKey.ATTR_USER, user);
-                } else {
-                    logger.debug("错误的用户cookie信息, 删除cookie {}:{}", id, password);
-                    user = new UserWithPassword(true);
-                    session.setAttribute(AttrKey.ATTR_USER, user);
-                    response.addCookie(SystemVariable.newDeleteIdCookie());
-                    response.addCookie(SystemVariable.newDeletePasswordCookie());
-                }
+                request.getRequestDispatcher("/authority/autoLogin.action").forward(request, response);
+                return;
             }
         }
+        // TODO
         if (!url.startsWith("/video/course") && url.endsWith(".action")) {
             if (!url.startsWith("/develop/")) {
                 Integer p = SystemStorage.getActionPower(url);
@@ -73,7 +62,6 @@ public class UserAuthorityFilter implements Filter {
                 }
             }
         }
-
         filterChain.doFilter(request, response);
     }
 

@@ -33,5 +33,5 @@ public interface UserMapper {
 
     UserWithPassword selectUserByEmail(String email);
 
-    Integer setUserImg(Map<String, Object> paras);
+    Integer updateUserImg(Map<String, Object> paras);
 }

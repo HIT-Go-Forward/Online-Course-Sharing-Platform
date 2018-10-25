@@ -9,9 +9,13 @@ import java.util.Map;
  * Created by 班耀强 on 2018/10/20
  */
 public interface LessonMapper {
-    List<Lesson> getAllLessons(String courseId);
+    Integer insertNewLesson(Map<String, Object> paras);
 
-    Lesson getLessonById(String lessonId);
+    Integer updateLesson(Map<String, Object> paras);
 
-    Integer addNewLesson(Map<String, Object> paras);
+    Integer updateLessonVideo(Map<String, Object> paras);
+
+    Integer updateLessonFile(Map<String, Object> paras);
+
+    List<Lesson> getCourseLessons(String courseId);
 }

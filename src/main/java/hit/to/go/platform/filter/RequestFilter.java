@@ -46,8 +46,8 @@ public class RequestFilter implements Filter {
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
                     logger.debug("收到 Cookie {}={}", cookie.getName(), cookie.getValue());
-                    if (cookie.getName().equals("id")) requestWrapper.addParameter("id", cookie.getValue());
-                    else if (cookie.getName().equals("password")) requestWrapper.addParameter("password", cookie.getValue());
+                    if (cookie.getName().equals("id")) requestWrapper.addParameter("$cookieId", cookie.getValue());
+                    else if (cookie.getName().equals("password")) requestWrapper.addParameter("$cookiePassword", cookie.getValue());
                 }
             }
             filterChain.doFilter(requestWrapper, response);

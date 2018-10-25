@@ -4,6 +4,7 @@ import hit.to.go.database.dao.HistoryMapper;
 import hit.to.go.entity.history.CourseHistory;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
+import hit.to.go.platform.exception.RequestHandleException;
 import hit.to.go.platform.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,7 +41,7 @@ public class HistoryController {
             paras.put("date", now);
             Integer rows = historyMapper.addNewHistory(paras);
             if (rows != null && rows.equals(1)) return RequestResults.success();
-            return RequestResults.error();
+            throw new RequestHandleException(RequestResults.error());
         }
         return RequestResults.wrongParameters();
     }

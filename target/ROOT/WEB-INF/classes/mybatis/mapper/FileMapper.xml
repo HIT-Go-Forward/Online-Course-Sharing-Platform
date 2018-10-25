@@ -46,4 +46,8 @@
     <select id="queryUrlById" parameterType="String" resultType="String">
       select file_url from file where file_id = #{id}
     </select>
+
+    <select id="selectFileIdByUrl" parameterType="String" resultType="String">
+        select file_id from file where file.file_url = #{url}
+    </select>
 </mapper>

@@ -1,7 +1,6 @@
 package hit.to.go.controller.develop;
 
 import hit.to.go.database.dao.ActionMapper;
-import hit.to.go.database.mybatis.MybatisProxy;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.exception.InvalidParametersException;

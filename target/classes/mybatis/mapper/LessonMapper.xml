@@ -10,28 +10,69 @@
         <result column="video_url" property="videoUrl"/>
         <result column="file_url" property="fileUrl"/>
         <result column="lesson_course_id" property="courseId"/>
+        <result column="lesson_create_date" property="createDate"/>
+        <result column="lesson_update_date" property="updateDate"/>
+        <result column="lesson_state" property="state"/>
     </resultMap>
 
     <sql id="lessonColumns">
-        lesson.*, f1.file_url as video_url, f2.file_url as file_url
-        from lesson left join file f1 on lesson.lesson_video_id = file.file_id
-        left join file f2 on lesson.lesson_file_id = file.file_id
+      lesson.*, f1.file_url as video_url, f2.file_url as file_url
+      from lesson left join file f1 on lesson.lesson_video_id = f1.file_id
+      left join file f2 on lesson.lesson_file_id = f2.file_id
     </sql>
 
-
-    <insert id="addNewLesson" parameterType="Map" useGeneratedKeys="true" keyProperty="lesson_id">
-
+    <insert id="insertNewLesson" parameterType="Map" keyProperty="id" useGeneratedKeys="true">
+        insert into lesson
+        (lesson_num,
+        lesson_title,
+        lesson_intro,
+        lesson_chapter_num,
+        lesson_chapter_title,
+        note,
+        lesson_course_id,
+        lesson_teacher_id,
+        lesson_update_date)
+        VALUES
+        (#{num},
+        #{title},
+        #{intro, jdbcType=VARCHAR},
+        #{chapterNum},
+        #{chapterTitle, jdbcType=VARCHAR},
+        #{note, jdbcType=VARCHAR},
+        #{courseId},
+        #{teacherId},
+        NOW())
     </insert>
 
-    <select id="getAllLessons" parameterType="String" resultMap="lessonMap">
+    <update id="updateLesson" parameterType="Map">
+        update lesson set
+        lesson_num = #{num},
+        lesson_title = #{title},
+        lesson_intro = #{intro, jdbcType=VARCHAR},
+        lesson_chapter_num = #{chapterNum},
+        lesson_chapter_title = #{chapterTitle, jdbcType=VARCHAR},
+        note = #{note, jdbcType=VARCHAR},
+        lesson_course_id = #{courseId},
+        lesson_update_date = NOW()
+        where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId}
+    </update>
+
+    <update id="updateLessonVideo" parameterType="String">
+        update lesson set lesson_video_id = #{fileId},
+        lesson_update_date = NOW()
+        where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId}
+    </update>
+
+    <update id="updateLessonFile" parameterType="String">
+        update lesson set lesson_file_id = #{fileId},
+        lesson_update_date = NOW()
+        where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId}
+    </update>
+
+    <select id="getCourseLessons" parameterType="String" resultMap="lessonMap">
       select
       <include refid="lessonColumns"/>
-      where lesson_course_id = #{courseId}
+      where lesson.lesson_course_id = #{courseId}
     </select>
 
-    <select id="getLessonById" parameterType="String" resultMap="lessonMap">
-      select
-      <include refid="lessonColumns"/>
-      where lesson_id = #{lessonId}
-    </select>
 </mapper>

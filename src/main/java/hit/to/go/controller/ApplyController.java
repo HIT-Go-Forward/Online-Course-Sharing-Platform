@@ -4,6 +4,7 @@ import hit.to.go.database.dao.ApplyMapper;
 import hit.to.go.entity.Apply;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
+import hit.to.go.platform.exception.RequestHandleException;
 import hit.to.go.platform.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,7 +58,7 @@ public class ApplyController {
         Integer result = applyMapper.acceptApply(paras);
         if (result != null && result.equals(2)) return RequestResults.success();
         else if (result != null && result.equals(0)) return RequestResults.forbidden("该申请已被处理!");
-        return RequestResults.error();
+        throw new RequestHandleException("处理失败！");
     }
 
     @RequestMapping("/rejectTeacherApply")
@@ -73,7 +74,7 @@ public class ApplyController {
         Integer result = applyMapper.rejectApply(paras);
         if (result != null && result.equals(1)) return RequestResults.success();
         else if (result != null && result.equals(0)) return RequestResults.forbidden("该申请已被处理!");
-        return RequestResults.error();
+        throw new RequestHandleException("处理失败！");
     }
 
     @RequestMapping("/getManageableApplies")

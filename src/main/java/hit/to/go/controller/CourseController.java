@@ -1,10 +1,12 @@
 package hit.to.go.controller;
 
 import hit.to.go.database.dao.CourseMapper;
+import hit.to.go.database.dao.LessonMapper;
 import hit.to.go.entity.course.Course;
 import hit.to.go.entity.user.User;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
+import hit.to.go.platform.exception.RequestHandleException;
 import hit.to.go.platform.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,9 +28,11 @@ import java.util.Map;
 public class CourseController {
 
     private CourseMapper courseMapper;
+    private LessonMapper lessonMapper;
 
-    public CourseController(CourseMapper courseMapper) {
+    public CourseController(CourseMapper courseMapper, LessonMapper lessonMapper) {
         this.courseMapper = courseMapper;
+        this.lessonMapper = lessonMapper;
     }
 
     @RequestMapping("/addNewCourse")
@@ -39,7 +43,7 @@ public class CourseController {
             paras.put("id", user.getId().toString());
             Integer rows = courseMapper.addNewCourse(paras);
             if (rows != null && rows.equals(1)) return RequestResults.success(paras.get("course_id"));
-            return RequestResults.error("课程添加失败！");
+            throw new RequestHandleException(RequestResults.error("课程添加失败！"));
         }
         return RequestResults.wrongParameters();
     }
@@ -50,10 +54,9 @@ public class CourseController {
         courseName = paras.get("courseName");
         if (courseName != null) {
             paras.put("id", user.getId().toString());
-
             Integer rows = courseMapper.saveDraft(paras);
             if (rows != null && rows.equals(1)) return RequestResults.success(paras.get("course_id"));
-            return RequestResults.error("课程添加失败！");
+            throw new RequestHandleException(RequestResults.error("课程添加失败！"));
         }
         return RequestResults.wrongParameters();
     }
@@ -67,10 +70,21 @@ public class CourseController {
             paras.put("id", user.getId().toString());
             Integer rows = courseMapper.updateDraftCourse(paras);
             if (rows != null && rows.equals(1)) return RequestResults.success();
-            return RequestResults.error();
+            throw new RequestHandleException(RequestResults.error());
         }
-
         return RequestResults.wrongParameters();
+    }
+
+    @RequestMapping("/updateCourseImg")
+    public String updateCourseImg(String fileId, String courseId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+        if (fileId == null || courseId == null) return RequestResults.wrongParameters();
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("img", fileId);
+        paras.put("courseId", courseId);
+        paras.put("teacherId", user.getId());
+        Integer rows = courseMapper.updateCourseImg(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success();
+        throw new RequestHandleException("更新失败!");
     }
 
     @RequestMapping("/releaseDraftCourse")
@@ -81,7 +95,7 @@ public class CourseController {
             paras.put("courseId", courseId);
             Integer rows = courseMapper.releaseDraftCourse(paras);
             if (rows!= null && rows.equals(1)) return RequestResults.success();
-            return RequestResults.error("该课程可能已被处理!");
+            throw new RequestHandleException(RequestResults.error("该课程可能已被处理!"));
         }
         return RequestResults.wrongParameters();
     }
@@ -137,20 +151,85 @@ public class CourseController {
             if (operation.equals("accept")) {
                 rows = courseMapper.acceptCourseApply(courseId);
                 if (rows.equals(1)) return RequestResults.success();
-                return RequestResults.error("该申请可能已被处理!");
+                throw new RequestHandleException(RequestResults.error("该申请可能已被处理!"));
             } else if (operation.equals("reject")) {
                 rows = courseMapper.rejectCourseApply(courseId);
                 if (rows.equals(1)) return RequestResults.success();
-                return RequestResults.error("该申请可能已被处理!");
+                throw new RequestHandleException(RequestResults.error("该申请可能已被处理!"));
             }
             return RequestResults.forbidden("错误的operation参数!");
         }
-
         return RequestResults.wrongParameters();
     }
 
     @RequestMapping("/getAllCourseType")
     public String getAllCourseType() {
         return RequestResults.success(courseMapper.getAllCourseType());
+    }
+
+
+
+    @RequestMapping("/getCourseOutline")
+    public String getCourseOutline(String courseId) {
+        if (courseId == null) return RequestResults.wrongParameters();
+        return RequestResults.success(courseMapper.getCourseChapters(courseId));
+    }
+
+
+    /**
+     * ============== Lesson 相关action ====================
+     */
+    @RequestMapping("/addNewLesson")
+    public String addNewLesson(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+        Object num = paras.get("num");
+        Object title = paras.get("title");
+        Object chapterNum = paras.get("chapterNum");
+        Object courseId = paras.get("courseId");
+        if (num == null || title == null || chapterNum == null || courseId == null) return RequestResults.wrongParameters();
+        paras.put("teacherId", user.getId());
+        Integer rows = lessonMapper.insertNewLesson(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success(paras);
+        throw new RequestHandleException(RequestResults.dataBaseWriteError());
+    }
+
+    @RequestMapping("/updateLesson")
+    public String updateLesson(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+        Object num = paras.get("num");
+        Object title = paras.get("title");
+        Object chapterNum = paras.get("chapterNum");
+        Object courseId = paras.get("courseId");
+        if (num == null || title == null || chapterNum == null || courseId == null) return RequestResults.wrongParameters();
+        paras.put("teacherId", user.getId().toString());
+        Integer rows = lessonMapper.updateLesson(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success(paras);
+        throw new RequestHandleException(RequestResults.dataBaseWriteError());
+    }
+
+    @RequestMapping("/updateLessonVideo")
+    public String updateLessonVideo(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+        Object lessonId = paras.get("lessonId");
+        Object fileId = paras.get("fileId");
+        if (lessonId == null || fileId == null) return RequestResults.wrongParameters();
+        paras.put("teacherId", user.getId().toString());
+        Integer rows = lessonMapper.updateLessonVideo(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success();
+        throw new RequestHandleException(RequestResults.dataBaseWriteError());
+    }
+
+    @RequestMapping("/updateLessonFile")
+    public String updateLessonFile(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+        Object lessonId = paras.get("lessonId");
+        Object fileId = paras.get("fileId");
+        if (lessonId == null || fileId == null) return RequestResults.wrongParameters();
+        paras.put("teacherId", user.getId().toString());
+        Integer rows = lessonMapper.updateLessonFile(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success();
+        throw new RequestHandleException(RequestResults.dataBaseWriteError());
+    }
+
+
+    @RequestMapping("/getCourseLessons")
+    public String getCourseLessons(String  courseId) {
+        return RequestResults.success(lessonMapper.getCourseLessons(courseId));
     }
 }

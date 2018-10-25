@@ -88,9 +88,9 @@
         where user_id = #{id}
     </update>
 
-    <update id="setUserImg" parameterType="String">
+    <update id="updateUserImg" parameterType="Map">
         update user set user_img = #{img}
-        where user_id = #{id} and password = #{password}
+        where user_id = #{id}
     </update>
 
     <select id="selectIdByEmail" parameterType="String" resultType="Integer">
