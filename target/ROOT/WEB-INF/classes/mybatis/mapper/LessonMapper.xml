@@ -75,4 +75,9 @@
       where lesson.lesson_course_id = #{courseId}
     </select>
 
+    <select id="getLessonById" parameterType="String" resultMap="lessonMap">
+      select
+      <include refid="lessonColumns"/>
+      where lesson.lesson_id = #{lessonId}
+    </select>
 </mapper>

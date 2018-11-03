@@ -112,112 +112,122 @@
 
     <insert id="addNewCourse" parameterType="Map" useGeneratedKeys="true" keyProperty="course_id">
         insert into course
-        (course_name, course_teacher_id, course_intro, note,
-        <if test="img != null">
-            course_img,
-        </if>
-        course_state, course_label, course_lesson_num)
+        (course_name,
+        course_teacher_id,
+        course_intro,
+        note,
+        course_brief,
+        course_books,
+        course_needs,
+        course_sum_time,
+        course_type_id,
+        course_state,
+        course_label,
+        course_lesson_num,
+        course_create_date,
+        course_update_date
+        )
         values
         (
           #{courseName},
-          #{id},
+          #{teacherId},
           #{courseIntro, jdbcType=VARCHAR},
           #{note, jdbcType=VARCHAR},
-          <if test="img != null">
-              #{img},
-          </if>
+          #{brief, jdbcType=VARCHAR},
+          #{books, jdbcType=VARCHAR},
+          #{needs, jdbcType=VARCHAR},
+          #{sumTime, jdbcType=VARCHAR},
+          #{typeId, jdbcType=INTEGER},
           2,
           #{label, jdbcType=VARCHAR},
-          #{lessonNum, jdbcType=INTEGER}
+          #{lessonNum, jdbcType=INTEGER},
+          NOW(),
+          NOW()
         )
     </insert>
 
-    <insert id="saveDraft" parameterType="Map" useGeneratedKeys="true" keyProperty="course_id">
-        insert into course
-        (course_name, course_teacher_id, course_intro, note,
-        <if test="img != null">
-            course_img,
-        </if>
-        course_state, course_label, course_lesson_num)
-        values
-        (
-          #{courseName},
-          #{id},
-          #{courseIntro, jdbcType=VARCHAR},
-          #{note, jdbcType=VARCHAR},
-          <if test="img != null">
-            #{img},
-          </if>
-          1,
-          #{label, jdbcType=VARCHAR},
-          #{lessonNum, jdbcType=INTEGER}
-        )
-    </insert>
+    <update id="updateCourse" parameterType="Map">
+        update course set
+        course_name = #{courseName},
+        course_teacher_id = #{teacherId},
+        course_intro = #{courseIntro, jdbcType=VARCHAR},
+        note = #{note, jdbcType=VARCHAR},
+        course_brief = #{brief, jdbcType=VARCHAR},
+        course_books = #{books, jdbcType=VARCHAR},
+        course_needs = #{needs, jdbcType=VARCHAR},
+        course_sum_time = #{sumTime, jdbcType=VARCHAR},
+        course_type_id = #{typeId, jdbcType=INTEGER},
+        course_state = 2,
+        course_label = #{label, jdbcType=VARCHAR},
+        course_lesson_num = #{lessonNum, jdbcType=INTEGER},
+        course_update_date = NOW()
+        where course_id = #{courseId} and course_teacher_id = #{teacherId}
+    </update>
 
     <update id="updateCourseImg" parameterType="Map">
         update course set course_img = #{img}
         where course_id = #{courseId} and course_teacher_id = #{teacherId}
     </update>
 
-    <update id="releaseDraftCourse" parameterType="String">
-        update course set course_state = 2 where course_id = #{courseId} and course_teacher_id = #{id} and course_state = 1
-    </update>
-
     <update id="acceptCourseApply" parameterType="String">
-        update course set course_state = 4 where course_id = #{id} and course_state = 2
+        update course set course_state = 4, course_release_date = NOW() where course_id = #{id} and course_state = 2
     </update>
 
     <update id="rejectCourseApply" parameterType="String">
-        update course set course_state = 3 where course_id = #{id} and course_state = 2
-    </update>
-
-    <update id="updateDraftCourse" parameterType="String">
-        update course set
-        course_name = #{courseName},
-        course_intro = #{intro, jdbcType=VARCHAR},
-        note = #{note, jdbcType=VARCHAR},
-        <if test="img != null">
-            course_img = #{img, jdbcType=INTEGER},
-        </if>
-        course_state = 1,
-        course_label = #{label, jdbcType=VARCHAR},
-        course_lesson_num = #{lessonNum, jdbcType=INTEGER}
-        where course_state = 1 and course_teacher_id = ${id} and course_id = #{courseId}
+        update course set course_state = 3, course_release_date = NOW() where course_id = #{id} and course_state = 2
     </update>
 
     <select id="getAllAvailableCourses" resultMap="courseMap">
         select
         <include refid="courseColumns"/>
         where course.course_state = 4
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <select id="getAllTeacherCourses" parameterType="String" resultMap="courseMap">
         select
         <include refid="courseColumns"/>where course_teacher_id = #{id}
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <select id="getAllStudentCourses" parameterType="String" resultMap="studyCourseMap">
         select
         <include refid="studyCourseColumns"/>
         where course.course_id = study_course_id and study_user_id = #{id}
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <select id="getJoinedCourses" parameterType="String" resultMap="studyCourseMap">
         select
         <include refid="studyCourseColumns"/>
         where course.course_id = study_course_id and study_user_id = #{id} and study_state = 1
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <select id="getLearningCourses" parameterType="String" resultMap="studyCourseMap">
         select
         <include refid="studyCourseColumns"/>
         where course.course_id = study_course_id and study_user_id = #{id} and study_state = 2
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <select id="getLearnedCourses" parameterType="String" resultMap="studyCourseMap">
         select
         <include refid="studyCourseColumns"/>
         where course.course_id = study_course_id and study_user_id = #{id} and study_state = 3
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <select id="getCourseById" parameterType="String" resultMap="courseMap">
@@ -230,24 +240,36 @@
         select
         <include refid="courseColumns"/>
         where course_state = 1 and course_teacher_id = #{id}
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <select id="getAllApplyingCourses" parameterType="String" resultMap="courseMap">
         select
         <include refid="courseColumns"/>
         where course_state = 2 and course_teacher_id = #{id}
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <select id="getAllRejectedCourses" parameterType="String" resultMap="courseMap">
         select
         <include refid="courseColumns"/>
         where course_state = 3 and course_teacher_id = #{id}
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <select id="getAllReleasedCourses" parameterType="String" resultMap="courseMap">
         select
         <include refid="courseColumns"/>
         where course_state = 4 and course_teacher_id = #{id}
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <select id="getManageableCourses" parameterType="Map" resultMap="courseMap">
@@ -271,6 +293,32 @@
                 and course_state = -1000
             </otherwise>
         </choose>
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
+    </select>
+
+    <select id="getCourseByType" parameterType="String" resultMap="courseMap">
+        select
+        course.*, user.*, school.*, f1.file_url as study_course_img, f2.file_url as teacher_img, course_type.* from
+        course left join user on course.course_teacher_id = user.user_id
+        left join school on user.user_school = school.school_id
+        left join file f1 on course.course_img = f1.file_id
+        left join file f2 on user.user_img = f2.file_id
+        join course_type
+        where course.course_type_id = course_type.course_type_id and
+        (course_type.course_type_id = #{typeId} or course_type.course_type_parent = #{typeId})
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
+    </select>
+
+    <select id="getCourses" parameterType="Map" resultMap="courseMap">
+        select
+        <include refid="courseColumns"/>
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 
     <sql id="courseTypeColumns">
@@ -296,6 +344,6 @@
 
     <select id="getCourseChapters" parameterType="String" resultMap="courseChapterMap">
       select lesson_id, lesson_num, lesson_title, lesson_chapter_num, lesson_chapter_title
-      from lesson where lesson_course_id = #{courseId}
+      from lesson where lesson_course_id = #{courseId} and lesson_state = 2
     </select>
 </mapper>

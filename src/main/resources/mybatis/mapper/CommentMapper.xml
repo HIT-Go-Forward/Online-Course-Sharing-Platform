@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hit.to.go.database.dao.CommentMapper">
+    <resultMap id="commentMap" type="hit.to.go.entity.comment.CommentEntity">
+        <id column="comment_id" property="id"/>
+        <result column="comment_user_id" property="userId"/>
+        <result column="comment_course_id" property="courseId"/>
+        <result column="comment_comment_id" property="commentId"/>
+        <result column="comment_lesson_id" property="lessonId"/>
+        <result column="comment_type" property="type"/>
+        <result column="comment_content" property="content"/>
+        <result column="comment_time" property="date"/>
+        <result column="comment_state" property="state"/>
+        <result column="note" property="note"/>
+        <association property="user" resultMap="userMap"/>
+    </resultMap>
+
+    <resultMap id="userMap" type="hit.to.go.entity.user.User">
+        <id column="user_id" jdbcType="INTEGER" property="id" />
+        <result column="user_name" jdbcType="VARCHAR" property="name" />
+        <result column="user_type" jdbcType="INTEGER" property="type" />
+        <result column="user_sex" jdbcType="VARCHAR" property="sex" />
+        <result column="birthday" jdbcType="DATE" property="birthday" />
+        <result column="user_email" jdbcType="VARCHAR" property="email" />
+        <result column="user_education" jdbcType="VARCHAR" property="education" />
+        <result column="user_intro" jdbcType="VARCHAR" property="intro" />
+        <!--<result column="note" jdbcType="VARCHAR" property="note" />-->
+        <result column="user_phone" jdbcType="VARCHAR" property="phone" />
+        <result column="img" jdbcType="VARCHAR" property="img" />
+
+        <association property="school" javaType="School">
+            <id column="school_id" property="id"/>
+            <result column="school_name" property="name" />
+            <result column="school_code" property="code" />
+            <result column="school_depart" property="depart" />
+            <result column="school_location" property="location" />
+            <result column="school_level" property="level" />
+            <result column="school_type" property="type" />
+        </association>
+    </resultMap>
+
+    <insert id="insertComment" parameterType="comment" useGeneratedKeys="true" keyProperty="id">
+        insert into comment
+        (comment_user_id,
+        comment_course_id,
+        comment_comment_id,
+        comment_lesson_id,
+        comment_type,
+        comment_content,
+        note)
+        VALUES
+        (
+          #{userId},
+          #{courseId, jdbcType=INTEGER},
+          #{commentId, jdbcType=INTEGER},
+          #{lessonId, jdbcType=INTEGER},
+          #{type},
+          #{content, jdbcType=VARCHAR},
+          #{note, jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <delete id="deleteComment" parameterType="comment">
+        delete from comment where comment_id = #{id} and comment_user_id = #{userId}
+    </delete>
+
+    <delete id="deleteCommentAdmin" parameterType="comment">
+        delete from comment where comment_id = #{id}
+    </delete>
+
+    <sql id="commentColumns">
+        comment.*, user.* from comment left join user on comment.comment_user_id = #{userId}
+    </sql>
+
+    <select id="selectCommentByCourseId" parameterType="Map" resultMap="commentMap">
+        select
+        <include refid="commentColumns"/>
+        where comment.comment_course_id = #{courseId}
+        <if test="length != null and start != null">
+            limit start, length
+        </if>
+    </select>
+
+    <select id="selectCommentByLessonId" parameterType="Map" resultMap="commentMap">
+        select
+        <include refid="commentColumns"/>
+        where comment.comment_lesson_id = #{lessonId}
+        <if test="length != null and start != null">
+            limit start, length
+        </if>
+    </select>
+
+    <select id="selectCommentByUserId" parameterType="Map" resultMap="commentMap">
+        select
+        <include refid="commentColumns"/>
+        where comment.comment_user_id = #{userId}
+        <if test="length != null and start != null">
+            limit start, length
+        </if>
+    </select>
+</mapper>

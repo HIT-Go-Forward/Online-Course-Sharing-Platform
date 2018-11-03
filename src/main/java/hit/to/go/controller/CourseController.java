@@ -36,43 +36,23 @@ public class CourseController {
     }
 
     @RequestMapping("/addNewCourse")
-    public String newCourse(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, @RequestParam Map<String, String> paras) {
-        String courseName;
-        courseName = paras.get("courseName");
-        if (courseName != null) {
-            paras.put("id", user.getId().toString());
+    public String newCourse(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+        if (paras.get("courseName") != null) {
+            paras.put("teacherId", user.getId().toString());
             Integer rows = courseMapper.addNewCourse(paras);
-            if (rows != null && rows.equals(1)) return RequestResults.success(paras.get("course_id"));
+            if (rows != null && rows.equals(1)) return RequestResults.success(paras);
             throw new RequestHandleException(RequestResults.error("课程添加失败！"));
         }
         return RequestResults.wrongParameters();
     }
 
-    @RequestMapping("/saveCourseDraft")
-    public String saveCourseDraft(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, @RequestParam Map<String, String> paras) {
-        String courseName;
-        courseName = paras.get("courseName");
-        if (courseName != null) {
-            paras.put("id", user.getId().toString());
-            Integer rows = courseMapper.saveDraft(paras);
-            if (rows != null && rows.equals(1)) return RequestResults.success(paras.get("course_id"));
-            throw new RequestHandleException(RequestResults.error("课程添加失败！"));
-        }
-        return RequestResults.wrongParameters();
-    }
-
-    @RequestMapping("/updateDraftCourse")
-    public String updateDraftCourse(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, @RequestParam Map<String, String> paras) {
-        String courseId, courseName;
-        courseId = paras.get("courseId");
-        courseName = paras.get("courseName");
-        if (courseId != null && courseName != null) {
-            paras.put("id", user.getId().toString());
-            Integer rows = courseMapper.updateDraftCourse(paras);
-            if (rows != null && rows.equals(1)) return RequestResults.success();
-            throw new RequestHandleException(RequestResults.error());
-        }
-        return RequestResults.wrongParameters();
+    @RequestMapping("/updateCourse")
+    public String updateCourse(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+        if (paras.get("courseName") == null) return RequestResults.wrongParameters();
+        paras.put("teacherId", user.getId().toString());
+        Integer rows = courseMapper.updateCourse(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success();
+        throw new RequestHandleException(RequestResults.dataBaseWriteError());
     }
 
     @RequestMapping("/updateCourseImg")
@@ -87,38 +67,36 @@ public class CourseController {
         throw new RequestHandleException("更新失败!");
     }
 
-    @RequestMapping("/releaseDraftCourse")
-    public String releaseDraftCourse(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String courseId) {
-        if (courseId != null) {
-            Map<String, String> paras = new HashMap<>();
-            paras.put("id", user.getId().toString());
-            paras.put("courseId", courseId);
-            Integer rows = courseMapper.releaseDraftCourse(paras);
-            if (rows!= null && rows.equals(1)) return RequestResults.success();
-            throw new RequestHandleException(RequestResults.error("该课程可能已被处理!"));
-        }
-        return RequestResults.wrongParameters();
-    }
-
-    @RequestMapping("/getAllCourses")
-    public String getAllCourses(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
-
-        return RequestResults.success();
-    }
-
+    // new
     @RequestMapping("/getCourses")
-    public String getCourses(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String keyWord) {
+    public String getCourses(Integer start, Integer length) {
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("start", start);
+        paras.put("length", length);
+        return RequestResults.success(courseMapper.getCourses(paras));
+    }
 
-        return RequestResults.success();
+    // new
+    @RequestMapping("/getCourseByType")
+    public String getCourseByType(String typeId, Integer start, Integer length) {
+        if (typeId == null) return RequestResults.wrongParameters();
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("start", start);
+        paras.put("length", length);
+        paras.put("typeId", typeId);
+        return RequestResults.success(courseMapper.getCourseByType(paras));
     }
 
     @RequestMapping("/getUserCourses")
-    public String getUserCourses(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String type) {
+    public String getUserCourses(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String type, Integer start, Integer length) {
+        // TODO 分页
         String id = user.getId().toString();
         if (user.getType() == User.TYPE_ADMIN) {
-            Map<String, String> paras = new HashMap<>();
+            Map<String, Object> paras = new HashMap<>();
             paras.put("id", id);
             paras.put("type", type);
+            paras.put("start", start);
+            paras.put("length", length);
             return RequestResults.success(courseMapper.getManageableCourses(paras));
         } else if (user.getType() == User.TYPE_TEACHER) {
             if (type == null || type.equals("all")) return RequestResults.success(courseMapper.getAllTeacherCourses(id));
@@ -166,8 +144,6 @@ public class CourseController {
     public String getAllCourseType() {
         return RequestResults.success(courseMapper.getAllCourseType());
     }
-
-
 
     @RequestMapping("/getCourseOutline")
     public String getCourseOutline(String courseId) {
@@ -226,7 +202,6 @@ public class CourseController {
         if (rows != null && rows.equals(1)) return RequestResults.success();
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
     }
-
 
     @RequestMapping("/getCourseLessons")
     public String getCourseLessons(String  courseId) {

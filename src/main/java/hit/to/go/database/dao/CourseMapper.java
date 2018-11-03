@@ -12,13 +12,9 @@ import java.util.Map;
  * Created by 班耀强 on 2018/10/2
  */
 public interface CourseMapper {
-    Integer addNewCourse(Map<String, String> paras);
+    Integer addNewCourse(Map<String, Object> paras);
 
-    Integer saveDraft(Map<String, String> paras);
-
-    Integer releaseDraftCourse(Map<String, String> paras);
-
-    Integer updateDraftCourse(Map<String, String> paras);
+    Integer updateCourse(Map<String, Object> paras);
 
     Integer acceptCourseApply(String id);
 
@@ -42,7 +38,11 @@ public interface CourseMapper {
 
     List<Course> getAllRejectedCourses(String id);
 
-    List<Course> getManageableCourses(Map<String, String> paras);
+    List<Course> getManageableCourses(Map<String, Object> paras);
+
+    List<Course> getCourseByType(Map<String, Object> paras);
+
+    List<Course> getCourses(Map<String, Object> paras);
 
     Course getCourseById(String id);
 
