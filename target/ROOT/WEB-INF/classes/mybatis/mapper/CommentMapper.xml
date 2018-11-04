@@ -70,24 +70,32 @@
 
     <sql id="commentColumns">
         comment.*, user.* from comment left join user on comment.comment_user_id = #{userId}
-
     </sql>
 
-    <select id="selectCommentByCourseId" parameterType="Object" resultMap="commentMap">
+    <select id="selectCommentByCourseId" parameterType="Map" resultMap="commentMap">
         select
         <include refid="commentColumns"/>
         where comment.comment_course_id = #{courseId}
+        <if test="length != null and start != null">
+            limit start, length
+        </if>
     </select>
 
-    <select id="selectCommentByLessonId" parameterType="Object" resultMap="commentMap">
+    <select id="selectCommentByLessonId" parameterType="Map" resultMap="commentMap">
         select
         <include refid="commentColumns"/>
         where comment.comment_lesson_id = #{lessonId}
+        <if test="length != null and start != null">
+            limit start, length
+        </if>
     </select>
 
-    <select id="selectCommentByUserId" parameterType="Object" resultMap="commentMap">
+    <select id="selectCommentByUserId" parameterType="Map" resultMap="commentMap">
         select
         <include refid="commentColumns"/>
         where comment.comment_user_id = #{userId}
+        <if test="length != null and start != null">
+            limit start, length
+        </if>
     </select>
 </mapper>

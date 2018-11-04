@@ -100,7 +100,6 @@ public class CourseController {
             return RequestResults.success(courseMapper.getManageableCourses(paras));
         } else if (user.getType() == User.TYPE_TEACHER) {
             if (type == null || type.equals("all")) return RequestResults.success(courseMapper.getAllTeacherCourses(id));
-            else if (type.equals("draft")) return RequestResults.success(courseMapper.getAllDraftCourses(id));
             else if (type.equals("applying")) return RequestResults.success(courseMapper.getAllApplyingCourses(id));
             else if (type.equals("rejected")) return RequestResults.success(courseMapper.getAllRejectedCourses(id));
             else if (type.equals("released")) return RequestResults.success(courseMapper.getAllReleasedCourses(id));
