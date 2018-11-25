@@ -164,7 +164,7 @@ public class CourseController {
         if (num == null || title == null || chapterNum == null || courseId == null) return RequestResults.wrongParameters();
         paras.put("teacherId", user.getId());
         Integer rows = lessonMapper.insertNewLesson(paras);
-        if (rows != null && rows.equals(1)) return RequestResults.success(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success(paras.get("id"));
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
     }
 
@@ -177,7 +177,7 @@ public class CourseController {
         if (num == null || title == null || chapterNum == null || courseId == null) return RequestResults.wrongParameters();
         paras.put("teacherId", user.getId().toString());
         Integer rows = lessonMapper.updateLesson(paras);
-        if (rows != null && rows.equals(1)) return RequestResults.success(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success();
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
     }
 
