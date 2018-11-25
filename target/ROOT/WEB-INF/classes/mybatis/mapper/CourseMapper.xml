@@ -340,10 +340,16 @@
         <result column="lesson_chapter_title" property="chapterTitle"/>
         <result column="lesson_num" property="sectionNum"/>
         <result column="lesson_title" property="sectionTitle"/>
+        <result column="lesson_state" property="state" />
     </resultMap>
 
     <select id="getCourseChapters" parameterType="String" resultMap="courseChapterMap">
-      select lesson_id, lesson_num, lesson_title, lesson_chapter_num, lesson_chapter_title
+      select lesson_id, lesson_num, lesson_title, lesson_chapter_num, lesson_chapter_title, lesson_state
       from lesson where lesson_course_id = #{courseId} and lesson_state = 2
+    </select>
+
+    <select id="getTeacherCourseChapters" parameterType="String" resultMap="courseChapterMap">
+      select lesson_id, lesson_num, lesson_title, lesson_chapter_num, lesson_chapter_title, lesson_state
+      from lesson where lesson_course_id = #{courseId}
     </select>
 </mapper>

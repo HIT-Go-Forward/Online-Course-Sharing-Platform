@@ -10,7 +10,7 @@
         <result column="apply_handle_note" property="handleNote" />
 
         <association property="applyUser" javaType="User">
-            <id column="apply_user_id" jdbcType="INTEGER" property="id" />
+            <id column="apply_user_id" jdbcType="INTEGER"  property="id" />
             <result column="apply_user_name" jdbcType="VARCHAR" property="name" />
             <result column="apply_user_type" jdbcType="INTEGER" property="type" />
             <result column="apply_user_sex" jdbcType="VARCHAR" property="sex" />

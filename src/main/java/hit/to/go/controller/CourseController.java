@@ -145,8 +145,9 @@ public class CourseController {
     }
 
     @RequestMapping("/getCourseOutline")
-    public String getCourseOutline(String courseId) {
+    public String getCourseOutline(String courseId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         if (courseId == null) return RequestResults.wrongParameters();
+        else if (user.getType() == User.TYPE_TEACHER) return RequestResults.success(courseMapper.getTeacherCourseChapters(courseId));
         return RequestResults.success(courseMapper.getCourseChapters(courseId));
     }
 

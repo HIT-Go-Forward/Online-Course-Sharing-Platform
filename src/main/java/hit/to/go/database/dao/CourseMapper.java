@@ -51,4 +51,6 @@ public interface CourseMapper {
     Integer updateCourseImg(Map<String, Object> paras);
 
     List<CourseChapter> getCourseChapters(String courseId);
+
+    List<CourseChapter> getTeacherCourseChapters(String courseId);
 }

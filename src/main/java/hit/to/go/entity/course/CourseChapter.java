@@ -9,6 +9,7 @@ public class CourseChapter {
     private String chapterTitle;
     private Integer sectionNum;
     private String sectionTitle;
+    private Integer state;
 
     public Integer getId() {
         return id;
@@ -48,5 +49,13 @@ public class CourseChapter {
 
     public void setSectionTitle(String sectionTitle) {
         this.sectionTitle = sectionTitle;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }
