@@ -52,16 +52,13 @@ public class UploadController {
 
     private ServletContext context;
     private FileMapper fileMapper;
-    private UserMapper userMapper;
-    private CourseMapper courseMapper;
 
-    public UploadController(ServletContext context, FileMapper fileMapper, UserMapper userMapper, CourseMapper courseMapper) {
+    public UploadController(ServletContext context, FileMapper fileMapper) {
         this.context = context;
         this.fileMapper = fileMapper;
-        this.userMapper = userMapper;
-        this.courseMapper = courseMapper;
     }
 
+    @Transactional
     @RequestMapping("upload")
     public String upload(MultipartFile file, String type, String courseId, String lessonId, @SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, HttpServletRequest request, HttpServletResponse response) {
         if (type == null || file == null) return RequestResults.wrongParameters();

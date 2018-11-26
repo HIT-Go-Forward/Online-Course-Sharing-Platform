@@ -23,7 +23,6 @@ import java.util.Map;
  */
 @Controller
 @ResponseBody
-@Transactional
 @RequestMapping("/course")
 public class CourseController {
 
@@ -35,6 +34,7 @@ public class CourseController {
         this.lessonMapper = lessonMapper;
     }
 
+    @Transactional
     @RequestMapping("/addNewCourse")
     public String newCourse(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         if (paras.get("courseName") != null) {
@@ -46,6 +46,7 @@ public class CourseController {
         return RequestResults.wrongParameters();
     }
 
+    @Transactional
     @RequestMapping("/updateCourse")
     public String updateCourse(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         if (paras.get("courseName") == null) return RequestResults.wrongParameters();
@@ -55,6 +56,7 @@ public class CourseController {
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
     }
 
+    @Transactional
     @RequestMapping("/updateCourseImg")
     public String updateCourseImg(String fileId, String courseId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         if (fileId == null || courseId == null) return RequestResults.wrongParameters();
@@ -67,7 +69,6 @@ public class CourseController {
         throw new RequestHandleException("更新失败!");
     }
 
-    // new
     @RequestMapping("/getCourses")
     public String getCourses(Integer start, Integer length) {
         Map<String, Object> paras = new HashMap<>();
@@ -76,7 +77,6 @@ public class CourseController {
         return RequestResults.success(courseMapper.getCourses(paras));
     }
 
-    // new
     @RequestMapping("/getCourseByType")
     public String getCourseByType(String typeId, Integer start, Integer length) {
         if (typeId == null) return RequestResults.wrongParameters();
@@ -121,6 +121,7 @@ public class CourseController {
         return RequestResults.wrongParameters();
     }
 
+    @Transactional
     @RequestMapping("/handleCourseApply")
     public String handleCourseApply(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String courseId, String operation) {
         if (courseId != null & operation != null) {
@@ -147,7 +148,7 @@ public class CourseController {
     @RequestMapping("/getCourseOutline")
     public String getCourseOutline(String courseId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         if (courseId == null) return RequestResults.wrongParameters();
-        else if (user.getType() == User.TYPE_TEACHER) return RequestResults.success(courseMapper.getTeacherCourseChapters(courseId));
+        else if (user.getType() <= User.TYPE_TEACHER) return RequestResults.success(courseMapper.getTeacherCourseChapters(courseId));
         return RequestResults.success(courseMapper.getCourseChapters(courseId));
     }
 
@@ -155,6 +156,7 @@ public class CourseController {
     /**
      * ============== Lesson 相关action ====================
      */
+    @Transactional
     @RequestMapping("/addNewLesson")
     public String addNewLesson(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         Object num = paras.get("num");
@@ -168,6 +170,7 @@ public class CourseController {
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
     }
 
+    @Transactional
     @RequestMapping("/updateLesson")
     public String updateLesson(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         Object num = paras.get("num");
@@ -181,6 +184,7 @@ public class CourseController {
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
     }
 
+    @Transactional
     @RequestMapping("/updateLessonVideo")
     public String updateLessonVideo(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         Object lessonId = paras.get("lessonId");
@@ -192,6 +196,7 @@ public class CourseController {
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
     }
 
+    @Transactional
     @RequestMapping("/updateLessonFile")
     public String updateLessonFile(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         Object lessonId = paras.get("lessonId");
@@ -206,5 +211,11 @@ public class CourseController {
     @RequestMapping("/getCourseLessons")
     public String getCourseLessons(String  courseId) {
         return RequestResults.success(lessonMapper.getCourseLessons(courseId));
+    }
+
+    @RequestMapping("/getLessonById")
+    public String getLessonById(String lessonId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+        if (lessonId == null) return RequestResults.wrongParameters();
+        return RequestResults.success(lessonMapper.getLessonById(lessonId));
     }
 }

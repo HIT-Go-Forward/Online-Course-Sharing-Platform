@@ -23,7 +23,6 @@ import java.util.Map;
  */
 @Controller
 @ResponseBody
-@Transactional
 @RequestMapping("/CommentAndBarrage")
 public class CommentBarrageController {
     private static final Logger logger = LoggerFactory.getLogger(CommentBarrageController.class);
@@ -34,6 +33,7 @@ public class CommentBarrageController {
         this.commentMapper = commentMapper;
     }
 
+    @Transactional
     @RequestMapping("/sendComment")
     public String sendComment(Comment comment, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         logger.debug(comment.getContent());

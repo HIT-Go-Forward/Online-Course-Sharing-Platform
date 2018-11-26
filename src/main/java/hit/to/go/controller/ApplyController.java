@@ -22,7 +22,6 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/apply")
-@Transactional
 @ResponseBody
 public class ApplyController {
     private ApplyMapper applyMapper;
@@ -31,6 +30,7 @@ public class ApplyController {
         this.applyMapper = applyMapper;
     }
 
+    @Transactional
     @RequestMapping("/applyTeacher")
     public String applyTeacher(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String note) {
         Date now = new Date();
@@ -45,6 +45,7 @@ public class ApplyController {
         return RequestResults.error();
     }
 
+    @Transactional
     @RequestMapping("/acceptTeacherApply")
     public String acceptTeacherApply(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String applyId, String note) {
         if (applyId == null) return RequestResults.wrongParameters();
@@ -61,6 +62,7 @@ public class ApplyController {
         throw new RequestHandleException("处理失败！");
     }
 
+    @Transactional
     @RequestMapping("/rejectTeacherApply")
     public String rejectTeacherApply(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String applyId, String note) {
         if (applyId == null) return RequestResults.wrongParameters();

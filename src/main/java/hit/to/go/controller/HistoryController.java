@@ -22,7 +22,6 @@ import java.util.Map;
  */
 @Controller
 @ResponseBody
-@Transactional
 @RequestMapping("/history")
 public class HistoryController {
     private HistoryMapper historyMapper;
@@ -31,6 +30,7 @@ public class HistoryController {
         this.historyMapper = historyMapper;
     }
 
+    @Transactional
     @RequestMapping("/addNewHistory")
     public String addNewHistory(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String courseId) {
         if (courseId != null) {

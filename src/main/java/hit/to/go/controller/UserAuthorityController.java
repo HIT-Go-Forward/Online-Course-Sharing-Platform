@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.w3c.dom.Attr;
 
 import javax.servlet.http.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +33,6 @@ import java.util.Map;
  */
 @Controller
 @ResponseBody
-@Transactional
 @RequestMapping("/authority")
 public class UserAuthorityController {
     private static final Logger logger = LoggerFactory.getLogger(UserAuthorityController.class);
@@ -43,6 +43,7 @@ public class UserAuthorityController {
         this.userMapper = userMapper;
     }
 
+    @Transactional
     @RequestMapping("/register")
     public String register(@RequestParam Map<String, Object> map, HttpSession session, HttpServletResponse response) {
         Object code = map.get("code");
@@ -56,7 +57,12 @@ public class UserAuthorityController {
             if (rows == null) throw new RequestHandleException(RequestResults.dataBaseWriteError());
             else if (rows.equals(0)) throw new RequestHandleException(RequestResults.forbidden("该邮箱已被注册"));
 
-            UserWithPassword user = userMapper.selectUserByEmail(email.toString());
+            UserWithPassword user = new UserWithPassword();
+            user.setPassword(password.toString());
+            user.setId(Integer.valueOf(map.get("user_id").toString()));
+            user.setType(User.TYPE_STUDENT);
+            user.setEmail(email.toString());
+            user.setName(name.toString());
             session.setAttribute(AttrKey.ATTR_USER, user);
             response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
             response.addCookie(SystemVariable.newPasswordCookie(user.getPassword()));
@@ -66,15 +72,33 @@ public class UserAuthorityController {
         return RequestResults.forbidden(result);
     }
 
+    @Transactional
     @RequestMapping("/modifyInfo")
-    public String modifyInfo(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, @RequestParam Map<String, String> paras, HttpSession session) {
+    public String modifyInfo(@SessionAttribute(AttrKey.ATTR_USER) User user, @RequestParam Map<String, String> paras, HttpSession session) {
         paras.put("id", user.getId().toString());
-        if (paras.get("name") == null) return RequestResults.wrongParameters();
         Integer rows = userMapper.completeInfo(paras);
-        user = userMapper.selectUserById(user.getId().toString());
-
+//        user = userMapper.selectUserById(user.getId().toString());
         if (rows != null && rows.equals(1)) {
-            session.setAttribute(AttrKey.ATTR_USER, user);
+            String edu = paras.get("education");
+            String sex = paras.get("sex");
+            String birthday = paras.get("birthday");
+            String intro = paras.get("intro");
+            String note = paras.get("note");
+            String phone = paras.get("phone");
+            user.setIntro(intro);
+            user.setNote(note);
+            user.setPhone(phone);
+            if (birthday != null) {
+                SimpleDateFormat sdm = new SimpleDateFormat();
+                try {
+                    Date date = sdm.parse(birthday);
+                    user.setBirthday(date);
+                } catch (Exception e) {
+                    user.setBirthday(null);
+                }
+            }
+            if (edu != null) user.setEducation(Integer.valueOf(edu));
+            user.setSex(sex);
             return RequestResults.success(user);
         }
         throw new RequestHandleException(RequestResults.error("保存失败!"));
@@ -111,6 +135,7 @@ public class UserAuthorityController {
         return RequestResults.success();
     }
 
+    @Transactional
     @RequestMapping("/updateUserImg")
     public String updateUserImg(String fileId, @SessionAttribute(AttrKey.ATTR_USER) User user, HttpSession session) {
         if (fileId == null) return RequestResults.wrongParameters();
@@ -126,6 +151,7 @@ public class UserAuthorityController {
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
     }
 
+    @Transactional
     @RequestMapping("/changePassword")
     public String changePassword(String oldPassword, String newPassword, String code, HttpSession session, @SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
         if (oldPassword == null || newPassword == null || code == null) return RequestResults.wrongParameters();
