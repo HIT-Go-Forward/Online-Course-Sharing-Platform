@@ -15,6 +15,7 @@ public class Lesson {
     private String note;
     private String videoUrl;
     private String fileUrl;
+    private String originalFileName;
     private Integer courseId;
     private Date createDate;
     private Date updateDate;
@@ -122,5 +123,13 @@ public class Lesson {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public String getOriginalFileName() {
+        return originalFileName;
+    }
+
+    public void setOriginalFileName(String originalFileName) {
+        this.originalFileName = originalFileName;
     }
 }

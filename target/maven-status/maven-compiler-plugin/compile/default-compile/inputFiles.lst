@@ -33,6 +33,7 @@ D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\co
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\platform\SystemVariable.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\controller\platform\ErrorController.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\database\dao\UserMapper.java
+D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\platform\util\TokenUtil.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\entity\history\CourseHistory.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\platform\filter\UserAuthorityFilter.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\database\dao\CommentMapper.java
