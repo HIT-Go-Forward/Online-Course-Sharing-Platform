@@ -105,6 +105,14 @@
       <artifactId>spring-jdbc</artifactId>
       <version>5.1.1.RELEASE</version>
     </dependency>
+
+    <!-- JSON web token -->
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>java-jwt</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
   </dependencies>
 
   <build>
