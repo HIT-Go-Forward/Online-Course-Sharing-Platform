@@ -8,7 +8,6 @@ D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\en
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\platform\util\Comment\CommentUtil.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\entity\Apply.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\controller\UploadController.java
-D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\entity\course\LessonCourse.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\platform\util\Validate.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\database\dao\FileMapper.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\database\dao\ApplyMapper.java
@@ -39,6 +38,7 @@ D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\da
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\platform\MailConfig.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\controller\CourseController.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\entity\course\CourseChapter.java
+D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\entity\course\CourseLessons.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\entity\action\Action.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\entity\comment\CommentEntity.java
 D:\Projects\go_forward\Online-Course-Sharing-Platform\src\main\java\hit\to\go\platform\exception\DatabaseWriteException.java
