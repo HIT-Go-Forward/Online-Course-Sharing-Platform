@@ -128,11 +128,11 @@ public class CourseController {
             Integer rows;
             if (operation.equals("accept")) {
                 rows = courseMapper.acceptCourseApply(courseId);
-                if (rows.equals(1)) return RequestResults.success();
+                if (rows >= 1) return RequestResults.success();
                 throw new RequestHandleException(RequestResults.error("该申请可能已被处理!"));
             } else if (operation.equals("reject")) {
                 rows = courseMapper.rejectCourseApply(courseId);
-                if (rows.equals(1)) return RequestResults.success();
+                if (rows >= 1) return RequestResults.success();
                 throw new RequestHandleException(RequestResults.error("该申请可能已被处理!"));
             }
             return RequestResults.forbidden("错误的operation参数!");
@@ -152,6 +152,10 @@ public class CourseController {
         return RequestResults.success(courseMapper.getCourseChapters(courseId));
     }
 
+    @RequestMapping("/getCoursesAuditList")
+    public String getCoursesAuditList(Integer start, Integer length) {
+        return RequestResults.success();
+    }
 
     /**
      * ============== Lesson 相关action ====================
@@ -217,5 +221,17 @@ public class CourseController {
     public String getLessonById(String lessonId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         if (lessonId == null) return RequestResults.wrongParameters();
         return RequestResults.success(lessonMapper.getLessonById(lessonId));
+    }
+
+    @RequestMapping("/getManageableLessons")
+    public String getManageableLessons(String courseId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+        if (user.getType() >= User.TYPE_STUDENT) {
+
+        } else if (user.getType() == User.TYPE_TEACHER) {
+
+        } else {
+
+        }
+        return RequestResults.success();
     }
 }

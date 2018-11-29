@@ -19,5 +19,9 @@ public interface LessonMapper {
 
     List<Lesson> getCourseLessons(String courseId);
 
+    List<Lesson> getLessonsAccepted(String courseId);
+
+    List<Lesson> getLessonsTeacherOwns(Map<String, Object> paras);
+
     Lesson getLessonById(String lessonId);
 }
