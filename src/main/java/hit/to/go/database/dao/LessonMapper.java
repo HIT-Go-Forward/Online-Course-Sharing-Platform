@@ -20,4 +20,6 @@ public interface LessonMapper {
     List<Lesson> getCourseLessons(String courseId);
 
     Lesson getLessonById(String lessonId);
+
+    Integer updateLessonState(Map<String, Object> paras);
 }

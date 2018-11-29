@@ -69,6 +69,26 @@
         where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId}
     </update>
 
+    <update id="updateLessonState" parameterType="Map">
+        update lesson set
+        <choose>
+            <when test="operation == 'accept'">
+                lesson_state = 2
+            </when>
+            <when test="operation == 'reject'">
+                lesson_state = 3
+            </when>
+            <otherwise>
+                lesson_state = 1
+            </otherwise>
+        </choose>
+        where lesson_id in
+        <foreach collection="lessonIds" item="lessonId" open="(" separator="," close=")">
+            #{lessonId}
+        </foreach>
+        and lesson_state = 1
+    </update>
+
     <select id="getCourseLessons" parameterType="String" resultMap="lessonMap">
       select
       <include refid="lessonColumns"/>

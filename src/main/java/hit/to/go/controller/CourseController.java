@@ -7,6 +7,7 @@ import hit.to.go.entity.user.User;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.exception.RequestHandleException;
+import hit.to.go.platform.protocol.RequestResult;
 import hit.to.go.platform.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -152,7 +154,11 @@ public class CourseController {
         return RequestResults.success(courseMapper.getCourseChapters(courseId));
     }
 
-
+    @RequestMapping("/getManageableCourseLessons")
+    public String getManageableCourseLessons(Integer start, Integer length, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+        Map<String, Object> paras = new HashMap<>();
+        return RequestResults.success(courseMapper.getManageableCourseLessons(paras));
+    }
     /**
      * ============== Lesson 相关action ====================
      */
@@ -217,5 +223,19 @@ public class CourseController {
     public String getLessonById(String lessonId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
         if (lessonId == null) return RequestResults.wrongParameters();
         return RequestResults.success(lessonMapper.getLessonById(lessonId));
+    }
+
+    @Transactional
+    @RequestMapping("/handleLessonApplies")
+    public String handleLessonApplies(@RequestParam("lessonIds[]") Integer[] lessonIds, String operation) {
+        if (lessonIds == null || operation == null) return RequestResults.wrongParameters("lessonIds||operation");
+        else if (!operation.equals("accept") && !operation.equals("reject")) return RequestResults.wrongParameters("operation");
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("lessonIds", lessonIds);
+        paras.put("operation", operation);
+        Integer rows = lessonMapper.updateLessonState(paras);
+        if (rows == null) return RequestResults.error();
+        else if (rows.equals(lessonIds.length)) return RequestResults.success();
+        return RequestResults.success(rows + "条操作成功，" + (lessonIds.length - rows) + "操作失败！请核对。");
     }
 }

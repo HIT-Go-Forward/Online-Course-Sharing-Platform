@@ -79,6 +79,40 @@
         </association>
     </resultMap>
 
+    <resultMap id="courseLessonsMap" type="hit.to.go.entity.course.CourseLessons">
+        <association property="course">
+            <id column="course_id" property="id"/>
+            <result column="course_name" property="name"/>
+        </association>
+        <collection property="lessons" ofType="hit.to.go.entity.course.Lesson" javaType="ArrayList">
+            <id column="lesson_id" property="id"/>
+            <result column="lesson_num" property="num"/>
+            <result column="lesson_title" property="title"/>
+            <result column="lesson_intro" property="intro"/>
+            <result column="note" property="note"/>
+            <!--<result column="video_url" property="videoUrl"/>-->
+            <!--<result column="file_url" property="fileUrl"/>-->
+            <result column="lesson_course_id" property="courseId"/>
+            <result column="lesson_create_date" property="createDate"/>
+            <result column="lesson_update_date" property="updateDate"/>
+            <result column="lesson_state" property="state"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="lessonMap" type="hit.to.go.entity.course.Lesson">
+        <id column="lesson_id" property="id"/>
+        <result column="lesson_num" property="num"/>
+        <result column="lesson_title" property="title"/>
+        <result column="lesson_intro" property="intro"/>
+        <result column="note" property="note"/>
+        <result column="video_url" property="videoUrl"/>
+        <result column="file_url" property="fileUrl"/>
+        <result column="lesson_course_id" property="courseId"/>
+        <result column="lesson_create_date" property="createDate"/>
+        <result column="lesson_update_date" property="updateDate"/>
+        <result column="lesson_state" property="state"/>
+    </resultMap>
+
     <sql id="courseColumns">
       course.*, user.*, school.*, f1.file_url as study_course_img, f2.file_url as teacher_img, course_type.* from
       course left join user on course.course_teacher_id = user.user_id
@@ -107,6 +141,16 @@
       left join file f1 on u1.user_img = f1.file_id
       left join file f2 on u2.user_img = f2.file_id
       left join file f3 on course.course_img = f3.file_id
+      left join course_type on course.course_type_id = course_type.course_type_id
+    </sql>
+
+    <sql id="courseLessonsColumns">
+      lesson.*, course.*, user.*, school.*, f1.file_url as study_course_img, f2.file_url as teacher_img, course_type.* from
+      lesson inner join course on lesson.lesson_course_id = course.course_id
+      left join user on course.course_teacher_id = user.user_id
+      left join school on user.user_school = school.school_id
+      left join file f1 on course.course_img = f1.file_id
+      left join file f2 on user.user_img = f2.file_id
       left join course_type on course.course_type_id = course_type.course_type_id
     </sql>
 
@@ -351,5 +395,13 @@
     <select id="getTeacherCourseChapters" parameterType="String" resultMap="courseChapterMap">
       select lesson_id, lesson_num, lesson_title, lesson_chapter_num, lesson_chapter_title, lesson_state
       from lesson where lesson_course_id = #{courseId}
+    </select>
+
+    <select id="getManageableCourseLessons" parameterType="Map" resultMap="courseLessonsMap">
+        select course.*, lesson.* from lesson left join course on lesson.lesson_course_id = course.course_id
+    </select>
+
+    <select id="selectCourseLessons" parameterType="Integer" resultType="lesson">
+        select * from lesson where lesson.lesson_course_id = #{id}
     </select>
 </mapper>
