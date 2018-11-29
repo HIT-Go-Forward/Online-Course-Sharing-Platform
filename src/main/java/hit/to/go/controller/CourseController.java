@@ -130,11 +130,11 @@ public class CourseController {
             Integer rows;
             if (operation.equals("accept")) {
                 rows = courseMapper.acceptCourseApply(courseId);
-                if (rows.equals(1)) return RequestResults.success();
+                if (rows >= 1) return RequestResults.success();
                 throw new RequestHandleException(RequestResults.error("该申请可能已被处理!"));
             } else if (operation.equals("reject")) {
                 rows = courseMapper.rejectCourseApply(courseId);
-                if (rows.equals(1)) return RequestResults.success();
+                if (rows >= 1) return RequestResults.success();
                 throw new RequestHandleException(RequestResults.error("该申请可能已被处理!"));
             }
             return RequestResults.forbidden("错误的operation参数!");

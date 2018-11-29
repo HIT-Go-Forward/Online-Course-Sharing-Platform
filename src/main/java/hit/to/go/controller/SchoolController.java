@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @ResponseBody
-@Transactional
 @RequestMapping("/school")
 public class SchoolController {
     private SchoolMapper schoolMapper;

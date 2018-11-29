@@ -342,6 +342,13 @@
         </if>
     </select>
 
+    <select id="getCoursesNeedAudit" parameterType="Map" resultMap="courseMap">
+        select
+        <include refid="courseColumns"/>
+        where course.course_id in
+        (select lesson.lesson_course_id from lesson where lesson.lesson_state = 1)
+    </select>
+
     <select id="getCourseByType" parameterType="String" resultMap="courseMap">
         select
         course.*, user.*, school.*, f1.file_url as study_course_img, f2.file_url as teacher_img, course_type.* from

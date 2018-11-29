@@ -49,6 +49,7 @@ public class CommentBarrageController {
     @RequestMapping("/getComment")
     public String getComment(String type, String courseId, String lessonId, Integer start, Integer length) {
         Map<String, Object> paras;
+        if (type == null) return RequestResults.wrongParameters("type");
         switch (type) {
             case "course":
                 if (courseId == null) return RequestResults.wrongParameters("courseId");

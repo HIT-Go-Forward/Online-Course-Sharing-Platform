@@ -13,10 +13,11 @@
         <result column="lesson_create_date" property="createDate"/>
         <result column="lesson_update_date" property="updateDate"/>
         <result column="lesson_state" property="state"/>
+        <result column="file_name" property="originalFileName"/>
     </resultMap>
 
     <sql id="lessonColumns">
-      lesson.*, f1.file_url as video_url, f2.file_url as file_url
+      lesson.*, f1.file_url as video_url, f2.file_url as file_url, f2.file_name as file_name
       from lesson left join file f1 on lesson.lesson_video_id = f1.file_id
       left join file f2 on lesson.lesson_file_id = f2.file_id
     </sql>
