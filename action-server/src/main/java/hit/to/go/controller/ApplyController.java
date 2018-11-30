@@ -1,11 +1,11 @@
 package hit.to.go.controller;
 
+import hit.go.forward.protocol.RequestResults;
 import hit.to.go.database.dao.ApplyMapper;
 import hit.to.go.entity.Apply;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.exception.RequestHandleException;
-import hit.to.go.platform.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;

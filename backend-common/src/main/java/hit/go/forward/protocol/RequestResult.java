@@ -1,4 +1,4 @@
-package hit.to.go.platform.protocol;
+package hit.go.forward.protocol;
 
 /**
  * Created by 班耀强 on 2018/9/20

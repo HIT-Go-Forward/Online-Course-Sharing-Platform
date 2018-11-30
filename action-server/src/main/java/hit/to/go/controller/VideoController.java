@@ -1,6 +1,6 @@
 package hit.to.go.controller;
 
-import hit.to.go.platform.protocol.RequestResults;
+import hit.go.forward.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

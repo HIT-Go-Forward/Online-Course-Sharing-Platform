@@ -1,8 +1,8 @@
 package hit.to.go.controller;
 
+import hit.go.forward.protocol.RequestResults;
 import hit.to.go.database.dao.SchoolMapper;
 import hit.to.go.database.mybatis.MybatisProxy;
-import hit.to.go.platform.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;

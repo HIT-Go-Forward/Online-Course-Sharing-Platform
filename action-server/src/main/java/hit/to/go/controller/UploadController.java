@@ -1,5 +1,8 @@
 package hit.to.go.controller;
 
+import hit.go.forward.protocol.RequestResult;
+import hit.go.forward.protocol.RequestResults;
+import hit.go.forward.protocol.RequestWrapper;
 import hit.to.go.database.dao.CourseMapper;
 import hit.to.go.database.dao.FileMapper;
 import hit.to.go.database.dao.UserMapper;
@@ -8,9 +11,7 @@ import hit.to.go.entity.user.User;
 import hit.to.go.entity.user.UserWithPassword;
 import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.exception.RequestHandleException;
-import hit.to.go.platform.protocol.RequestResult;
-import hit.to.go.platform.protocol.RequestResults;
-import hit.to.go.platform.protocol.RequestWrapper;
+
 import hit.to.go.platform.util.ResourceTransmissionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

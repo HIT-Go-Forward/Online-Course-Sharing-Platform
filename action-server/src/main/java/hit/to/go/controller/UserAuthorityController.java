@@ -1,5 +1,6 @@
 package hit.to.go.controller;
 
+import hit.go.forward.protocol.RequestResults;
 import hit.to.go.database.dao.UserMapper;
 import hit.to.go.entity.user.User;
 import hit.to.go.entity.user.UserWithPassword;
@@ -9,7 +10,6 @@ import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.SystemConfig;
 import hit.to.go.platform.SystemVariable;
 import hit.to.go.platform.exception.RequestHandleException;
-import hit.to.go.platform.protocol.RequestResults;
 import hit.to.go.platform.util.MailUtil;
 import hit.to.go.platform.util.Validate;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package hit.to.go.platform.protocol;
+package hit.go.forward.protocol;
 
 import com.google.gson.*;
 

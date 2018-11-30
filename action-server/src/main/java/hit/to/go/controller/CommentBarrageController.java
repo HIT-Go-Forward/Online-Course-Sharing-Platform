@@ -1,11 +1,11 @@
 package hit.to.go.controller;
 
+import hit.go.forward.protocol.RequestResults;
 import hit.to.go.database.dao.CommentMapper;
 import hit.to.go.entity.comment.Comment;
 import hit.to.go.entity.user.User;
 import hit.to.go.platform.AttrKey;
 import hit.to.go.platform.exception.DatabaseWriteException;
-import hit.to.go.platform.protocol.RequestResults;
 import hit.to.go.platform.util.Comment.CommentUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
