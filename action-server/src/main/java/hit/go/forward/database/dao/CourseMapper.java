@@ -1,6 +1,6 @@
 package hit.go.forward.database.dao;
 
-import hit.go.forward.entity.course.*;
+import hit.go.forward.common.entity.course.*;
 import hit.to.go.entity.course.*;
 
 import java.util.List;

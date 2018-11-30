@@ -1,6 +1,6 @@
-package hit.go.forward.entity.course;
+package hit.go.forward.common.entity.course;
 
-import hit.go.forward.entity.user.User;
+import hit.go.forward.common.entity.user.User;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package hit.go.forward.entity.history;
+package hit.go.forward.common.entity.history;
 
 /**
  * Created by 班耀强 on 2018/10/3

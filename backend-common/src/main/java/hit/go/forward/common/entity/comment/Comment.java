@@ -1,4 +1,4 @@
-package hit.go.forward.entity.comment;
+package hit.go.forward.common.entity.comment;
 
 import java.util.Date;
 

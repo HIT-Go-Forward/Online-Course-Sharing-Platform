@@ -4,9 +4,9 @@ import hit.go.forward.protocol.RequestResult;
 import hit.go.forward.protocol.RequestResults;
 import hit.go.forward.protocol.RequestWrapper;
 import hit.go.forward.database.dao.FileMapper;
-import hit.go.forward.entity.resource.Resource;
-import hit.go.forward.entity.user.User;
-import hit.go.forward.entity.user.UserWithPassword;
+import hit.go.forward.common.entity.resource.Resource;
+import hit.go.forward.common.entity.user.User;
+import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.exception.RequestHandleException;
 

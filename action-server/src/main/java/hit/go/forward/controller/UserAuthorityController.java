@@ -1,9 +1,9 @@
 package hit.go.forward.controller;
 
 import hit.go.forward.database.dao.UserMapper;
-import hit.go.forward.entity.user.User;
-import hit.go.forward.entity.user.UserWithPassword;
-import hit.go.forward.entity.validate.ValidateCode;
+import hit.go.forward.common.entity.user.User;
+import hit.go.forward.common.entity.user.UserWithPassword;
+import hit.go.forward.common.entity.validate.ValidateCode;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.MailConfig;
 import hit.go.forward.platform.SystemConfig;

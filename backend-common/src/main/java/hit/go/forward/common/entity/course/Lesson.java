@@ -1,4 +1,4 @@
-package hit.go.forward.entity.course;
+package hit.go.forward.common.entity.course;
 
 import java.util.Date;
 

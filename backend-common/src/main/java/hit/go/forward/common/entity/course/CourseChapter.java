@@ -1,4 +1,4 @@
-package hit.go.forward.entity.course;
+package hit.go.forward.common.entity.course;
 
 /**
  * Created by 班耀强 on 2018/10/25

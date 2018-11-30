@@ -1,4 +1,4 @@
-package hit.go.forward.entity.validate;
+package hit.go.forward.common.entity.validate;
 
 import java.util.Date;
 

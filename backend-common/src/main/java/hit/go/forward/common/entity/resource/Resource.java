@@ -1,4 +1,4 @@
-package hit.go.forward.entity.resource;
+package hit.go.forward.common.entity.resource;
 
 import java.util.Date;
 

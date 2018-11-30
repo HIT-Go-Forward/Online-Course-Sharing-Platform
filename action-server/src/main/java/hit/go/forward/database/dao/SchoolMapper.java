@@ -1,6 +1,6 @@
 package hit.go.forward.database.dao;
 
-import hit.go.forward.entity.school.School;
+import hit.go.forward.common.entity.school.School;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

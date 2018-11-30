@@ -1,8 +1,8 @@
 package hit.go.forward.controller;
 
 import hit.go.forward.database.dao.ApplyMapper;
-import hit.go.forward.entity.Apply;
-import hit.go.forward.entity.user.UserWithPassword;
+import hit.go.forward.common.entity.Apply;
+import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.exception.RequestHandleException;
 import hit.go.forward.protocol.RequestResults;

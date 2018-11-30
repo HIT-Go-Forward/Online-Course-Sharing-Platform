@@ -1,6 +1,6 @@
-package hit.go.forward.entity.comment;
+package hit.go.forward.common.entity.comment;
 
-import hit.go.forward.entity.user.User;
+import hit.go.forward.common.entity.user.User;
 
 /**
  * Created by 班耀强 on 2018/11/1

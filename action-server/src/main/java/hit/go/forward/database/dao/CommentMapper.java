@@ -1,7 +1,7 @@
 package hit.go.forward.database.dao;
 
-import hit.go.forward.entity.comment.Comment;
-import hit.go.forward.entity.comment.CommentEntity;
+import hit.go.forward.common.entity.comment.Comment;
+import hit.go.forward.common.entity.comment.CommentEntity;
 
 import java.util.List;
 import java.util.Map;

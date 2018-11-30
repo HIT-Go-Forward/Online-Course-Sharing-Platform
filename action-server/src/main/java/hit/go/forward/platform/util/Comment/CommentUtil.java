@@ -1,6 +1,6 @@
 package hit.go.forward.platform.util.Comment;
 
-import hit.go.forward.entity.comment.Comment;
+import hit.go.forward.common.entity.comment.Comment;
 
 /**
  * Created by 班耀强 on 2018/11/1

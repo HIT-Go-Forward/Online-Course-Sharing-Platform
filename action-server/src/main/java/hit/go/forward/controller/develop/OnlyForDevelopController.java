@@ -1,7 +1,7 @@
 package hit.go.forward.controller.develop;
 
 import hit.go.forward.database.dao.ActionMapper;
-import hit.go.forward.entity.user.UserWithPassword;
+import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.exception.InvalidParametersException;
 import hit.to.go.platform.protocol.RequestResults;

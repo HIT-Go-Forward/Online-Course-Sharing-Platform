@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="hit.go.forward.database.dao.CommentMapper">
-    <resultMap id="commentMap" type="hit.go.forward.entity.comment.CommentEntity">
+    <resultMap id="commentMap" type="hit.go.forward.common.entity.comment.CommentEntity">
         <id column="comment_id" property="id"/>
         <result column="comment_user_id" property="userId"/>
         <result column="comment_course_id" property="courseId"/>
@@ -15,7 +15,7 @@
         <association property="user" resultMap="userMap"/>
     </resultMap>
 
-    <resultMap id="userMap" type="hit.go.forward.entity.user.User">
+    <resultMap id="userMap" type="hit.go.forward.common.entity.user.User">
         <id column="user_id" jdbcType="INTEGER" property="id" />
         <result column="user_name" jdbcType="VARCHAR" property="name" />
         <result column="user_type" jdbcType="INTEGER" property="type" />

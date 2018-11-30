@@ -1,6 +1,6 @@
 package hit.go.forward.platform.filter;
 
-import hit.go.forward.entity.user.UserWithPassword;
+import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.SystemStorage;
 import hit.go.forward.platform.SystemVariable;

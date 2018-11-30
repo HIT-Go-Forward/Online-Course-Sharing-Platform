@@ -1,7 +1,7 @@
 package hit.go.forward.database.dao;
 
-import hit.go.forward.entity.user.User;
-import hit.go.forward.entity.user.UserWithPassword;
+import hit.go.forward.common.entity.user.User;
+import hit.go.forward.common.entity.user.UserWithPassword;
 
 import java.util.Map;
 

@@ -1,8 +1,8 @@
 package hit.go.forward.controller;
 
 import hit.go.forward.database.dao.CommentMapper;
-import hit.go.forward.entity.comment.Comment;
-import hit.go.forward.entity.user.User;
+import hit.go.forward.common.entity.comment.Comment;
+import hit.go.forward.common.entity.user.User;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.exception.DatabaseWriteException;
 import hit.go.forward.platform.util.Comment.CommentUtil;

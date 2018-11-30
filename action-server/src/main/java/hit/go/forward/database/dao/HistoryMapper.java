@@ -1,6 +1,6 @@
 package hit.go.forward.database.dao;
 
-import hit.go.forward.entity.history.CourseHistory;
+import hit.go.forward.common.entity.history.CourseHistory;
 
 import java.util.List;
 import java.util.Map;
