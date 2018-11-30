@@ -12,7 +12,7 @@
     <!--</properties>-->
 
     <typeAliases>
-        <package name="hit.to.go.entity" />
+        <package name="hit.go.forward.entity" />
     </typeAliases>
 
     <!--<environments default="development">-->

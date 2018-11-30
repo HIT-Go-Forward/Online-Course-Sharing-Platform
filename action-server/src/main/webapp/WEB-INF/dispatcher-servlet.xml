@@ -51,14 +51,14 @@
     </bean>
 
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="hit.to.go.database.dao"/>
+        <property name="basePackage" value="hit.go.forward.database.dao"/>
     </bean>
 
-    <bean id="systemStorage" class="hit.to.go.platform.SystemStorage"/>
+    <bean id="systemStorage" class="hit.go.forward.platform.SystemStorage"/>
 
-    <bean id="exceptionHandler" class="hit.to.go.platform.exception.handler.CenterExceptionHandler"/>
+    <bean id="exceptionHandler" class="hit.go.forward.platform.exception.handler.CenterExceptionHandler"/>
 
-    <context:component-scan base-package="hit.to.go.controller" />
+    <context:component-scan base-package="hit.go.forward" />
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <mvc:annotation-driven />
 </beans>

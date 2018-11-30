@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="hit.to.go.database.dao.CourseMapper">
-    <resultMap id="studyCourseMap" type="hit.to.go.entity.course.Study">
+<mapper namespace="hit.go.forward.database.dao.CourseMapper">
+    <resultMap id="studyCourseMap" type="hit.go.forward.entity.course.Study">
         <id column="study_id" property="id"/>
         <result column="study_date" property="date"/>
         <result column="study_state" property="state"/>
-        <association property="user" javaType="hit.to.go.entity.user.User">
+        <association property="user" javaType="hit.go.forward.entity.user.User">
             <id column="study_user_id" jdbcType="INTEGER" property="id" />
             <result column="study_user_name" jdbcType="VARCHAR" property="name" />
             <result column="study_user_type" jdbcType="INTEGER" property="type" />
@@ -31,7 +31,7 @@
         <collection property="course" resultMap="courseMap"/>
     </resultMap>
 
-    <resultMap id="courseMap" type="hit.to.go.entity.course.Course">
+    <resultMap id="courseMap" type="hit.go.forward.entity.course.Course">
         <id column="course_id" property="id" />
         <result column="course_name" property="name" />
         <result column="course_intro" property="intro" />
@@ -79,12 +79,12 @@
         </association>
     </resultMap>
 
-    <resultMap id="courseLessonsMap" type="hit.to.go.entity.course.CourseLessons">
+    <resultMap id="courseLessonsMap" type="hit.go.forward.entity.course.CourseLessons">
         <association property="course">
             <id column="course_id" property="id"/>
             <result column="course_name" property="name"/>
         </association>
-        <collection property="lessons" ofType="hit.to.go.entity.course.Lesson" javaType="ArrayList">
+        <collection property="lessons" ofType="hit.go.forward.entity.course.Lesson" javaType="ArrayList">
             <id column="lesson_id" property="id"/>
             <result column="lesson_num" property="num"/>
             <result column="lesson_title" property="title"/>
@@ -99,7 +99,7 @@
         </collection>
     </resultMap>
 
-    <resultMap id="lessonMap" type="hit.to.go.entity.course.Lesson">
+    <resultMap id="lessonMap" type="hit.go.forward.entity.course.Lesson">
         <id column="lesson_id" property="id"/>
         <result column="lesson_num" property="num"/>
         <result column="lesson_title" property="title"/>
@@ -385,7 +385,7 @@
       <include refid="courseTypeColumns"/>
     </select>
 
-    <resultMap id="courseChapterMap" type="hit.to.go.entity.course.CourseChapter">
+    <resultMap id="courseChapterMap" type="hit.go.forward.entity.course.CourseChapter">
         <id column="lesson_id" property="id"/>
         <result column="lesson_chapter_num" property="chapterNum"/>
         <result column="lesson_chapter_title" property="chapterTitle"/>

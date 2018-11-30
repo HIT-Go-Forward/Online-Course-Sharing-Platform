@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="hit.to.go.database.dao.ActionMapper">
-    <resultMap id="actionMap" type="hit.to.go.entity.action.Action">
+<mapper namespace="hit.go.forward.database.dao.ActionMapper">
+    <resultMap id="actionMap" type="hit.go.forward.entity.action.Action">
         <id column="user_power_id" property="id" />
         <result column="user_power_action" property="url" />
         <result column="power" property="power" />

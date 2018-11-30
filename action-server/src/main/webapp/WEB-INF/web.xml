@@ -12,12 +12,12 @@
 
   <filter>
     <filter-name>RequestFilter</filter-name>
-    <filter-class>hit.to.go.platform.filter.RequestFilter</filter-class>
+    <filter-class>hit.go.forward.platform.filter.RequestFilter</filter-class>
   </filter>
 
   <filter>
     <filter-name>UserAuthorityFilter</filter-name>
-    <filter-class>hit.to.go.platform.filter.UserAuthorityFilter</filter-class>
+    <filter-class>hit.go.forward.platform.filter.UserAuthorityFilter</filter-class>
   </filter>
 
   <filter-mapping>
@@ -32,7 +32,7 @@
 
   <servlet>
     <servlet-name>dispatcher</servlet-name>
-    <servlet-class>hit.to.go.platform.servlet.CenterServlet</servlet-class>
+    <servlet-class>hit.go.forward.platform.servlet.CenterServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
 
