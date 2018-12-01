@@ -1,7 +1,7 @@
 package hit.go.forward.platform.util;
 
 import com.google.gson.Gson;
-import hit.go.forward.protocol.RequestResult;
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.platform.SystemConfig;
 import okhttp3.*;
 import org.slf4j.Logger;

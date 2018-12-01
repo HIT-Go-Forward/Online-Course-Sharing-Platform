@@ -1,11 +1,11 @@
 package hit.go.forward.controller;
 
-import hit.go.forward.database.dao.ApplyMapper;
 import hit.go.forward.common.entity.Apply;
 import hit.go.forward.common.entity.user.UserWithPassword;
+import hit.go.forward.common.protocol.RequestResults;
+import hit.go.forward.database.dao.ApplyMapper;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.exception.RequestHandleException;
-import hit.go.forward.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -11,7 +11,7 @@ import hit.go.forward.platform.SystemVariable;
 import hit.go.forward.platform.exception.RequestHandleException;
 import hit.go.forward.platform.util.MailUtil;
 import hit.go.forward.platform.util.Validate;
-import hit.go.forward.protocol.RequestResults;
+import hit.go.forward.common.protocol.RequestResults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

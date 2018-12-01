@@ -1,6 +1,6 @@
 package hit.go.forward.controller;
 
-import hit.go.forward.protocol.RequestResults;
+import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.database.dao.CourseMapper;
 import hit.go.forward.database.dao.LessonMapper;
 import hit.go.forward.common.entity.course.Course;
