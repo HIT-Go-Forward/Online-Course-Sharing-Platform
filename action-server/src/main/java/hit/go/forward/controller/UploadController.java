@@ -3,7 +3,7 @@ package hit.go.forward.controller;
 import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.common.protocol.RequestWrapper;
-import hit.go.forward.database.dao.FileMapper;
+import hit.go.forward.business.database.dao.FileMapper;
 import hit.go.forward.common.entity.resource.Resource;
 import hit.go.forward.common.entity.user.User;
 import hit.go.forward.common.entity.user.UserWithPassword;

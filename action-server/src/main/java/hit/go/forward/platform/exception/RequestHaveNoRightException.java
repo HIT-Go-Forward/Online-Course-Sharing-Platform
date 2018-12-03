@@ -1,7 +1,7 @@
 package hit.go.forward.platform.exception;
 
-import hit.to.go.platform.protocol.RequestResult;
-import hit.to.go.platform.protocol.RequestResults;
+
+import hit.go.forward.common.protocol.RequestResults;
 
 /**
  * Created by 班耀强 on 2018/10/23

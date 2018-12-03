@@ -24,19 +24,6 @@ public class ResourceTransmissionUtil {
 
     private static final String UPLOAD_ACTION = "/resource/upload.action";
 
-    public static void transmission(String id, HttpServletRequest request, HttpServletResponse response) {
-        String url = MediaResolver.getRealUrl(id);
-        if (url == null) {
-            try {
-                response.sendError(404);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return;
-        }
-        transmitRequest(url, request, response);
-    }
-
     public static RequestResult uploadToMediaServer(File file, String path) {
         RequestBody fileBody = RequestBody.create(MultipartBody.FORM, file);
 

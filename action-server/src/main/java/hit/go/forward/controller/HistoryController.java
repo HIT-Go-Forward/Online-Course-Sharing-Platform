@@ -1,7 +1,7 @@
 package hit.go.forward.controller;
 
 import hit.go.forward.common.protocol.RequestResults;
-import hit.go.forward.database.dao.HistoryMapper;
+import hit.go.forward.business.database.dao.HistoryMapper;
 import hit.go.forward.common.entity.history.CourseHistory;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;

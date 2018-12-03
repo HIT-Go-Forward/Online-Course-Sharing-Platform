@@ -1,6 +1,6 @@
 package hit.go.forward.controller;
 
-import hit.go.forward.database.dao.UserMapper;
+import hit.go.forward.business.database.dao.UserMapper;
 import hit.go.forward.common.entity.user.User;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.common.entity.validate.ValidateCode;
@@ -12,6 +12,7 @@ import hit.go.forward.platform.exception.RequestHandleException;
 import hit.go.forward.platform.util.MailUtil;
 import hit.go.forward.platform.util.Validate;
 import hit.go.forward.common.protocol.RequestResults;
+import hit.go.forward.service.UserAuthorityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -37,9 +38,11 @@ public class UserAuthorityController {
     private static final Logger logger = LoggerFactory.getLogger(UserAuthorityController.class);
 
     private UserMapper userMapper;
+    private UserAuthorityService service;
 
-    public UserAuthorityController(UserMapper userMapper) {
+    public UserAuthorityController(UserMapper userMapper, UserAuthorityService service) {
         this.userMapper = userMapper;
+        this.service = service;
     }
 
     @Transactional

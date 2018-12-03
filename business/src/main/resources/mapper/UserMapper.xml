@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hit.go.forward.business.database.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="user">
+        <id column="user_id" jdbcType="INTEGER" property="id" />
+        <result column="user_name" jdbcType="VARCHAR" property="name" />
+        <result column="user_type" jdbcType="INTEGER" property="type" />
+        <result column="user_sex" jdbcType="VARCHAR" property="sex" />
+        <result column="birthday" jdbcType="DATE" property="birthday" />
+        <result column="user_email" jdbcType="VARCHAR" property="email" />
+        <result column="user_education" jdbcType="VARCHAR" property="education" />
+        <result column="user_intro" jdbcType="VARCHAR" property="intro" />
+        <result column="note" jdbcType="VARCHAR" property="note" />
+        <result column="user_phone" jdbcType="VARCHAR" property="phone" />
+        <result column="img" jdbcType="VARCHAR" property="img" />
+
+        <association property="school" javaType="School">
+            <id column="school_id" property="id"/>
+            <result column="school_name" property="name" />
+            <result column="school_code" property="code" />
+            <result column="school_depart" property="depart" />
+            <result column="school_location" property="location" />
+            <result column="school_level" property="level" />
+            <result column="school_type" property="type" />
+        </association>
+    </resultMap>
+
+    <resultMap id="passwordResultMap" type="userWithPassword">
+        <id column="user_id" jdbcType="INTEGER" property="id" />
+        <result column="user_name" jdbcType="VARCHAR" property="name" />
+        <result column="user_type" jdbcType="INTEGER" property="type" />
+        <result column="user_sex" jdbcType="VARCHAR" property="sex" />
+        <result column="birthday" jdbcType="DATE" property="birthday" />
+        <result column="user_email" jdbcType="VARCHAR" property="email" />
+        <result column="user_education" jdbcType="VARCHAR" property="education" />
+        <result column="user_intro" jdbcType="VARCHAR" property="intro" />
+        <result column="note" jdbcType="VARCHAR" property="note" />
+        <result column="user_phone" jdbcType="VARCHAR" property="phone" />
+        <result column="img" jdbcType="VARCHAR" property="img" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+
+        <association property="school" javaType="School">
+            <id column="school_id" property="id"/>
+            <result column="school_name" property="name" />
+            <result column="school_code" property="code" />
+            <result column="school_depart" property="depart" />
+            <result column="school_location" property="location" />
+            <result column="school_level" property="level" />
+            <result column="school_type" property="type" />
+        </association>
+    </resultMap>
+
+    <sql id="userColumns">
+        user.*, school.*, file.file_url img from user left join school on user.user_school = school.school_id
+        left join file on user.user_img = file.file_id
+    </sql>
+
+    <insert id="signUp" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="user_id">
+        insert into user
+        (user_name,user_type,user_sex,birthday,user_email,user_education,user_school,user_intro,note,user_phone,user_img,password)
+        values
+        (#{name},#{type},#{sex},#{birthday},#{email},#{education},#{school},#{intro},#{note},#{phone},#{img},#{password})
+    </insert>
+
+    <insert id="register" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="user_id">
+        insert into user
+        (user_name, password, user_email)
+        values
+        (#{name}, #{password}, #{email})
+    </insert>
+
+    <update id="completeInfo" parameterType="java.util.Map">
+        update user set
+        <if test="name != null">
+            user_name = #{name},
+        </if>
+        user_sex = #{sex, jdbcType=VARCHAR},
+        birthday = #{birthday, jdbcType=VARCHAR},
+        user_education = #{education, jdbcType=INTEGER},
+        user_school = #{school, jdbcType=VARCHAR},
+        user_intro = #{intro, jdbcType=VARCHAR},
+        note = #{note, jdbcType=VARCHAR},
+        user_phone = #{phone, jdbcType=VARCHAR}
+        where user_id = #{id}
+    </update>
+
+    <update id="changePassword" parameterType="java.util.Map">
+        update user set
+        password = #{password}
+        where user_id = #{id}
+    </update>
+
+    <update id="updateUserImg" parameterType="Map">
+        update user set user_img = #{img}
+        where user_id = #{id}
+    </update>
+
+    <select id="selectIdByEmail" parameterType="String" resultType="Integer">
+        select user_id from user where user_email = #{email}
+    </select>
+
+    <select id="selectEmailById" parameterType="String" resultType="String">
+        select user_email from user where user_id = #{id}
+    </select>
+
+    <select id="loginById" parameterType="java.util.Map" resultType="java.util.Map">
+        select
+        <include refid="userColumns"/>
+        where user_id = #{id} and password = #{password}
+    </select>
+
+    <select id="loginByEmail" parameterType="java.util.Map" resultType="java.util.Map">
+        select
+        <include refid="userColumns"/>
+        where user_email = #{email} and password = #{password}
+    </select>
+
+    <select id="selectPassword" parameterType="String" resultType="String">
+        select password from user where user_id = #{id}
+    </select>
+
+    <select id="selectUser" parameterType="java.util.Map" resultMap="passwordResultMap">
+        select
+        <include refid="userColumns"/>
+        where user_id = #{id} and password = #{password}
+    </select>
+
+    <select id="selectUserById" parameterType="String" resultMap="passwordResultMap">
+        select
+        <include refid="userColumns"/>
+        where user_id = #{id}
+    </select>
+
+    <select id="selectUserByEmail" parameterType="String" resultMap="passwordResultMap">
+        select
+        <include refid="userColumns"/>
+        where user_email = #{email}
+    </select>
+
+    <select id="queryById" parameterType="String" resultMap="BaseResultMap">
+        select
+        <include refid="userColumns"/>
+        where user.user_id = #{id}
+    </select>
+
+    <select id="login" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <include refid="userColumns"/>
+        where user.user_id = #{id} and user.password = #{password}
+    </select>
+</mapper>

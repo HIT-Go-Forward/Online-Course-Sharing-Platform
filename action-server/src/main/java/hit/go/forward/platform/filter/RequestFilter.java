@@ -1,6 +1,6 @@
 package hit.go.forward.platform.filter;
 
-import hit.to.go.platform.protocol.RequestWrapper;
+import hit.go.forward.common.protocol.RequestWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

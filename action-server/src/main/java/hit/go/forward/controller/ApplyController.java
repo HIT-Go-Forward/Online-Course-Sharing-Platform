@@ -3,7 +3,7 @@ package hit.go.forward.controller;
 import hit.go.forward.common.entity.Apply;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.common.protocol.RequestResults;
-import hit.go.forward.database.dao.ApplyMapper;
+import hit.go.forward.business.database.dao.ApplyMapper;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.exception.RequestHandleException;
 import org.springframework.stereotype.Controller;

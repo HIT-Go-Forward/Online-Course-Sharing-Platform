@@ -1,6 +1,6 @@
 package hit.go.forward.controller;
 
-import hit.go.forward.database.dao.CommentMapper;
+import hit.go.forward.business.database.dao.CommentMapper;
 import hit.go.forward.common.entity.comment.Comment;
 import hit.go.forward.common.entity.user.User;
 import hit.go.forward.platform.AttrKey;

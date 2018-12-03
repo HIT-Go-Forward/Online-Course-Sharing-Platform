@@ -1,10 +1,10 @@
 package hit.go.forward.controller.develop;
 
-import hit.go.forward.database.dao.ActionMapper;
+import hit.go.forward.common.protocol.RequestResults;
+import hit.go.forward.business.database.dao.ActionMapper;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.exception.InvalidParametersException;
-import hit.to.go.platform.protocol.RequestResults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

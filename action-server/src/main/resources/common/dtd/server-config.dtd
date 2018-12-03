@@ -1,8 +1,8 @@
 <!ELEMENT server (media-server?, mail?)>
 
 <!ELEMENT media-server (address)>
+<!ELEMENT redis-server (address)>
 <!ELEMENT address (#PCDATA)>
-<!ELEMENT port (#PCDATA)>
 
 <!ELEMENT mail (account, password, auth-code, smtp-host, templates?)>
 <!ELEMENT account (#PCDATA)>
