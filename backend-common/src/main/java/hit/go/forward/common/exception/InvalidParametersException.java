@@ -1,4 +1,4 @@
-package hit.go.forward.platform.exception;
+package hit.go.forward.common.exception;
 
 
 import hit.go.forward.common.protocol.RequestResults;

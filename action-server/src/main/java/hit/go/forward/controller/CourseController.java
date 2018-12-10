@@ -7,7 +7,7 @@ import hit.go.forward.common.entity.course.Course;
 import hit.go.forward.common.entity.user.User;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
-import hit.go.forward.platform.exception.RequestHandleException;
+import hit.go.forward.common.exception.RequestHandleException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;

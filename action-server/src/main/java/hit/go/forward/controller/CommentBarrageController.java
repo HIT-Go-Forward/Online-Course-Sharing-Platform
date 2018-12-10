@@ -4,7 +4,7 @@ import hit.go.forward.business.database.dao.CommentMapper;
 import hit.go.forward.common.entity.comment.Comment;
 import hit.go.forward.common.entity.user.User;
 import hit.go.forward.platform.AttrKey;
-import hit.go.forward.platform.exception.DatabaseWriteException;
+import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.platform.util.Comment.CommentUtil;
 import hit.go.forward.common.protocol.RequestResults;
 import org.slf4j.Logger;

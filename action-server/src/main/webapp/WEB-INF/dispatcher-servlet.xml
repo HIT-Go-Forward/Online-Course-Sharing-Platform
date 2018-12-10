@@ -56,7 +56,7 @@
 
     <bean id="systemStorage" class="hit.go.forward.platform.SystemStorage"/>
 
-    <bean id="exceptionHandler" class="hit.go.forward.platform.exception.handler.CenterExceptionHandler"/>
+    <bean id="exceptionHandler" class="hit.go.forward.platform.handler.CenterExceptionHandler"/>
 
     <context:component-scan base-package="hit.go.forward" />
     <tx:annotation-driven transaction-manager="transactionManager"/>

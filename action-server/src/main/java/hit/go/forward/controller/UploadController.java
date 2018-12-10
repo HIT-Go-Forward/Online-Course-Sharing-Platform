@@ -8,7 +8,7 @@ import hit.go.forward.common.entity.resource.Resource;
 import hit.go.forward.common.entity.user.User;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
-import hit.go.forward.platform.exception.RequestHandleException;
+import hit.go.forward.common.exception.RequestHandleException;
 
 import hit.go.forward.platform.util.ResourceTransmissionUtil;
 import org.slf4j.Logger;

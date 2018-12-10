@@ -54,6 +54,8 @@
         <property name="basePackage" value="hit.go.forward.business.database.dao"/>
     </bean>
 
+    <bean id="exceptionHandler" class="hit.go.forward.rserver.handler.CenterExceptionHandler"/>
+
     <context:component-scan base-package="hit.go.forward" />
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <mvc:annotation-driven />

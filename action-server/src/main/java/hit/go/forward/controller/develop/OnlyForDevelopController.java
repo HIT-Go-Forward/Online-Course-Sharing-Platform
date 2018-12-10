@@ -4,7 +4,7 @@ import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.ActionMapper;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
-import hit.go.forward.platform.exception.InvalidParametersException;
+import hit.go.forward.common.exception.InvalidParametersException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

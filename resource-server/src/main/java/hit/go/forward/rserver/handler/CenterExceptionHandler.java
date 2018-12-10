@@ -1,6 +1,6 @@
-package hit.go.forward.platform.exception.handler;
+package hit.go.forward.rserver.handler;
 
-import hit.go.forward.platform.exception.RequestHandleException;
+import hit.go.forward.common.exception.RequestHandleException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerExceptionResolver;

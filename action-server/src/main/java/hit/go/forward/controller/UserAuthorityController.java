@@ -3,12 +3,14 @@ package hit.go.forward.controller;
 import hit.go.forward.business.database.dao.UserMapper;
 import hit.go.forward.common.entity.user.User;
 import hit.go.forward.common.entity.user.UserWithPassword;
+import hit.go.forward.common.entity.user.UserWithToken;
 import hit.go.forward.common.entity.validate.ValidateCode;
+import hit.go.forward.common.util.UserUtil;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.MailConfig;
 import hit.go.forward.platform.SystemConfig;
 import hit.go.forward.platform.SystemVariable;
-import hit.go.forward.platform.exception.RequestHandleException;
+import hit.go.forward.common.exception.RequestHandleException;
 import hit.go.forward.platform.util.MailUtil;
 import hit.go.forward.platform.util.Validate;
 import hit.go.forward.common.protocol.RequestResults;
@@ -38,11 +40,11 @@ public class UserAuthorityController {
     private static final Logger logger = LoggerFactory.getLogger(UserAuthorityController.class);
 
     private UserMapper userMapper;
-    private UserAuthorityService service;
+    private UserAuthorityService authorityService;
 
-    public UserAuthorityController(UserMapper userMapper, UserAuthorityService service) {
+    public UserAuthorityController(UserMapper userMapper, UserAuthorityService authorityService) {
         this.userMapper = userMapper;
-        this.service = service;
+        this.authorityService = authorityService;
     }
 
     @Transactional
@@ -59,15 +61,15 @@ public class UserAuthorityController {
             if (rows == null) throw new RequestHandleException(RequestResults.dataBaseWriteError());
             else if (rows.equals(0)) throw new RequestHandleException(RequestResults.forbidden("该邮箱已被注册"));
 
-            UserWithPassword user = new UserWithPassword();
-            user.setPassword(password.toString());
+            UserWithToken user = new UserWithToken();
             user.setId(Integer.valueOf(map.get("user_id").toString()));
             user.setType(User.TYPE_STUDENT);
             user.setEmail(email.toString());
             user.setName(name.toString());
-            session.setAttribute(AttrKey.ATTR_USER, user);
-            response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
-            response.addCookie(SystemVariable.newPasswordCookie(user.getPassword()));
+            user.setToken(authorityService.generateToken(user));
+//            session.setAttribute(AttrKey.ATTR_USER, user);
+//            response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
+//            response.addCookie(SystemVariable.newPasswordCookie(password.toString()));
 
             return RequestResults.success(user);
         }
@@ -76,7 +78,7 @@ public class UserAuthorityController {
 
     @Transactional
     @RequestMapping("/modifyInfo")
-    public String modifyInfo(@SessionAttribute(AttrKey.ATTR_USER) User user, @RequestParam Map<String, String> paras, HttpSession session) {
+    public String modifyInfo(@SessionAttribute(AttrKey.ATTR_USER) User user, @RequestParam Map<String, String> paras) {
         paras.put("id", user.getId().toString());
         Integer rows = userMapper.completeInfo(paras);
 //        user = userMapper.selectUserById(user.getId().toString());
@@ -117,10 +119,12 @@ public class UserAuthorityController {
             } else return RequestResults.forbidden("请输入正确的账号！");
             if (user != null) {
                 if (user.getPassword().equals(password)) {
-                    session.setAttribute(AttrKey.ATTR_USER, user);
-                    response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
-                    response.addCookie(SystemVariable.newPasswordCookie(user.getPassword()));
-                    return RequestResults.success(user);
+//                    session.setAttribute(AttrKey.ATTR_USER, user);
+//                    response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
+//                    response.addCookie(SystemVariable.newPasswordCookie(user.getPassword()));
+                    UserWithToken ut = UserUtil.toTokenUser(user);
+                    ut.setToken(authorityService.generateToken(user));
+                    return RequestResults.success(ut);
                 }
                 return RequestResults.forbidden("账号或密码错误！");
             }
@@ -131,9 +135,10 @@ public class UserAuthorityController {
 
     @RequestMapping("/logout")
     public String logout(HttpSession session, HttpServletResponse response) {
-        response.addCookie(SystemVariable.newDeleteIdCookie());
-        response.addCookie(SystemVariable.newDeletePasswordCookie());
-        session.removeAttribute(AttrKey.ATTR_USER);
+//        response.addCookie(SystemVariable.newDeleteIdCookie());
+//        response.addCookie(SystemVariable.newDeletePasswordCookie());
+//        session.removeAttribute(AttrKey.ATTR_USER);
+
         return RequestResults.success();
     }
 

@@ -26,7 +26,6 @@ public class RequestFilter implements Filter {
         HttpSession session = request.getSession();
 
         String url = request.getRequestURI();
-        System.out.println(url);
         if (url.endsWith(".media")) {
             request.getRequestDispatcher(url.replace(".media", "")).forward(request, response);
             return;

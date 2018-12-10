@@ -1,11 +1,16 @@
 package hit.go.forward.service.impl;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import hit.go.forward.common.entity.jwt.AuthorityVO;
 import hit.go.forward.common.entity.user.User;
 import hit.go.forward.service.RedisService;
 import hit.go.forward.service.UserAuthorityService;
 import hit.go.forward.util.JWTUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -17,31 +22,37 @@ import java.util.Map;
  */
 @Service
 public class UserAuthorityServiceImpl implements UserAuthorityService {
-    private RedisService redisService;
+    private static final Logger logger = LoggerFactory.getLogger(UserAuthorityServiceImpl.class);
 
-    public UserAuthorityServiceImpl(RedisService redisService) {
-        this.redisService = redisService;
-    }
-
-    private static final String ACCOUNT = "account";
-    private static final String CACHE_KEY = "cacheKey";
+    private static final String USER_ID =  "userId";
+    private static final String USER_TYPE = "userType";
 
     @Override
     public String generateToken(User user) {
-        Map<String, String> paras = new HashMap<>();
-        paras.put(ACCOUNT, user.getId().toString());
-        redisService.set(user.getId().toString(), user.getType().toString());
-        return JWTUtil.generateToken(paras);
+        Map<String, String> data = new HashMap<>();
+        data.put(USER_ID, user.getId().toString());
+        data.put(USER_TYPE, user.getType().toString());
+        return JWTUtil.generateToken(data);
     }
 
     @Override
-    public String verify(String token) {
-        Map<String, String> data = null;
+    public AuthorityVO verify(String token) {
+        Map<String, String> data;
         try {
             data = JWTUtil.verify(token);
         } catch (JWTVerificationException e) {
+            logger.debug("错误的token信息！");
             return null;
         }
-        return redisService.get(data.get(ACCOUNT));
+        AuthorityVO result = new AuthorityVO();
+        String userId = data.get(USER_ID);
+        String userType =  data.get(USER_TYPE);
+        if (userId == null || userType == null) {
+            logger.debug("错误的token用户验证信息！userId={}, userType={}", userId, userType);
+            return null;
+        }
+        result.setUserId(userId);
+        result.setUserType(Integer.valueOf(userType));
+        return result;
     }
 }

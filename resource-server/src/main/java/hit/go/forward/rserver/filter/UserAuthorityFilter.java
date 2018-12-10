@@ -1,5 +1,6 @@
 package hit.go.forward.rserver.filter;
 
+import hit.go.forward.common.entity.jwt.AuthorityVO;
 import hit.go.forward.service.UserAuthorityService;
 import hit.go.forward.service.impl.RedisServiceImpl;
 import hit.go.forward.service.impl.UserAuthorityServiceImpl;
@@ -18,7 +19,7 @@ public class UserAuthorityFilter implements Filter {
     private static final String HAVE_NO_RIGHT = "您没有操作权限！";
     private static final Logger logger = LoggerFactory.getLogger(UserAuthorityFilter.class);
 
-    private UserAuthorityService service = new UserAuthorityServiceImpl(new RedisServiceImpl());
+    private UserAuthorityService service = new UserAuthorityServiceImpl();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -36,18 +37,16 @@ public class UserAuthorityFilter implements Filter {
             return;
         } else {
             try {
-                Integer level;
-                String levelStr = service.verify(token);
-                if (levelStr != null) {
-                    level = Integer.valueOf(levelStr);
-                    if (level > 4) {
+                AuthorityVO vo = service.verify(token);
+                if (vo != null) {
+                    if (vo.getUserType() > 4) {
                         response.sendError(403, HAVE_NO_RIGHT);
                         return;
                     }
                 }
                 else {
-                    logger.debug("未能从Redis获取到用户信息");
-                    response.sendError(404, "未查询到用户信息");
+                    logger.debug("错误的token信息！");
+                    response.sendError(403, "用户验证未通过！您可能无权操作！");
                     return;
                 }
             } catch (Exception e) {

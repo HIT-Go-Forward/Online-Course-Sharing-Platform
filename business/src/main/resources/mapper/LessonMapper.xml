@@ -58,13 +58,13 @@
         where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId}
     </update>
 
-    <update id="updateLessonVideo" parameterType="String">
+    <update id="updateLessonVideo" parameterType="Map">
         update lesson set lesson_video_id = #{fileId},
         lesson_update_date = NOW()
         where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId}
     </update>
 
-    <update id="updateLessonFile" parameterType="String">
+    <update id="updateLessonFile" parameterType="Map">
         update lesson set lesson_file_id = #{fileId},
         lesson_update_date = NOW()
         where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId}
