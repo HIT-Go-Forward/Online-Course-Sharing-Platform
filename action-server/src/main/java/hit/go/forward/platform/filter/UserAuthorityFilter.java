@@ -2,6 +2,7 @@ package hit.go.forward.platform.filter;
 
 import hit.go.forward.common.entity.jwt.AuthorityVO;
 import hit.go.forward.common.entity.user.UserWithPassword;
+import hit.go.forward.common.protocol.RequestWrapper;
 import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.SystemStorage;
 import hit.go.forward.platform.SystemVariable;
@@ -57,6 +58,11 @@ public class UserAuthorityFilter implements Filter {
                                 response.sendError(403, HAVE_NO_RIGHT);
                                 return;
                             }
+                            String userId = vo.getUserId();
+                            RequestWrapper requestWrapper = new RequestWrapper(request);
+                            requestWrapper.addParameter("$userId", userId);
+                            filterChain.doFilter(requestWrapper, response);
+                            return;
                         }
                         else {
                             logger.debug("错误的token信息！");

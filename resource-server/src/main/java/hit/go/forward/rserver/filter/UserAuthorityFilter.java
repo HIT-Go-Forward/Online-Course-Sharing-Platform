@@ -1,6 +1,7 @@
 package hit.go.forward.rserver.filter;
 
 import hit.go.forward.common.entity.jwt.AuthorityVO;
+import hit.go.forward.common.protocol.RequestWrapper;
 import hit.go.forward.service.UserAuthorityService;
 import hit.go.forward.service.impl.RedisServiceImpl;
 import hit.go.forward.service.impl.UserAuthorityServiceImpl;
@@ -33,16 +34,21 @@ public class UserAuthorityFilter implements Filter {
 
         String token = request.getParameter("token");
         if (token == null) {
-            response.sendError(403, HAVE_NO_RIGHT);
+            response.sendError(403, HAVE_NO_RIGHT + ":token=null");
             return;
         } else {
             try {
                 AuthorityVO vo = service.verify(token);
                 if (vo != null) {
                     if (vo.getUserType() > 4) {
-                        response.sendError(403, HAVE_NO_RIGHT);
+                        response.sendError(403, HAVE_NO_RIGHT + ":vo=null");
                         return;
                     }
+                    String userId = vo.getUserId();
+                    RequestWrapper requestWrapper = new RequestWrapper(request);
+                    requestWrapper.addParameter("$userId", userId);
+                    filterChain.doFilter(requestWrapper, response);
+                    return;
                 }
                 else {
                     logger.debug("错误的token信息！");
@@ -50,11 +56,11 @@ public class UserAuthorityFilter implements Filter {
                     return;
                 }
             } catch (Exception e) {
-                response.sendError(403, HAVE_NO_RIGHT);
+                response.sendError(403, HAVE_NO_RIGHT + ":exception=" + e.getClass().getName());
                 return;
             }
         }
-        filterChain.doFilter(request, response);
+
     }
 
     @Override

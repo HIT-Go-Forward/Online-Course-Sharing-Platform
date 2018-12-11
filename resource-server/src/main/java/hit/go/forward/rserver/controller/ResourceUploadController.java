@@ -53,9 +53,9 @@ public class ResourceUploadController {
 
     @Transactional
     @RequestMapping("/uploadResource")
-    public String uploadResource(MultipartFile file, String userId, String courseId, String lessonId, String type) {
+    public String uploadResource(MultipartFile file, String $userId, String courseId, String lessonId, String type) {
         if (file == null || type == null)  return RequestResults.wrongParameters("file || type");
-        if (userId== null) {
+        if ($userId== null) {
             logger.error("未能获取到userId参数");
             return RequestResults.error();
         }
@@ -65,22 +65,22 @@ public class ResourceUploadController {
         Integer fileType;
         switch (type) {
             case TYPE_USER_IMG:
-                storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, userId);
+                storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, $userId);
                 fileType = Resource.TYPE_IMG;
                 break;
             case TYPE_COURSE_IMG:
                 if (courseId ==  null) return RequestResults.wrongParameters("courseId");
-                storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, userId, courseId);
+                storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, $userId, courseId);
                 fileType = Resource.TYPE_IMG;
                 break;
             case TYPE_LESSON_VIDEO:
                 if (courseId ==  null || lessonId == null) return RequestResults.wrongParameters("courseId  || lessonId");
-                storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, userId, courseId, lessonId);
+                storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, $userId, courseId, lessonId);
                 fileType = Resource.TYPE_VIDEO;
                 break;
             case TYPE_LESSON_FILE:
                 if (courseId ==  null || lessonId == null) return RequestResults.wrongParameters("courseId  || lessonId");
-                storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, userId, courseId, lessonId, COURSE_FILE_DIR);
+                storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, $userId, courseId, lessonId, COURSE_FILE_DIR);
                 fileType = Resource.TYPE_OTHER;
                 break;
                 default:
@@ -109,7 +109,7 @@ public class ResourceUploadController {
         resource.setName(file.getOriginalFilename());
         resource.setType(fileType);
         resource.setUrl(storePath + "/" + file.getOriginalFilename());
-        resource.setUserId(Integer.valueOf(userId));
+        resource.setUserId(Integer.valueOf($userId));
 
         Integer rows = fileMapper.updateFile(resource);
         if (rows == null ||  rows.equals(0))  {
@@ -118,8 +118,8 @@ public class ResourceUploadController {
         }
         Map<String, Object> paras = new HashMap<>();
         paras.put("img", resource.getId());
-        paras.put("teacherId", userId);
-        paras.put("id", userId);
+        paras.put("teacherId", $userId);
+        paras.put("id", $userId);
         paras.put("fileId", resource.getId());
         paras.put("lessonId", lessonId);
         paras.put("courseId", courseId);

@@ -78,7 +78,8 @@ public class UserAuthorityController {
 
     @Transactional
     @RequestMapping("/modifyInfo")
-    public String modifyInfo(@SessionAttribute(AttrKey.ATTR_USER) User user, @RequestParam Map<String, String> paras) {
+    public String modifyInfo(@RequestParam Map<String, String> paras) {
+        User user = new User();
         paras.put("id", user.getId().toString());
         Integer rows = userMapper.completeInfo(paras);
 //        user = userMapper.selectUserById(user.getId().toString());
@@ -109,7 +110,7 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/login")
-    public String login(HttpSession session, HttpServletResponse response, String account, String password) {
+    public String login(String account, String password) {
         if (account != null && password != null) {
             UserWithPassword user = null;
             if (account.matches("^\\d+$")) {
@@ -144,24 +145,26 @@ public class UserAuthorityController {
 
     @Transactional
     @RequestMapping("/updateUserImg")
-    public String updateUserImg(String fileId, @SessionAttribute(AttrKey.ATTR_USER) User user, HttpSession session) {
+    public String updateUserImg(String fileId, String $userId) {
         if (fileId == null) return RequestResults.wrongParameters();
         Map<String, Object> paras = new HashMap<>();
-        paras.put("id", user.getId());
+        paras.put("id", $userId);
         paras.put("img", fileId);
         Integer rows = userMapper.updateUserImg(paras);
         if (rows != null && rows.equals(1)) {
-            user = userMapper.selectUserById(user.getId().toString());
-            session.setAttribute(AttrKey.ATTR_USER, user);
+            User user = userMapper.selectUserById($userId);
             return RequestResults.success(user);
         }
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
     }
 
+    // TODO 验证码存储
     @Transactional
     @RequestMapping("/changePassword")
-    public String changePassword(String oldPassword, String newPassword, String code, HttpSession session, @SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
+    public String changePassword(String oldPassword, String newPassword, String code, HttpSession session, String $userId) {
         if (oldPassword == null || newPassword == null || code == null) return RequestResults.wrongParameters();
+
+        UserWithPassword user = userMapper.selectUserById($userId);
         if (!user.getPassword().equals(oldPassword)) return RequestResults.forbidden("原密码错误");
 
         String result = validate(code, user.getEmail(), session);
@@ -180,15 +183,14 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/getUserInfo")
-    public String getUserInfo(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String userId) {
-        if (userId != null && user.getId() != null && !userId.equals(user.getId().toString())) {
-            User u = userMapper.selectUserById(userId);
-            if (u == null) return RequestResults.notFound("用户不存在！");
-            return RequestResults.success(u);
-        }
-        return RequestResults.success(user);
+    public String getUserInfo(String $userId, String userId) {
+        if (userId == null) userId = $userId;
+        User u = userMapper.selectUserById(userId);
+        if (u == null) return RequestResults.notFound("用户不存在！");
+        return RequestResults.success(u);
     }
 
+    // TODO 验证码存储
     @RequestMapping("/sendValidateCode")
     public String sendValidateCode(String email, HttpSession session) {
         if (email == null) return RequestResults.wrongParameters();
@@ -231,6 +233,7 @@ public class UserAuthorityController {
         return RequestResults.error("邮件发送失败, 请稍后再试~");
     }
 
+    // TODO 验证码存储
     @RequestMapping("/validateCode")
     public String validateCode(String email, String code, HttpSession session) {
         if (email == null || code == null) return RequestResults.wrongParameters();
@@ -250,6 +253,7 @@ public class UserAuthorityController {
 
         return RequestResults.badRequest("email不能为空");
     }
+
 
     @RequestMapping("/autoLogin")
     public String autoLogin(String $cookiePassword, String $cookieId, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
