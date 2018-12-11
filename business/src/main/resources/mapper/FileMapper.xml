@@ -23,7 +23,6 @@
 
     <update id="updateFile" parameterType="resource">
         update file set
-        file_name = #{name},
         file_update_date = #{date},
         file_type = #{type},
         file_url = #{url},
@@ -33,8 +32,8 @@
             <when test="id != null">
                 file_id = #{id}
             </when>
-            <when test="url != null">
-                file_url = #{url}
+            <when test="name != null">
+                file_name = #{name}
             </when>
             <otherwise>
                 1 = 2

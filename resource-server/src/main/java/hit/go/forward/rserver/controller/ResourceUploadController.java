@@ -7,8 +7,8 @@ import hit.go.forward.business.database.dao.UserMapper;
 import hit.go.forward.common.entity.resource.Resource;
 import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.common.exception.RequestHandleException;
-import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
+import hit.go.forward.common.protocol.RequestWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -36,6 +36,7 @@ public class ResourceUploadController {
 
     private static final String MEDIA_SERVER_RESOURCE_DIR = "resource"; // 资源服务器资源根目录
     private static final String COURSE_FILE_DIR = "other";  // 课程附件文件夹
+    private static final String RESOURCE_FILE_NAME = "$$$resource_file$$$";
 
     private ServletContext context;
     private FileMapper fileMapper;
@@ -61,7 +62,7 @@ public class ResourceUploadController {
         }
         String fileName  = file.getOriginalFilename();
         String parent = context.getRealPath("/");
-        String storePath;
+        String storePath, storeName;
         Integer fileType;
         switch (type) {
             case TYPE_USER_IMG:
@@ -87,13 +88,18 @@ public class ResourceUploadController {
                 return RequestResults.wrongParameters("type");
         }
         logger.debug("构建文件存储路径 {}", storePath);
+        storeName = storePath + "/" + RESOURCE_FILE_NAME;
         File fileDir = new File(parent, storePath);
         fileDir.mkdirs();
         File[] files = fileDir.listFiles();
 
+        boolean delPrev = false;
         if (files != null) {
             for (File f : files) {
-                if (f.isFile()) f.delete();
+                if (f.isFile()) {
+                    delPrev = true;
+                    f.delete();
+                }
             }
         }
 
@@ -106,39 +112,42 @@ public class ResourceUploadController {
 
         Resource resource = new Resource();
         resource.setDate(new Date());
-        resource.setName(file.getOriginalFilename());
+        resource.setName(storeName);
         resource.setType(fileType);
         resource.setUrl(storePath + "/" + file.getOriginalFilename());
         resource.setUserId(Integer.valueOf($userId));
 
-        Integer rows = fileMapper.updateFile(resource);
-        if (rows == null ||  rows.equals(0))  {
-            rows = fileMapper.addNewFile(resource);
-            if (rows == null || rows.equals(0)) throw new DatabaseWriteException();
+        Integer rows;
+        if (delPrev) rows = fileMapper.updateFile(resource);
+        else rows = fileMapper.addNewFile(resource);
+        if (rows == null || rows.equals(0)) throw new DatabaseWriteException();
+
+        if (!delPrev) { // 如果原文件不存在，则为新创建的文件，需要课程等引用的修改文件id
+            Map<String, Object> paras = new HashMap<>();
+            paras.put("img", resource.getId());
+            paras.put("teacherId", $userId);
+            paras.put("id", $userId);
+            paras.put("fileId", resource.getId());
+            paras.put("lessonId", lessonId);
+            paras.put("courseId", courseId);
+            rows = 0;
+            switch (type) {
+                case TYPE_USER_IMG:
+                    rows = userMapper.updateUserImg(paras);
+                    break;
+                case TYPE_COURSE_IMG:
+                    rows = courseMapper.updateCourseImg(paras);
+                    break;
+                case TYPE_LESSON_VIDEO:
+                    rows = lessonMapper.updateLessonVideo(paras);
+                    break;
+                case TYPE_LESSON_FILE:
+                    rows = lessonMapper.updateLessonFile(paras);
+            }
+            if (rows.equals(1)) return RequestResults.success();
+            throw new DatabaseWriteException();
         }
-        Map<String, Object> paras = new HashMap<>();
-        paras.put("img", resource.getId());
-        paras.put("teacherId", $userId);
-        paras.put("id", $userId);
-        paras.put("fileId", resource.getId());
-        paras.put("lessonId", lessonId);
-        paras.put("courseId", courseId);
-        rows = 0;
-        switch (type) {
-            case TYPE_USER_IMG:
-                rows = userMapper.updateUserImg(paras);
-                break;
-            case TYPE_COURSE_IMG:
-                rows = courseMapper.updateCourseImg(paras);
-                break;
-            case TYPE_LESSON_VIDEO:
-                rows = lessonMapper.updateLessonVideo(paras);
-                break;
-            case TYPE_LESSON_FILE:
-                rows = lessonMapper.updateLessonFile(paras);
-        }
-        if (rows.equals(1)) return RequestResults.success();
-        throw new DatabaseWriteException();
+        return RequestResults.success();
     }
 
     @RequestMapping("/test")

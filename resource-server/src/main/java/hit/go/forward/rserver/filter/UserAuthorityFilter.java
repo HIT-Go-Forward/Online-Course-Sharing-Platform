@@ -32,34 +32,38 @@ public class UserAuthorityFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        String token = request.getParameter("token");
-        if (token == null) {
-            response.sendError(403, HAVE_NO_RIGHT + ":token=null");
-            return;
-        } else {
-            try {
-                AuthorityVO vo = service.verify(token);
-                if (vo != null) {
-                    if (vo.getUserType() > 4) {
-                        response.sendError(403, HAVE_NO_RIGHT + ":vo=null");
+        String url = request.getRequestURI();
+        if (url.endsWith(".action")) {
+            String token = request.getParameter("token");
+            if (token == null) {
+                response.sendError(403, HAVE_NO_RIGHT + ":token=null");
+                return;
+            } else {
+                try {
+                    AuthorityVO vo = service.verify(token);
+                    if (vo != null) {
+                        if (vo.getUserType() > 4) {
+                            response.sendError(403, HAVE_NO_RIGHT + ":vo=null");
+                            return;
+                        }
+                        String userId = vo.getUserId();
+                        RequestWrapper requestWrapper = new RequestWrapper(request);
+                        requestWrapper.addParameter("$userId", userId);
+                        filterChain.doFilter(requestWrapper, response);
                         return;
                     }
-                    String userId = vo.getUserId();
-                    RequestWrapper requestWrapper = new RequestWrapper(request);
-                    requestWrapper.addParameter("$userId", userId);
-                    filterChain.doFilter(requestWrapper, response);
+                    else {
+                        logger.debug("错误的token信息！");
+                        response.sendError(403, "用户验证未通过！您可能无权操作！");
+                        return;
+                    }
+                } catch (Exception e) {
+                    response.sendError(403, HAVE_NO_RIGHT + ":exception=" + e.getClass().getName());
                     return;
                 }
-                else {
-                    logger.debug("错误的token信息！");
-                    response.sendError(403, "用户验证未通过！您可能无权操作！");
-                    return;
-                }
-            } catch (Exception e) {
-                response.sendError(403, HAVE_NO_RIGHT + ":exception=" + e.getClass().getName());
-                return;
             }
         }
+        filterChain.doFilter(request, response);
 
     }
 
