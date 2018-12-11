@@ -29,18 +29,13 @@ public class RequestFilter implements Filter {
         String url = request.getRequestURI();
         logger.debug("请求资源 {}", url);
 
-        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
-        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-        response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Credentials", "true");
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, Access-Token");
+//        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+//        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+//        response.setHeader("Access-Control-Max-Age", "3600");
+//        response.setHeader("Access-Control-Allow-Credentials", "true");
+//        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, Access-Token");
 
-        if (url.endsWith(".media")) {
-            url = "/media" + url.replaceAll("\\.media", ".action");
-            logger.debug("转发 {}", url);
-            request.getRequestDispatcher(url).forward(request, response);
-            return;
-        } else if (url.endsWith(".action")) {
+        if (url.endsWith(".action")) {
             Cookie[] cookies = request.getCookies();
             RequestWrapper requestWrapper = new RequestWrapper(request);
             if (cookies != null) {
@@ -51,10 +46,6 @@ public class RequestFilter implements Filter {
                 }
             }
             filterChain.doFilter(requestWrapper, response);
-            return;
-        } else if (url.matches("^/video/course\\d+$")) {
-            url = url.replaceFirst("(course\\d+)", "$1.action");
-            request.getRequestDispatcher(url).forward(request, response);
             return;
         }
 
