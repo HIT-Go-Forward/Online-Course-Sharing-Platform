@@ -1,5 +1,7 @@
 package hit.go.forward.platform;
 
+import hit.go.forward.common.entity.validate.ValidateCode;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -11,6 +13,7 @@ import java.util.Map;
  */
 public class SystemStorage {
     private static Map<String, Integer> actionPower = new HashMap<>();
+    private static final Map<String, ValidateCode> vdMap = new HashMap<>();
 
     static {
         InputStream in = SystemStorage.class.getClassLoader().getResourceAsStream("actions.conf");
@@ -34,5 +37,13 @@ public class SystemStorage {
 
     public static Integer getActionPower(String url) {
         return actionPower.get(url);
+    }
+
+    public synchronized static void store(String email, ValidateCode code) {
+        vdMap.put(email, code);
+    }
+
+    public static ValidateCode getValidateCode(String email) {
+        return vdMap.get(email);
     }
 }

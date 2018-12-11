@@ -6,10 +6,7 @@ import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.common.entity.user.UserWithToken;
 import hit.go.forward.common.entity.validate.ValidateCode;
 import hit.go.forward.common.util.UserUtil;
-import hit.go.forward.platform.AttrKey;
-import hit.go.forward.platform.MailConfig;
-import hit.go.forward.platform.SystemConfig;
-import hit.go.forward.platform.SystemVariable;
+import hit.go.forward.platform.*;
 import hit.go.forward.common.exception.RequestHandleException;
 import hit.go.forward.platform.util.MailUtil;
 import hit.go.forward.platform.util.Validate;
@@ -49,13 +46,13 @@ public class UserAuthorityController {
 
     @Transactional
     @RequestMapping("/register")
-    public String register(@RequestParam Map<String, Object> map, HttpSession session, HttpServletResponse response) {
+    public String register(@RequestParam Map<String, Object> map) {
         Object code = map.get("code");
         Object name = map.get("name");
         Object password = map.get("password");
         Object email = map.get("email");
         if (code == null || name == null || password == null || email == null) return RequestResults.wrongParameters();
-        String result = validate(code.toString(), email.toString(), session);
+        String result = validate(code.toString(), email.toString());
         if (result.equals("success")) {
             Integer rows = userMapper.register(map);
             if (rows == null) throw new RequestHandleException(RequestResults.dataBaseWriteError());
@@ -167,7 +164,7 @@ public class UserAuthorityController {
         UserWithPassword user = userMapper.selectUserById($userId);
         if (!user.getPassword().equals(oldPassword)) return RequestResults.forbidden("原密码错误");
 
-        String result = validate(code, user.getEmail(), session);
+        String result = validate(code, user.getEmail());
         if (!result.equals("success")) return RequestResults.forbidden(result);
 
         Map<String, String> paras = new HashMap<>();
@@ -190,12 +187,11 @@ public class UserAuthorityController {
         return RequestResults.success(u);
     }
 
-    // TODO 验证码存储
     @RequestMapping("/sendValidateCode")
-    public String sendValidateCode(String email, HttpSession session) {
+    public String sendValidateCode(String email) {
         if (email == null) return RequestResults.wrongParameters();
         Date now = new Date();
-        ValidateCode code = (ValidateCode) session.getAttribute(AttrKey.ATTR_VALIDATE_CODE);
+        ValidateCode code = SystemStorage.getValidateCode(email);
 
         if (code != null && now.getTime() - code.getDate().getTime() < SystemVariable.TIME_MS_1_MINUTE)
             return RequestResults.forbidden("请于一分钟之后再试");
@@ -204,7 +200,7 @@ public class UserAuthorityController {
         code = new ValidateCode(email, c);
         boolean flag = MailUtil.send(email, SystemConfig.getMailConfig().getTemplate(MailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", c));
         if (flag) {
-            session.setAttribute(AttrKey.ATTR_VALIDATE_CODE, code);
+            SystemStorage.store(email, code);
             return RequestResults.success();
         }
 
@@ -212,11 +208,11 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/sendValidateCodeToCurrentUser")
-    public String sendValidateCodeToCurrentUser(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, HttpSession session) {
-        String email = user.getEmail();
+    public String sendValidateCodeToCurrentUser(String $userId) {
+        String email = userMapper.selectEmailById($userId);
         if (email == null) return RequestResults.wrongParameters();
         Date now = new Date();
-        ValidateCode code = (ValidateCode) session.getAttribute(AttrKey.ATTR_VALIDATE_CODE);
+        ValidateCode code = SystemStorage.getValidateCode(email);
 
         if (code != null && now.getTime() - code.getDate().getTime() < SystemVariable.TIME_MS_1_MINUTE)
             return RequestResults.forbidden("请于一分钟之后再试");
@@ -226,19 +222,18 @@ public class UserAuthorityController {
         code = new ValidateCode(email, c);
         boolean flag = MailUtil.send(email, SystemConfig.getMailConfig().getTemplate(MailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", c));
         if (flag) {
-            session.setAttribute(AttrKey.ATTR_VALIDATE_CODE, code);
+            SystemStorage.store(email, code);
             return RequestResults.success();
         }
 
         return RequestResults.error("邮件发送失败, 请稍后再试~");
     }
 
-    // TODO 验证码存储
     @RequestMapping("/validateCode")
-    public String validateCode(String email, String code, HttpSession session) {
+    public String validateCode(String email, String code) {
         if (email == null || code == null) return RequestResults.wrongParameters();
 
-        String result = validate(code, email, session);
+        String result = validate(code, email);
         if (result.equals("success")) return RequestResults.success();
         return RequestResults.forbidden(result);
     }
@@ -278,9 +273,9 @@ public class UserAuthorityController {
         return null;
     }
 
-    private String validate(String code, String email, HttpSession session) {
+    private String validate(String code, String email) {
         Date now = new Date();
-        ValidateCode vc = (ValidateCode) session.getAttribute(AttrKey.ATTR_VALIDATE_CODE);
+        ValidateCode vc = SystemStorage.getValidateCode(email);
         if (vc == null) return "请先获取验证码";
         else if (!vc.getCode().equalsIgnoreCase(code) || !vc.getEmail().equals(email)) return "验证码错误";
         else if (vc.getState().equals(ValidateCode.STATE_INVALID)) return "验证码已失效";
