@@ -8,7 +8,6 @@ import hit.go.forward.common.entity.resource.Resource;
 import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.common.exception.RequestHandleException;
 import hit.go.forward.common.protocol.RequestResults;
-import hit.go.forward.common.protocol.RequestWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

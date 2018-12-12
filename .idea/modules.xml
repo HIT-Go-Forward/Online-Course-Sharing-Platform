@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/action-server/action-server.iml" filepath="$PROJECT_DIR$/action-server/action-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend-common/backend-common.iml" filepath="$PROJECT_DIR$/backend-common/backend-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend-main.iml" filepath="$PROJECT_DIR$/backend-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/business/business.iml" filepath="$PROJECT_DIR$/business/business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/im-server/im-server.iml" filepath="$PROJECT_DIR$/im-server/im-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resource-server/resource-server.iml" filepath="$PROJECT_DIR$/resource-server/resource-server.iml" />
+    </modules>
+  </component>
+</project>

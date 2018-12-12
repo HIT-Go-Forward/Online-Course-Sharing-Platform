@@ -1,0 +1,11 @@
+$color: #000;
+
+.parent {
+  .child {
+    > p {
+      + div {
+        color: $color;
+      }
+    }
+  }
+}

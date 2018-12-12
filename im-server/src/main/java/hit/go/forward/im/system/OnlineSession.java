@@ -15,4 +15,8 @@ public final class OnlineSession {
     public static WebSocketSession get(String id) {
         return storage.get(id);
     }
+
+    public static void remove(String id) {
+        storage.remove(id);
+    }
 }
