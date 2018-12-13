@@ -125,8 +125,7 @@ public class UserAuthorityController {
                     return RequestResults.success(ut);
                 }
                 return RequestResults.forbidden("账号或密码错误！");
-            }
-            return RequestResults.error();
+            } return RequestResults.notFound("用户不存在！");
         }
         return RequestResults.forbidden("请填写账号密码！");
     }
