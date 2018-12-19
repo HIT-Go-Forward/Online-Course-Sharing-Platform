@@ -3,14 +3,11 @@ package hit.go.forward.controller;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.HistoryMapper;
 import hit.go.forward.common.entity.history.CourseHistory;
-import hit.go.forward.common.entity.user.UserWithPassword;
-import hit.go.forward.platform.AttrKey;
 import hit.go.forward.common.exception.RequestHandleException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -32,11 +29,11 @@ public class HistoryController {
 
     @Transactional
     @RequestMapping("/addNewHistory")
-    public String addNewHistory(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String courseId) {
+    public String addNewHistory(String $userId, String courseId) {
         if (courseId != null) {
             Date now = new Date();
             Map<String, Object> paras = new HashMap<>();
-            paras.put("id", user.getId());
+            paras.put("id", $userId);
             paras.put("courseId", courseId);
             paras.put("date", now);
             Integer rows = historyMapper.addNewHistory(paras);
@@ -47,8 +44,8 @@ public class HistoryController {
     }
 
     @RequestMapping("/getCourseHistory")
-    public String getCourseHistory(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
-        List<CourseHistory> result = historyMapper.getCourseHistory(user.getId().toString());
+    public String getCourseHistory(String $userId) {
+        List<CourseHistory> result = historyMapper.getCourseHistory($userId);
         return RequestResults.success(result);
     }
 }

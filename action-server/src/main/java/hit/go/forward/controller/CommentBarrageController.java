@@ -2,8 +2,6 @@ package hit.go.forward.controller;
 
 import hit.go.forward.business.database.dao.CommentMapper;
 import hit.go.forward.common.entity.comment.Comment;
-import hit.go.forward.common.entity.user.User;
-import hit.go.forward.platform.AttrKey;
 import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.platform.util.Comment.CommentUtil;
 import hit.go.forward.common.protocol.RequestResults;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,12 +32,12 @@ public class CommentBarrageController {
 
     @Transactional
     @RequestMapping("/sendComment")
-    public String sendComment(Comment comment, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String sendComment(Comment comment, String $userId) {
         logger.debug(comment.getContent());
         logger.debug("CourseId: {}", comment.getCourseId());
         logger.debug("type: {}", comment.getType());
         if (!CommentUtil.isInsertValid(comment)) return RequestResults.wrongParameters();
-        comment.setUserId(user.getId());
+        comment.setUserId(Integer.valueOf($userId));
         Integer rows = commentMapper.insertComment(comment);
         if (rows != null && rows.equals(1)) return RequestResults.success();
         throw new DatabaseWriteException();

@@ -10,8 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa185bdc-43aa-4430-957b-c6e72affbf6e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/action_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/action_server_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/action_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/action_server_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/im_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/im_server_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/im_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/im_server_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/resource_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/resource_server_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/resource_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/resource_server_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/RequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/RequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action-server/action-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/action-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/ApplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/ApplyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CommentBarrageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CommentBarrageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/HistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UploadController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource-server/resource-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/resource-server/resource-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/RequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/RequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/backend-common/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -50,98 +66,58 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="zabbix: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="zabbix: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="zabbix: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="lesson: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-396294986">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="5" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="2" />
-          <entry key="project.open.time.3" value="2" />
-          <entry key="project.opened" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="4" />
-          <entry key="conf" value="1" />
-          <entry key="course" value="1" />
-          <entry key="css" value="1" />
-          <entry key="file" value="2" />
-          <entry key="gitignore" value="1" />
-          <entry key="html" value="9" />
-          <entry key="iml" value="5" />
-          <entry key="java" value="36" />
-          <entry key="js" value="2" />
-          <entry key="less" value="1" />
-          <entry key="lesson" value="1" />
-          <entry key="scss" value="1" />
-          <entry key="sql" value="2" />
-          <entry key="uml" value="1" />
-          <entry key="user" value="1" />
-          <entry key="xml" value="27" />
-          <entry key="xml-template" value="2" />
-          <entry key="xsd" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="4" />
-          <entry key="CSS" value="1" />
-          <entry key="Database Element" value="5" />
-          <entry key="HTML" value="9" />
-          <entry key="IDEA_MODULE" value="5" />
-          <entry key="JAVA" value="36" />
-          <entry key="JavaScript" value="2" />
-          <entry key="Less" value="1" />
-          <entry key="PLAIN_TEXT" value="4" />
-          <entry key="SCSS" value="1" />
-          <entry key="SQL" value="1" />
-          <entry key="Scratch" value="1" />
-          <entry key="UML" value="1" />
-          <entry key="XML" value="28" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="cell" value="48" />
-          <entry key="conf" value="1" />
-          <entry key="gitignore" value="6" />
-          <entry key="html" value="323" />
-          <entry key="java" value="2683" />
-          <entry key="js" value="476" />
-          <entry key="less" value="172" />
-          <entry key="scss" value="55" />
-          <entry key="sql" value="3" />
-          <entry key="txt" value="7" />
-          <entry key="xml" value="382" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="323" />
-          <entry key="JAVA" value="2683" />
-          <entry key="JavaScript" value="476" />
-          <entry key="Less" value="172" />
-          <entry key="PLAIN_TEXT" value="14" />
-          <entry key="SCSS" value="55" />
-          <entry key="SQL" value="3" />
-          <entry key="Scratch" value="48" />
-          <entry key="XML" value="382" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/platform/IMGroup.java">
+        <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/RequestFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/ApplyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CommentBarrageController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
               <caret line="4" selection-start-line="4" selection-end-line="4" />
@@ -150,73 +126,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/main/resources/mybatis-config.xml-template">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/main/resources/server-config.xml-template">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/main/resources/server-config.xml">
+        <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+            <state relative-caret-position="19">
+              <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+        <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/HistoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1596">
-              <caret line="84" column="38" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
+            <state relative-caret-position="38">
+              <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java">
+        <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/SchoolController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1957">
-              <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="998">
-              <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="190">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/RequestFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+        <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/file">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/file">
+        <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -241,6 +187,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>403</find>
+      <find>SessionAttr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -277,23 +224,24 @@
         <option value="$PROJECT_DIR$/im-server/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
         <option value="$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/platform/IMGroup.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" />
         <option value="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/RequestFilter.java" />
+        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/ApplyController.java" />
+        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CommentBarrageController.java" />
+        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" />
+        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/HistoryController.java" />
+        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" />
+        <option value="$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/RequestFilter.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -315,10 +263,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="30" />
     <option name="y" value="10" />
-    <option name="width" value="1590" />
+    <option name="width" value="1863" />
     <option name="height" value="965" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -329,6 +277,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -339,65 +289,75 @@
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
+              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
+              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
+              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
+              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forward" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
+              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forward" type="462c0819:PsiDirectoryNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="rserver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
+              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forward" type="462c0819:PsiDirectoryNode" />
-              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="rserver" type="462c0819:PsiDirectoryNode" />
               <item name="filter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
+              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
+              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
+              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -406,7 +366,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544678813485" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545228485630" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
@@ -456,11 +416,11 @@
         <option name="HTTP_PORT" value="10080" />
         <option name="JNDI_PORT" value="1100" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="55420" />
       </RunnerSettings>
@@ -530,11 +490,11 @@
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_backend-main" />
         <option name="HTTP_PORT" value="55555" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="55057" />
       </RunnerSettings>
@@ -604,11 +564,11 @@
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_backend-main_2" />
         <option name="HTTP_PORT" value="10082" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="55378" />
       </RunnerSettings>
@@ -686,17 +646,17 @@
       <workItem from="1544752841065" duration="769000" />
       <workItem from="1545133353261" duration="788000" />
       <workItem from="1545183512555" duration="163000" />
+      <workItem from="1545227268966" duration="1215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35011000" />
+    <option name="totallyTimeSpent" value="36226000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="30" y="10" width="1863" height="965" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20576407" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17692734" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -704,9 +664,10 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32851985" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3558106" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -714,19 +675,20 @@
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32879046" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Database Console" order="9" weight="0.32907802" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2141844" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.21419977" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.2638298" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven" weight="0.20816085" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24955648" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.111930296" />
-      <window_info anchor="right" id="Database" order="6" weight="0.12399464" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.11591791" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -734,59 +696,11 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend-common/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resource-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="82" column="37" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business/business.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business/src/test/java/hit/go/forward/test/JWTUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/business/src/test/java/hit/go/forward/test/RedisServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -808,9 +722,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/console.sql" />
     <entry file="file://$PROJECT_DIR$/im-server/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -826,13 +738,6 @@
       </provider>
     </entry>
     <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1021,31 +926,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="84" column="38" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1957">
-          <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/file">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+        <state relative-caret-position="1292">
+          <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="998">
+        <state relative-caret-position="1805">
           <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1055,8 +943,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/RequestFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+        <state relative-caret-position="68">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="58" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/ApplyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CommentBarrageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/HistoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/SchoolController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/RequestFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/file">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>

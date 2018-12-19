@@ -9,15 +9,15 @@
     <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
   </context-param>
 
-  <!--<filter>-->
-    <!--<filter-name>RequestFilter</filter-name>-->
-    <!--<filter-class>hit.go.forward.rserver.filter.RequestFilter</filter-class>-->
-  <!--</filter>-->
+  <filter>
+    <filter-name>RequestFilter</filter-name>
+    <filter-class>hit.go.forward.rserver.filter.RequestFilter</filter-class>
+  </filter>
 
-  <!--<filter-mapping>-->
-    <!--<filter-name>RequestFilter</filter-name>-->
-    <!--<url-pattern>/*</url-pattern>-->
-  <!--</filter-mapping>-->
+  <filter-mapping>
+    <filter-name>RequestFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
   <filter>
     <filter-name>UserAuthorityFilter</filter-name>

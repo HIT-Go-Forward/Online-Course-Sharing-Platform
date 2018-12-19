@@ -5,15 +5,12 @@ import hit.go.forward.business.database.dao.CourseMapper;
 import hit.go.forward.business.database.dao.LessonMapper;
 import hit.go.forward.common.entity.course.Course;
 import hit.go.forward.common.entity.user.User;
-import hit.go.forward.common.entity.user.UserWithPassword;
-import hit.go.forward.platform.AttrKey;
 import hit.go.forward.common.exception.RequestHandleException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,9 +33,9 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/addNewCourse")
-    public String newCourse(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String newCourse(@RequestParam Map<String, Object> paras, String $userId) {
         if (paras.get("courseName") != null) {
-            paras.put("teacherId", user.getId().toString());
+            paras.put("teacherId", $userId);
             Integer rows = courseMapper.addNewCourse(paras);
             if (rows != null && rows.equals(1)) return RequestResults.success(paras);
             throw new RequestHandleException(RequestResults.error("课程添加失败！"));
@@ -48,9 +45,9 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/updateCourse")
-    public String updateCourse(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String updateCourse(@RequestParam Map<String, Object> paras, String $userId) {
         if (paras.get("courseName") == null) return RequestResults.wrongParameters();
-        paras.put("teacherId", user.getId().toString());
+        paras.put("teacherId", $userId);
         Integer rows = courseMapper.updateCourse(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
@@ -58,12 +55,12 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/updateCourseImg")
-    public String updateCourseImg(String fileId, String courseId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String updateCourseImg(String fileId, String courseId, String $userId) {
         if (fileId == null || courseId == null) return RequestResults.wrongParameters();
         Map<String, Object> paras = new HashMap<>();
         paras.put("img", fileId);
         paras.put("courseId", courseId);
-        paras.put("teacherId", user.getId());
+        paras.put("teacherId", $userId);
         Integer rows = courseMapper.updateCourseImg(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
         throw new RequestHandleException("更新失败!");
@@ -88,26 +85,25 @@ public class CourseController {
     }
 
     @RequestMapping("/getUserCourses")
-    public String getUserCourses(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String type, Integer start, Integer length) {
+    public String getUserCourses(String $userId, Integer $userType, String type, Integer start, Integer length) {
         // TODO 分页
-        String id = user.getId().toString();
-        if (user.getType() == User.TYPE_ADMIN) {
+        if ($userType == User.TYPE_ADMIN) {
             Map<String, Object> paras = new HashMap<>();
-            paras.put("id", id);
+            paras.put("id", $userId);
             paras.put("type", type);
             paras.put("start", start);
             paras.put("length", length);
             return RequestResults.success(courseMapper.getManageableCourses(paras));
-        } else if (user.getType() == User.TYPE_TEACHER) {
-            if (type == null || type.equals("all")) return RequestResults.success(courseMapper.getAllTeacherCourses(id));
-            else if (type.equals("applying")) return RequestResults.success(courseMapper.getAllApplyingCourses(id));
-            else if (type.equals("rejected")) return RequestResults.success(courseMapper.getAllRejectedCourses(id));
-            else if (type.equals("released")) return RequestResults.success(courseMapper.getAllReleasedCourses(id));
+        } else if ($userType == User.TYPE_TEACHER) {
+            if (type == null || type.equals("all")) return RequestResults.success(courseMapper.getAllTeacherCourses($userId));
+            else if (type.equals("applying")) return RequestResults.success(courseMapper.getAllApplyingCourses($userId));
+            else if (type.equals("rejected")) return RequestResults.success(courseMapper.getAllRejectedCourses($userId));
+            else if (type.equals("released")) return RequestResults.success(courseMapper.getAllReleasedCourses($userId));
         } else {
-            if (type == null || type.equals("all")) return RequestResults.success(courseMapper.getAllStudentCourses(id));
-            else if (type.equals("joined")) return RequestResults.success(courseMapper.getJoinedCourses(id));
-            else if (type.equals("learning")) return RequestResults.success(courseMapper.getLearningCourses(id));
-            else if (type.equals("learned")) return RequestResults.success(courseMapper.getLearnedCourses(id));
+            if (type == null || type.equals("all")) return RequestResults.success(courseMapper.getAllStudentCourses($userId));
+            else if (type.equals("joined")) return RequestResults.success(courseMapper.getJoinedCourses($userId));
+            else if (type.equals("learning")) return RequestResults.success(courseMapper.getLearningCourses($userId));
+            else if (type.equals("learned")) return RequestResults.success(courseMapper.getLearnedCourses($userId));
         }
         return RequestResults.forbidden("错误的type参数!");
     }
@@ -123,7 +119,7 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/handleCourseApply")
-    public String handleCourseApply(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String courseId, String operation) {
+    public String handleCourseApply(String courseId, String operation) {
         if (courseId != null & operation != null) {
             Integer rows;
             if (operation.equals("accept")) {
@@ -146,14 +142,15 @@ public class CourseController {
     }
 
     @RequestMapping("/getCourseOutline")
-    public String getCourseOutline(String courseId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String getCourseOutline(String courseId, Integer $userType) {
         if (courseId == null) return RequestResults.wrongParameters();
-        else if (user.getType() <= User.TYPE_TEACHER) return RequestResults.success(courseMapper.getTeacherCourseChapters(courseId));
-        return RequestResults.success(courseMapper.getCourseChapters(courseId));
+        else if ($userType == null) return RequestResults.success(courseMapper.getCourseChapters(courseId));
+        else if ($userType <= User.TYPE_TEACHER) return RequestResults.success(courseMapper.getTeacherCourseChapters(courseId));
+        return RequestResults.error();
     }
 
     @RequestMapping("/getManageableCourseLessons")
-    public String getManageableCourseLessons(Integer start, Integer length, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String getManageableCourseLessons(Integer start, Integer length) {
         Map<String, Object> paras = new HashMap<>();
         return RequestResults.success(courseMapper.getManageableCourseLessons(paras));
     }
@@ -162,13 +159,13 @@ public class CourseController {
      */
     @Transactional
     @RequestMapping("/addNewLesson")
-    public String addNewLesson(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String addNewLesson(@RequestParam Map<String, Object> paras, String $userId) {
         Object num = paras.get("num");
         Object title = paras.get("title");
         Object chapterNum = paras.get("chapterNum");
         Object courseId = paras.get("courseId");
         if (num == null || title == null || chapterNum == null || courseId == null) return RequestResults.wrongParameters();
-        paras.put("teacherId", user.getId());
+        paras.put("teacherId", $userId);
         Integer rows = lessonMapper.insertNewLesson(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success(paras.get("id"));
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
@@ -176,13 +173,13 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/updateLesson")
-    public String updateLesson(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String updateLesson(@RequestParam Map<String, Object> paras, String $userId) {
         Object num = paras.get("num");
         Object title = paras.get("title");
         Object chapterNum = paras.get("chapterNum");
         Object courseId = paras.get("courseId");
         if (num == null || title == null || chapterNum == null || courseId == null) return RequestResults.wrongParameters();
-        paras.put("teacherId", user.getId().toString());
+        paras.put("teacherId", $userId);
         Integer rows = lessonMapper.updateLesson(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
@@ -190,11 +187,11 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/updateLessonVideo")
-    public String updateLessonVideo(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String updateLessonVideo(@RequestParam Map<String, Object> paras, String $userId) {
         Object lessonId = paras.get("lessonId");
         Object fileId = paras.get("fileId");
         if (lessonId == null || fileId == null) return RequestResults.wrongParameters();
-        paras.put("teacherId", user.getId().toString());
+        paras.put("teacherId", $userId);
         Integer rows = lessonMapper.updateLessonVideo(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
@@ -202,11 +199,11 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/updateLessonFile")
-    public String updateLessonFile(@RequestParam Map<String, Object> paras, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String updateLessonFile(@RequestParam Map<String, Object> paras, String $userId) {
         Object lessonId = paras.get("lessonId");
         Object fileId = paras.get("fileId");
         if (lessonId == null || fileId == null) return RequestResults.wrongParameters();
-        paras.put("teacherId", user.getId().toString());
+        paras.put("teacherId", $userId);
         Integer rows = lessonMapper.updateLessonFile(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
@@ -218,7 +215,7 @@ public class CourseController {
     }
 
     @RequestMapping("/getLessonById")
-    public String getLessonById(String lessonId, @SessionAttribute(AttrKey.ATTR_USER) User user) {
+    public String getLessonById(String lessonId) {
         if (lessonId == null) return RequestResults.wrongParameters();
         return RequestResults.success(lessonMapper.getLessonById(lessonId));
     }

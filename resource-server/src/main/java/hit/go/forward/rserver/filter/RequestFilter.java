@@ -1,6 +1,9 @@
 package hit.go.forward.rserver.filter;
 
+import hit.go.forward.common.protocol.RequestWrapper;
+
 import javax.servlet.*;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,21 +26,28 @@ public class RequestFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        HttpSession session = request.getSession();
 
         String url = request.getRequestURI();
-        if (url.endsWith(".media")) {
-            request.getRequestDispatcher(url.replace(".media", "")).forward(request, response);
-            return;
-        } else if (url.startsWith("/resource") && !url.endsWith(".action")) {
-            File file = new File(session.getServletContext().getRealPath(url));
-            if (file.exists()) {
-                FileInputStream inputStream = new FileInputStream(file);
-                OutputStream out = response.getOutputStream();
-                int data;
-                while ((data = inputStream.read()) != -1) out.write(data);
-                return;
+        if (url.endsWith(".action")) {
+            Cookie[] cookies = request.getCookies();
+            RequestWrapper requestWrapper = new RequestWrapper(request);
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    switch (cookie.getName()) {
+                        case "id":
+                            requestWrapper.addParameter("$cookieId", cookie.getValue());
+                            break;
+                        case "password":
+                            requestWrapper.addParameter("$cookiePassword", cookie.getValue());
+                            break;
+                        case "token":
+                            requestWrapper.addParameter("token", cookie.getValue());
+                            break;
+                    }
+                }
             }
+            filterChain.doFilter(requestWrapper, response);
+            return;
         }
         filterChain.doFilter(request, response);
     }

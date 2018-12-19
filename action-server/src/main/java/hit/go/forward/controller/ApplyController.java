@@ -1,16 +1,13 @@
 package hit.go.forward.controller;
 
 import hit.go.forward.common.entity.Apply;
-import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.ApplyMapper;
-import hit.go.forward.platform.AttrKey;
 import hit.go.forward.common.exception.RequestHandleException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -32,10 +29,10 @@ public class ApplyController {
 
     @Transactional
     @RequestMapping("/applyTeacher")
-    public String applyTeacher(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String note) {
+    public String applyTeacher(String $userId, String note) {
         Date now = new Date();
         Map<String, Object> paras = new HashMap<>();
-        paras.put("userId", user.getId());
+        paras.put("userId", $userId);
         paras.put("time", now);
         paras.put("note", note);
 
@@ -47,12 +44,12 @@ public class ApplyController {
 
     @Transactional
     @RequestMapping("/acceptTeacherApply")
-    public String acceptTeacherApply(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String applyId, String note) {
+    public String acceptTeacherApply(String $userId, String applyId, String note) {
         if (applyId == null) return RequestResults.wrongParameters();
         Date now = new Date();
         Map<String, Object> paras = new HashMap<>();
         paras.put("applyId", applyId);
-        paras.put("handlerId", user.getId());
+        paras.put("handlerId", $userId);
         paras.put("handleTime", now);
         paras.put("note", note);
 
@@ -64,12 +61,12 @@ public class ApplyController {
 
     @Transactional
     @RequestMapping("/rejectTeacherApply")
-    public String rejectTeacherApply(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String applyId, String note) {
+    public String rejectTeacherApply(String $userId, String applyId, String note) {
         if (applyId == null) return RequestResults.wrongParameters();
         Date now = new Date();
         Map<String, Object> paras = new HashMap<>();
         paras.put("applyId", applyId);
-        paras.put("handlerId", user.getId());
+        paras.put("handlerId", $userId);
         paras.put("handleTime", now);
         paras.put("note", note);
 
@@ -80,10 +77,10 @@ public class ApplyController {
     }
 
     @RequestMapping("/getManageableApplies")
-    public String getAllApplies(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user, String type) {
+    public String getAllApplies(String $userId, Integer $userType, String type) {
         Map<String, String> paras = new HashMap<>();
-        paras.put("id", user.getId().toString());
-        paras.put("power", user.getType().toString());
+        paras.put("id", $userId);
+        paras.put("power", $userType.toString());
         List<Apply> result;
         if (type == null || type.equals("all")) result = applyMapper.getAllApplies(paras);
         else if (type.equals("unhandled")) result = applyMapper.getAllUnhandledApplies(paras);
