@@ -10,9 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa185bdc-43aa-4430-957b-c6e72affbf6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-server/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/resource-server/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/action_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/action_server_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/action_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/action_server_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/im_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/im_server_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/im_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/im_server_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/resource_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/resource_server_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/resource_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/resource_server_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/backend-common/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,13 +60,38 @@
     </expand>
     <select />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-396294986">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="78" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="78" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="279">
+              <caret line="251" column="40" lean-forward="true" selection-start-line="251" selection-start-column="40" selection-end-line="251" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#10658#10659#0" expanded="true" />
+                <element signature="e#10680#10681#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,11 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="739">
-              <caret line="148" column="57" lean-forward="true" selection-start-line="148" selection-start-column="57" selection-end-line="148" selection-end-column="57" />
+            <state relative-caret-position="554">
+              <caret line="148" column="57" selection-start-line="148" selection-start-column="57" selection-end-line="148" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -210,20 +239,26 @@
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CommentBarrageController.java" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/HistoryController.java" />
-        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" />
         <option value="$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/RequestFilter.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/resource-server/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java" />
+        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" />
       </list>
     </option>
   </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -264,10 +299,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="78" />
-    <option name="y" value="60" />
-    <option name="width" value="1863" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="7" />
+    <option name="y" value="80" />
+    <option name="width" value="1864" />
     <option name="height" value="965" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -279,7 +314,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -290,119 +324,43 @@
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rserver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rserver" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rserver" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="45" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="45" type="462c0819:PsiDirectoryNode" />
-              <item name="37" type="462c0819:PsiDirectoryNode" />
+              <item name="forward" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -461,11 +419,11 @@
         <option name="HTTP_PORT" value="10080" />
         <option name="JNDI_PORT" value="1100" />
       </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="55420" />
       </RunnerSettings>
@@ -535,11 +493,11 @@
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_backend-main" />
         <option name="HTTP_PORT" value="55555" />
       </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="55057" />
       </RunnerSettings>
@@ -609,11 +567,11 @@
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_backend-main_2" />
         <option name="HTTP_PORT" value="10082" />
       </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="55378" />
       </RunnerSettings>
@@ -693,16 +651,18 @@
       <workItem from="1545183512555" duration="163000" />
       <workItem from="1545227268966" duration="2453000" />
       <workItem from="1545229955528" duration="142000" />
+      <workItem from="1545303676538" duration="785000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37606000" />
+    <option name="totallyTimeSpent" value="38391000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="78" y="60" width="1863" height="965" extended-state="0" />
+    <frame x="6" y="64" width="1491" height="772" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17859124" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19260293" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -741,6 +701,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -985,13 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/RequestFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -1020,6 +976,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resource-server/src/main/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="270" selection-start-line="7" selection-start-column="270" selection-end-line="7" selection-end-column="270" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/SchoolController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1041,19 +1004,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resource-server/src/main/webapp/index.html">
+    <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="270" selection-start-line="7" selection-start-column="270" selection-end-line="7" selection-end-column="270" />
+        <state relative-caret-position="554">
+          <caret line="148" column="57" selection-start-line="148" selection-start-column="57" selection-end-line="148" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java">
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="148" column="57" lean-forward="true" selection-start-line="148" selection-start-column="57" selection-end-line="148" selection-end-column="57" />
+        <state relative-caret-position="279">
+          <caret line="251" column="40" lean-forward="true" selection-start-line="251" selection-start-column="40" selection-end-line="251" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#10658#10659#0" expanded="true" />
+            <element signature="e#10680#10681#0" expanded="true" />
           </folding>
         </state>
       </provider>
