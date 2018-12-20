@@ -146,7 +146,7 @@ public class ResourceUploadController {
             if (rows.equals(1)) return RequestResults.success();
             throw new DatabaseWriteException();
         }
-        return RequestResults.success();
+        return RequestResults.success(resource.getUrl());
     }
 
     @RequestMapping("/test")
