@@ -1,6 +1,9 @@
-package hit.go.forward.platform.filter;
+package hit.go.forward.business.platform.filter;
 
+import hit.go.forward.common.entity.jwt.AuthorityVO;
 import hit.go.forward.common.protocol.RequestWrapper;
+import hit.go.forward.service.UserAuthorityService;
+import hit.go.forward.service.impl.UserAuthorityServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +19,7 @@ import java.io.IOException;
 public class RequestFilter implements Filter {
 
     private static final Logger logger = LoggerFactory.getLogger(RequestFilter.class);
+    private UserAuthorityService authorityService = new UserAuthorityServiceImpl();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
@@ -28,12 +32,6 @@ public class RequestFilter implements Filter {
 
         String url = request.getRequestURI();
         logger.debug("请求资源 {}", url);
-
-//        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
-//        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-//        response.setHeader("Access-Control-Max-Age", "3600");
-//        response.setHeader("Access-Control-Allow-Credentials", "true");
-//        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, Access-Token");
 
         if (url.endsWith(".action")) {
             Cookie[] cookies = request.getCookies();
@@ -49,7 +47,13 @@ public class RequestFilter implements Filter {
                             requestWrapper.addParameter("$cookiePassword", cookie.getValue());
                             break;
                         case "token":
-                            requestWrapper.addParameter("token", cookie.getValue());
+                            String token = cookie.getValue();
+                            requestWrapper.addParameter("token", token);
+                            AuthorityVO vo = authority(token);
+                            if (vo != null) {
+                                requestWrapper.addParameter("$userId", vo.getUserId());
+                                requestWrapper.addParameter("$userType", vo.getUserType());
+                            }
                             break;
                     }
                 }
@@ -63,4 +67,14 @@ public class RequestFilter implements Filter {
 
     @Override
     public void destroy() {}
+
+    private AuthorityVO authority(String token) {
+        AuthorityVO vo;
+        try {
+            vo = authorityService.verify(token);
+        } catch (Exception e) {
+            vo = null;
+        }
+        return vo;
+    }
 }

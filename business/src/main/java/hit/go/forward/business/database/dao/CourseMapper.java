@@ -51,5 +51,7 @@ public interface CourseMapper {
 
     List<CourseChapter> getTeacherCourseChapters(String courseId);
 
+    List<CourseChapterDetail> getCourseChaptersDetail(Map<String, Object> param);
+
     List<CourseLessons> getManageableCourseLessons(Map<String, Object> paras);
 }

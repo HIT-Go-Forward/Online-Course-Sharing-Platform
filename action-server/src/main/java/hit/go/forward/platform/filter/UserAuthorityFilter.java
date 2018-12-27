@@ -46,34 +46,54 @@ public class UserAuthorityFilter implements Filter {
                 response.sendError(404);
                 return;
             } else if (power < 5) {
-                String token = request.getParameter("token");
-                if (token == null) {
+                String userId = request.getParameter("$userId");
+                if (userId == null) {
                     response.sendError(403, HAVE_NO_RIGHT);
                     return;
-                } else {
-                    try {
-                        AuthorityVO vo = authorityService.verify(token);
-                        if (vo != null) {
-                            if (vo.getUserType() > power) {
-                                response.sendError(403, HAVE_NO_RIGHT);
-                                return;
-                            }
-                            String userId = vo.getUserId();
-                            RequestWrapper requestWrapper = new RequestWrapper(request);
-                            requestWrapper.addParameter("$userId", userId);
-                            filterChain.doFilter(requestWrapper, response);
-                            return;
-                        }
-                        else {
-                            logger.debug("错误的token信息！");
-                            response.sendError(403, "用户验证未通过！");
-                            return;
-                        }
-                    } catch (Exception e) {
-                        response.sendError(403, HAVE_NO_RIGHT);
-                        return;
-                    }
                 }
+                Integer userType;
+                try {
+                    userType = Integer.valueOf(request.getParameter("$userType"));
+                } catch (Exception e) {
+                    response.sendError(403, HAVE_NO_RIGHT);
+                    return;
+                }
+                if (userType > power) {
+                    response.sendError(403, HAVE_NO_RIGHT);
+                    return;
+                }
+                filterChain.doFilter(request, response);
+                return;
+//                String token = request.getParameter("token");
+//                if (token == null) {
+//
+//                } else {
+//                    try {
+//                        AuthorityVO vo = authorityService.verify(token);
+//                        if (vo != null) {
+//                            if (vo.getUserType() > power) {
+//                                response.sendError(403, HAVE_NO_RIGHT);
+//                                return;
+//                            }
+//                            String userId = vo.getUserId();
+//                            RequestWrapper requestWrapper;
+//                            if (request instanceof RequestWrapper) requestWrapper = (RequestWrapper) request;
+//                            else requestWrapper = new RequestWrapper(request);
+//                            requestWrapper.addParameter("$userId", userId);
+//                            requestWrapper.addParameter("$userType", vo.getUserType());
+//                            filterChain.doFilter(requestWrapper, response);
+//                            return;
+//                        }
+//                        else {
+//                            logger.debug("错误的token信息！");
+//                            response.sendError(403, "用户验证未通过！");
+//                            return;
+//                        }
+//                    } catch (Exception e) {
+//                        response.sendError(403, HAVE_NO_RIGHT);
+//                        return;
+//                    }
+//                }
             }
         }
 

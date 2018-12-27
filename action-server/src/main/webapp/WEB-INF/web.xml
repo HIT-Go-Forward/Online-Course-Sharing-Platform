@@ -12,7 +12,7 @@
 
   <filter>
     <filter-name>RequestFilter</filter-name>
-    <filter-class>hit.go.forward.platform.filter.RequestFilter</filter-class>
+    <filter-class>hit.go.forward.business.platform.filter.RequestFilter</filter-class>
   </filter>
 
   <filter>

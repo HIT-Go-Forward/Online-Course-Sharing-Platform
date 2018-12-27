@@ -143,7 +143,7 @@ public class ResourceUploadController {
                 case TYPE_LESSON_FILE:
                     rows = lessonMapper.updateLessonFile(paras);
             }
-            if (rows.equals(1)) return RequestResults.success();
+            if (rows.equals(1)) return RequestResults.success(resource.getUrl());
             throw new DatabaseWriteException();
         }
         return RequestResults.success(resource.getUrl());

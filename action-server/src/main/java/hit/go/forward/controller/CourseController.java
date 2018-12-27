@@ -144,9 +144,20 @@ public class CourseController {
     @RequestMapping("/getCourseOutline")
     public String getCourseOutline(String courseId, Integer $userType) {
         if (courseId == null) return RequestResults.wrongParameters();
-        else if ($userType == null) return RequestResults.success(courseMapper.getCourseChapters(courseId));
-        else if ($userType <= User.TYPE_TEACHER) return RequestResults.success(courseMapper.getTeacherCourseChapters(courseId));
-        return RequestResults.error();
+        else if ($userType == null || $userType > User.TYPE_TEACHER) return RequestResults.success(courseMapper.getCourseChapters(courseId));
+        return RequestResults.success(courseMapper.getTeacherCourseChapters(courseId));
+    }
+
+    @RequestMapping("/getCourseOutlineDetail")
+    public String getCourseOutlineDetail(String courseId, Integer $userType, Integer start, Integer length) {
+        if (courseId == null) return RequestResults.wrongParameters("courseId");
+        Map<String, Object> param = new HashMap<>();
+        param.put("courseId", courseId);
+        param.put("start", start);
+        param.put("length", length);
+        if ($userType != null && $userType <= User.TYPE_TEACHER) param.put("type", "all");
+
+        return RequestResults.success(courseMapper.getCourseChaptersDetail(param));
     }
 
     @RequestMapping("/getManageableCourseLessons")
