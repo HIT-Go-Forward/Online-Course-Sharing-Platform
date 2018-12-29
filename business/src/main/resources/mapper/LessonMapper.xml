@@ -5,6 +5,8 @@
         <id column="lesson_id" property="id"/>
         <result column="lesson_num" property="num"/>
         <result column="lesson_title" property="title"/>
+        <result column="lesson_chapter_num" property="chapterNum" />
+        <result column="lesson_chapter_title" property="chapterTitle" />
         <result column="lesson_intro" property="intro"/>
         <result column="note" property="note"/>
         <result column="video_url" property="videoUrl"/>
@@ -13,7 +15,6 @@
         <result column="lesson_create_date" property="createDate"/>
         <result column="lesson_update_date" property="updateDate"/>
         <result column="lesson_state" property="state"/>
-        <result column="file_name" property="originalFileName"/>
     </resultMap>
 
     <sql id="lessonColumns">
@@ -54,8 +55,9 @@
         lesson_chapter_title = #{chapterTitle, jdbcType=VARCHAR},
         note = #{note, jdbcType=VARCHAR},
         lesson_course_id = #{courseId},
-        lesson_update_date = NOW()
-        where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId}
+        lesson_update_date = NOW(),
+        lesson_state = 1
+        where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId} and (lesson_state = 2 or lesson_state = 3)
     </update>
 
     <update id="updateLessonVideo" parameterType="Map">
@@ -99,6 +101,15 @@
     <select id="getLessonById" parameterType="String" resultMap="lessonMap">
       select
       <include refid="lessonColumns"/>
-      where lesson.lesson_id = #{lessonId}
+      where lesson.lesson_id = #{lessonId} and lesson_state = 2
+    </select>
+
+    <select id="getAdminLessonById" parameterType="Map" resultMap="lessonMap">
+        select
+        <include refid="lessonColumns"/>
+        where lesson.lesson_id = #{lessonId}
+        <if test="limit != null and limit == 'teacher'">
+            and lesson.lesson_teacher_id = #{teacherId}
+        </if>
     </select>
 </mapper>

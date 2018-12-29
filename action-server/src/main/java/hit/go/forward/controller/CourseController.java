@@ -193,7 +193,7 @@ public class CourseController {
         paras.put("teacherId", $userId);
         Integer rows = lessonMapper.updateLesson(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
-        throw new RequestHandleException(RequestResults.dataBaseWriteError());
+        throw new RequestHandleException(RequestResults.operationFailed());
     }
 
     @Transactional
@@ -226,9 +226,17 @@ public class CourseController {
     }
 
     @RequestMapping("/getLessonById")
-    public String getLessonById(String lessonId) {
+    public String getLessonById(String lessonId, Integer $userType) {
+
         if (lessonId == null) return RequestResults.wrongParameters();
-        return RequestResults.success(lessonMapper.getLessonById(lessonId));
+        else if ($userType == null || $userType <= User.TYPE_STUDENT) return RequestResults.success(lessonMapper.getLessonById(lessonId));
+        else {
+            Map<String, String> paras = new HashMap<>();
+            paras.put("lessonId", lessonId);
+            if ($userType == User.TYPE_TEACHER) paras.put("limit", "teacher");
+
+            return RequestResults.success(lessonMapper.getAdminLessonById(paras));
+        }
     }
 
     @Transactional

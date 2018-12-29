@@ -25,5 +25,7 @@ public interface LessonMapper {
 
     Lesson getLessonById(String lessonId);
 
+    Lesson getAdminLessonById(Map<String, String> paras);
+
     Integer updateLessonState(Map<String, Object> paras);
 }

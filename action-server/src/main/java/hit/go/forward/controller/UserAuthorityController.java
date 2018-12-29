@@ -131,9 +131,6 @@ public class UserAuthorityController {
 
     @RequestMapping("/logout")
     public String logout(HttpSession session, HttpServletResponse response) {
-//        response.addCookie(SystemVariable.newDeleteIdCookie());
-//        response.addCookie(SystemVariable.newDeletePasswordCookie());
-//        session.removeAttribute(AttrKey.ATTR_USER);
 
         return RequestResults.success();
     }
