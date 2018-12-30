@@ -123,7 +123,7 @@
     </sql>
 
     <sql id="studyCourseColumns">
-      study.*, course.*,, course_type.*
+      study.*, course.*, course_type.*,
       u1.user_id as study_user_id, u1.user_name as study_user_name, u1.user_sex as study_user_sex,
       u1.birthday as study_birthday, u1.user_email as study_user_email, u1.user_education as study_user_education,
       u1.user_school as study_user_school, u1.user_intro as study_user_intro, u1.note as study_note,
@@ -232,7 +232,8 @@
 
     <select id="getAllTeacherCourses" parameterType="String" resultMap="courseMap">
         select
-        <include refid="courseColumns"/>where course_teacher_id = #{id}
+        <include refid="courseColumns"/>
+        where course_teacher_id = #{id}
         <if test="start != null and length != null">
             limit #{start}, #{length}
         </if>
@@ -269,6 +270,23 @@
         select
         <include refid="studyCourseColumns"/>
         where course.course_id = study_course_id and study_user_id = #{id} and study_state = 3
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
+    </select>
+
+    <select id="getStudentCourses" parameterType="Map" resultMap="studyCourseMap">
+        select
+        <include refid="studyCourseColumns" />
+        where course.course_id = study_course_id and study_user_id = #{userId}
+        <choose>
+            <when test="type == 'learned'">
+                and study_state = 3
+            </when>
+            <otherwise>
+                and study_state = 2
+            </otherwise>
+        </choose>
         <if test="start != null and length != null">
             limit #{start}, #{length}
         </if>
@@ -316,6 +334,26 @@
         </if>
     </select>
 
+    <select id="getTeacherCourses" parameterType="Map" resultMap="courseMap">
+        select
+        <include refid="courseColumns" />
+        where course_teacher_id = #{userId}
+        <choose>
+            <when test="type == 'applying'">
+                and course_state = 2
+            </when>
+            <when test="type == 'rejected'">
+                and course_state = 3
+            </when>
+            <otherwise>
+                and course_state = 4
+            </otherwise>
+        </choose>
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
+    </select>
+
     <select id="getManageableCourses" parameterType="Map" resultMap="courseMap">
         select
         <include refid="courseColumns"/>
@@ -335,6 +373,26 @@
             </when>
             <otherwise>
                 and course_state = -1000
+            </otherwise>
+        </choose>
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
+    </select>
+
+    <select id="getAdminCourses" parameterType="Map" resultMap="courseMap">
+        select
+        <include refid="courseColumns" />
+        where 1 = 1
+        <choose>
+            <when test="type == 'pending'">
+                and course_state = 2
+            </when>
+            <when test="type == 'rebutted'">
+                and course_state = 3
+            </when>
+            <otherwise>
+                and course_state = 4
             </otherwise>
         </choose>
         <if test="start != null and length != null">

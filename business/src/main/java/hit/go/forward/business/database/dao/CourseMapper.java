@@ -41,6 +41,12 @@ public interface CourseMapper {
 
     List<Course> getCourses(Map<String, Object> paras);
 
+    List<Course> getStudentCourses(Map<String, Object> paras);
+
+    List<Course> getTeacherCourses(Map<String, Object> paras);
+
+    List<Course> getAdminCourses(Map<String, Object> paras);
+
     Course getCourseById(String id);
 
     List<CourseType> getAllCourseType();
@@ -54,4 +60,6 @@ public interface CourseMapper {
     List<CourseChapterDetail> getCourseChaptersDetail(Map<String, Object> param);
 
     List<CourseLessons> getManageableCourseLessons(Map<String, Object> paras);
+
+
 }

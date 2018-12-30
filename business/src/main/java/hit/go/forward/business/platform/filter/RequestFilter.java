@@ -32,10 +32,23 @@ public class RequestFilter implements Filter {
 
         String url = request.getRequestURI();
         logger.debug("请求资源 {}", url);
+        boolean useCookie = true;
 
         if (url.endsWith(".action")) {
-            Cookie[] cookies = request.getCookies();
             RequestWrapper requestWrapper = new RequestWrapper(request);
+            String token = request.getParameter("token");
+            if (token != null) {
+                useCookie = false;
+                requestWrapper.addParameter("token", token);
+                AuthorityVO vo = authority(token);
+                if (vo != null) {
+                    requestWrapper.addParameter("$userId", vo.getUserId());
+                    requestWrapper.addParameter("$userType", vo.getUserType());
+                }
+            }
+
+            Cookie[] cookies = request.getCookies();
+
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
                     logger.debug("收到 Cookie {}={}", cookie.getName(), cookie.getValue());
@@ -47,12 +60,14 @@ public class RequestFilter implements Filter {
                             requestWrapper.addParameter("$cookiePassword", cookie.getValue());
                             break;
                         case "token":
-                            String token = cookie.getValue();
-                            requestWrapper.addParameter("token", token);
-                            AuthorityVO vo = authority(token);
-                            if (vo != null) {
-                                requestWrapper.addParameter("$userId", vo.getUserId());
-                                requestWrapper.addParameter("$userType", vo.getUserType());
+                            if (useCookie) {
+                                token = cookie.getValue();
+                                requestWrapper.addParameter("token", token);
+                                AuthorityVO vo = authority(token);
+                                if (vo != null) {
+                                    requestWrapper.addParameter("$userId", vo.getUserId());
+                                    requestWrapper.addParameter("$userType", vo.getUserType());
+                                }
                             }
                             break;
                     }

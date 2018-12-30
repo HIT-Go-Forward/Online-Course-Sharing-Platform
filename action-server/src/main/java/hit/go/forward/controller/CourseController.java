@@ -86,26 +86,41 @@ public class CourseController {
 
     @RequestMapping("/getUserCourses")
     public String getUserCourses(String $userId, Integer $userType, String type, Integer start, Integer length) {
-        // TODO 分页
-        if ($userType == User.TYPE_ADMIN) {
-            Map<String, Object> paras = new HashMap<>();
-            paras.put("id", $userId);
-            paras.put("type", type);
-            paras.put("start", start);
-            paras.put("length", length);
-            return RequestResults.success(courseMapper.getManageableCourses(paras));
-        } else if ($userType == User.TYPE_TEACHER) {
-            if (type == null || type.equals("all")) return RequestResults.success(courseMapper.getAllTeacherCourses($userId));
-            else if (type.equals("applying")) return RequestResults.success(courseMapper.getAllApplyingCourses($userId));
-            else if (type.equals("rejected")) return RequestResults.success(courseMapper.getAllRejectedCourses($userId));
-            else if (type.equals("released")) return RequestResults.success(courseMapper.getAllReleasedCourses($userId));
-        } else {
-            if (type == null || type.equals("all")) return RequestResults.success(courseMapper.getAllStudentCourses($userId));
-            else if (type.equals("joined")) return RequestResults.success(courseMapper.getJoinedCourses($userId));
-            else if (type.equals("learning")) return RequestResults.success(courseMapper.getLearningCourses($userId));
-            else if (type.equals("learned")) return RequestResults.success(courseMapper.getLearnedCourses($userId));
+//        if ($userType == User.TYPE_ADMIN) {
+//            Map<String, Object> paras = new HashMap<>();
+//            paras.put("id", $userId);
+//            paras.put("type", type);
+//            paras.put("start", start);
+//            paras.put("length", length);
+//            return RequestResults.success(courseMapper.getManageableCourses(paras));
+//        } else if ($userType == User.TYPE_TEACHER) {
+//            if (type == null || type.equals("all")) return RequestResults.success(courseMapper.getAllTeacherCourses($userId));
+//            else if (type.equals("applying")) return RequestResults.success(courseMapper.getAllApplyingCourses($userId));
+//            else if (type.equals("rejected")) return RequestResults.success(courseMapper.getAllRejectedCourses($userId));
+//            else if (type.equals("released")) return RequestResults.success(courseMapper.getAllReleasedCourses($userId));
+//        } else {
+//            if (type == null || type.equals("all")) return RequestResults.success(courseMapper.getAllStudentCourses($userId));
+//            else if (type.equals("joined")) return RequestResults.success(courseMapper.getJoinedCourses($userId));
+//            else if (type.equals("learning")) return RequestResults.success(courseMapper.getLearningCourses($userId));
+//            else if (type.equals("learned")) return RequestResults.success(courseMapper.getLearnedCourses($userId));
+//        }
+
+        if (type == null) return RequestResults.wrongParameters("type=null");
+
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("userId", $userId);
+        paras.put("type", type);
+        paras.put("start", start);
+        paras.put("length", length);
+
+        if (type.equals("learning") || type.equals("learned")) {
+            return RequestResults.success(courseMapper.getStudentCourses(paras));
+        } else if ($userType <= User.TYPE_TEACHER && (type.equals("applying") || type.equals("rejected") || type.equals("released"))) {
+            return RequestResults.success(courseMapper.getTeacherCourses(paras));
+        } else if ($userType <= User.TYPE_ADMIN && (type.equals("pending") || type.equals("accepted") || type.equals("rebutted"))) {
+            return RequestResults.success(courseMapper.getAdminCourses(paras));
         }
-        return RequestResults.forbidden("错误的type参数!");
+        return RequestResults.forbidden("错误的type参数!:type=" + type);
     }
 
     @RequestMapping("/getCourseById")
@@ -163,6 +178,8 @@ public class CourseController {
     @RequestMapping("/getManageableCourseLessons")
     public String getManageableCourseLessons(Integer start, Integer length) {
         Map<String, Object> paras = new HashMap<>();
+        paras.put("start", start);
+        paras.put("length", length);
         return RequestResults.success(courseMapper.getManageableCourseLessons(paras));
     }
     /**
@@ -189,7 +206,8 @@ public class CourseController {
         Object title = paras.get("title");
         Object chapterNum = paras.get("chapterNum");
         Object courseId = paras.get("courseId");
-        if (num == null || title == null || chapterNum == null || courseId == null) return RequestResults.wrongParameters();
+        Object lessonId = paras.get("lessonId");
+        if (num == null || title == null || chapterNum == null || courseId == null || lessonId == null) return RequestResults.wrongParameters();
         paras.put("teacherId", $userId);
         Integer rows = lessonMapper.updateLesson(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
@@ -229,7 +247,7 @@ public class CourseController {
     public String getLessonById(String lessonId, Integer $userType) {
 
         if (lessonId == null) return RequestResults.wrongParameters();
-        else if ($userType == null || $userType <= User.TYPE_STUDENT) return RequestResults.success(lessonMapper.getLessonById(lessonId));
+        else if ($userType == null || $userType >= User.TYPE_STUDENT) return RequestResults.success(lessonMapper.getLessonById(lessonId));
         else {
             Map<String, String> paras = new HashMap<>();
             paras.put("lessonId", lessonId);
