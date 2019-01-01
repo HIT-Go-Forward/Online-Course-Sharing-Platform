@@ -38,12 +38,13 @@ public class RequestFilter implements Filter {
             RequestWrapper requestWrapper = new RequestWrapper(request);
             String token = request.getParameter("token");
             if (token != null) {
+                logger.debug("使用参数token {}", token);
                 useCookie = false;
-                requestWrapper.addParameter("token", token);
                 AuthorityVO vo = authority(token);
                 if (vo != null) {
                     requestWrapper.addParameter("$userId", vo.getUserId());
                     requestWrapper.addParameter("$userType", vo.getUserType());
+                    logger.debug("参数token验证成功 userId={}", vo.getUserId());
                 }
             }
 
@@ -61,12 +62,14 @@ public class RequestFilter implements Filter {
                             break;
                         case "token":
                             if (useCookie) {
+                                logger.debug("使用cookie token {}", token);
                                 token = cookie.getValue();
                                 requestWrapper.addParameter("token", token);
                                 AuthorityVO vo = authority(token);
                                 if (vo != null) {
                                     requestWrapper.addParameter("$userId", vo.getUserId());
                                     requestWrapper.addParameter("$userType", vo.getUserType());
+                                    logger.debug("cookie token 验证成功 userId={}", vo.getUserId());
                                 }
                             }
                             break;

@@ -1,6 +1,7 @@
 package hit.go.forward.platform.handler;
 
 import hit.go.forward.common.exception.RequestHandleException;
+import hit.go.forward.common.protocol.RequestResults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerExceptionResolver;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
  * Created by 班耀强 on 2018/10/23
@@ -28,6 +30,8 @@ public class CenterExceptionHandler implements HandlerExceptionResolver {
         if (e instanceof RequestHandleException) {
             RequestHandleException ex = (RequestHandleException) e;
             result = ex.result();
+        } else if (e instanceof org.springframework.dao.DuplicateKeyException) {
+            result = RequestResults.operationFailed("操作失败！该操作可能已被执行，请勿重复操作.");
         } else result = e.getMessage();
 
         try {

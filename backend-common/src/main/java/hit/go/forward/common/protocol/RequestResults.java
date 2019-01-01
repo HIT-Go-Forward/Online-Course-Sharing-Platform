@@ -89,4 +89,8 @@ public class RequestResults {
     public static String operationFailed() {
         return JSON.toJson(new RequestResult(400, "操作失败!"));
     }
+
+    public static String operationFailed(String data) {
+        return JSON.toJson(new RequestResult(400, data));
+    }
 }

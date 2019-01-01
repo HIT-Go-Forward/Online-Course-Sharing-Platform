@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="zabbix@39.106.156.178">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.11">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.14">
     <root id="1">
       <ServerVersion>5.7.21</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -990,7 +990,7 @@
     <column id="252" parent="235" name="apply_state">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
-      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+      <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="253" parent="235" name="apply_handler_time">
@@ -1080,7 +1080,7 @@
     <column id="269" parent="236" name="comment_state">
       <Position>9</Position>
       <DataType>int(11)|0s</DataType>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="270" parent="236" name="note">
@@ -1165,7 +1165,7 @@
       <Position>6</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;2&apos;</DefaultExpression>
+      <DefaultExpression>2</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="286" parent="237" name="course_state">
@@ -1182,19 +1182,19 @@
     <column id="288" parent="237" name="course_user_num">
       <Position>9</Position>
       <DataType>int(11)|0s</DataType>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="289" parent="237" name="course_lesson_num">
       <Position>10</Position>
       <DataType>int(11)|0s</DataType>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="290" parent="237" name="course_grade">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="291" parent="237" name="course_create_date">
@@ -1242,7 +1242,7 @@
       <Position>20</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+      <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="300" parent="237" name="lesson_chapter_title">
@@ -1514,7 +1514,7 @@
     <column id="350" parent="241" name="lesson_state">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
-      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+      <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="351" parent="241" name="lesson_intro">
@@ -1599,30 +1599,34 @@
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+      <DefaultExpression>2</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="367" parent="242" name="study_course_id">
+    <column id="367" parent="242" name="study_date">
       <Position>5</Position>
-      <DataType>int(10) unsigned|0s</DataType>
+      <DataType>timestamp|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="368" parent="242" name="lesson_study_user_user_id_fk">
-      <ColNames>study_user_id</ColNames>
+    <index id="368" parent="242" name="lesson_study_pk">
+      <ColNames>study_user_id
+study_lesson_id</ColNames>
+      <Unique>1</Unique>
       <Type>btree</Type>
     </index>
     <index id="369" parent="242" name="lesson_study_lesson_lesson_id_fk">
       <ColNames>study_lesson_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="370" parent="242" name="lesson_study_course_course_id_fk">
-      <ColNames>study_course_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="371" parent="242" name="PRIMARY">
+    <key id="370" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>study_id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="371" parent="242" name="lesson_study_pk">
+      <ColNames>study_user_id
+study_lesson_id</ColNames>
+      <UnderlyingIndexName>lesson_study_pk</UnderlyingIndexName>
     </key>
     <foreign-key id="372" parent="242" name="lesson_study_user_user_id_fk">
       <ColNames>study_user_id</ColNames>
@@ -1636,108 +1640,112 @@
       <RefTableName>lesson</RefTableName>
       <RefColNames>lesson_id</RefColNames>
     </foreign-key>
-    <foreign-key id="374" parent="242" name="lesson_study_course_course_id_fk">
-      <ColNames>study_course_id</ColNames>
-      <RefSchemaName>zabbix</RefSchemaName>
-      <RefTableName>course</RefTableName>
-      <RefColNames>course_id</RefColNames>
-    </foreign-key>
-    <column id="375" parent="243" name="school_id">
+    <column id="374" parent="243" name="school_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="243" name="school_name">
+    <column id="375" parent="243" name="school_name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="243" name="school_code">
+    <column id="376" parent="243" name="school_code">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="378" parent="243" name="school_depart">
+    <column id="377" parent="243" name="school_depart">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="379" parent="243" name="school_location">
+    <column id="378" parent="243" name="school_location">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="380" parent="243" name="school_level">
+    <column id="379" parent="243" name="school_level">
       <Position>6</Position>
       <DataType>varchar(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="381" parent="243" name="school_type">
+    <column id="380" parent="243" name="school_type">
       <Position>7</Position>
       <DataType>varchar(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="382" parent="243" name="PRIMARY">
+    <key id="381" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>school_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="383" parent="244" name="study_id">
+    <column id="382" parent="244" name="study_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="384" parent="244" name="study_user_id">
+    <column id="383" parent="244" name="study_user_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="385" parent="244" name="study_course_id">
+    <column id="384" parent="244" name="study_course_id">
       <Position>3</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="386" parent="244" name="study_date">
+    <column id="385" parent="244" name="study_date">
       <Position>4</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="387" parent="244" name="study_state">
+    <column id="386" parent="244" name="study_state">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
+      <DefaultExpression>2</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="388" parent="244" name="lesson_state">
+    <column id="387" parent="244" name="study_course_grade">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="389" parent="244" name="study_course_grade">
+    <column id="388" parent="244" name="study_progress">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="390" parent="244" name="study_progress">
-      <Position>8</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="391" parent="244" name="study_user_id">
+    <index id="389" parent="244" name="study_pk">
+      <ColNames>study_user_id
+study_course_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="390" parent="244" name="study_user_id">
       <ColNames>study_user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="392" parent="244" name="study_course_id">
+    <index id="391" parent="244" name="study_course_id">
       <ColNames>study_course_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="393" parent="244" name="PRIMARY">
+    <key id="392" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>study_id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="393" parent="244" name="study_pk">
+      <ColNames>study_user_id
+study_course_id</ColNames>
+      <UnderlyingIndexName>study_pk</UnderlyingIndexName>
     </key>
     <foreign-key id="394" parent="244" name="study_ibfk_1">
       <ColNames>study_user_id</ColNames>
@@ -1814,14 +1822,14 @@
     <column id="407" parent="245" name="user_img">
       <Position>12</Position>
       <DataType>int(10) unsigned|0s</DataType>
-      <DefaultExpression>&apos;2&apos;</DefaultExpression>
+      <DefaultExpression>2</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="408" parent="245" name="user_type">
       <Position>13</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;4&apos;</DefaultExpression>
+      <DefaultExpression>4</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="409" parent="245" name="user_create_date">
@@ -1941,7 +1949,7 @@
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="431" parent="247" name="validate_code_email_uindex">

@@ -46,6 +46,19 @@
         NOW())
     </insert>
 
+    <insert id="insertLessonLearn" parameterType="Map">
+        insert into lesson_study
+        (study_user_id, study_lesson_id)
+        values
+        (#{userId}, #{lessonId})
+    </insert>
+
+    <update id="updateCompleteLessonLearn" parameterType="Map">
+        update lesson_study
+        set study_state = 3
+        where study_user_id = #{userId} and study_lesson_id = #{lessonId}
+    </update>
+
     <update id="updateLesson" parameterType="Map">
         update lesson set
         lesson_num = #{num},

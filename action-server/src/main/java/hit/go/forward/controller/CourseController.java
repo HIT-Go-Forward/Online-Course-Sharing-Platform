@@ -1,5 +1,7 @@
 package hit.go.forward.controller;
 
+import hit.go.forward.common.entity.operation.OperationResult;
+import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.CourseMapper;
 import hit.go.forward.business.database.dao.LessonMapper;
@@ -182,6 +184,44 @@ public class CourseController {
         paras.put("length", length);
         return RequestResults.success(courseMapper.getManageableCourseLessons(paras));
     }
+
+    @RequestMapping("/hasJoined")
+    public String hasJoined(String courseId, String $userId) {
+        if (courseId == null) return RequestResults.wrongParameters("courseId");
+        else if ($userId == null) return RequestResults.success("用户未参加该课程!");
+
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("courseId", courseId);
+        paras.put("userId", $userId);
+        OperationResult result = courseMapper.getWhetherUserJoinedCourse(paras);
+        if (result == null) return RequestResults.success("用户未参加该课程!");
+        return RequestResults.success();
+    }
+
+    @RequestMapping("/joinCourse")
+    public String joinCourse(String courseId, String $userId) {
+        if (courseId == null) return RequestResults.wrongParameters("courseId");
+
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("courseId", courseId);
+        paras.put("userId", $userId);
+        Integer rows = courseMapper.insertStudy(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success();
+        throw new RequestHandleException("操作失败！用户可能开始学习该课程");
+    }
+
+    @RequestMapping("/completeCourseStudy")
+    public String completeCourse(String courseId, String $userId) {
+        if (courseId == null) return RequestResults.wrongParameters();
+
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("courseId", courseId);
+        paras.put("userId", $userId);
+        Integer rows = courseMapper.updateCompleteStudy(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success();
+        throw new RequestHandleException("操作失败！用户可能已完成该课程");
+    }
+
     /**
      * ============== Lesson 相关action ====================
      */
@@ -236,6 +276,32 @@ public class CourseController {
         Integer rows = lessonMapper.updateLessonFile(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
         throw new RequestHandleException(RequestResults.dataBaseWriteError());
+    }
+
+    @RequestMapping("/startLearnLesson")
+    public String startLearnLesson(String lessonId, String $userId) {
+        if (lessonId == null) return RequestResults.wrongParameters();
+
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("lessonId", lessonId);
+        paras.put("userId", $userId);
+
+        Integer rows = lessonMapper.insertLessonLearn(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success();
+        throw new RequestHandleException("操作失败！用户可能已开始学习该lesson");
+    }
+
+    @RequestMapping("/completeLessonLearn")
+    public String completeLessonLearn(String lessonId, String $userId) {
+        if (lessonId == null) return RequestResults.wrongParameters();
+
+        Map<String, Object> paras = new HashMap<>();
+        paras.put("lessonId", lessonId);
+        paras.put("userId", $userId);
+
+        Integer rows = lessonMapper.updateCompleteLessonLearn(paras);
+        if (rows != null && rows.equals(1)) return RequestResults.success();
+        throw new RequestHandleException("操作失败！用户可能已完成该lesson的学习");
     }
 
     @RequestMapping("/getCourseLessons")
