@@ -11,11 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="aa185bdc-43aa-4430-957b-c6e72affbf6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action-server/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-server/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/resource-server/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/backend-common/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,19 +45,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="zabbix: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="zabbix: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="lesson: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -110,11 +93,36 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/file">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="129" column="50" selection-start-line="129" selection-start-column="50" selection-end-line="129" selection-end-column="50" />
+              <folding>
+                <element signature="e#2286#2287#0" expanded="true" />
+                <element signature="e#2353#2354#0" expanded="true" />
+                <element signature="e#2535#2536#0" expanded="true" />
+                <element signature="e#2570#2571#0" expanded="true" />
+                <element signature="e#2666#2667#0" expanded="true" />
+                <element signature="e#2732#2733#0" expanded="true" />
+                <element signature="e#2952#2953#0" expanded="true" />
+                <element signature="e#3014#3015#0" expanded="true" />
+                <element signature="e#3501#3502#0" expanded="true" />
+                <element signature="e#3569#3570#0" expanded="true" />
+                <element signature="e#3612#3613#0" expanded="true" />
+                <element signature="e#3687#3688#0" expanded="true" />
+                <element signature="e#3532#3533#0" expanded="true" />
+                <element signature="e#3576#3577#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -142,15 +150,6 @@
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8493">
-              <caret line="447" column="24" selection-start-line="447" selection-start-column="24" selection-end-line="447" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -236,14 +235,14 @@
         <option value="$PROJECT_DIR$/action-server/src/main/resources/actions.conf" />
         <option value="$PROJECT_DIR$/business/src/main/resources/mapper/LessonMapper.xml" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/handler/CenterExceptionHandler.java" />
-        <option value="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java" />
         <option value="$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" />
         <option value="$PROJECT_DIR$/action-server/src/main/webapp/index.html" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java" />
         <option value="$PROJECT_DIR$/resource-server/src/main/webapp/index.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/console.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java" />
       </list>
     </option>
   </component>
@@ -283,11 +282,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="179" />
-    <option name="y" value="266" />
-    <option name="width" value="1554" />
-    <option name="height" value="817" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="729" />
+    <option name="width" value="1197" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -309,79 +307,47 @@
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rserver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rserver" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="rserver" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="protocol" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -395,8 +361,8 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546317219948" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546333775670" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -684,12 +650,12 @@
       <workItem from="1546053446673" duration="2795000" />
       <workItem from="1546074274299" duration="1248000" />
       <workItem from="1546083420819" duration="5179000" />
-      <workItem from="1546327585529" duration="3454000" />
+      <workItem from="1546327585529" duration="6167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72317000" />
+    <option name="totallyTimeSpent" value="75030000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -701,10 +667,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="191" y="322" width="1554" height="817" extended-state="0" />
-    <editor active="true" />
+    <frame x="729" y="0" width="1197" height="1047" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27309236" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13456464" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -713,16 +678,16 @@
       <window_info id="Image Layers" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21669106" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.30887187" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.16210295" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.21276596" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972324" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32879046" />
       <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="9" visible="true" weight="0.21229868" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2766252" />
+      <window_info anchor="bottom" id="Database Console" order="9" weight="0.21229868" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.27491784" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.26279864" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
@@ -735,10 +700,10 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.12203626" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.11111111" />
+      <window_info anchor="right" id="Database" order="6" weight="0.11111111" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Maven" order="9" weight="0.20710973" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.12362031" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -927,19 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="93" column="54" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
-          <folding>
-            <element signature="e#2286#2287#0" expanded="true" />
-            <element signature="e#2353#2354#0" expanded="true" />
-            <element signature="e#2403#2404#0" expanded="true" />
-            <element signature="e#2470#2471#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/handler/CenterExceptionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1068,6 +1020,29 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="129" column="50" selection-start-line="129" selection-start-column="50" selection-end-line="129" selection-end-column="50" />
+          <folding>
+            <element signature="e#2286#2287#0" expanded="true" />
+            <element signature="e#2353#2354#0" expanded="true" />
+            <element signature="e#2535#2536#0" expanded="true" />
+            <element signature="e#2570#2571#0" expanded="true" />
+            <element signature="e#2666#2667#0" expanded="true" />
+            <element signature="e#2732#2733#0" expanded="true" />
+            <element signature="e#2952#2953#0" expanded="true" />
+            <element signature="e#3014#3015#0" expanded="true" />
+            <element signature="e#3501#3502#0" expanded="true" />
+            <element signature="e#3569#3570#0" expanded="true" />
+            <element signature="e#3612#3613#0" expanded="true" />
+            <element signature="e#3687#3688#0" expanded="true" />
+            <element signature="e#3532#3533#0" expanded="true" />
+            <element signature="e#3576#3577#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
