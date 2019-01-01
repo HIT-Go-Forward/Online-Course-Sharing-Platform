@@ -77,12 +77,14 @@ public class CourseController {
     }
 
     @RequestMapping("/getCourseByType")
-    public String getCourseByType(String typeId, Integer start, Integer length) {
+    public String getCourseByType(String typeId, String $userId, Integer $userType, Integer start, Integer length) {
         if (typeId == null) return RequestResults.wrongParameters();
         Map<String, Object> paras = new HashMap<>();
         paras.put("start", start);
         paras.put("length", length);
         paras.put("typeId", typeId);
+        paras.put("userType", $userType);
+        paras.put("userId", $userId);
         return RequestResults.success(courseMapper.getCourseByType(paras));
     }
 

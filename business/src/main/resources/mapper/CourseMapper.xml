@@ -433,6 +433,20 @@
         join course_type
         where course.course_type_id = course_type.course_type_id and
         (course_type.course_type_id = #{typeId} or course_type.course_type_parent = #{typeId})
+        <choose>
+            <when test="userType == null || userType == 5 || userType == 4">
+                and course_state = 4
+            </when>
+            <when test="userType == 3">
+                and (course_state = 4 or course_teacher_id = #{userId})
+            </when>
+            <when test="userType == 2">
+                and 1 = 1
+            </when>
+            <otherwise>
+                and 1 = 0
+            </otherwise>
+        </choose>
         <if test="start != null and length != null">
             limit #{start}, #{length}
         </if>

@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>This is action server</title>
+    <style>
+        body, html {
+            width: 100%;
+        }
+        .action-test {
+            width: 100%;
+        }
+        .action-test table {
+            width: 100%;
+        }
+        .action-test table td:last-child {
+            padding-right: 80px;
+            width: available;
+        }
+        .action-test table td:last-child * {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
+<div class="action-test">
+    <table>
+        <tr>
+            <td>token:</td>
+            <td><input type="text" id="token"></td>
+        </tr>
+        <tr>
+            <td>action:</td>
+            <td><textarea name="" id="actionUrl" cols="30" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="get">get</button></td>
+        </tr>
+    </table>
+</div>
+
 <form action="/authority/register.action">
     <label>name:<input type="text" name="name"></label><br>
     <label>password:<input type="password" name="password"></label><br>
@@ -37,11 +72,15 @@
 
 <script>
     $(function () {
-        var $email = $("#email");
-        var $validateCode = $("#validateCode");
+        let $email = $("#email");
+        let $validateCode = $("#validateCode");
 
-        var $sendEmail = $("#sendEmail");
-        var $validate = $("#validate");
+        let $get = $("#get");
+        let $actionUrl = $("#actionUrl");
+        let $token = $("#token");
+
+        let $sendEmail = $("#sendEmail");
+        let $validate = $("#validate");
 
         $sendEmail.click(function () {
             $.getJSON("/authority/sendValidateCode.action", {email: $email.val()}, function (response) {
@@ -52,6 +91,14 @@
         $validate.click(function () {
             $.getJSON("/authority/validateCode.action", {email: $email.val(), code: $validateCode.val()}, function (response) {
                 alert(response.data);
+            })
+        });
+
+        $get.click(() => {
+            let actionUrl = $actionUrl.val();
+            actionUrl += (actionUrl.indexOf("?") !== -1 ? "&" : "?") + "token=" + $token.val();
+            $.getJSON(actionUrl, response => {
+                console.log(response);
             })
         });
 
