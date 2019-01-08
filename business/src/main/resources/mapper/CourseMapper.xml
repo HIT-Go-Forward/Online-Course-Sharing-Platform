@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="hit.go.forward.business.database.dao.CourseMapper">
+    <resultMap id="operationResultMap" type="hit.go.forward.common.entity.operation.OperationResult">
+        <id column="id" property="queryId" />
+    </resultMap>
+
     <resultMap id="studyCourseMap" type="hit.go.forward.common.entity.course.Study">
         <id column="study_id" property="id"/>
         <result column="study_date" property="date"/>
@@ -189,6 +193,18 @@
           NOW()
         )
     </insert>
+
+    <insert id="insertStudy" parameterType="java.util.Map">
+      insert into study
+      (study_user_id, study_course_id)
+      values
+      (#{userId}, #{courseId})
+    </insert>
+
+    <update id="updateCompleteStudy" parameterType="Map">
+        update study set study_state = 3
+        where study_user_id = #{userId} and study_course_id = #{courseId}
+    </update>
 
     <update id="updateCourse" parameterType="Map">
         update course set
@@ -417,6 +433,20 @@
         join course_type
         where course.course_type_id = course_type.course_type_id and
         (course_type.course_type_id = #{typeId} or course_type.course_type_parent = #{typeId})
+        <choose>
+            <when test="userType == null || userType == 5 || userType == 4">
+                and course_state = 4
+            </when>
+            <when test="userType == 3">
+                and (course_state = 4 or course_teacher_id = #{userId})
+            </when>
+            <when test="userType == 2">
+                and 1 = 1
+            </when>
+            <otherwise>
+                and 1 = 0
+            </otherwise>
+        </choose>
         <if test="start != null and length != null">
             limit #{start}, #{length}
         </if>
@@ -441,6 +471,10 @@
     <select id="getAllCourseType" resultType="courseType">
       select
       <include refid="courseTypeColumns"/>
+    </select>
+
+    <select id="getWhetherUserJoinedCourse" parameterType="Map" resultMap="operationResultMap">
+        select study_id as id from study where study_course_id = #{courseId} and study_user_id = #{userId}
     </select>
 
     <resultMap id="courseChapterMap" type="hit.go.forward.common.entity.course.CourseChapter">

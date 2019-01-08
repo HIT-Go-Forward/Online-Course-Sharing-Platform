@@ -28,4 +28,8 @@ public interface LessonMapper {
     Lesson getAdminLessonById(Map<String, String> paras);
 
     Integer updateLessonState(Map<String, Object> paras);
+
+    Integer insertLessonLearn(Map<String, Object> paras);
+
+    Integer updateCompleteLessonLearn(Map<String, Object> paras);
 }

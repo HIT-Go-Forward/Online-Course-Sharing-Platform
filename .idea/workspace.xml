@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="action-server:war exploded" />
+      <artifact name="resource-server:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
@@ -11,10 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="aa185bdc-43aa-4430-957b-c6e72affbf6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/CourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/CourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/platform/filter/RequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/platform/filter/RequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/backend-common/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,110 +46,101 @@
         <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="zabbix: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="zabbix@39.106.156.178" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="zabbix: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="user: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-396294986">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="6" />
-          <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.opened" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="cell" value="124" />
-          <entry key="conf" value="7" />
-          <entry key="html" value="19" />
-          <entry key="java" value="3208" />
-          <entry key="sql" value="82" />
-          <entry key="xml" value="1700" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="19" />
-          <entry key="JAVA" value="3208" />
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="SQL" value="34" />
-          <entry key="Scratch" value="200" />
-          <entry key="XML" value="1672" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="conf" value="1" />
-          <entry key="course" value="3" />
-          <entry key="file" value="2" />
-          <entry key="html" value="1" />
-          <entry key="java" value="27" />
-          <entry key="lesson" value="2" />
-          <entry key="sql" value="1" />
-          <entry key="user" value="1" />
-          <entry key="xml" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Database Element" value="8" />
-          <entry key="HTML" value="1" />
-          <entry key="JAVA" value="27" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Scratch" value="1" />
-          <entry key="XML" value="6" />
-        </counts>
-      </usages-collector>
-    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-131">
-              <caret line="94" column="25" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
+            <state relative-caret-position="94">
+              <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7060#7061#0" expanded="true" />
-                <element signature="e#7138#7139#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/CourseMapper.java">
+        <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="47" column="60" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
+            <state relative-caret-position="144">
+              <caret line="83" column="20" lean-forward="true" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/UserAuthorityFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resource-server/src/main/webapp/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/file">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml">
+        <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4685">
-              <caret line="125" column="39" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="39" />
+            <state relative-caret-position="408">
+              <caret line="129" column="50" selection-start-line="129" selection-start-column="50" selection-end-line="129" selection-end-column="50" />
+              <folding>
+                <element signature="e#2286#2287#0" expanded="true" />
+                <element signature="e#2353#2354#0" expanded="true" />
+                <element signature="e#2535#2536#0" expanded="true" />
+                <element signature="e#2570#2571#0" expanded="true" />
+                <element signature="e#2666#2667#0" expanded="true" />
+                <element signature="e#2732#2733#0" expanded="true" />
+                <element signature="e#2952#2953#0" expanded="true" />
+                <element signature="e#3014#3015#0" expanded="true" />
+                <element signature="e#3501#3502#0" expanded="true" />
+                <element signature="e#3569#3570#0" expanded="true" />
+                <element signature="e#3612#3613#0" expanded="true" />
+                <element signature="e#3687#3688#0" expanded="true" />
+                <element signature="e#3532#3533#0" expanded="true" />
+                <element signature="e#3576#3577#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -167,10 +155,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/main/resources/actions.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/study">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -194,6 +182,8 @@
       <find>403</find>
       <find>SessionAttr</find>
       <find>本地文件写入失败</find>
+      <find>courseColumns</find>
+      <find>parameterMap</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -202,8 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/controller/IMController.java" />
-        <option value="$PROJECT_DIR$/im-server/src/main/webapp/js/index.js" />
         <option value="$PROJECT_DIR$/im-server/pom.xml" />
         <option value="$PROJECT_DIR$/resource-server/pom.xml" />
         <option value="$PROJECT_DIR$/action-server/pom.xml" />
@@ -211,7 +199,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/business/src/test/java/hit/go/forward/test/RedisServiceImplTest.java" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/SystemStorage.java" />
-        <option value="$PROJECT_DIR$/action-server/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/im-server/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/business/src/main/resources/mapper/FileMapper.xml" />
         <option value="$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/platform/interceptor/AuthorityInterceptor.java" />
@@ -229,9 +216,7 @@
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CommentBarrageController.java" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/HistoryController.java" />
         <option value="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/RequestFilter.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/course/CourseChapterDetail.java" />
-        <option value="$PROJECT_DIR$/action-server/src/main/resources/actions.conf" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/RequestFilter.java" />
         <option value="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/platform/filter/UserAuthorityFilter.java" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/UserAuthorityFilter.java" />
@@ -239,34 +224,33 @@
         <option value="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/UserAuthorityFilter.java" />
         <option value="$PROJECT_DIR$/backend-common/pom.xml" />
         <option value="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/platform/RequestFilter.java" />
-        <option value="$PROJECT_DIR$/action-server/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" />
+        <option value="$PROJECT_DIR$/action-server/src/test/java/hit/go/forward/test/TestController.java" />
+        <option value="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/platform/filter/RequestFilter.java" />
+        <option value="$PROJECT_DIR$/action-server/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/operation/OperationResult.java" />
+        <option value="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/CourseMapper.java" />
+        <option value="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/LessonMapper.java" />
+        <option value="$PROJECT_DIR$/action-server/src/main/resources/actions.conf" />
+        <option value="$PROJECT_DIR$/business/src/main/resources/mapper/LessonMapper.xml" />
+        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/handler/CenterExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml" />
+        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" />
+        <option value="$PROJECT_DIR$/action-server/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java" />
         <option value="$PROJECT_DIR$/resource-server/src/main/webapp/index.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/console.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java" />
-        <option value="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/LessonMapper.java" />
-        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" />
-        <option value="$PROJECT_DIR$/business/src/main/resources/mapper/LessonMapper.xml" />
-        <option value="$PROJECT_DIR$/action-server/src/test/java/hit/go/forward/test/TestController.java" />
-        <option value="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/platform/filter/RequestFilter.java" />
-        <option value="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/CourseMapper.java" />
-        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java" />
-        <option value="$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -294,24 +278,14 @@
           <item name="backend-main" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="resource-server Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="resource-server Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
       </expand>
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="729" />
+    <option name="width" value="1197" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -321,6 +295,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -332,78 +307,25 @@
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forward" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forward" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="action-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -411,115 +333,26 @@
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forward" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forward" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forward" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forward" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forward" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="resource-server" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="protocol" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -528,7 +361,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546071666220" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546333775670" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
@@ -561,7 +394,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.ActionServer">
+  <component name="RunManager" selected="Tomcat Server.ResourceServer">
     <configuration name="ActionServer" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.30" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -578,11 +411,11 @@
         <option name="HTTP_PORT" value="10080" />
         <option name="JNDI_PORT" value="1100" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="55420" />
       </RunnerSettings>
@@ -652,11 +485,11 @@
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_backend-main" />
         <option name="HTTP_PORT" value="55555" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="55057" />
       </RunnerSettings>
@@ -726,11 +559,11 @@
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_backend-main_2" />
         <option name="HTTP_PORT" value="10082" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="55378" />
       </RunnerSettings>
@@ -817,17 +650,26 @@
       <workItem from="1546053446673" duration="2795000" />
       <workItem from="1546074274299" duration="1248000" />
       <workItem from="1546083420819" duration="5179000" />
+      <workItem from="1546327585529" duration="6167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58864000" />
+    <option name="totallyTimeSpent" value="75030000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="729" y="0" width="1197" height="1047" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11595174" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13456464" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -836,18 +678,18 @@
       <window_info id="Image Layers" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1574468" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.30887187" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.16210295" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.21276596" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32972324" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32879046" />
       <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Database Console" order="9" weight="0.3280757" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.14468086" />
+      <window_info anchor="bottom" id="Database Console" order="9" weight="0.21229868" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.27491784" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.2638298" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.26279864" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" show_stripe_button="false" />
@@ -858,51 +700,20 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.12203626" />
-      <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.16353887" />
+      <window_info anchor="right" id="Database" order="6" weight="0.11111111" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Maven" order="9" visible="true" weight="0.20798668" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.12362031" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/system/OnlineSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/platform/filter.java" />
-    <entry file="file://$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/controller/IMController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/platform/filter/ConnectionFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/artifacts/action_server_war_exploded.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/artifacts/action_server_war.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/platform/interceptor/AuthorityInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -997,13 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/handler/CenterExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/net/DualStackPlainSocketImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -1015,52 +819,10 @@
     <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/platform/filter/UserAuthorityFilter.java" />
     <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/RequestFilter.java" />
     <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/platform/filter/RequestFilter.java" />
-    <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/UserAuthorityFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/file">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="54" selection-start-column="54" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2299">
-          <caret line="141" column="26" selection-start-line="141" selection-start-column="26" selection-end-line="141" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resource-server/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1079,7 +841,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson">
+    <entry file="file://$PROJECT_DIR$/backend-common/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/UserAuthorityFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="57" column="59" selection-start-line="57" selection-start-column="59" selection-end-line="57" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/platform/filter/RequestFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="54" column="89" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/operation/OperationResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="46" selection-start-column="8" selection-end-column="46" />
+          <folding>
+            <element signature="e#140#141#0" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
+            <element signature="e#216#217#0" expanded="true" />
+            <element signature="e#254#255#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/CourseMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/handler/CenterExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson_study">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1088,36 +908,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/LessonMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1007">
-          <caret line="89" column="56" selection-start-line="89" selection-start-column="56" selection-end-line="89" selection-end-column="56" />
-          <folding>
-            <element signature="e#2286#2287#0" expanded="true" />
-            <element signature="e#2353#2354#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-common/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/platform/filter/RequestFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="570">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1128,31 +920,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/business/src/main/resources/mapper/LessonMapper.xml">
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/webapp/less.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/webapp/test.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-763">
-          <caret line="59" column="73" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="73" />
+        <state relative-caret-position="1900">
+          <caret line="100" column="38" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/action-server/src/main/resources/actions.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        <state relative-caret-position="532">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/UserAuthorityFilter.java">
+    <entry file="file://$PROJECT_DIR$/business/src/main/resources/mapper/LessonMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="57" column="59" selection-start-line="57" selection-start-column="59" selection-end-line="57" selection-end-column="59" />
+        <state relative-caret-position="988">
+          <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/CourseMapper.java">
+    <entry file="file://$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="47" column="60" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
+        <state relative-caret-position="8493">
+          <caret line="447" column="24" selection-start-line="447" selection-start-column="24" selection-end-line="447" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/study">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1165,20 +970,79 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-131">
-          <caret line="94" column="25" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
+        <state relative-caret-position="94">
+          <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7060#7061#0" expanded="true" />
-            <element signature="e#7138#7139#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/business/src/main/resources/mapper/CourseMapper.xml">
+    <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4685">
-          <caret line="125" column="39" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="39" />
+        <state relative-caret-position="144">
+          <caret line="83" column="20" lean-forward="true" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/UserAuthorityFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource-server/src/main/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/file">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/protocol/RequestResults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="129" column="50" selection-start-line="129" selection-start-column="50" selection-end-line="129" selection-end-column="50" />
+          <folding>
+            <element signature="e#2286#2287#0" expanded="true" />
+            <element signature="e#2353#2354#0" expanded="true" />
+            <element signature="e#2535#2536#0" expanded="true" />
+            <element signature="e#2570#2571#0" expanded="true" />
+            <element signature="e#2666#2667#0" expanded="true" />
+            <element signature="e#2732#2733#0" expanded="true" />
+            <element signature="e#2952#2953#0" expanded="true" />
+            <element signature="e#3014#3015#0" expanded="true" />
+            <element signature="e#3501#3502#0" expanded="true" />
+            <element signature="e#3569#3570#0" expanded="true" />
+            <element signature="e#3612#3613#0" expanded="true" />
+            <element signature="e#3687#3688#0" expanded="true" />
+            <element signature="e#3532#3533#0" expanded="true" />
+            <element signature="e#3576#3577#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

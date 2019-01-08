@@ -1,6 +1,7 @@
 package hit.go.forward.business.database.dao;
 
 import hit.go.forward.common.entity.course.*;
+import hit.go.forward.common.entity.operation.OperationResult;
 
 import java.util.List;
 import java.util.Map;
@@ -49,9 +50,15 @@ public interface CourseMapper {
 
     Course getCourseById(String id);
 
+    OperationResult getWhetherUserJoinedCourse(Map<String, Object> paras);
+
     List<CourseType> getAllCourseType();
 
     Integer updateCourseImg(Map<String, Object> paras);
+
+    Integer insertStudy(Map<String, Object> paras);
+
+    Integer updateCompleteStudy(Map<String, Object> paras);
 
     List<CourseChapter> getCourseChapters(String courseId);
 

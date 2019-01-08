@@ -36,6 +36,7 @@ public class ResourceUploadController {
     private static final String MEDIA_SERVER_RESOURCE_DIR = "resource"; // 资源服务器资源根目录
     private static final String COURSE_FILE_DIR = "other";  // 课程附件文件夹
     private static final String RESOURCE_FILE_NAME = "$$$resource_file$$$";
+    private static final String MEDIA_SERVER_DIR = "/HGF/media";
 
     private ServletContext context;
     private FileMapper fileMapper;
@@ -61,6 +62,7 @@ public class ResourceUploadController {
         }
         String fileName  = file.getOriginalFilename();
         String parent = context.getRealPath("/");
+
         String storePath, storeName;
         Integer fileType;
         switch (type) {
@@ -88,7 +90,8 @@ public class ResourceUploadController {
         }
         logger.debug("构建文件存储路径 {}", storePath);
         storeName = storePath + "/" + RESOURCE_FILE_NAME;
-        File fileDir = new File(parent, storePath);
+
+        File fileDir = new File(MEDIA_SERVER_DIR, storePath);
         fileDir.mkdirs();
         File[] files = fileDir.listFiles();
 

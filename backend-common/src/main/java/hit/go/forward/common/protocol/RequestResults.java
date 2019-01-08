@@ -70,14 +70,6 @@ public class RequestResults {
         return JSON.toJson(new RequestResult(403, data));
     }
 
-    public static String notFound() {
-        return notFound("Not Found");
-    }
-
-    public static String notFound(Object data) {
-        return JSON.toJson(new RequestResult(404, data));
-    }
-
     public static String badRequest() {
         return badRequest("Bad Request");
     }
@@ -89,4 +81,54 @@ public class RequestResults {
     public static String operationFailed() {
         return JSON.toJson(new RequestResult(400, "操作失败!"));
     }
+
+    public static String operationFailed(String data) {
+        return JSON.toJson(new RequestResult(400, data));
+    }
+
+    public static String completelySucceeded(String data) {
+        return JSON.toJson(new RequestResult(20000, data));
+    }
+
+    public static String completelySucceeded() {
+        return JSON.toJson(new RequestResult(20000, "success"));
+    }
+
+    public static String partSucceeded(int numSucceeded, int numFailed) {
+        return JSON.toJson(new RequestResult(20001, numSucceeded + " 执行成功，" + numFailed + " 执行失败，请核查"));
+    }
+
+    public static String queryNotExist(String detail) {
+        return JSON.toJson(new RequestResult(20002, detail));
+    }
+
+    public static String lacksNecessaryParam(String params) {
+        return JSON.toJson(new RequestResult(40000, "缺少必须参数：" + params));
+    }
+
+    public static String invalidParamValue(String detail) {
+        return JSON.toJson(new RequestResult(40001, "参数值错误：" + detail));
+    }
+
+    public static String requestCausedDBWritesError(String detail) {
+        return JSON.toJson(new RequestResult(40002, detail));
+    }
+
+    public static String accessDenied() {
+        return JSON.toJson(new RequestResult(40300, "禁止访问!"));
+    }
+
+    public static String operationDenied() {
+        return JSON.toJson(new RequestResult(40301, "该操作只可执行一次!"));
+    }
+
+    public static String notFound() {
+        return notFound("Not Found");
+    }
+
+    public static String notFound(Object data) {
+        return JSON.toJson(new RequestResult(40400, data));
+    }
+
+
 }
