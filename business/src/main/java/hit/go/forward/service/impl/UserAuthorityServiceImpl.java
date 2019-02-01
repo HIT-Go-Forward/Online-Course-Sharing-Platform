@@ -1,6 +1,5 @@
 package hit.go.forward.service.impl;
 
-import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import hit.go.forward.common.entity.jwt.AuthorityVO;
 import hit.go.forward.common.entity.user.User;
