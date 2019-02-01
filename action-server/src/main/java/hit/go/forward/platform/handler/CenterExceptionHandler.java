@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
-import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
  * Created by 班耀强 on 2018/10/23
@@ -31,7 +30,7 @@ public class CenterExceptionHandler implements HandlerExceptionResolver {
             RequestHandleException ex = (RequestHandleException) e;
             result = ex.result();
         } else if (e instanceof org.springframework.dao.DuplicateKeyException) {
-            result = RequestResults.operationFailed("操作失败！该操作可能已被执行，请勿重复操作.");
+            result = RequestResults.operationDenied("操作失败！该操作可能已被执行，请勿重复操作.");
         } else result = e.getMessage();
 
         try {

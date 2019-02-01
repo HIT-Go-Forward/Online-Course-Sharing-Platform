@@ -38,9 +38,9 @@ public class HistoryController {
             paras.put("date", now);
             Integer rows = historyMapper.addNewHistory(paras);
             if (rows != null && rows.equals(1)) return RequestResults.success();
-            throw new RequestHandleException(RequestResults.error());
+            throw new RequestHandleException(RequestResults.requestCausedDBWritesError());
         }
-        return RequestResults.wrongParameters();
+        return RequestResults.lackNecessaryParam("courseId");
     }
 
     @RequestMapping("/getCourseHistory")

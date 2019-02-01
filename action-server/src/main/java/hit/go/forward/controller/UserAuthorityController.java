@@ -50,12 +50,12 @@ public class UserAuthorityController {
         Object name = map.get("name");
         Object password = map.get("password");
         Object email = map.get("email");
-        if (code == null || name == null || password == null || email == null) return RequestResults.wrongParameters();
+        if (code == null || name == null || password == null || email == null) return RequestResults.lackNecessaryParam("code || name || password || email");
         String result = validate(code.toString(), email.toString());
         if (result.equals("success")) {
             Integer rows = userMapper.register(map);
-            if (rows == null) throw new RequestHandleException(RequestResults.dataBaseWriteError());
-            else if (rows.equals(0)) throw new RequestHandleException(RequestResults.forbidden("该邮箱已被注册"));
+            if (rows == null) throw new RequestHandleException(RequestResults.requestCausedDBWritesError());
+            else if (rows.equals(0)) throw new RequestHandleException(RequestResults.requestCausedDBWritesError("该邮箱已被注册"));
 
             UserWithToken user = new UserWithToken();
             user.setId(Integer.valueOf(map.get("user_id").toString()));
@@ -69,7 +69,7 @@ public class UserAuthorityController {
 
             return RequestResults.success(user);
         }
-        return RequestResults.forbidden(result);
+        return RequestResults.validateFailed(result);
     }
 
     @Transactional
@@ -102,7 +102,7 @@ public class UserAuthorityController {
             user.setSex(sex);
             return RequestResults.success(user);
         }
-        throw new RequestHandleException(RequestResults.error("保存失败!"));
+        throw new RequestHandleException(RequestResults.requestCausedDBWritesError());
     }
 
     @RequestMapping("/login")
@@ -113,7 +113,7 @@ public class UserAuthorityController {
                 user = userMapper.selectUserById(account);
             } else if (account.matches("^\\w+@.+$")) {
                 user = userMapper.selectUserByEmail(account);
-            } else return RequestResults.forbidden("请输入正确的账号！");
+            } else return RequestResults.invalidParamValue("请输入正确的账号！");
             if (user != null) {
                 if (user.getPassword().equals(password)) {
 //                    session.setAttribute(AttrKey.ATTR_USER, user);
@@ -123,10 +123,10 @@ public class UserAuthorityController {
                     ut.setToken(authorityService.generateToken(user));
                     return RequestResults.success(ut);
                 }
-                return RequestResults.forbidden("账号或密码错误！");
+                return RequestResults.validateFailed("账号或密码错误！");
             } return RequestResults.notFound("用户不存在！");
         }
-        return RequestResults.forbidden("请填写账号密码！");
+        return RequestResults.lackNecessaryParam("account || password");
     }
 
     @RequestMapping("/logout")
@@ -138,7 +138,7 @@ public class UserAuthorityController {
     @Transactional
     @RequestMapping("/updateUserImg")
     public String updateUserImg(String fileId, String $userId) {
-        if (fileId == null) return RequestResults.wrongParameters();
+        if (fileId == null) return RequestResults.lackNecessaryParam("fileId");
         Map<String, Object> paras = new HashMap<>();
         paras.put("id", $userId);
         paras.put("img", fileId);
@@ -147,31 +147,33 @@ public class UserAuthorityController {
             User user = userMapper.selectUserById($userId);
             return RequestResults.success(user);
         }
-        throw new RequestHandleException(RequestResults.dataBaseWriteError());
+        throw new RequestHandleException(RequestResults.requestCausedDBWritesError());
     }
 
     // TODO 验证码存储
     @Transactional
     @RequestMapping("/changePassword")
     public String changePassword(String oldPassword, String newPassword, String code, HttpSession session, String $userId) {
-        if (oldPassword == null || newPassword == null || code == null) return RequestResults.wrongParameters();
+        // TODO 修改密码后让之前的token失效
+        
+        if (oldPassword == null || newPassword == null || code == null) return RequestResults.lackNecessaryParam("oldPassword || newPassword || code");
 
         UserWithPassword user = userMapper.selectUserById($userId);
-        if (!user.getPassword().equals(oldPassword)) return RequestResults.forbidden("原密码错误");
+        if (!user.getPassword().equals(oldPassword)) return RequestResults.validateFailed("原密码错误");
 
         String result = validate(code, user.getEmail());
-        if (!result.equals("success")) return RequestResults.forbidden(result);
+        if (!result.equals("success")) return RequestResults.validateFailed(result);
 
         Map<String, String> paras = new HashMap<>();
         paras.put("id", user.getId().toString());
         paras.put("password", newPassword);
         Integer rows = userMapper.changePassword(paras);
-        if (rows == null || rows.equals(0)) return RequestResults.dataBaseWriteError();
+        if (rows == null || rows.equals(0)) return RequestResults.requestCausedDBWritesError();
         else if (rows.equals(1)) {
             session.removeAttribute(AttrKey.ATTR_USER);
             return RequestResults.success();
         }
-        throw new RequestHandleException(RequestResults.error());
+        throw new RequestHandleException(RequestResults.requestCausedDBWritesError());
     }
 
     @RequestMapping("/getUserInfo")
@@ -184,12 +186,12 @@ public class UserAuthorityController {
 
     @RequestMapping("/sendValidateCode")
     public String sendValidateCode(String email) {
-        if (email == null) return RequestResults.wrongParameters();
+        if (email == null) return RequestResults.lackNecessaryParam("email");
         Date now = new Date();
         ValidateCode code = SystemStorage.getValidateCode(email);
 
         if (code != null && now.getTime() - code.getDate().getTime() < SystemVariable.TIME_MS_1_MINUTE)
-            return RequestResults.forbidden("请于一分钟之后再试");
+            return RequestResults.operationDenied("请于一分钟之后再试");
 
         String c = Validate.genValidateCode();
         code = new ValidateCode(email, c);
@@ -199,18 +201,18 @@ public class UserAuthorityController {
             return RequestResults.success();
         }
 
-        return RequestResults.error("邮件发送失败, 请稍后再试~");
+        return RequestResults.serverError();
     }
 
     @RequestMapping("/sendValidateCodeToCurrentUser")
     public String sendValidateCodeToCurrentUser(String $userId) {
         String email = userMapper.selectEmailById($userId);
-        if (email == null) return RequestResults.wrongParameters();
+        if (email == null) return RequestResults.lackNecessaryParam("email");
         Date now = new Date();
         ValidateCode code = SystemStorage.getValidateCode(email);
 
         if (code != null && now.getTime() - code.getDate().getTime() < SystemVariable.TIME_MS_1_MINUTE)
-            return RequestResults.forbidden("请于一分钟之后再试");
+            return RequestResults.operationDenied("请于一分钟之后再试");
 
         String c = Validate.genValidateCode();
 
@@ -221,27 +223,27 @@ public class UserAuthorityController {
             return RequestResults.success();
         }
 
-        return RequestResults.error("邮件发送失败, 请稍后再试~");
+        return RequestResults.serverError();
     }
 
     @RequestMapping("/validateCode")
     public String validateCode(String email, String code) {
-        if (email == null || code == null) return RequestResults.wrongParameters();
+        if (email == null || code == null) return RequestResults.lackNecessaryParam("email || code");
 
         String result = validate(code, email);
         if (result.equals("success")) return RequestResults.success();
-        return RequestResults.forbidden(result);
+        return RequestResults.validateFailed(result);
     }
 
     @RequestMapping("/uniqueEmail")
     public String uniqueEmail(String email) {
         if (email != null) {
             Integer id = userMapper.selectIdByEmail(email);
-            if (id != null) return RequestResults.forbidden("该邮箱已被注册!");
-            return RequestResults.success("邮箱未被注册, 可以使用!");
+            if (id != null) return RequestResults.queryExisted("该邮箱已被注册!");
+            return RequestResults.queryNotExist("邮箱未被注册, 可以使用!");
         }
 
-        return RequestResults.badRequest("email不能为空");
+        return RequestResults.lackNecessaryParam("email");
     }
 
 

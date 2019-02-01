@@ -36,7 +36,7 @@ public class CommentBarrageController {
         logger.debug(comment.getContent());
         logger.debug("CourseId: {}", comment.getCourseId());
         logger.debug("type: {}", comment.getType());
-        if (!CommentUtil.isInsertValid(comment)) return RequestResults.wrongParameters();
+        if (!CommentUtil.isInsertValid(comment)) return RequestResults.lackNecessaryParam("缺少必须参数");
         comment.setUserId(Integer.valueOf($userId));
         Integer rows = commentMapper.insertComment(comment);
         if (rows != null && rows.equals(1)) return RequestResults.success();
@@ -46,24 +46,24 @@ public class CommentBarrageController {
     @RequestMapping("/getComment")
     public String getComment(String type, String courseId, String lessonId, Integer start, Integer length) {
         Map<String, Object> paras;
-        if (type == null) return RequestResults.wrongParameters("type");
+        if (type == null) return RequestResults.lackNecessaryParam("type");
         switch (type) {
             case "course":
-                if (courseId == null) return RequestResults.wrongParameters("courseId");
+                if (courseId == null) return RequestResults.lackNecessaryParam("courseId");
                 paras = new HashMap<>();
                 paras.put("courseId", courseId);
                 paras.put("start", start);
                 paras.put("length", length);
                 return RequestResults.success(commentMapper.selectCommentByCourseId(paras));
             case "lesson":
-                if (lessonId == null) return RequestResults.wrongParameters("lessonId");
+                if (lessonId == null) return RequestResults.lackNecessaryParam("lessonId");
                 paras = new HashMap<>();
                 paras.put("lessonId", courseId);
                 paras.put("start", start);
                 paras.put("length", length);
                 return RequestResults.success(commentMapper.selectCommentByCourseId(paras));
                 default:
-                    return RequestResults.wrongParameters("type");
+                    return RequestResults.invalidParamValue("type");
         }
     }
 }

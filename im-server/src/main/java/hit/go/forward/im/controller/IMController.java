@@ -22,9 +22,9 @@ public class IMController {
                 return RequestResults.success();
             } catch (Exception e) {
                 e.printStackTrace();
-                return RequestResults.error("消息发送失败");
+                return RequestResults.serverError();
             }
         }
-        return RequestResults.error();
+        return RequestResults.serverError();
     }
 }

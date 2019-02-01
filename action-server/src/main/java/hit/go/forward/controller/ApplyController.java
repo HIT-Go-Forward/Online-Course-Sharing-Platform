@@ -38,14 +38,14 @@ public class ApplyController {
 
         Integer result = applyMapper.applyToBeTeacher(paras);
         if (result != null && result.equals(1)) return RequestResults.success(paras.get("apply_id"));
-        else if (result != null && result.equals(0)) return RequestResults.forbidden("您有待处理的申请，请耐心等待管理员处理后再申请！");
-        return RequestResults.error();
+        else if (result != null && result.equals(0)) return RequestResults.operationDenied("您有待处理的申请，请耐心等待管理员处理后再申请！");
+        return RequestResults.serverConfigError();
     }
 
     @Transactional
     @RequestMapping("/acceptTeacherApply")
     public String acceptTeacherApply(String $userId, String applyId, String note) {
-        if (applyId == null) return RequestResults.wrongParameters();
+        if (applyId == null) return RequestResults.lackNecessaryParam("applyId");
         Date now = new Date();
         Map<String, Object> paras = new HashMap<>();
         paras.put("applyId", applyId);
@@ -55,14 +55,14 @@ public class ApplyController {
 
         Integer result = applyMapper.acceptApply(paras);
         if (result != null && result.equals(2)) return RequestResults.success();
-        else if (result != null && result.equals(0)) return RequestResults.forbidden("该申请已被处理!");
+        else if (result != null && result.equals(0)) return RequestResults.operationDenied("该申请已被处理!");
         throw new RequestHandleException("处理失败！");
     }
 
     @Transactional
     @RequestMapping("/rejectTeacherApply")
     public String rejectTeacherApply(String $userId, String applyId, String note) {
-        if (applyId == null) return RequestResults.wrongParameters();
+        if (applyId == null) return RequestResults.lackNecessaryParam("applyId");
         Date now = new Date();
         Map<String, Object> paras = new HashMap<>();
         paras.put("applyId", applyId);
@@ -72,7 +72,7 @@ public class ApplyController {
 
         Integer result = applyMapper.rejectApply(paras);
         if (result != null && result.equals(1)) return RequestResults.success();
-        else if (result != null && result.equals(0)) return RequestResults.forbidden("该申请已被处理!");
+        else if (result != null && result.equals(0)) return RequestResults.operationDenied("该申请已被处理!");
         throw new RequestHandleException("处理失败！");
     }
 
@@ -85,7 +85,7 @@ public class ApplyController {
         if (type == null || type.equals("all")) result = applyMapper.getAllApplies(paras);
         else if (type.equals("unhandled")) result = applyMapper.getAllUnhandledApplies(paras);
         else if (type.equals("handled")) result = applyMapper.getAllHandledApplies(paras);
-        else return RequestResults.forbidden("错误的type参数!");
+        else return RequestResults.invalidParamValue("type");
         return RequestResults.success(result);
     }
 }

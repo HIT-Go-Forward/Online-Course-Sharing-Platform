@@ -55,13 +55,12 @@ public class ResourceUploadController {
     @Transactional
     @RequestMapping("/uploadResource")
     public String uploadResource(MultipartFile file, String $userId, String courseId, String lessonId, String type) {
-        if (file == null || type == null)  return RequestResults.wrongParameters("file || type");
+        if (file == null || type == null)  return RequestResults.lackNecessaryParam("file || type");
         if ($userId== null) {
             logger.error("未能获取到userId参数");
-            return RequestResults.error();
+            return RequestResults.serverError();
         }
         String fileName  = file.getOriginalFilename();
-        String parent = context.getRealPath("/");
 
         String storePath, storeName;
         Integer fileType;
@@ -71,22 +70,22 @@ public class ResourceUploadController {
                 fileType = Resource.TYPE_IMG;
                 break;
             case TYPE_COURSE_IMG:
-                if (courseId ==  null) return RequestResults.wrongParameters("courseId");
+                if (courseId ==  null) return RequestResults.lackNecessaryParam("courseId");
                 storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, $userId, courseId);
                 fileType = Resource.TYPE_IMG;
                 break;
             case TYPE_LESSON_VIDEO:
-                if (courseId ==  null || lessonId == null) return RequestResults.wrongParameters("courseId  || lessonId");
+                if (courseId ==  null || lessonId == null) return RequestResults.lackNecessaryParam("courseId  || lessonId");
                 storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, $userId, courseId, lessonId);
                 fileType = Resource.TYPE_VIDEO;
                 break;
             case TYPE_LESSON_FILE:
-                if (courseId ==  null || lessonId == null) return RequestResults.wrongParameters("courseId  || lessonId");
+                if (courseId ==  null || lessonId == null) return RequestResults.lackNecessaryParam("courseId  || lessonId");
                 storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, $userId, courseId, lessonId, COURSE_FILE_DIR);
                 fileType = Resource.TYPE_OTHER;
                 break;
                 default:
-                return RequestResults.wrongParameters("type");
+                return RequestResults.invalidParamValue("type=" + type);
         }
         logger.debug("构建文件存储路径 {}", storePath);
         storeName = storePath + "/" + RESOURCE_FILE_NAME;
@@ -160,7 +159,7 @@ public class ResourceUploadController {
     @RequestMapping("/delete")
     public String delete() {
 
-        return RequestResults.error();
+        return RequestResults.serverError();
     }
 
     private String buildPath(String ...paths) {

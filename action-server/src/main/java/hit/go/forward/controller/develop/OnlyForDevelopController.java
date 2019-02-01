@@ -4,9 +4,6 @@ import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.ActionMapper;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
-import hit.go.forward.common.exception.InvalidParametersException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +19,6 @@ import java.util.Map;
 @ResponseBody
 @RequestMapping("/develop")
 public class OnlyForDevelopController {
-    private static final Logger logger = LoggerFactory.getLogger(OnlyForDevelopController.class);
 
     private ActionMapper actionMapper;
 
@@ -46,10 +42,5 @@ public class OnlyForDevelopController {
     @RequestMapping("/testSession")
     public String testSession(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
         return RequestResults.success(user);
-    }
-
-    @RequestMapping("/testException")
-    public String testException() {
-        throw new InvalidParametersException();
     }
 }

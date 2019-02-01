@@ -1,20 +1,12 @@
 package hit.go.forward.platform.filter;
 
-import hit.go.forward.common.entity.jwt.AuthorityVO;
-import hit.go.forward.common.entity.user.UserWithPassword;
-import hit.go.forward.common.protocol.RequestWrapper;
-import hit.go.forward.platform.AttrKey;
 import hit.go.forward.platform.SystemStorage;
-import hit.go.forward.platform.SystemVariable;
-import hit.go.forward.service.UserAuthorityService;
-import hit.go.forward.service.impl.UserAuthorityServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -23,8 +15,6 @@ import java.io.IOException;
 public class UserAuthorityFilter implements Filter {
     private static final String HAVE_NO_RIGHT = "您没有操作权限！";
     private static final Logger logger = LoggerFactory.getLogger(UserAuthorityFilter.class);
-
-    private UserAuthorityService authorityService = new UserAuthorityServiceImpl();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

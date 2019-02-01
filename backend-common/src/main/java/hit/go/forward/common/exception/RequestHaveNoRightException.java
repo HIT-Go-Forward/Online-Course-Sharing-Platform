@@ -8,6 +8,6 @@ import hit.go.forward.common.protocol.RequestResults;
  */
 public class RequestHaveNoRightException extends RequestHandleException {
     public RequestHaveNoRightException() {
-        super(RequestResults.haveNoRight());
+        super(RequestResults.accessDenied());
     }
 }

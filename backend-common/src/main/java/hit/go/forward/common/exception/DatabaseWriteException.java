@@ -8,6 +8,6 @@ import hit.go.forward.common.protocol.RequestResults;
  */
 public class DatabaseWriteException extends RequestHandleException {
     public DatabaseWriteException() {
-        super(RequestResults.dataBaseWriteError());
+        super(RequestResults.requestCausedDBWritesError());
     }
 }

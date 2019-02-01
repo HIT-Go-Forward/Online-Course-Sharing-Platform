@@ -1,12 +1,9 @@
 package hit.go.forward.service.impl;
 
 import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import hit.go.forward.common.entity.jwt.AuthorityVO;
 import hit.go.forward.common.entity.user.User;
-import hit.go.forward.service.RedisService;
 import hit.go.forward.service.UserAuthorityService;
 import hit.go.forward.util.JWTUtil;
 import org.slf4j.Logger;

@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ErrorController {
     @RequestMapping("/haveNoRight")
     public String haveNoRight() {
-        return RequestResults.haveNoRight();
+        return RequestResults.accessDenied();
     }
 
     @RequestMapping("/needLogin")
     public String needLogin() {
-        return RequestResults.needLogin();
+        return RequestResults.accessDenied();
     }
 }
