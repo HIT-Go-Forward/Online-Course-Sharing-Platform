@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class Validate {
     private static final Random random = new Random();
-    private static final String codes = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final String codes = "0123456789";
 
     public static String genValidateCode() {
         int c;
