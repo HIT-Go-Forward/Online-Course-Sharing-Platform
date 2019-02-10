@@ -150,7 +150,6 @@ public class UserAuthorityController {
         throw new RequestHandleException(RequestResults.requestCausedDBWritesError());
     }
 
-    // TODO 验证码存储
     @Transactional
     @RequestMapping("/changePassword")
     public String changePassword(String oldPassword, String newPassword, String code, HttpSession session, String $userId) {
