@@ -1,16 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="hit.go.forward.business.database.dao.BlogMapper">
-    <resultMap id="blogMap">
-        <id column="blog_id" property="id">
-        <result column="blog_title" property="title">
-        <result column="blog_text" property="blog">
-        <result column="blog_status" property="status">
-        <result column="blog_type" property="type">
-        <result column="blog_upload_date" property="uploadDate">
-        <result column="blog_update_date" property="updateDate">
-        <association property="applyUser" javaType="User">
-            
+    <resultMap id="blogMap" type="Blog">
+        <id column="blog_id" property="id" />
+        <result column="blog_title" property="title" />
+        <result column="blog_text" property="blog" />
+        <result column="blog_status" property="status" />
+        <result column="blog_type" property="type" />
+        <result column="blog_upload_date" property="uploadDate" />
+        <result column="blog_update_date" property="updateDate" />
+        <result column="blog_label" property="label" />
+        <association property="user" javaType="User">
+            <id column="user_id" jdbcType="INTEGER" property="id" />
+            <result column="user_name" jdbcType="VARCHAR" property="name" />
+            <result column="user_type" jdbcType="INTEGER" property="type" />
+            <result column="user_sex" jdbcType="VARCHAR" property="sex" />
+            <result column="birthday" jdbcType="DATE" property="birthday" />
+            <result column="user_email" jdbcType="VARCHAR" property="email" />
+            <result column="user_education" jdbcType="VARCHAR" property="education" />
+            <result column="user_intro" jdbcType="VARCHAR" property="intro" />
+            <result column="note" jdbcType="VARCHAR" property="note" />
+            <result column="user_phone" jdbcType="VARCHAR" property="phone" />
+            <result column="img" jdbcType="VARCHAR" property="img" />
+            <association property="school" javaType="School">
+                <id column="school_id" property="id"/>
+                <result column="school_name" property="name" />
+                <result column="school_code" property="code" />
+                <result column="school_depart" property="depart" />
+                <result column="school_location" property="location" />
+                <result column="school_level" property="level" />
+                <result column="school_type" property="type" />
+            </association>
         </association>
     </resultMap>
+
+    <resultMap id="blogSummaryMap" type="BlogSummary">
+        <id column="blog_id" property="id" />
+        <result column="blog_title" property="title" />
+        <result column="user_name" property="userName" />
+        <result column="user_id" property="userId" />
+        <result column="blog_label" property="label" />
+    </resultMap>
+
+    <sql id="blogColumns">
+        blog.*, user.*, school.* from 
+        blog left join user on blog.blog_user_id = user.user_id
+        left join school on school.school_id = user.user_school
+    </sql>
+
+    <insert id="insertBlog" parameterType="Blog" useGeneratedKeys="true" keyProperty="id">
+        insert into blog
+        (blog_title, blog_user_id, blog_text, blog_type, blog_upload_date, blog_update_date)
+        values 
+        (#{title}, #{userId}, #{blog}, #{type}, NOW(), NOW())
+    </insert>
+
+    <update id="updateBlog" parameterType="Blog">
+        update blog set
+        blog_title = #{title},
+        blog_text = #{blog},
+        blog_type = #{type},
+        where blog_id = #{id} and blog_user_id = #{userId}
+    </update>
+
+    <delete id="deleteBlogbyId" parameterType="String">
+        delete from blog where blog_id = #{id} and blog_user_id = #{userId}
+    </delete>
+
+    <select id="selectBlogById" parameterType="String" resultMap="blogMap">
+        select 
+        <include refid="blogColumns" />
+        where blog.blog_id = #{id} and (blog_status = 2 or blog_user_id = #{userId})
+    </select>
+
+    <select id="selectBlogListByType" parameterType="BlogQuery" resultMap="blogSummaryMap">
+        select blog.blog_title, blog.blog_label, blog.blog_id, user.user_name, user.user_id
+        from blog, user 
+        where blog.blog_user_id = user.user_id and blog.blog_type = #{typeId}
+        and (blog_status = 2 or blog_user_id = #{userId})
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
+    </select>
 </mapper>

@@ -160,6 +160,10 @@ public class RequestResults {
         return JSON.toJson(new RequestResult(50000, "Internal Server Error"));
     }
 
+    public static String serverError(String message) {
+        return JSON.toJson(new RequestResult(50000, message));
+    }
+
     public static String fileWritesError() {
         return JSON.toJson(new RequestResult(50001, "文件写入失败！"));
     }

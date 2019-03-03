@@ -11,10 +11,10 @@ public class Blog {
     private String blog;
     private Integer status;
     private Integer type;
-    private Date upoloadDate;
+    private Date uploadDate;
     private Date updateDate;
-
-    
+    private String userId;
+    private String label;
 
     /**
      * @return Integer return the id
@@ -103,15 +103,15 @@ public class Blog {
     /**
      * @return Date return the upoloadDate
      */
-    public Date getUpoloadDate() {
-        return upoloadDate;
+    public Date getUploadDate() {
+        return uploadDate;
     }
 
     /**
      * @param upoloadDate the upoloadDate to set
      */
-    public void setUpoloadDate(Date upoloadDate) {
-        this.upoloadDate = upoloadDate;
+    public void setUploadDate(Date upoloadDate) {
+        this.uploadDate = upoloadDate;
     }
 
     /**
@@ -127,4 +127,33 @@ public class Blog {
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
+
+    /**
+     * @return String return the label
+     */
+    public String getLabel() {
+        return label;
+    }
+
+    /**
+     * @param label the label to set
+     */
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    /**
+     * @return String return the userId
+     */
+    public String getUserId() {
+        return userId;
+    }
+
+    /**
+     * @param userId the userId to set
+     */
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
 }
