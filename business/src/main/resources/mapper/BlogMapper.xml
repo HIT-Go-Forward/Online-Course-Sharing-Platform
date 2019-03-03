@@ -10,6 +10,9 @@
         <result column="blog_upload_date" property="uploadDate" />
         <result column="blog_update_date" property="updateDate" />
         <result column="blog_label" property="label" />
+        <result column="blog_visit_count" property="visitCount" />
+        <result column="blog_like_count" property="likeCount" />
+        <result column="blog_dislike_count" property="dislikeCount" />
         <association property="user" javaType="User">
             <id column="user_id" jdbcType="INTEGER" property="id" />
             <result column="user_name" jdbcType="VARCHAR" property="name" />
@@ -63,11 +66,11 @@
         where blog_id = #{id} and blog_user_id = #{userId}
     </update>
 
-    <delete id="deleteBlogbyId" parameterType="String">
+    <delete id="deleteBlogbyId" parameterType="BlogQuery">
         delete from blog where blog_id = #{id} and blog_user_id = #{userId}
     </delete>
 
-    <select id="selectBlogById" parameterType="String" resultMap="blogMap">
+    <select id="selectBlogById" parameterType="BlogQuery" resultMap="blogMap">
         select 
         <include refid="blogColumns" />
         where blog.blog_id = #{id} and (blog_status = 2 or blog_user_id = #{userId})

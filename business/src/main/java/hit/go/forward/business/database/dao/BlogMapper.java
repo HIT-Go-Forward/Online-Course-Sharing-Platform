@@ -11,9 +11,14 @@ public interface BlogMapper {
     
     Integer updateBlog(Blog blog);
 
-    Integer deleteblogById(Blog blog);
+    Integer deleteblogById(BlogQuery blogQuery);
+
+    Integer handleBlogApplies(BlogQuery blogQuery);
 
     Blog selectBlogById(BlogQuery blogQuery);
 
     List<BlogSummary> selectBlogListByType(BlogQuery blogQuery);
+
+    List<BlogSummary> selectBlogListByState(BlogQuery blogQuery);
+
 }

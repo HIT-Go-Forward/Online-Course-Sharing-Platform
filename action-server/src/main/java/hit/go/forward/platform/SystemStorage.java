@@ -1,5 +1,6 @@
 package hit.go.forward.platform;
 
+import hit.go.forward.common.entity.blog.Blog;
 import hit.go.forward.common.entity.validate.ValidateCode;
 
 import java.io.BufferedReader;
@@ -14,7 +15,8 @@ import java.util.Map;
 public class SystemStorage {
     private static Map<String, Integer> actionPower = new HashMap<>();
     private static final Map<String, ValidateCode> vdMap = new HashMap<>();
-
+    private static final Map<Integer, Blog> blogCache = new HashMap<>();
+    
     static {
         InputStream in = SystemStorage.class.getClassLoader().getResourceAsStream("actions.conf");
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
@@ -45,5 +47,14 @@ public class SystemStorage {
 
     public static ValidateCode getValidateCode(String email) {
         return vdMap.get(email);
+    }
+
+    public static Blog getBlogCache(Integer id) {
+        return blogCache.get(id);
+    }
+
+    public static void cacheBlog(Blog blog) {
+        if (blog.getId() == null) return;
+        blogCache.put(blog.getId(), blog);
     }
 }

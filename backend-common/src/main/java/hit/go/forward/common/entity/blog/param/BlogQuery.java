@@ -6,6 +6,8 @@ public class BlogQuery {
     private Integer length;
     private Integer id;
     private String userId;
+    private Integer[] blogIds;
+    private String operation;
 
     /**
      * @return Integer return the typeId
@@ -75,6 +77,35 @@ public class BlogQuery {
      */
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+
+    /**
+     * @return Integer[] return the blogIds
+     */
+    public Integer[] getBlogIds() {
+        return blogIds;
+    }
+
+    /**
+     * @param blogIds the blogIds to set
+     */
+    public void setBlogIds(Integer[] blogIds) {
+        this.blogIds = blogIds;
+    }
+
+    /**
+     * @return String return the operation
+     */
+    public String getOperation() {
+        return operation;
+    }
+
+    /**
+     * @param operation the operation to set
+     */
+    public void setOperation(String operation) {
+        this.operation = operation;
     }
 
 }

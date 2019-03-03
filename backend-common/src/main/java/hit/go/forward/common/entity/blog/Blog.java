@@ -15,6 +15,9 @@ public class Blog {
     private Date updateDate;
     private String userId;
     private String label;
+    private Integer visitCount;
+    private Integer likeCount;
+    private Integer dislikeCount;
 
     /**
      * @return Integer return the id
@@ -154,6 +157,49 @@ public class Blog {
      */
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+
+    /**
+     * @return Integer return the visitCount
+     */
+    public Integer getVisitCount() {
+        return visitCount;
+    }
+
+    /**
+     * @param visitCount the visitCount to set
+     */
+    public void setVisitCount(Integer visitCount) {
+        this.visitCount = visitCount;
+    }
+
+    /**
+     * @return Integer return the likeCount
+     */
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    /**
+     * @param likeCount the likeCount to set
+     */
+    public void setLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    /**
+     * @return Integer return the dislikeCount
+     */
+    public Integer getDislikeCount() {
+        return dislikeCount;
+    }
+
+    /**
+     * @param dislikeCount the dislikeCount to set
+     */
+    public void setDislikeCount(Integer dislikeCount) {
+        this.dislikeCount = dislikeCount;
     }
 
 }

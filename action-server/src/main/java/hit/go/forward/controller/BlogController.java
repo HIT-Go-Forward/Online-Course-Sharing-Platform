@@ -12,6 +12,7 @@ import hit.go.forward.common.entity.blog.param.BlogQuery;
 import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.common.util.MapperOpResultUtil;
+import hit.go.forward.platform.SystemStorage;
 
 @Controller
 @ResponseBody
@@ -33,9 +34,9 @@ public class BlogController {
 
     @Transactional
     @RequestMapping("/deleteBlog")
-    public String deleteBlog(Blog blog, String $userId) {
-        blog.setUserId($userId);
-        if (MapperOpResultUtil.isSucceded(blogMapper.deleteblogById(blog))) return RequestResults.success();
+    public String deleteBlog(BlogQuery blogQuery, String $userId) {
+        blogQuery.setUserId($userId);
+        if (MapperOpResultUtil.isSucceded(blogMapper.deleteblogById(blogQuery))) return RequestResults.success();
         throw new DatabaseWriteException();
     }
 
@@ -47,10 +48,24 @@ public class BlogController {
         throw new DatabaseWriteException();
     }
 
+    @Transactional
+    @RequestMapping("/handleBlogApplies")
+    public String handleBlogApplies(BlogQuery blogQuery) {
+        if (blogQuery.getBlogIds() == null || blogQuery.getOperation() == null) return RequestResults.lackNecessaryParam("blogIds");
+        return RequestResults.success();
+
+    }
+
     @RequestMapping("/getBlog")
     public String getBlog(BlogQuery blogQuery, String $userId) {
         blogQuery.setUserId($userId);
-        Blog blog = blogMapper.selectBlogById(blogQuery);
+        if (blogQuery.getId() == null) return RequestResults.lackNecessaryParam("id");
+        Blog blog = SystemStorage.getBlogCache(blogQuery.getId());
+        if (blog == null) {
+            blog = blogMapper.selectBlogById(blogQuery);
+            SystemStorage.cacheBlog(blog);
+        }
+        blog.setVisitCount(blog.getVisitCount() + 1);
         return RequestResults.success(blog);
     }
 
@@ -59,4 +74,11 @@ public class BlogController {
         blogQuery.setUserId($userId);
         return RequestResults.success(blogMapper.selectBlogListByType(blogQuery));
     }
+
+    @RequestMapping("/getBlogListByState")
+    public String getBlogListByState(BlogQuery blogQuery) {
+        
+        return RequestResults.success();
+    }
+
 }
