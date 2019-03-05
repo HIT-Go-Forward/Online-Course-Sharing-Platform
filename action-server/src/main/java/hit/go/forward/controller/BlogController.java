@@ -2,6 +2,7 @@ package hit.go.forward.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,8 +26,8 @@ public class BlogController {
     }
 
     @Transactional
-    @RequestMapping(value = "/uploadBlog", method = {RequestMethod.POST})
-    public String uploadBlog(Blog blog, String $userId) {
+    @RequestMapping(value = "/uploadBlog", method = RequestMethod.POST)
+    public String uploadBlog(@RequestBody Blog blog, String $userId) {
         blog.setUserId($userId);
         if (MapperOpResultUtil.isSucceded(blogMapper.insertBlog(blog))) return RequestResults.success(blog.getId());
         throw new DatabaseWriteException();
@@ -41,8 +42,8 @@ public class BlogController {
     }
 
     @Transactional
-    @RequestMapping(value = "updateBlog", method = {RequestMethod.POST})
-    public String updateBlog(Blog blog, String $userId) {
+    @RequestMapping(value = "updateBlog", method = RequestMethod.POST)
+    public String updateBlog(@RequestBody Blog blog, String $userId) {
         blog.setUserId($userId);
         if (MapperOpResultUtil.isSucceded(blogMapper.updateBlog(blog))) return RequestResults.success();
         throw new DatabaseWriteException();

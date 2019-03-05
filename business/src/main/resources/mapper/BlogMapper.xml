@@ -43,6 +43,8 @@
         <result column="user_name" property="userName" />
         <result column="user_id" property="userId" />
         <result column="blog_label" property="label" />
+        <result column="blog_update_date" property="updateDate" />
+        <result column="course_type_name" property="typeName" />
     </resultMap>
 
     <sql id="blogColumns">
@@ -53,9 +55,9 @@
 
     <insert id="insertBlog" parameterType="Blog" useGeneratedKeys="true" keyProperty="id">
         insert into blog
-        (blog_title, blog_user_id, blog_text, blog_type, blog_upload_date, blog_update_date)
+        (blog_title, blog_user_id, blog_text, blog_label, blog_type, blog_upload_date, blog_update_date)
         values 
-        (#{title}, #{userId}, #{blog}, #{type}, NOW(), NOW())
+        (#{title}, #{userId}, #{blog}, #{label}, #{type}, NOW(), NOW())
     </insert>
 
     <update id="updateBlog" parameterType="Blog">
@@ -77,8 +79,10 @@
     </select>
 
     <select id="selectBlogListByType" parameterType="BlogQuery" resultMap="blogSummaryMap">
-        select blog.blog_title, blog.blog_label, blog.blog_id, user.user_name, user.user_id
-        from blog, user 
+        select blog.blog_title, blog.blog_label, blog.blog_id, 
+            user.user_name, blog.blog_update_date, user.user_id,
+            course_type.course_type_name
+        from user, blog left join course_type on blog.blog_type = course_type.course_type_id
         where blog.blog_user_id = user.user_id and blog.blog_type = #{typeId}
         and (blog_status = 2 or blog_user_id = #{userId})
         <if test="start != null and length != null">
