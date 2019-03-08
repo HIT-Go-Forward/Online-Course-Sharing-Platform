@@ -5,6 +5,11 @@ import java.util.Date;
 import hit.go.forward.common.entity.user.User;
 
 public class Blog {
+    public static final int STATUS_PENDING = 0;
+    public static final int STATUS_DRAFT = 1;
+    public static final int STATUS_RELEASED = 2;
+    public static final int STATUS_REJECTED = 3;
+
     private Integer id;
     private String title;
     private User user;
@@ -18,6 +23,7 @@ public class Blog {
     private Integer visitCount;
     private Integer likeCount;
     private Integer dislikeCount;
+    private String operation;
 
     /**
      * @return Integer return the id
@@ -200,6 +206,21 @@ public class Blog {
      */
     public void setDislikeCount(Integer dislikeCount) {
         this.dislikeCount = dislikeCount;
+    }
+
+
+    /**
+     * @return String return the operation
+     */
+    public String getOperation() {
+        return operation;
+    }
+
+    /**
+     * @param operation the operation to set
+     */
+    public void setOperation(String operation) {
+        this.operation = operation;
     }
 
 }

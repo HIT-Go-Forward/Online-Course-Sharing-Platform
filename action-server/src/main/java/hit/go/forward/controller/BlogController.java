@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import hit.go.forward.business.database.dao.BlogMapper;
 import hit.go.forward.common.entity.blog.Blog;
+import hit.go.forward.common.entity.blog.param.BlogPostParam;
 import hit.go.forward.common.entity.blog.param.BlogQuery;
 import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.common.protocol.RequestResults;
@@ -27,7 +28,12 @@ public class BlogController {
 
     @Transactional
     @RequestMapping(value = "/uploadBlog", method = RequestMethod.POST)
-    public String uploadBlog(@RequestBody Blog blog, String $userId) {
+    public String uploadBlog(@RequestBody BlogPostParam blog, String $userId) {
+        String operation = blog.getOperation();
+        if (operation == null) return RequestResults.lackNecessaryParam("operation");
+        else if (operation.equals("draft")) blog.setStatus(Blog.STATUS_DRAFT);
+        else if (operation.equals("release")) blog.setStatus(Blog.STATUS_RELEASED);
+        else return RequestResults.invalidParamValue("operation=" + operation);
         blog.setUserId($userId);
         if (MapperOpResultUtil.isSucceded(blogMapper.insertBlog(blog))) return RequestResults.success(blog.getId());
         throw new DatabaseWriteException();
@@ -43,7 +49,7 @@ public class BlogController {
 
     @Transactional
     @RequestMapping(value = "updateBlog", method = RequestMethod.POST)
-    public String updateBlog(@RequestBody Blog blog, String $userId) {
+    public String updateBlog(@RequestBody BlogPostParam blog, String $userId) {
         blog.setUserId($userId);
         if (MapperOpResultUtil.isSucceded(blogMapper.updateBlog(blog))) return RequestResults.success();
         throw new DatabaseWriteException();

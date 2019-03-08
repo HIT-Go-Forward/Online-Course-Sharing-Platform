@@ -55,9 +55,9 @@
 
     <insert id="insertBlog" parameterType="Blog" useGeneratedKeys="true" keyProperty="id">
         insert into blog
-        (blog_title, blog_user_id, blog_text, blog_label, blog_type, blog_upload_date, blog_update_date)
+        (blog_title, blog_user_id, blog_text, blog_label, blog_status, blog_type, blog_upload_date, blog_update_date)
         values 
-        (#{title}, #{userId}, #{blog}, #{label}, #{type}, NOW(), NOW())
+        (#{title}, #{userId}, #{blog}, #{label}, #{status}, #{type}, NOW(), NOW())
     </insert>
 
     <update id="updateBlog" parameterType="Blog">
