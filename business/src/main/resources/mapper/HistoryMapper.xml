@@ -26,8 +26,11 @@
         (#{id}, #{courseId}, #{date})
     </insert>
 
-    <select id="getCourseHistory" parameterType="String" resultMap="courseHistoryMap">
+    <select id="getCourseHistory" parameterType="historyQueryParam" resultMap="courseHistoryMap">
         select * from course c, history h
         where c.course_id = h.history_course_id and h.history_user_id = #{id}
+        <if test="start != null and length != null">
+            limit #{start}, #{length}
+        </if>
     </select>
 </mapper>

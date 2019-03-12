@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 public class TestResourceTransmissionUtil {
     private static final Logger logger = LoggerFactory.getLogger(TestResourceTransmissionUtil.class);
 
-    @Test
     public void testOkHttp() {
 
     }

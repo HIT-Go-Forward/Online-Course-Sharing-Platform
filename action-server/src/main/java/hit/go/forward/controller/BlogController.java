@@ -27,7 +27,7 @@ public class BlogController {
     }
 
     @Transactional
-    @RequestMapping(value = "/uploadBlog", method = RequestMethod.POST)
+    @RequestMapping(value = "/uploadBlog", method = RequestMethod.POST, produces="text/html;charset=UTF-8")
     public String uploadBlog(@RequestBody BlogPostParam blog, String $userId) {
         String operation = blog.getOperation();
         if (operation == null) return RequestResults.lackNecessaryParam("operation");

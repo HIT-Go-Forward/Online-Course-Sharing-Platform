@@ -5,6 +5,7 @@ import hit.go.forward.common.entity.user.User;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.common.entity.user.UserWithToken;
 import hit.go.forward.common.entity.validate.ValidateCode;
+import hit.go.forward.common.util.MapperOpResultUtil;
 import hit.go.forward.common.util.UserUtil;
 import hit.go.forward.platform.*;
 import hit.go.forward.common.exception.RequestHandleException;
@@ -74,34 +75,12 @@ public class UserAuthorityController {
 
     @Transactional
     @RequestMapping("/modifyInfo")
-    public String modifyInfo(@RequestParam Map<String, String> paras) {
+    public String modifyInfo(@RequestParam Map<String, String> paras, String $userId) {
         User user = new User();
-        paras.put("id", user.getId().toString());
-        Integer rows = userMapper.completeInfo(paras);
+        paras.put("id", $userId);
+        user.setId(Integer.valueOf($userId));
 //        user = userMapper.selectUserById(user.getId().toString());
-        if (rows != null && rows.equals(1)) {
-            String edu = paras.get("education");
-            String sex = paras.get("sex");
-            String birthday = paras.get("birthday");
-            String intro = paras.get("intro");
-            String note = paras.get("note");
-            String phone = paras.get("phone");
-            user.setIntro(intro);
-            user.setNote(note);
-            user.setPhone(phone);
-            if (birthday != null) {
-                SimpleDateFormat sdm = new SimpleDateFormat();
-                try {
-                    Date date = sdm.parse(birthday);
-                    user.setBirthday(date);
-                } catch (Exception e) {
-                    user.setBirthday(null);
-                }
-            }
-            if (edu != null) user.setEducation(Integer.valueOf(edu));
-            user.setSex(sex);
-            return RequestResults.success(user);
-        }
+        if (MapperOpResultUtil.isSucceded(userMapper.completeInfo(paras))) return RequestResults.success(paras);
         throw new RequestHandleException(RequestResults.requestCausedDBWritesError());
     }
 

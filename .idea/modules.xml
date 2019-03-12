@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/business/business.iml" filepath="$PROJECT_DIR$/business/business.iml" />
       <module fileurl="file://$PROJECT_DIR$/im-server/im-server.iml" filepath="$PROJECT_DIR$/im-server/im-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/resource-server/resource-server.iml" filepath="$PROJECT_DIR$/resource-server/resource-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test-client/test-client.iml" filepath="$PROJECT_DIR$/test-client/test-client.iml" />
     </modules>
   </component>
 </project>

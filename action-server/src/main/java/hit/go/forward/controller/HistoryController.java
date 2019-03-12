@@ -3,6 +3,7 @@ package hit.go.forward.controller;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.HistoryMapper;
 import hit.go.forward.common.entity.history.CourseHistory;
+import hit.go.forward.common.entity.history.param.HistoryQueryParam;
 import hit.go.forward.common.exception.RequestHandleException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,7 +45,8 @@ public class HistoryController {
     }
 
     @RequestMapping("/getCourseHistory")
-    public String getCourseHistory(String $userId) {
+    public String getCourseHistory(HistoryQueryParam param, String $userId) {
+        param.setUserId($userId);
         List<CourseHistory> result = historyMapper.getCourseHistory($userId);
         return RequestResults.success(result);
     }

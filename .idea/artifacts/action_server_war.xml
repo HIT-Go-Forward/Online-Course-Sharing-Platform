@@ -1,6 +1,12 @@
 <component name="ArtifactManager">
   <artifact type="war" name="action-server:war">
     <output-path>$PROJECT_DIR$/action-server/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>action-server</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="archive" name="ROOT.war">
       <element id="artifact" artifact-name="action-server:war exploded" />
     </root>

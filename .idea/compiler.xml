@@ -11,6 +11,7 @@
         <module name="business" />
         <module name="im-server" />
         <module name="resource-server" />
+        <module name="test-client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +21,7 @@
       <module name="business" target="1.8" />
       <module name="im-server" target="1.8" />
       <module name="resource-server" target="1.8" />
+      <module name="test-client" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
