@@ -11,6 +11,7 @@ import hit.go.forward.platform.*;
 import hit.go.forward.common.exception.RequestHandleException;
 import hit.go.forward.platform.util.MailUtil;
 import hit.go.forward.platform.util.Validate;
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.service.UserAuthorityService;
 import org.slf4j.Logger;
@@ -46,7 +47,7 @@ public class UserAuthorityController {
 
     @Transactional
     @RequestMapping("/register")
-    public String register(@RequestParam Map<String, Object> map) {
+    public RequestResult register(@RequestParam Map<String, Object> map) {
         Object code = map.get("code");
         Object name = map.get("name");
         Object password = map.get("password");
@@ -75,7 +76,7 @@ public class UserAuthorityController {
 
     @Transactional
     @RequestMapping("/modifyInfo")
-    public String modifyInfo(@RequestParam Map<String, String> paras, String $userId) {
+    public RequestResult modifyInfo(@RequestParam Map<String, String> paras, String $userId) {
         User user = new User();
         paras.put("id", $userId);
         user.setId(Integer.valueOf($userId));
@@ -85,7 +86,7 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/login")
-    public String login(String account, String password) {
+    public RequestResult login(String account, String password) {
         if (account != null && password != null) {
             UserWithPassword user = null;
             if (account.matches("^\\d+$")) {
@@ -109,14 +110,14 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/logout")
-    public String logout(HttpSession session, HttpServletResponse response) {
+    public RequestResult logout(HttpSession session, HttpServletResponse response) {
 
         return RequestResults.success();
     }
 
     @Transactional
     @RequestMapping("/updateUserImg")
-    public String updateUserImg(String fileId, String $userId) {
+    public RequestResult updateUserImg(String fileId, String $userId) {
         if (fileId == null) return RequestResults.lackNecessaryParam("fileId");
         Map<String, Object> paras = new HashMap<>();
         paras.put("id", $userId);
@@ -131,7 +132,7 @@ public class UserAuthorityController {
 
     @Transactional
     @RequestMapping("/changePassword")
-    public String changePassword(String oldPassword, String newPassword, String code, HttpSession session, String $userId) {
+    public RequestResult changePassword(String oldPassword, String newPassword, String code, HttpSession session, String $userId) {
         // TODO 修改密码后让之前的token失效
         
         if (oldPassword == null || newPassword == null || code == null) return RequestResults.lackNecessaryParam("oldPassword || newPassword || code");
@@ -155,7 +156,7 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/getUserInfo")
-    public String getUserInfo(String $userId, String userId) {
+    public RequestResult getUserInfo(String $userId, String userId) {
         if (userId == null) userId = $userId;
         User u = userMapper.selectUserById(userId);
         if (u == null) return RequestResults.notFound("用户不存在！");
@@ -163,7 +164,7 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/sendValidateCode")
-    public String sendValidateCode(String email) {
+    public RequestResult sendValidateCode(String email) {
         if (email == null) return RequestResults.lackNecessaryParam("email");
         Date now = new Date();
         ValidateCode code = SystemStorage.getValidateCode(email);
@@ -183,7 +184,7 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/sendValidateCodeToCurrentUser")
-    public String sendValidateCodeToCurrentUser(String $userId) {
+    public RequestResult sendValidateCodeToCurrentUser(String $userId) {
         String email = userMapper.selectEmailById($userId);
         if (email == null) return RequestResults.lackNecessaryParam("email");
         Date now = new Date();
@@ -205,7 +206,7 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/validateCode")
-    public String validateCode(String email, String code) {
+    public RequestResult validateCode(String email, String code) {
         if (email == null || code == null) return RequestResults.lackNecessaryParam("email || code");
 
         String result = validate(code, email);
@@ -214,7 +215,7 @@ public class UserAuthorityController {
     }
 
     @RequestMapping("/uniqueEmail")
-    public String uniqueEmail(String email) {
+    public RequestResult uniqueEmail(String email) {
         if (email != null) {
             Integer id = userMapper.selectIdByEmail(email);
             if (id != null) return RequestResults.queryExisted("该邮箱已被注册!");
@@ -226,7 +227,7 @@ public class UserAuthorityController {
 
 
     @RequestMapping("/autoLogin")
-    public String autoLogin(String $cookiePassword, String $cookieId, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+    public RequestResult autoLogin(String $cookiePassword, String $cookieId, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         if ($cookieId != null && $cookiePassword != null) {
             UserWithPassword user = userMapper.selectUserById($cookieId);
             if (user != null && user.getPassword().equals($cookiePassword)) {

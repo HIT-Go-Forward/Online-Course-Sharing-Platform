@@ -1,6 +1,7 @@
 package hit.go.forward.controller;
 
 import hit.go.forward.common.entity.operation.OperationResult;
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.CourseMapper;
 import hit.go.forward.business.database.dao.LessonMapper;
@@ -34,7 +35,7 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/addNewCourse")
-    public String newCourse(@RequestParam Map<String, Object> paras, String $userId) {
+    public RequestResult newCourse(@RequestParam Map<String, Object> paras, String $userId) {
         if (paras.get("courseName") != null) {
             paras.put("teacherId", $userId);
             Integer rows = courseMapper.addNewCourse(paras);
@@ -46,7 +47,7 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/updateCourse")
-    public String updateCourse(@RequestParam Map<String, Object> paras, String $userId) {
+    public RequestResult updateCourse(@RequestParam Map<String, Object> paras, String $userId) {
         if (paras.get("courseName") == null) return RequestResults.lackNecessaryParam("courseName");
         paras.put("teacherId", $userId);
         Integer rows = courseMapper.updateCourse(paras);
@@ -56,7 +57,7 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/updateCourseImg")
-    public String updateCourseImg(String fileId, String courseId, String $userId) {
+    public RequestResult updateCourseImg(String fileId, String courseId, String $userId) {
         if (fileId == null || courseId == null) return RequestResults.lackNecessaryParam("fileId || courseId");
         Map<String, Object> paras = new HashMap<>();
         paras.put("img", fileId);
@@ -64,11 +65,11 @@ public class CourseController {
         paras.put("teacherId", $userId);
         Integer rows = courseMapper.updateCourseImg(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
-        throw new RequestHandleException("更新失败!");
+        throw new RequestHandleException(RequestResults.serverError("更新失败!"));
     }
 
     @RequestMapping("/getCourses")
-    public String getCourses(Integer start, Integer length) {
+    public RequestResult getCourses(Integer start, Integer length) {
         Map<String, Object> paras = new HashMap<>();
         paras.put("start", start);
         paras.put("length", length);
@@ -76,7 +77,7 @@ public class CourseController {
     }
 
     @RequestMapping("/getCourseByType")
-    public String getCourseByType(String typeId, String $userId, Integer $userType, Integer start, Integer length) {
+    public RequestResult getCourseByType(String typeId, String $userId, Integer $userType, Integer start, Integer length) {
         if (typeId == null) return RequestResults.lackNecessaryParam("typeId");
         Map<String, Object> paras = new HashMap<>();
         paras.put("start", start);
@@ -88,7 +89,7 @@ public class CourseController {
     }
 
     @RequestMapping("/getUserCourses")
-    public String getUserCourses(String $userId, Integer $userType, String type, Integer start, Integer length) {
+    public RequestResult getUserCourses(String $userId, Integer $userType, String type, Integer start, Integer length) {
         if (type == null) return RequestResults.lackNecessaryParam("type");
 
         Map<String, Object> paras = new HashMap<>();
@@ -108,7 +109,7 @@ public class CourseController {
     }
 
     @RequestMapping("/getCourseById")
-    public String getCourseById(String courseId) {
+    public RequestResult getCourseById(String courseId) {
         if (courseId != null) {
             Course course = courseMapper.getCourseById(courseId);
             return RequestResults.success(course);
@@ -118,7 +119,7 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/handleCourseApply")
-    public String handleCourseApply(String courseId, String operation) {
+    public RequestResult handleCourseApply(String courseId, String operation) {
         if (courseId != null & operation != null) {
             Integer rows;
             if (operation.equals("accept")) {
@@ -136,19 +137,19 @@ public class CourseController {
     }
 
     @RequestMapping("/getAllCourseType")
-    public String getAllCourseType() {
-        return RequestResults.success(courseMapper.getAllCourseType());
+    public RequestResult getAllCourseType() {
+        return new RequestResult(20000, courseMapper.getAllCourseType());
     }
 
     @RequestMapping("/getCourseOutline")
-    public String getCourseOutline(String courseId, Integer $userType) {
+    public RequestResult getCourseOutline(String courseId, Integer $userType) {
         if (courseId == null) return RequestResults.lackNecessaryParam("courseId");
         else if ($userType == null || $userType > User.TYPE_TEACHER) return RequestResults.success(courseMapper.getCourseChapters(courseId));
         return RequestResults.success(courseMapper.getTeacherCourseChapters(courseId));
     }
 
     @RequestMapping("/getCourseOutlineDetail")
-    public String getCourseOutlineDetail(String courseId, Integer $userType, Integer start, Integer length) {
+    public RequestResult getCourseOutlineDetail(String courseId, Integer $userType, Integer start, Integer length) {
         if (courseId == null) return RequestResults.lackNecessaryParam("courseId");
         Map<String, Object> param = new HashMap<>();
         param.put("courseId", courseId);
@@ -160,7 +161,7 @@ public class CourseController {
     }
 
     @RequestMapping("/getManageableCourseLessons")
-    public String getManageableCourseLessons(Integer start, Integer length) {
+    public RequestResult getManageableCourseLessons(Integer start, Integer length) {
         Map<String, Object> paras = new HashMap<>();
         paras.put("start", start);
         paras.put("length", length);
@@ -168,7 +169,7 @@ public class CourseController {
     }
 
     @RequestMapping("/hasJoined")
-    public String hasJoined(String courseId, String $userId) {
+    public RequestResult hasJoined(String courseId, String $userId) {
         if (courseId == null) return RequestResults.lackNecessaryParam("courseId");
         else if ($userId == null) return RequestResults.success("用户未参加该课程!");
 
@@ -181,7 +182,7 @@ public class CourseController {
     }
 
     @RequestMapping("/joinCourse")
-    public String joinCourse(String courseId, String $userId) {
+    public RequestResult joinCourse(String courseId, String $userId) {
         if (courseId == null) return RequestResults.lackNecessaryParam("courseId");
 
         Map<String, Object> paras = new HashMap<>();
@@ -193,7 +194,7 @@ public class CourseController {
     }
 
     @RequestMapping("/completeCourseStudy")
-    public String completeCourse(String courseId, String $userId) {
+    public RequestResult completeCourse(String courseId, String $userId) {
         if (courseId == null) return RequestResults.lackNecessaryParam("courseId");
 
         Map<String, Object> paras = new HashMap<>();
@@ -209,7 +210,7 @@ public class CourseController {
      */
     @Transactional
     @RequestMapping("/addNewLesson")
-    public String addNewLesson(@RequestParam Map<String, Object> paras, String $userId) {
+    public RequestResult addNewLesson(@RequestParam Map<String, Object> paras, String $userId) {
         Object num = paras.get("num");
         Object title = paras.get("title");
         Object chapterNum = paras.get("chapterNum");
@@ -223,7 +224,7 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/updateLesson")
-    public String updateLesson(@RequestParam Map<String, Object> paras, String $userId) {
+    public RequestResult updateLesson(@RequestParam Map<String, Object> paras, String $userId) {
         Object num = paras.get("num");
         Object title = paras.get("title");
         Object chapterNum = paras.get("chapterNum");
@@ -238,7 +239,7 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/updateLessonVideo")
-    public String updateLessonVideo(@RequestParam Map<String, Object> paras, String $userId) {
+    public RequestResult updateLessonVideo(@RequestParam Map<String, Object> paras, String $userId) {
         Object lessonId = paras.get("lessonId");
         Object fileId = paras.get("fileId");
         if (lessonId == null || fileId == null) return RequestResults.lackNecessaryParam("lessonId || fileId");
@@ -250,7 +251,7 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/updateLessonFile")
-    public String updateLessonFile(@RequestParam Map<String, Object> paras, String $userId) {
+    public RequestResult updateLessonFile(@RequestParam Map<String, Object> paras, String $userId) {
         Object lessonId = paras.get("lessonId");
         Object fileId = paras.get("fileId");
         if (lessonId == null || fileId == null) return RequestResults.lackNecessaryParam("lessonId || fileId");
@@ -261,7 +262,7 @@ public class CourseController {
     }
 
     @RequestMapping("/startLearnLesson")
-    public String startLearnLesson(String lessonId, String $userId) {
+    public RequestResult startLearnLesson(String lessonId, String $userId) {
         if (lessonId == null) return RequestResults.lackNecessaryParam("lessonId");
 
         Map<String, Object> paras = new HashMap<>();
@@ -270,11 +271,11 @@ public class CourseController {
 
         Integer rows = lessonMapper.insertLessonLearn(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
-        throw new RequestHandleException("操作失败！用户可能已开始学习该lesson");
+        throw new RequestHandleException(RequestResults.requestCausedDBWritesError("操作失败！用户可能已开始学习该lesson"));
     }
 
     @RequestMapping("/completeLessonLearn")
-    public String completeLessonLearn(String lessonId, String $userId) {
+    public RequestResult completeLessonLearn(String lessonId, String $userId) {
         if (lessonId == null) return RequestResults.lackNecessaryParam("lessonId");
 
         Map<String, Object> paras = new HashMap<>();
@@ -283,16 +284,16 @@ public class CourseController {
 
         Integer rows = lessonMapper.updateCompleteLessonLearn(paras);
         if (rows != null && rows.equals(1)) return RequestResults.success();
-        throw new RequestHandleException("操作失败！用户可能已完成该lesson的学习");
+        throw new RequestHandleException(RequestResults.requestCausedDBWritesError("操作失败！用户可能已完成该lesson的学习"));
     }
 
     @RequestMapping("/getCourseLessons")
-    public String getCourseLessons(String  courseId) {
+    public RequestResult getCourseLessons(String  courseId) {
         return RequestResults.success(lessonMapper.getCourseLessons(courseId));
     }
 
     @RequestMapping("/getLessonById")
-    public String getLessonById(String lessonId, Integer $userType) {
+    public RequestResult getLessonById(String lessonId, Integer $userType) {
 
         if (lessonId == null) return RequestResults.lackNecessaryParam("lessonId");
         else if ($userType == null || $userType >= User.TYPE_STUDENT) return RequestResults.success(lessonMapper.getLessonById(lessonId));
@@ -307,7 +308,7 @@ public class CourseController {
 
     @Transactional
     @RequestMapping("/handleLessonApplies")
-    public String handleLessonApplies(@RequestParam("lessonIds[]") Integer[] lessonIds, String operation) {
+    public RequestResult handleLessonApplies(@RequestParam("lessonIds[]") Integer[] lessonIds, String operation) {
         if (lessonIds == null || operation == null) return RequestResults.lackNecessaryParam("lessonIds||operation");
         else if (!operation.equals("accept") && !operation.equals("reject")) return RequestResults.invalidParamValue("operation");
         Map<String, Object> paras = new HashMap<>();

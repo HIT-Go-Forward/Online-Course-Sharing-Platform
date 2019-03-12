@@ -92,83 +92,87 @@ public class RequestResults {
         return JSON.toJson(new RequestResult(400, data));
     }
 
-    public static String success() {
+    public static RequestResult success() {
         return success("success");
     }
 
-    public static String success(Object data) {
-        return JSON.toJson(new RequestResult(20000, data));
+    public static RequestResult success(Object data) {
+        return new RequestResult(20000, data);
     }
 
-    public static String partSucceeded(int numSucceeded, int numFailed) {
-        return JSON.toJson(new RequestResult(20001, numSucceeded + " 执行成功，" + numFailed + " 执行失败，请核查"));
+    public static RequestResult partSucceeded(int numSucceeded, int numFailed) {
+        return new RequestResult(20001, numSucceeded + " 执行成功，" + numFailed + " 执行失败，请核查");
     }
 
-    public static String queryNotExist(String detail) {
-        return JSON.toJson(new RequestResult(20002, detail));
+    public static RequestResult queryNotExist(String detail) {
+        return new RequestResult(20002, detail);
     }
 
-    public static String queryExisted(String detail) {
-        return JSON.toJson(new RequestResult(20003, detail));
+    public static RequestResult queryExisted(String detail) {
+        return new RequestResult(20003, detail);
     }
 
-    public static String lackNecessaryParam(String params) {
-        return JSON.toJson(new RequestResult(40000, "缺少必须参数：" + params));
+    public static RequestResult lackNecessaryParam(String params) {
+        return new RequestResult(40000, "缺少必须参数：" + params);
     }
 
-    public static String invalidParamValue(String detail) {
-        return JSON.toJson(new RequestResult(40001, "参数值错误：" + detail));
+    public static RequestResult invalidParamValue(String detail) {
+        return new RequestResult(40001, "参数值错误：" + detail);
     }
 
-    public static String requestCausedDBWritesError(String detail) {
-        return JSON.toJson(new RequestResult(40002, detail));
+    public static RequestResult requestCausedDBWritesError(String detail) {
+        return new RequestResult(40002, detail);
     }
 
-    public static String validateFailed(String detail) {
-        return JSON.toJson(new RequestResult(40003, detail));
+    public static RequestResult validateFailed(String detail) {
+        return new RequestResult(40003, detail);
     }
 
-    public static String validateFailed() {
-        return JSON.toJson(new RequestResult(40003, "验证失败!"))              ;
+    public static RequestResult validateFailed() {
+        return new RequestResult(40003, "验证失败!");
     }
 
-    public static String requestCausedDBWritesError() {
-        return JSON.toJson(new RequestResult(40002, "写入失败，请修改相关信息之后再试！"));
+    public static RequestResult requestCausedDBWritesError() {
+        return new RequestResult(40002, "写入失败，请修改相关信息之后再试！");
     }
 
-    public static String accessDenied() {
-        return JSON.toJson(new RequestResult(40300, "禁止访问!"));
+    public static RequestResult accessDenied() {
+        return new RequestResult(40300, "禁止访问!");
     }
 
-    public static String operationDenied() {
-        return JSON.toJson(new RequestResult(40301, "请求被禁止执行"));
+    public static RequestResult operationDenied() {
+        return new RequestResult(40301, "请求被禁止执行");
     }
 
-    public static String operationDenied(String detail) {
-        return JSON.toJson(new RequestResult(40301, detail));
+    public static RequestResult operationDenied(String detail) {
+        return new RequestResult(40301, detail);
     }
 
-    public static String notFound() {
+    public static RequestResult notFound() {
         return notFound("Not Found");
     }
 
-    public static String notFound(Object data) {
-        return JSON.toJson(new RequestResult(40400, data));
+    public static RequestResult notFound(Object data) {
+        return new RequestResult(40400, data);
     }
 
-    public static String serverError() {
-        return JSON.toJson(new RequestResult(50000, "Internal Server Error"));
+    public static RequestResult serverError() {
+        return new RequestResult(50000, "Internal Server Error");
     }
 
-    public static String serverError(String message) {
-        return JSON.toJson(new RequestResult(50000, message));
+    public static RequestResult serverError(String message) {
+        return new RequestResult(50000, message);
     }
 
-    public static String fileWritesError() {
-        return JSON.toJson(new RequestResult(50001, "文件写入失败！"));
+    public static RequestResult fileWritesError() {
+        return new RequestResult(50001, "文件写入失败！");
     }
 
-    public static String serverConfigError() {
-        return JSON.toJson(new RequestResult(50002, "服务器配置文件错误！"));
+    public static RequestResult serverConfigError() {
+        return new RequestResult(50002, "服务器配置文件错误！");
+    }
+
+    public static String toJSON(RequestResult result) {
+        return JSON.toJson(result);
     }
 }

@@ -1,5 +1,6 @@
 package hit.go.forward.im.controller;
 
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.im.system.OnlineSession;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,7 @@ import org.springframework.web.socket.WebSocketSession;
 @RequestMapping("/imMsg")
 public class IMController {
     @RequestMapping("/sendMsg")
-    public String sendMsg(String id, String msg) {
+    public RequestResult sendMsg(String id, String msg) {
         WebSocketSession socketSession = OnlineSession.get(id);
         if (socketSession != null) {
             try {

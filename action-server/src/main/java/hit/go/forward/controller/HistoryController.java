@@ -1,5 +1,6 @@
 package hit.go.forward.controller;
 
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.HistoryMapper;
 import hit.go.forward.common.entity.history.CourseHistory;
@@ -30,7 +31,7 @@ public class HistoryController {
 
     @Transactional
     @RequestMapping("/addNewHistory")
-    public String addNewHistory(String $userId, String courseId) {
+    public RequestResult addNewHistory(String $userId, String courseId) {
         if (courseId != null) {
             Date now = new Date();
             Map<String, Object> paras = new HashMap<>();
@@ -45,9 +46,9 @@ public class HistoryController {
     }
 
     @RequestMapping("/getCourseHistory")
-    public String getCourseHistory(HistoryQueryParam param, String $userId) {
+    public RequestResult getCourseHistory(HistoryQueryParam param, String $userId) {
         param.setUserId($userId);
-        List<CourseHistory> result = historyMapper.getCourseHistory($userId);
+        List<CourseHistory> result = historyMapper.getCourseHistory(param);
         return RequestResults.success(result);
     }
 }

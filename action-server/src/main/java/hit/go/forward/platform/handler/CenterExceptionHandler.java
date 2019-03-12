@@ -30,8 +30,8 @@ public class CenterExceptionHandler implements HandlerExceptionResolver {
             RequestHandleException ex = (RequestHandleException) e;
             result = ex.result();
         } else if (e instanceof org.springframework.dao.DuplicateKeyException) {
-            result = RequestResults.operationDenied("操作失败！该操作可能已被执行，请勿重复操作.");
-        } else result = RequestResults.serverError(e.getMessage());
+            result = RequestResults.toJSON(RequestResults.operationDenied("操作失败！该操作可能已被执行，请勿重复操作."));
+        } else result = RequestResults.toJSON(RequestResults.serverError(e.getMessage()));
 
         try {
             httpServletResponse.setContentType("application/json;charset=UTF-8");

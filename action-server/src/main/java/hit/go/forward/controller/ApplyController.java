@@ -1,6 +1,7 @@
 package hit.go.forward.controller;
 
 import hit.go.forward.common.entity.Apply;
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.ApplyMapper;
 import hit.go.forward.common.exception.RequestHandleException;
@@ -29,7 +30,7 @@ public class ApplyController {
 
     @Transactional
     @RequestMapping("/applyTeacher")
-    public String applyTeacher(String $userId, String note) {
+    public RequestResult applyTeacher(String $userId, String note) {
         Date now = new Date();
         Map<String, Object> paras = new HashMap<>();
         paras.put("userId", $userId);
@@ -44,7 +45,7 @@ public class ApplyController {
 
     @Transactional
     @RequestMapping("/acceptTeacherApply")
-    public String acceptTeacherApply(String $userId, String applyId, String note) {
+    public RequestResult acceptTeacherApply(String $userId, String applyId, String note) {
         if (applyId == null) return RequestResults.lackNecessaryParam("applyId");
         Date now = new Date();
         Map<String, Object> paras = new HashMap<>();
@@ -56,12 +57,12 @@ public class ApplyController {
         Integer result = applyMapper.acceptApply(paras);
         if (result != null && result.equals(2)) return RequestResults.success();
         else if (result != null && result.equals(0)) return RequestResults.operationDenied("该申请已被处理!");
-        throw new RequestHandleException("处理失败！");
+        throw new RequestHandleException(RequestResults.serverError("处理失败！"));
     }
 
     @Transactional
     @RequestMapping("/rejectTeacherApply")
-    public String rejectTeacherApply(String $userId, String applyId, String note) {
+    public RequestResult rejectTeacherApply(String $userId, String applyId, String note) {
         if (applyId == null) return RequestResults.lackNecessaryParam("applyId");
         Date now = new Date();
         Map<String, Object> paras = new HashMap<>();
@@ -73,11 +74,11 @@ public class ApplyController {
         Integer result = applyMapper.rejectApply(paras);
         if (result != null && result.equals(1)) return RequestResults.success();
         else if (result != null && result.equals(0)) return RequestResults.operationDenied("该申请已被处理!");
-        throw new RequestHandleException("处理失败！");
+        throw new RequestHandleException(RequestResults.serverError("处理失败！"));
     }
 
     @RequestMapping("/getManageableApplies")
-    public String getAllApplies(String $userId, Integer $userType, String type) {
+    public RequestResult getAllApplies(String $userId, Integer $userType, String type) {
         Map<String, String> paras = new HashMap<>();
         paras.put("id", $userId);
         paras.put("power", $userType.toString());

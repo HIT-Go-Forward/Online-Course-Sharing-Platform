@@ -1,5 +1,6 @@
 package hit.go.forward.controller.platform;
 
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/error")
 public class ErrorController {
     @RequestMapping("/haveNoRight")
-    public String haveNoRight() {
+    public RequestResult haveNoRight() {
         return RequestResults.accessDenied();
     }
 
     @RequestMapping("/needLogin")
-    public String needLogin() {
+    public RequestResult needLogin() {
         return RequestResults.accessDenied();
     }
 }

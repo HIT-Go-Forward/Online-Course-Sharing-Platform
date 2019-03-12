@@ -1,5 +1,6 @@
 package hit.go.forward.controller.develop;
 
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.ActionMapper;
 import hit.go.forward.common.entity.user.UserWithPassword;
@@ -27,7 +28,7 @@ public class OnlyForDevelopController {
     }
 
     @RequestMapping("/testCookie")
-    public String testCoolie(String id, String password) {
+    public RequestResult testCoolie(String id, String password) {
         Map<String, String> paras = new HashMap<>();
         paras.put("id", id);
         paras.put("password", password);
@@ -35,12 +36,12 @@ public class OnlyForDevelopController {
     }
 
     @RequestMapping("/getAllActions")
-    public String getAllActions() {
+    public RequestResult getAllActions() {
         return RequestResults.success(actionMapper.getAllActions());
     }
 
     @RequestMapping("/testSession")
-    public String testSession(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
+    public RequestResult testSession(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
         return RequestResults.success(user);
     }
 }

@@ -1,6 +1,7 @@
 package hit.go.forward.controller;
 
 import hit.go.forward.business.database.dao.SchoolMapper;
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ public class SchoolController {
     }
 
     @RequestMapping("/querySchool")
-    public String querySchool(String keyword) {
+    public RequestResult querySchool(String keyword) {
         if (keyword == null) return RequestResults.success(null);
         return RequestResults.success(schoolMapper.querySchool(keyword));
     }

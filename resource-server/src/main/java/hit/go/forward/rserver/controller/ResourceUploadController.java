@@ -7,6 +7,7 @@ import hit.go.forward.business.database.dao.UserMapper;
 import hit.go.forward.common.entity.resource.Resource;
 import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.common.exception.RequestHandleException;
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,14 +39,12 @@ public class ResourceUploadController {
     private static final String RESOURCE_FILE_NAME = "$$$resource_file$$$";
     private static final String MEDIA_SERVER_DIR = "/HGF/media";
 
-    private ServletContext context;
     private FileMapper fileMapper;
     private UserMapper userMapper;
     private CourseMapper courseMapper;
     private LessonMapper lessonMapper;
 
-    public ResourceUploadController(ServletContext context, FileMapper fileMapper, UserMapper userMapper, CourseMapper courseMapper, LessonMapper lessonMapper) {
-        this.context = context;
+    public ResourceUploadController(FileMapper fileMapper, UserMapper userMapper, CourseMapper courseMapper, LessonMapper lessonMapper) {
         this.fileMapper = fileMapper;
         this.userMapper = userMapper;
         this.courseMapper = courseMapper;
@@ -54,7 +53,7 @@ public class ResourceUploadController {
 
     @Transactional
     @RequestMapping("/uploadResource")
-    public String uploadResource(MultipartFile file, String $userId, String courseId, String lessonId, String type) {
+    public RequestResult uploadResource(MultipartFile file, String $userId, String courseId, String lessonId, String type) {
         if (file == null || type == null)  return RequestResults.lackNecessaryParam("file || type");
         if ($userId== null) {
             logger.error("未能获取到userId参数");
@@ -108,7 +107,7 @@ public class ResourceUploadController {
         try {
             file.transferTo(storeFile);
         } catch (Exception e) {
-            throw new RequestHandleException("本地文件写入失败!");
+            throw new RequestHandleException(RequestResults.serverError("本地文件写入失败!"));
         }
 
         Resource resource = new Resource();
@@ -152,12 +151,12 @@ public class ResourceUploadController {
     }
 
     @RequestMapping("/test")
-    public String test() {
+    public RequestResult test() {
         return RequestResults.success(fileMapper.queryUrlById("34"));
     }
 
     @RequestMapping("/delete")
-    public String delete() {
+    public RequestResult delete() {
 
         return RequestResults.serverError();
     }

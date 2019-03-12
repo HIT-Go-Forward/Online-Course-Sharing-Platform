@@ -4,6 +4,7 @@ import hit.go.forward.business.database.dao.CommentMapper;
 import hit.go.forward.common.entity.comment.Comment;
 import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.platform.util.Comment.CommentUtil;
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +33,7 @@ public class CommentBarrageController {
 
     @Transactional
     @RequestMapping("/sendComment")
-    public String sendComment(Comment comment, String $userId) {
+    public RequestResult sendComment(Comment comment, String $userId) {
         logger.debug(comment.getContent());
         logger.debug("CourseId: {}", comment.getCourseId());
         logger.debug("type: {}", comment.getType());
@@ -44,7 +45,7 @@ public class CommentBarrageController {
     }
 
     @RequestMapping("/getComment")
-    public String getComment(String type, String courseId, String lessonId, Integer start, Integer length) {
+    public RequestResult getComment(String type, String courseId, String lessonId, Integer start, Integer length) {
         Map<String, Object> paras;
         if (type == null) return RequestResults.lackNecessaryParam("type");
         switch (type) {

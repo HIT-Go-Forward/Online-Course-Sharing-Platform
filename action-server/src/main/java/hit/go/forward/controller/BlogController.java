@@ -12,6 +12,7 @@ import hit.go.forward.common.entity.blog.Blog;
 import hit.go.forward.common.entity.blog.param.BlogPostParam;
 import hit.go.forward.common.entity.blog.param.BlogQuery;
 import hit.go.forward.common.exception.DatabaseWriteException;
+import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.common.util.MapperOpResultUtil;
 import hit.go.forward.platform.SystemStorage;
@@ -27,8 +28,8 @@ public class BlogController {
     }
 
     @Transactional
-    @RequestMapping(value = "/uploadBlog", method = RequestMethod.POST, produces="text/html;charset=UTF-8")
-    public String uploadBlog(@RequestBody BlogPostParam blog, String $userId) {
+    @RequestMapping(value = "/uploadBlog", method = RequestMethod.POST)
+    public RequestResult uploadBlog(@RequestBody BlogPostParam blog, String $userId) {
         String operation = blog.getOperation();
         if (operation == null) return RequestResults.lackNecessaryParam("operation");
         else if (operation.equals("draft")) blog.setStatus(Blog.STATUS_DRAFT);
@@ -41,7 +42,7 @@ public class BlogController {
 
     @Transactional
     @RequestMapping("/deleteBlog")
-    public String deleteBlog(BlogQuery blogQuery, String $userId) {
+    public RequestResult deleteBlog(BlogQuery blogQuery, String $userId) {
         blogQuery.setUserId($userId);
         if (MapperOpResultUtil.isSucceded(blogMapper.deleteblogById(blogQuery))) return RequestResults.success();
         throw new DatabaseWriteException();
@@ -49,7 +50,7 @@ public class BlogController {
 
     @Transactional
     @RequestMapping(value = "updateBlog", method = RequestMethod.POST)
-    public String updateBlog(@RequestBody BlogPostParam blog, String $userId) {
+    public RequestResult updateBlog(@RequestBody BlogPostParam blog, String $userId) {
         blog.setUserId($userId);
         if (MapperOpResultUtil.isSucceded(blogMapper.updateBlog(blog))) return RequestResults.success();
         throw new DatabaseWriteException();
@@ -57,14 +58,14 @@ public class BlogController {
 
     @Transactional
     @RequestMapping("/handleBlogApplies")
-    public String handleBlogApplies(BlogQuery blogQuery) {
+    public RequestResult handleBlogApplies(BlogQuery blogQuery) {
         if (blogQuery.getBlogIds() == null || blogQuery.getOperation() == null) return RequestResults.lackNecessaryParam("blogIds");
         return RequestResults.success();
 
     }
 
     @RequestMapping("/getBlog")
-    public String getBlog(BlogQuery blogQuery, String $userId) {
+    public RequestResult getBlog(BlogQuery blogQuery, String $userId) {
         blogQuery.setUserId($userId);
         if (blogQuery.getId() == null) return RequestResults.lackNecessaryParam("id");
         Blog blog = SystemStorage.getBlogCache(blogQuery.getId());
@@ -77,13 +78,13 @@ public class BlogController {
     }
 
     @RequestMapping("/getBlogListByType")
-    public String getBlogListByType(BlogQuery blogQuery, String $userId) {
+    public RequestResult getBlogListByType(BlogQuery blogQuery, String $userId) {
         blogQuery.setUserId($userId);
         return RequestResults.success(blogMapper.selectBlogListByType(blogQuery));
     }
 
     @RequestMapping("/getBlogListByState")
-    public String getBlogListByState(BlogQuery blogQuery) {
+    public RequestResult getBlogListByState(BlogQuery blogQuery) {
         
         return RequestResults.success();
     }
