@@ -13,7 +13,7 @@
         <result column="note" jdbcType="VARCHAR" property="note" />
         <result column="user_phone" jdbcType="VARCHAR" property="phone" />
         <result column="img" jdbcType="VARCHAR" property="img" />
-
+        <result column="user_token_version" jdbcType="INTEGER" property="tokenVersion" />
         <association property="school" javaType="School">
             <id column="school_id" property="id"/>
             <result column="school_name" property="name" />
@@ -38,7 +38,7 @@
         <result column="user_phone" jdbcType="VARCHAR" property="phone" />
         <result column="img" jdbcType="VARCHAR" property="img" />
         <result column="password" jdbcType="VARCHAR" property="password" />
-
+        <result column="user_token_version" jdbcType="INTEGER" property="tokenVersion" />
         <association property="school" javaType="School">
             <id column="school_id" property="id"/>
             <result column="school_name" property="name" />

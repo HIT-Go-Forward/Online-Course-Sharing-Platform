@@ -28,6 +28,7 @@ public class User {
     private String note;
     private String phone;
     private String img;
+    private Integer tokenVersion;
     private boolean isVisitor;
 
     public User() {
@@ -142,4 +143,33 @@ public class User {
     public boolean isVisitor() {
         return isVisitor;
     }
+
+    /**
+     * @return Integer return the tokenVersion
+     */
+    public Integer getTokenVersion() {
+        return tokenVersion;
+    }
+
+    /**
+     * @param tokenVersion the tokenVersion to set
+     */
+    public void setTokenVersion(Integer tokenVersion) {
+        this.tokenVersion = tokenVersion;
+    }
+
+    /**
+     * @return boolean return the isVisitor
+     */
+    public boolean isIsVisitor() {
+        return isVisitor;
+    }
+
+    /**
+     * @param isVisitor the isVisitor to set
+     */
+    public void setIsVisitor(boolean isVisitor) {
+        this.isVisitor = isVisitor;
+    }
+
 }

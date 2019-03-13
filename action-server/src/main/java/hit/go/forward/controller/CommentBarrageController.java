@@ -59,10 +59,10 @@ public class CommentBarrageController {
             case "lesson":
                 if (lessonId == null) return RequestResults.lackNecessaryParam("lessonId");
                 paras = new HashMap<>();
-                paras.put("lessonId", courseId);
+                paras.put("lessonId", lessonId);
                 paras.put("start", start);
                 paras.put("length", length);
-                return RequestResults.success(commentMapper.selectCommentByCourseId(paras));
+                return RequestResults.success(commentMapper.selectCommentByLessonId(paras));
                 default:
                     return RequestResults.invalidParamValue("type");
         }

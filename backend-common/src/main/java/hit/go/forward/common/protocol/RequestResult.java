@@ -27,4 +27,9 @@ public class RequestResult {
     public void setData(Object data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "status=" + this.status + ", data=" + data.toString();
+    }
 }

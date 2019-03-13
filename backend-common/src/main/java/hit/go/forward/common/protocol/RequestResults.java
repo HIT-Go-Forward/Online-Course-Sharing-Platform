@@ -175,4 +175,8 @@ public class RequestResults {
     public static String toJSON(RequestResult result) {
         return JSON.toJson(result);
     }
+
+    public static RequestResult fromJSON(String json) {
+        return JSON.fromJson(json, RequestResult.class);
+    }
 }

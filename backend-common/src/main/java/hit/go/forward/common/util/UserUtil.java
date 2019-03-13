@@ -21,6 +21,7 @@ public final class UserUtil {
         userWithToken.setNote(user.getNote());
         userWithToken.setPhone(user.getPhone());
         userWithToken.setImg(user.getImg());
+        userWithToken.setTokenVersion(user.getTokenVersion());
 
         return userWithToken;
     }

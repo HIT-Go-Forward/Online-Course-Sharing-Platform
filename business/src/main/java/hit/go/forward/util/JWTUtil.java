@@ -25,9 +25,13 @@ public final class JWTUtil {
     }
 
     public static String generateToken(Map<String, String> paras) {
+        return generateToken(paras, TIME_MS_7_DAYS);
+    }
+
+    public static String generateToken(Map<String, String> paras, Integer duration) {
         JWTCreator.Builder builder = JWT.create()
-                .withIssuer(JWT_ISSUER)
-                .withExpiresAt(new Date(new Date().getTime() + TIME_MS_7_DAYS));
+                .withIssuer(JWT_ISSUER);
+        if (duration != null) builder.withExpiresAt(new Date(new Date().getTime() + duration));
         for (String key : paras.keySet()) {
             builder = builder.withClaim(key, paras.get(key));
         }

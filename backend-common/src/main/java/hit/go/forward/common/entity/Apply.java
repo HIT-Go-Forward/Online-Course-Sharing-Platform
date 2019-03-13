@@ -13,11 +13,9 @@ public class Apply {
     public static int STATE_REJECTED = 3;
 
     private Integer id;
-//    private Integer userId;
     private User applyUser;
     private Date time;
     private String note;
-//    private Integer handlerId;
     private User handler;
     private Integer state;
     private Date handleTime;
@@ -31,12 +29,12 @@ public class Apply {
         this.id = id;
     }
 
-    public User getUserId() {
+    public User getApplyUser() {
         return applyUser;
     }
 
-    public void setUserId(User userId) {
-        this.applyUser = userId;
+    public void setApplyUser(User applyUser) {
+        this.applyUser = applyUser;
     }
 
     public Date getTime() {

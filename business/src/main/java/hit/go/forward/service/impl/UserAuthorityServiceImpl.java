@@ -22,13 +22,21 @@ public class UserAuthorityServiceImpl implements UserAuthorityService {
 
     private static final String USER_ID =  "userId";
     private static final String USER_TYPE = "userType";
+    private static final String VERSION = "version";
+    private static final Integer TIME_MS_7_DAYS = 604800000;
 
     @Override
     public String generateToken(User user) {
+        return generateToken(user, TIME_MS_7_DAYS);
+    }
+
+    @Override
+    public String generateToken(User user, Integer duration) {
         Map<String, String> data = new HashMap<>();
         data.put(USER_ID, user.getId().toString());
         data.put(USER_TYPE, user.getType().toString());
-        return JWTUtil.generateToken(data);
+        data.put(VERSION, user.getTokenVersion().toString());
+        return JWTUtil.generateToken(data, duration);
     }
 
     @Override

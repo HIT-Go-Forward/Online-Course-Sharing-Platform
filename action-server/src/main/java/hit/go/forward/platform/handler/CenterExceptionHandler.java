@@ -25,7 +25,7 @@ public class CenterExceptionHandler implements HandlerExceptionResolver {
         ModelAndView tmp = new ModelAndView();
 
         logger.error("捕获异常{}:{}", e.getClass().getName(), e.getMessage());
-
+        e.printStackTrace();
         if (e instanceof RequestHandleException) {
             RequestHandleException ex = (RequestHandleException) e;
             result = ex.result();

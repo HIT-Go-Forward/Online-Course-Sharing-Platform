@@ -28,7 +28,7 @@
 
     <select id="getCourseHistory" parameterType="historyQueryParam" resultMap="courseHistoryMap">
         select * from course c, history h
-        where c.course_id = h.history_course_id and h.history_user_id = #{id}
+        where c.course_id = h.history_course_id and h.history_user_id = #{userId}
         <if test="start != null and length != null">
             limit #{start}, #{length}
         </if>
