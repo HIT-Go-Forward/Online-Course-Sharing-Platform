@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.*;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,10 +64,6 @@ public class UserAuthorityController {
             user.setEmail(email.toString());
             user.setName(name.toString());
             user.setToken(authorityService.generateToken(user));
-//            session.setAttribute(AttrKey.ATTR_USER, user);
-//            response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
-//            response.addCookie(SystemVariable.newPasswordCookie(password.toString()));
-
             return RequestResults.success(user);
         }
         return RequestResults.validateFailed(result);
@@ -91,14 +86,11 @@ public class UserAuthorityController {
             UserWithPassword user = null;
             if (account.matches("^\\d+$")) {
                 user = userMapper.selectUserById(account);
-            } else if (account.matches("^\\w+@.+$")) {
+            } else if (account.matches("^.+@.+$")) {
                 user = userMapper.selectUserByEmail(account);
             } else return RequestResults.invalidParamValue("请输入正确的账号！");
             if (user != null) {
                 if (user.getPassword().equals(password)) {
-//                    session.setAttribute(AttrKey.ATTR_USER, user);
-//                    response.addCookie(SystemVariable.newIdCookie(user.getId().toString()));
-//                    response.addCookie(SystemVariable.newPasswordCookie(user.getPassword()));
                     UserWithToken ut = UserUtil.toTokenUser(user);
                     ut.setToken(authorityService.generateToken(user));
                     return RequestResults.success(ut);

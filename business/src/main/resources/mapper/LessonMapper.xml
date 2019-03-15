@@ -9,18 +9,46 @@
         <result column="lesson_chapter_title" property="chapterTitle" />
         <result column="lesson_intro" property="intro"/>
         <result column="note" property="note"/>
-        <result column="video_url" property="videoUrl"/>
-        <result column="file_url" property="fileUrl"/>
         <result column="lesson_course_id" property="courseId"/>
         <result column="lesson_create_date" property="createDate"/>
         <result column="lesson_update_date" property="updateDate"/>
         <result column="lesson_state" property="state"/>
+        <association property="video" javaType="resourceFile">
+            <id column="video_id" property="id"/>
+            <result column="video_name" property="name"/>
+            <result column="video_user_id" property="userId"/>
+            <result column="video_type" property="type"/>
+            <result column="video_note" property="note"/>
+            <result column="video_url" property="url"/>
+            <result column="video_update_date" property="updateDate"/>
+            <result column="video_lesson_id" property="lessonId"/>
+            <result column="video_intro" property="intro"/>
+            <result column="video_size" property="size"/>
+            <result column="video_length" property="length"/>
+        </association>
+        <association property="file" javaType="resourceFile">
+            <id column="file_id" property="id"/>
+            <result column="file_name" property="name"/>
+            <result column="file_user_id" property="userId"/>
+            <result column="file_type" property="type"/>
+            <result column="note" property="note"/>
+            <result column="file_url" property="url"/>
+            <result column="file_update_date" property="updateDate"/>
+            <result column="file_lesson_id" property="lessonId"/>
+            <result column="file_intro" property="intro"/>
+            <result column="file_size" property="size"/>
+            <result column="file_length" property="length"/>
+        </association>
     </resultMap>
 
     <sql id="lessonColumns">
-      lesson.*, f1.file_url as video_url, f2.file_url as file_url, f2.file_name as file_name
-      from lesson left join file f1 on lesson.lesson_video_id = f1.file_id
-      left join file f2 on lesson.lesson_file_id = f2.file_id
+        lesson.*, f2.*,
+        f1.file_id as video_id, f1.file_name as video_name, f1.file_user_id as video_user_id,
+        f1.file_type as video_type, f1.note as video_note, f1.file_url as video_url,
+        f1.file_update_date as video_update_date, f1.file_lesson_id as video_lesson_id,
+        f1.file_intro as video_intro, f1.file_size as video_size, f1.file_length as video_length
+        from lesson left join file f1 on lesson.lesson_video_id = f1.file_id
+        left join file f2 on lesson.lesson_file_id = f2.file_id
     </sql>
 
     <insert id="insertNewLesson" parameterType="Map" keyProperty="id" useGeneratedKeys="true">
@@ -106,15 +134,15 @@
     </update>
 
     <select id="getCourseLessons" parameterType="String" resultMap="lessonMap">
-      select
-      <include refid="lessonColumns"/>
-      where lesson.lesson_course_id = #{courseId}
+        select
+        <include refid="lessonColumns"/>
+        where lesson.lesson_course_id = #{courseId}
     </select>
 
     <select id="getLessonById" parameterType="String" resultMap="lessonMap">
-      select
-      <include refid="lessonColumns"/>
-      where lesson.lesson_id = #{lessonId} and lesson_state = 2
+        select
+        <include refid="lessonColumns"/>
+        where lesson.lesson_id = #{lessonId} and lesson_state = 2
     </select>
 
     <select id="getAdminLessonById" parameterType="Map" resultMap="lessonMap">
