@@ -20,6 +20,7 @@ public class Comment {
     private Date date;
     private String note;
     private Integer state;
+    private Integer under;
 
     public Integer getId() {
         return id;
@@ -100,4 +101,19 @@ public class Comment {
     public void setState(Integer state) {
         this.state = state;
     }
+
+    /**
+     * @return Integer return the under
+     */
+    public Integer getUnder() {
+        return under;
+    }
+
+    /**
+     * @param under the under to set
+     */
+    public void setUnder(Integer under) {
+        this.under = under;
+    }
+
 }

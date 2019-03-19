@@ -38,6 +38,7 @@ public class ResourceUploadController {
     private static final String COURSE_FILE_DIR = "other";  // 课程附件文件夹
     private static final String RESOURCE_FILE_NAME = "$$$resource_file$$$";
     private static final String MEDIA_SERVER_DIR = "/HGF/media";
+    private static final String BLOG_IMG_DIR_NAME = "blog";
 
     private FileMapper fileMapper;
     private UserMapper userMapper;
@@ -150,8 +151,18 @@ public class ResourceUploadController {
         return RequestResults.success(resource.getUrl());
     }
 
+    @Transactional
+    @RequestMapping("/uploadBlogImg")
+    public RequestResult uploadBlogImg(MultipartFile file, String $userId) {
+        // TODO 
+        File userBlogImgDir = new File(buildPath(MEDIA_SERVER_RESOURCE_DIR, $userId, BLOG_IMG_DIR_NAME));
+        File localFile = new File(userBlogImgDir, file.getOriginalFilename() + userBlogImgDir.listFiles().length);
+        return RequestResults.success();
+    }
+
     @RequestMapping("/test")
     public RequestResult test() {
+
         return RequestResults.success(fileMapper.queryUrlById("34"));
     }
 

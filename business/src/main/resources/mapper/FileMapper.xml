@@ -6,19 +6,19 @@
     </resultMap>
 
     <insert id="addNewFile" parameterType="resource" useGeneratedKeys="true" keyProperty="id">
-      insert into file
-      (file_name, file_user_id, file_type, note, file_url, file_update_date, file_lesson_id, file_intro)
-      values
-      (
-        #{name},
-        #{userId},
-        #{type},
-        #{note, jdbcType=VARCHAR},
-        #{url},
-        #{date},
-        #{lessonId},
-        #{intro, jdbcType=VARCHAR}
-      )
+        insert into file
+        (file_name, file_user_id, file_type, note, file_url, file_update_date, file_lesson_id, file_intro)
+        values
+        (
+            #{name},
+            #{userId},
+            #{type},
+            #{note, jdbcType=VARCHAR},
+            #{url},
+            #{date},
+            #{lessonId},
+            #{intro, jdbcType=VARCHAR}
+        )
     </insert>
 
     <update id="updateFile" parameterType="resource">

@@ -15,8 +15,6 @@ public class Lesson {
     private String chapterTitle;
     private String intro;
     private String note;
-    // private String videoUrl;
-    // private String fileUrl;
     private ResourceFile video;
     private ResourceFile file;
     private String originalFileName;
@@ -24,8 +22,6 @@ public class Lesson {
     private Date createDate;
     private Date updateDate;
     private Integer state;
-
-
 
     /**
      * @return Integer return the id
@@ -124,34 +120,6 @@ public class Lesson {
     public void setNote(String note) {
         this.note = note;
     }
-
-    // /**
-    //  * @return String return the videoUrl
-    //  */
-    // public String getVideoUrl() {
-    //     return videoUrl;
-    // }
-
-    // /**
-    //  * @param videoUrl the videoUrl to set
-    //  */
-    // public void setVideoUrl(String videoUrl) {
-    //     this.videoUrl = videoUrl;
-    // }
-
-    // /**
-    //  * @return String return the fileUrl
-    //  */
-    // public String getFileUrl() {
-    //     return fileUrl;
-    // }
-
-    // /**
-    //  * @param fileUrl the fileUrl to set
-    //  */
-    // public void setFileUrl(String fileUrl) {
-    //     this.fileUrl = fileUrl;
-    // }
 
     /**
      * @return ResourceFile return the video
