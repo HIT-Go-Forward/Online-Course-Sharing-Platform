@@ -19,6 +19,8 @@ public class Resource {
     private Date date;
     private Integer lessonId;
     private String intro;
+    private String size;
+    private String length;
 
     public Integer getId() {
         return id;
@@ -91,4 +93,33 @@ public class Resource {
     public void setIntro(String intro) {
         this.intro = intro;
     }
+
+    /**
+     * @return String return the size
+     */
+    public String getSize() {
+        return size;
+    }
+
+    /**
+     * @param size the size to set
+     */
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    /**
+     * @return String return the length
+     */
+    public String getLength() {
+        return length;
+    }
+
+    /**
+     * @param length the length to set
+     */
+    public void setLength(String length) {
+        this.length = length;
+    }
+
 }

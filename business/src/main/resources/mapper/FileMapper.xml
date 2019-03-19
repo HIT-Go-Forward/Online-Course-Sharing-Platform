@@ -7,7 +7,18 @@
 
     <insert id="addNewFile" parameterType="resource" useGeneratedKeys="true" keyProperty="id">
         insert into file
-        (file_name, file_user_id, file_type, note, file_url, file_update_date, file_lesson_id, file_intro)
+        (
+            file_name, 
+            file_user_id, 
+            file_type, 
+            note, 
+            file_url, 
+            file_update_date, 
+            file_lesson_id, 
+            file_intro,
+            file_size,
+            file_length
+        )
         values
         (
             #{name},
@@ -17,7 +28,9 @@
             #{url},
             #{date},
             #{lessonId},
-            #{intro, jdbcType=VARCHAR}
+            #{intro, jdbcType=VARCHAR},
+            #{size, jdbcType=INTEGER},
+            #{length, jdbcType=INTEGER}
         )
     </insert>
 
@@ -26,7 +39,9 @@
         file_update_date = #{date},
         file_type = #{type},
         file_url = #{url},
-        file_user_id = #{userId}
+        file_user_id = #{userId},
+        file_size = #{size},
+        file_length = #{length}
         where
         <choose>
             <when test="id != null">
@@ -43,7 +58,7 @@
     </update>
 
     <select id="queryUrlById" parameterType="String" resultType="String">
-      select file_url from file where file_id = #{id}
+        select file_url from file where file_id = #{id}
     </select>
 
     <select id="selectFileIdByUrl" parameterType="String" resultType="String">

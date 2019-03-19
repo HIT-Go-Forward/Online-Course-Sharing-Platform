@@ -54,7 +54,7 @@ public class ResourceUploadController {
 
     @Transactional
     @RequestMapping("/uploadResource")
-    public RequestResult uploadResource(MultipartFile file, String $userId, String courseId, String lessonId, String type) {
+    public RequestResult uploadResource(MultipartFile file, String $userId, String courseId, String lessonId, String type, String size, String length) {
         if (file == null || type == null)  return RequestResults.lackNecessaryParam("file || type");
         if ($userId== null) {
             logger.error("未能获取到userId参数");
@@ -117,6 +117,8 @@ public class ResourceUploadController {
         resource.setType(fileType);
         resource.setUrl(storePath + "/" + file.getOriginalFilename());
         resource.setUserId(Integer.valueOf($userId));
+        resource.setSize(size);
+        resource.setLength(length);
 
         Integer rows;
         if (delPrev) rows = fileMapper.updateFile(resource);

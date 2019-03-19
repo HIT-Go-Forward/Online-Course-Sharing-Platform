@@ -72,13 +72,15 @@
     </delete>
 
     <sql id="commentColumns">
-        comment.*, user.* from comment left join user on comment.comment_user_id = user.user_id
+        comment.*, user.*, file.file_url as img, school.* from comment left join user on comment.comment_user_id = user.user_id
+        left join school on user.user_school = school.school_id
+        left join file on file.file_id = user.user_img
     </sql>
 
     <select id="selectCommentByCourseId" parameterType="Map" resultMap="commentMap">
         select
         <include refid="commentColumns"/>
-        where comment.comment_course_id = #{courseId}
+        where comment.comment_course_id = #{courseId} and comment_type = 1
         <if test="length != null and start != null">
             limit start, length
         </if>
