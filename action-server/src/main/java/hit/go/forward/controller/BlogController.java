@@ -1,5 +1,6 @@
 package hit.go.forward.controller;
 
+import org.bson.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import hit.go.forward.business.database.dao.BlogMapper;
+import hit.go.forward.business.database.mongo.MongoDB;
 import hit.go.forward.common.entity.blog.Blog;
 import hit.go.forward.common.entity.blog.param.BlogPostParam;
 import hit.go.forward.common.entity.blog.param.BlogQuery;
+import hit.go.forward.common.entity.mongo.BlogDocument;
 import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
@@ -89,4 +92,17 @@ public class BlogController {
         return RequestResults.success();
     }
 
+    // ######### MongoDB ###############
+
+    @RequestMapping(value = "/saveBlog", method = RequestMethod.POST)
+    public RequestResult saveBolg(@RequestBody Blog blog, String $userId) {
+        MongoDB.insert(blog);
+        return RequestResults.success();
+    }
+
+    @RequestMapping("/")
+    public RequestResult getUserBlog(String $userId, Integer start, Integer length) {
+
+        return RequestResults.success();
+    }
 }

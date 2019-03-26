@@ -2,6 +2,7 @@ package hit.go.forward.test;
 
 import org.junit.Test;
 
+import hit.go.forward.business.database.mongo.MongoDB;
 import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.test.httpclient.HttpClient;
 import hit.go.forward.test.httpclient.HttpClient.ResponseListener;
@@ -34,6 +35,11 @@ public class TestAction {
             testModifyInfo();
             System.out.println();
         }
+    }
+
+    @Test
+    public void testMongo() {
+        MongoDB.delete();
     }
 
     private void testSendValidateCode() {
