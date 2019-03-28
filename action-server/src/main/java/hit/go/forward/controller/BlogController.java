@@ -96,6 +96,15 @@ public class BlogController {
 
     @RequestMapping(value = "/saveBlog", method = RequestMethod.POST)
     public RequestResult saveBolg(@RequestBody Blog blog, String $userId) {
+        if (blog.getOperation() == null) return RequestResults.lackNecessaryParam("operation");
+
+        blog.setUserId($userId);
+        blog.setDislikeCount(0);
+        blog.setLikeCount(0);
+        blog.setVisitCount(0);
+        if (blog.getOperation().equals("draft")) blog.setStatus(Blog.STATUS_DRAFT);
+        else if (blog.getOperation().equals("release")) blog.setStatus(Blog.STATUS_PENDING);
+        else return RequestResults.invalidParamValue("operation");
         MongoDB.insert(blog);
         return RequestResults.success();
     }

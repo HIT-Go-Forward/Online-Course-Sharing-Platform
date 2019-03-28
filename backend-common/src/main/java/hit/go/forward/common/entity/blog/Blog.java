@@ -15,7 +15,7 @@ public class Blog {
     private User user;
     private String blog;
     private Integer status;
-    private Integer type;
+    private Integer type;   // 
     private Date uploadDate;
     private Date updateDate;
     private String userId;

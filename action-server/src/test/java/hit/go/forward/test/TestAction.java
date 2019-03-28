@@ -39,7 +39,7 @@ public class TestAction {
 
     @Test
     public void testMongo() {
-        MongoDB.delete();
+        
     }
 
     private void testSendValidateCode() {

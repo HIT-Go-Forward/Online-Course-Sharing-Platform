@@ -17,8 +17,8 @@ public final class BlogEntityUtil {
             .append("blog", blog.getBlog())
             .append("status", blog.getStatus())
             .append("type", blog.getType())
-            .append("uploadDate", blog.getUploadDate().getTime())
-            .append("updateDate", blog.getUpdateDate().getTime())
+            .append("uploadDate", blog.getUploadDate() == null ? null : blog.getUploadDate().getTime())
+            .append("updateDate", blog.getUpdateDate() == null ? null : blog.getUpdateDate().getTime())
             .append("label", blog.getLabel())
             .append("visitCount", blog.getVisitCount())
             .append("likeCount", blog.getLikeCount())
@@ -44,5 +44,10 @@ public final class BlogEntityUtil {
             blog.setDislikeCount((Integer)map.get("dislikeCount"));
         }
         return blog;
+    }
+
+    public boolean insertCheck(Blog blog) {
+        
+        return true;
     }
 }
