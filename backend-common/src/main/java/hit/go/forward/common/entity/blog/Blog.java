@@ -10,7 +10,7 @@ public class Blog {
     public static final int STATUS_RELEASED = 2;
     public static final int STATUS_REJECTED = 3;
 
-    private Integer id;
+    private String id;
     private String title;
     private User user;
     private String blog;
@@ -28,14 +28,14 @@ public class Blog {
     /**
      * @return Integer return the id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

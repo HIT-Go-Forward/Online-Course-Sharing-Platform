@@ -97,7 +97,6 @@ public class BlogController {
     @RequestMapping(value = "/saveBlog", method = RequestMethod.POST)
     public RequestResult saveBolg(@RequestBody Blog blog, String $userId) {
         if (blog.getOperation() == null) return RequestResults.lackNecessaryParam("operation");
-
         blog.setUserId($userId);
         blog.setDislikeCount(0);
         blog.setLikeCount(0);
@@ -109,9 +108,33 @@ public class BlogController {
         return RequestResults.success();
     }
 
-    @RequestMapping("/")
-    public RequestResult getUserBlog(String $userId, Integer start, Integer length) {
+    @RequestMapping("/queryBlogByUser")
+    public RequestResult queryBlogByUser(String $userId, Integer start, Integer length) {
+        return RequestResults.success(MongoDB.queryBlogByUser($userId, start, length));
+    }
 
+    @RequestMapping("/queryBlogByType")
+    public RequestResult viewBlogByType(String $userId, String typeId, Integer start, Integer length) {
         return RequestResults.success();
+    }
+
+    @RequestMapping("/viewBlogById")
+    public RequestResult viewBlogById(String $userId, Integer $userType, String blogId) {
+        return RequestResults.success(MongoDB.getBlogById(blogId, $userId, $userType));
+    }
+
+    @RequestMapping("/editBlog")
+    public RequestResult editBlog(String $userId, @RequestBody Blog blog) {
+        if (blog.getId() == null) return RequestResults.lackNecessaryParam("id");
+        blog.setStatus(Blog.STATUS_PENDING);
+        blog.setUserId($userId);
+        if (MongoDB.updateBlog(blog)) return RequestResults.success();
+        return RequestResults.serverError();
+    }
+
+    @RequestMapping("/deleteBlogById")
+    public RequestResult deleteBlogById(String $userId, String id) {
+        if (MongoDB.deleteById(id, $userId)) return RequestResults.success();
+        return RequestResults.serverError();
     }
 }

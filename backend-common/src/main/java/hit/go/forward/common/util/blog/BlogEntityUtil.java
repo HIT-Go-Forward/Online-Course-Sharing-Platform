@@ -30,7 +30,7 @@ public final class BlogEntityUtil {
         Blog blog = null;
         if (map != null) {
             blog = new Blog();
-            blog.setId((Integer)map.get("id"));
+            blog.setId((String)map.get("id"));
             blog.setTitle((String)map.get("title"));
             blog.setUserId((String)map.get("userId"));
             blog.setBlog((String)map.get("blog"));

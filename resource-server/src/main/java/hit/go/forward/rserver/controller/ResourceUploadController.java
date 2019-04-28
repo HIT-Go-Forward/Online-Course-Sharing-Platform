@@ -125,7 +125,7 @@ public class ResourceUploadController {
         else rows = fileMapper.addNewFile(resource);
         if (rows == null || rows.equals(0)) throw new DatabaseWriteException();
 
-        if (!delPrev) { // 如果原文件不存在，则为新创建的文件，需要课程等引用的修改文件id
+        if (!delPrev) { // 如果原文件不存在，则为新创建的文件
             Map<String, Object> paras = new HashMap<>();
             paras.put("img", resource.getId());
             paras.put("teacherId", $userId);

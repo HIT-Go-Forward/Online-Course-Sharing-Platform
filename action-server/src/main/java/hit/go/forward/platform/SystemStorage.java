@@ -15,7 +15,7 @@ import java.util.Map;
 public class SystemStorage {
     private static Map<String, Integer> actionPower = new HashMap<>();
     private static final Map<String, ValidateCode> vdMap = new HashMap<>();
-    private static final Map<Integer, Blog> blogCache = new HashMap<>();
+    private static final Map<String, Blog> blogCache = new HashMap<>();
     
     static {
         InputStream in = SystemStorage.class.getClassLoader().getResourceAsStream("actions.conf");
