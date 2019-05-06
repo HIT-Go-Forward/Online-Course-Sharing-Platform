@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mongo Test</title>
+</head>
+<body>
+    <h2>save blog</h2>
+    <form action="blog/saveBlog.action?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJoaXQuZ28uZm9yd2FyZCIsInVzZXJUeXBlIjoiMiIsInVzZXJJZCI6IjMiLCJ2ZXJzaW9uIjoiMCJ9.yRcWHZunRs6KZBvI_3yhTXbk6QvFkCIFtfvMS_6IhM0uo4g4BjQU8izeaxX3Ok_GVuHKlObW6ARfjnGUlgXzlw"
+    enctype="application/json"
+    method="POST">
+        <input type="text" name="title" placeholder="title"><br>
+        <input type="text" name="blog" placeholder="blog"><br>
+        <input type="text" name="type" placeholder="type"><br>
+        <input type="text" name="label" placeholder="label"><br>
+        kind:
+        <input type="radio" name="kind" value="reprint">
+        <input type="radio" name="kind" value="original">
+        private:
+        <input type="checkbox" name="private">
+        <select name="operation" name="operation">
+            <option value="draft">deaft</option>
+            <option value="release" selected>release</option>
+        </select><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

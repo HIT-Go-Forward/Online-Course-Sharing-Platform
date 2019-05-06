@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletContext;
 import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
@@ -153,24 +152,26 @@ public class ResourceUploadController {
         return RequestResults.success(resource.getUrl());
     }
 
-    @Transactional
     @RequestMapping("/uploadBlogImg")
-    public RequestResult uploadBlogImg(MultipartFile file, String $userId) {
-        // TODO 
-        File userBlogImgDir = new File(buildPath(MEDIA_SERVER_RESOURCE_DIR, $userId, BLOG_IMG_DIR_NAME));
-        File localFile = new File(userBlogImgDir, file.getOriginalFilename() + userBlogImgDir.listFiles().length);
-        return RequestResults.success();
-    }
-
-    @RequestMapping("/test")
-    public RequestResult test() {
-
-        return RequestResults.success(fileMapper.queryUrlById("34"));
+    public RequestResult uploadBlogImg(MultipartFile img, String $userId) {
+        String storePath = buildPath(MEDIA_SERVER_RESOURCE_DIR, $userId, BLOG_IMG_DIR_NAME);
+        File userBlogImgDir = new File(MEDIA_SERVER_DIR, storePath);
+        if (!userBlogImgDir.exists()) userBlogImgDir.mkdirs();
+        
+        String fileName = userBlogImgDir.listFiles().length + "__" + img.getOriginalFilename();
+        File localFile = new File(userBlogImgDir, fileName);
+        System.out.println(localFile);
+        try {
+            img.transferTo(localFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return RequestResults.serverError();
+        }
+        return RequestResults.success(storePath + "/" + fileName);
     }
 
     @RequestMapping("/delete")
     public RequestResult delete() {
-
         return RequestResults.serverError();
     }
 

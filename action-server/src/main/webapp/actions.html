@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Actions test</title>
+    <style>
+        table {
+            width: 800px;
+        }
+        input {
+            display: inline-block;
+            width: 100%;
+        }
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                action:<input type="text" id="actionUrl">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                get params:<input type="text" id="getParams">
+            </td>
+        </tr>
+        <tr>
+            <td><button id="addPostParam">add params</button></td>
+        </tr>
+        <tr>
+            <td>
+                <ul id="postParams">
+
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><button id="GET">GET</button></td>
+            <td><button id="POST">POST</button></td>
+        </tr>
+    </table>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const actionUrl = $("#actionUrl");
+        const getParams = $("#getParams");
+        const addParams = $("#addPostParam");
+        const postParams = $("#postParams");
+        const GET = $("#GET");
+        const POST = $("#POST");
+        addParams.addEventListener("click", event => {
+            const li = document.createElement("li");
+            const input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.classList.add("postParam");
+            li.appendChild(input);
+            postParams.append(li);
+        });
+        GET.addEventListener("click", event => {
+            const action = actionUrl.value;
+            const params = getParams.value;
+            axios.get(`${action}?${params}&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJoaXQuZ28uZm9yd2FyZCIsInVzZXJUeXBlIjoiMiIsInVzZXJJZCI6IjMiLCJ2ZXJzaW9uIjoiMCJ9.yRcWHZunRs6KZBvI_3yhTXbk6QvFkCIFtfvMS_6IhM0uo4g4BjQU8izeaxX3Ok_GVuHKlObW6ARfjnGUlgXzlw`)
+            .then(response => console.log(response));
+        });
+        POST.addEventListener("click", event => {
+            const action = actionUrl.value;
+            const params = document.querySelectorAll(".postParam");
+            const p = {};
+            params.forEach(e => {
+                const tmp = e.value.split("=");
+                p[tmp[0]] = tmp[1];
+            })
+            axios.post(`${action}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJoaXQuZ28uZm9yd2FyZCIsInVzZXJUeXBlIjoiMiIsInVzZXJJZCI6IjMiLCJ2ZXJzaW9uIjoiMCJ9.yRcWHZunRs6KZBvI_3yhTXbk6QvFkCIFtfvMS_6IhM0uo4g4BjQU8izeaxX3Ok_GVuHKlObW6ARfjnGUlgXzlw`, p)
+            .then(response => console.log(response));
+        });
+    </script>
+</body>
+</html>

@@ -1,6 +1,5 @@
 package hit.go.forward.controller;
 
-import org.bson.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +12,6 @@ import hit.go.forward.business.database.mongo.MongoDB;
 import hit.go.forward.common.entity.blog.Blog;
 import hit.go.forward.common.entity.blog.param.BlogPostParam;
 import hit.go.forward.common.entity.blog.param.BlogQuery;
-import hit.go.forward.common.entity.mongo.BlogDocument;
 import hit.go.forward.common.exception.DatabaseWriteException;
 import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
@@ -123,7 +121,7 @@ public class BlogController {
         return RequestResults.success(MongoDB.getBlogById(blogId, $userId, $userType));
     }
 
-    @RequestMapping("/editBlog")
+    @RequestMapping(value = "/editBlog", method = RequestMethod.POST)
     public RequestResult editBlog(String $userId, @RequestBody Blog blog) {
         if (blog.getId() == null) return RequestResults.lackNecessaryParam("id");
         blog.setStatus(Blog.STATUS_PENDING);
@@ -133,8 +131,8 @@ public class BlogController {
     }
 
     @RequestMapping("/deleteBlogById")
-    public RequestResult deleteBlogById(String $userId, String id) {
-        if (MongoDB.deleteById(id, $userId)) return RequestResults.success();
+    public RequestResult deleteBlogById(String $userId, String blogId) {
+        if (MongoDB.deleteById(blogId, $userId)) return RequestResults.success();
         return RequestResults.serverError();
     }
 }
