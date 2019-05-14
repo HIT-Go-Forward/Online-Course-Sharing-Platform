@@ -4,7 +4,13 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PlatformConfig",
+            "request": "launch",
+            "mainClass": "hit.go.forward.common.config.PlatformConfig",
+            "projectName": "backend-common"
+        },
         {
             "type": "java",
             "name": "Debug (Launch)",

@@ -11,8 +11,7 @@ import hit.go.forward.common.entity.blog.Blog;
 public final class BlogEntityUtil {
     public static Document toDocument(Blog blog) {
         Document result = new Document();
-        result.append("id", blog.getId())
-            .append("title", blog.getTitle())
+        result.append("title", blog.getTitle())
             .append("userId", blog.getUserId())
             .append("blog", blog.getBlog())
             .append("status", blog.getStatus())

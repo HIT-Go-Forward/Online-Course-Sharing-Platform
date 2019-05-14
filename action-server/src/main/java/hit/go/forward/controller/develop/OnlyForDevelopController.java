@@ -3,6 +3,7 @@ package hit.go.forward.controller.develop;
 import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.ActionMapper;
+import hit.go.forward.common.config.PlatformConfig;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
 import org.springframework.stereotype.Controller;
@@ -43,5 +44,10 @@ public class OnlyForDevelopController {
     @RequestMapping("/testSession")
     public RequestResult testSession(@SessionAttribute(AttrKey.ATTR_USER) UserWithPassword user) {
         return RequestResults.success(user);
+    }
+
+    @RequestMapping("/testConfig")
+    public RequestResult testConfig() {
+        return RequestResults.success(PlatformConfig.testRead());
     }
 }

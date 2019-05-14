@@ -49,6 +49,7 @@ public class SystemStorage {
         return vdMap.get(email);
     }
 
+    @Deprecated
     public static Blog getBlogCache(Integer id) {
         return blogCache.get(id);
     }

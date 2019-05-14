@@ -1,9 +1,11 @@
 package hit.go.forward.controller;
 
 import hit.go.forward.common.entity.Apply;
+import hit.go.forward.common.entity.blog.Blog;
 import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
 import hit.go.forward.business.database.dao.ApplyMapper;
+import hit.go.forward.business.database.mongo.MongoDB;
 import hit.go.forward.common.exception.RequestHandleException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -88,5 +90,17 @@ public class ApplyController {
         else if (type.equals("handled")) result = applyMapper.getAllHandledApplies(paras);
         else return RequestResults.invalidParamValue("type");
         return RequestResults.success(result);
+    }
+
+    @RequestMapping("/handleBlogApplies")
+    public RequestResult handleBlogApplies(String[] ids, String operation) {
+        long successCount = MongoDB.updateBlog(ids, "status", operation.equals("accept") ? Blog.STATUS_RELEASED : Blog.STATUS_REJECTED);
+        if (successCount == ids.length) return RequestResults.success();
+        return RequestResults.partSucceeded(successCount, ids.length - successCount);
+    }
+
+    @RequestMapping("/getBlogApplies")
+    public RequestResult getBlogApplies(Integer start, Integer length) {
+        return RequestResults.success(MongoDB.getBlogByField("status", Blog.STATUS_PENDING, start, length));
     }
 }

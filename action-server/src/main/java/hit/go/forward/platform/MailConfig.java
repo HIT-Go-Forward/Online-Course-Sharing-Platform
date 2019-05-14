@@ -6,6 +6,7 @@ import java.util.Map;
 /**
  * Created by 班耀强 on 2018/9/29
  */
+@Deprecated
 public class MailConfig {
     public static final String TEMPLATE_VALIDATE_MAIL = "validateCodeMail";
 

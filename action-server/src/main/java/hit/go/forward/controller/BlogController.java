@@ -1,5 +1,8 @@
 package hit.go.forward.controller;
 
+import java.util.Date;
+
+import org.bson.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -65,6 +68,7 @@ public class BlogController {
 
     }
 
+    @Deprecated
     @RequestMapping("/getBlog")
     public RequestResult getBlog(BlogQuery blogQuery, String $userId) {
         blogQuery.setUserId($userId);
@@ -99,6 +103,8 @@ public class BlogController {
         blog.setDislikeCount(0);
         blog.setLikeCount(0);
         blog.setVisitCount(0);
+        blog.setUpdateDate(new Date());
+        blog.setUploadDate(new Date());
         if (blog.getOperation().equals("draft")) blog.setStatus(Blog.STATUS_DRAFT);
         else if (blog.getOperation().equals("release")) blog.setStatus(Blog.STATUS_PENDING);
         else return RequestResults.invalidParamValue("operation");
@@ -118,7 +124,9 @@ public class BlogController {
 
     @RequestMapping("/viewBlogById")
     public RequestResult viewBlogById(String $userId, Integer $userType, String blogId) {
-        return RequestResults.success(MongoDB.getBlogById(blogId, $userId, $userType));
+        Document result = MongoDB.getBlogById(blogId, $userId, $userType);
+        MongoDB.increaseField(blogId, "visitCount");
+        return RequestResults.success(result);
     }
 
     @RequestMapping(value = "/editBlog", method = RequestMethod.POST)
@@ -126,6 +134,7 @@ public class BlogController {
         if (blog.getId() == null) return RequestResults.lackNecessaryParam("id");
         blog.setStatus(Blog.STATUS_PENDING);
         blog.setUserId($userId);
+        blog.setUpdateDate(new Date());
         if (MongoDB.updateBlog(blog)) return RequestResults.success();
         return RequestResults.serverError();
     }
@@ -134,5 +143,25 @@ public class BlogController {
     public RequestResult deleteBlogById(String $userId, String blogId) {
         if (MongoDB.deleteById(blogId, $userId)) return RequestResults.success();
         return RequestResults.serverError();
+    }
+
+    @RequestMapping("/likeBlog")
+    public RequestResult likeBlog(String $userId, String blogId, String operation) {
+        if (operation == null) return RequestResults.lackNecessaryParam("operation");
+        else if (operation.equals("like")) {
+            if (MongoDB.likeBlog($userId, blogId)) {
+                MongoDB.increaseField(blogId, "likeCount");
+                return RequestResults.success();
+            }
+            return RequestResults.operationDenied("你已经点过赞啦");
+        }
+        else if (operation.equals("cancel")) {
+            if (MongoDB.cancelLikeBlog($userId, blogId)) {
+                MongoDB.decreaseField(blogId, "likeCount");
+                return RequestResults.success();
+            }
+            return RequestResults.operationDenied("你已取消赞啦");
+        }
+        return RequestResults.invalidParamValue("operation=" + operation);
     }
 }

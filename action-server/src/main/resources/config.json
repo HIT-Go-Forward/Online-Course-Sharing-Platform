@@ -1,0 +1,16 @@
+{
+    "email": {
+        "account": "",
+        "password": "",
+        "authCode": "",
+        "smtpHost":"",
+        "templates": {
+            "validateCodeMail": "验证码 {valdateCode}, 15分钟内有效\n"
+        }
+
+    },
+    "mongo": {
+        "host": "39.106.156.178",
+        "port": 27017
+    }
+}

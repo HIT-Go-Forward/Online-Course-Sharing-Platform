@@ -100,7 +100,7 @@ public class RequestResults {
         return new RequestResult(20000, data);
     }
 
-    public static RequestResult partSucceeded(int numSucceeded, int numFailed) {
+    public static RequestResult partSucceeded(long numSucceeded, long numFailed) {
         return new RequestResult(20001, numSucceeded + " 执行成功，" + numFailed + " 执行失败，请核查");
     }
 

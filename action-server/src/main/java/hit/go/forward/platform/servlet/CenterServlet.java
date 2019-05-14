@@ -14,6 +14,8 @@ import java.util.Enumeration;
  */
 public class CenterServlet extends DispatcherServlet {
     private static final Logger logger = LoggerFactory.getLogger(CenterServlet.class);
+
+    private static final long serialVersionUID = 1;
     
 
     // 在销毁时关闭数据库驱动

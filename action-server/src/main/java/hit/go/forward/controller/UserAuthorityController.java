@@ -8,6 +8,7 @@ import hit.go.forward.common.entity.validate.ValidateCode;
 import hit.go.forward.common.util.MapperOpResultUtil;
 import hit.go.forward.common.util.UserUtil;
 import hit.go.forward.platform.*;
+import hit.go.forward.platform.entity.EmailConfig;
 import hit.go.forward.common.exception.RequestHandleException;
 import hit.go.forward.platform.util.MailUtil;
 import hit.go.forward.platform.util.Validate;
@@ -166,7 +167,7 @@ public class UserAuthorityController {
 
         String c = Validate.genValidateCode();
         code = new ValidateCode(email, c);
-        boolean flag = MailUtil.send(email, SystemConfig.getMailConfig().getTemplate(MailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", c));
+        boolean flag = MailUtil.sendEmail(email, SystemConfig.getEmailTemplate(EmailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", c));
         if (flag) {
             SystemStorage.store(email, code);
             return RequestResults.success();
@@ -188,7 +189,7 @@ public class UserAuthorityController {
         String c = Validate.genValidateCode();
 
         code = new ValidateCode(email, c);
-        boolean flag = MailUtil.send(email, SystemConfig.getMailConfig().getTemplate(MailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", c));
+        boolean flag = MailUtil.sendEmail(email, SystemConfig.getEmailTemplate(EmailConfig.TEMPLATE_VALIDATE_MAIL).replaceAll("\\{validateCode}", c));
         if (flag) {
             SystemStorage.store(email, code);
             return RequestResults.success();

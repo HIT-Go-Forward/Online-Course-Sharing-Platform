@@ -6,6 +6,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import hit.go.forward.business.database.mongo.MongoDB;
+import hit.go.forward.common.config.JSONConfigReader;
+import hit.go.forward.platform.entity.ActionServerConfig;
+import hit.go.forward.platform.entity.EmailConfig;
+import hit.go.forward.platform.entity.MongoConfig;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.net.URL;
@@ -18,12 +24,37 @@ import java.util.Map;
 public class SystemConfig {
     private static final Logger logger = LoggerFactory.getLogger(SystemConfig.class);
 
-    private static String mediaAddress;
-    private static int mediaPort;
+    private static EmailConfig emailConfig;
+    private static MongoConfig mongoConfig;
 
+    @Deprecated
+    private static String mediaAddress;
+    @Deprecated
+    private static int mediaPort;
+    @Deprecated
     private static MailConfig mailConfig;
 
     static {
+        ActionServerConfig config = JSONConfigReader.readConfig("config.json", ActionServerConfig.class);
+        emailConfig = config.getEmailConfig();
+        mongoConfig = config.getMongoConfig();
+        MongoDB.connect(mongoConfig.getHost(), mongoConfig.getPort());
+    }
+
+    public static EmailConfig getEmailConfig() {
+        return emailConfig;
+    }
+
+    public static MongoConfig getMongoConfig() {
+        return mongoConfig;
+    }
+
+    public static String getEmailTemplate(String name) {
+        return emailConfig.getTemplates().get(name);
+    }
+
+    @Deprecated
+    private static void init(){
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
@@ -55,19 +86,22 @@ public class SystemConfig {
         logger.debug("系统配置分析完成");
     }
 
-
+    @Deprecated
     public static MailConfig getMailConfig() {
         return mailConfig;
     }
 
+    @Deprecated
     public static String getMediaAddress() {
         return mediaAddress;
     }
 
+    @Deprecated
     public static int getMediaPort() {
         return mediaPort;
     }
 
+    @Deprecated
     private static void parseMediaServer(Node mediaServer) {
         NodeList nodeList = mediaServer.getChildNodes();
         for (int i = 0;i < nodeList.getLength();i ++) {
@@ -80,6 +114,7 @@ public class SystemConfig {
         }
     }
 
+    @Deprecated
     private static void parseMail(Node mail) throws Exception {
         String account = null, password = null, authCode = null, smtpHost = null;
         Map<String, String> templates = null;
@@ -117,5 +152,7 @@ public class SystemConfig {
 
         mailConfig = new MailConfig(account, password, smtpHost, authCode, templates);
     }
+
+    
 }
 
