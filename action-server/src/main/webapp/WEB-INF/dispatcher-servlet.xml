@@ -41,6 +41,7 @@
     </bean>
 
     <bean id="systemStorage" class="hit.go.forward.platform.SystemStorage"/>
+    <bean id="systemConfig" class="hit.go.forward.platform.SystemConfig"/>
 
     <bean id="exceptionHandler" class="hit.go.forward.platform.handler.CenterExceptionHandler"/>
 
