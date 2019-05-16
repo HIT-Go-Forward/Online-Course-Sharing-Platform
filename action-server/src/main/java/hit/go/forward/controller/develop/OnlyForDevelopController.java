@@ -61,6 +61,6 @@ public class OnlyForDevelopController {
 
     @RequestMapping("/systemVersion")
     public RequestResult systemVersion() {
-        return RequestResults.success();
+        return RequestResults.success(SystemConfig.getActionServerConfig().getVersion());
     }
 }
