@@ -2,6 +2,7 @@ package hit.go.forward.platform.entity;
 
 
 public class ActionServerConfig {
+    private String version;
     private EmailConfig email;
     private MongoConfig mongo;
 
@@ -32,4 +33,19 @@ public class ActionServerConfig {
     public void setMongoConfig(MongoConfig mongo) {
         this.mongo = mongo;
     }
+
+    /**
+     * @return String return the version
+     */
+    public String getVersion() {
+        return version;
+    }
+
+    /**
+     * @param version the version to set
+     */
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
 }

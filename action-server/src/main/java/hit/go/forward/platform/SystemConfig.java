@@ -24,6 +24,7 @@ import java.util.Map;
 public class SystemConfig {
     private static final Logger logger = LoggerFactory.getLogger(SystemConfig.class);
 
+    private static ActionServerConfig config;
     private static EmailConfig emailConfig;
     private static MongoConfig mongoConfig;
 
@@ -35,7 +36,11 @@ public class SystemConfig {
     private static MailConfig mailConfig;
 
     static {
-        ActionServerConfig config = JSONConfigReader.readConfig("config.json", ActionServerConfig.class);
+        config();
+    }
+
+    public static void config() {
+        config = JSONConfigReader.readConfig("config.json", ActionServerConfig.class);
         emailConfig = config.getEmailConfig();
         mongoConfig = config.getMongoConfig();
         MongoDB.connect(mongoConfig.getHost(), mongoConfig.getPort());
@@ -48,6 +53,10 @@ public class SystemConfig {
 
     public static MongoConfig getMongoConfig() {
         return mongoConfig;
+    }
+
+    public static ActionServerConfig getActionServerConfig() {
+        return config;
     }
 
     public static String getEmailTemplate(String name) {

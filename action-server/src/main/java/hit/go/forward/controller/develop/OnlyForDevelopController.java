@@ -6,6 +6,8 @@ import hit.go.forward.business.database.dao.ActionMapper;
 import hit.go.forward.common.config.PlatformConfig;
 import hit.go.forward.common.entity.user.UserWithPassword;
 import hit.go.forward.platform.AttrKey;
+import hit.go.forward.platform.SystemConfig;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,5 +51,16 @@ public class OnlyForDevelopController {
     @RequestMapping("/testConfig")
     public RequestResult testConfig() {
         return RequestResults.success(PlatformConfig.testRead());
+    }
+
+    @RequestMapping("/reconfigSystem")
+    public RequestResult reconfigSystem() {
+        SystemConfig.config();
+        return RequestResults.success();
+    }
+
+    @RequestMapping("/systemVersion")
+    public RequestResult systemVersion() {
+        return RequestResults.success();
     }
 }
