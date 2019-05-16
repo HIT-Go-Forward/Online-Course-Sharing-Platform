@@ -100,16 +100,23 @@ public class BlogController {
     public RequestResult saveBolg(@RequestBody Blog blog, String $userId) {
         if (blog.getOperation() == null) return RequestResults.lackNecessaryParam("operation");
         blog.setUserId($userId);
-        blog.setDislikeCount(0);
-        blog.setLikeCount(0);
-        blog.setVisitCount(0);
         blog.setUpdateDate(new Date());
-        blog.setUploadDate(new Date());
-        if (blog.getOperation().equals("draft")) blog.setStatus(Blog.STATUS_DRAFT);
-        else if (blog.getOperation().equals("release")) blog.setStatus(Blog.STATUS_PENDING);
+        if (blog.getOperation().equals("draft")) {
+            blog.setStatus(Blog.STATUS_DRAFT);
+            if (blog.getId() != null) {
+                MongoDB.updateBlog(blog, $userId);
+                return RequestResults.success();
+            }
+        }
+        else if (blog.getOperation().equals("release")) {
+            blog.setDislikeCount(0);
+            blog.setLikeCount(0);
+            blog.setVisitCount(0);
+            blog.setUploadDate(new Date());
+            blog.setStatus(Blog.STATUS_PENDING);
+        }
         else return RequestResults.invalidParamValue("operation");
-        MongoDB.insert(blog);
-        return RequestResults.success();
+        return RequestResults.success(MongoDB.insert(blog));
     }
 
     @RequestMapping("/queryBlogByUser")

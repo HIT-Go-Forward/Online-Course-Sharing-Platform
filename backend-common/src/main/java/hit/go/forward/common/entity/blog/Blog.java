@@ -24,6 +24,8 @@ public class Blog {
     private Integer likeCount;
     private Integer dislikeCount;
     private String operation;
+    private Boolean open;
+    private String kind;
 
     /**
      * @return Integer return the id
@@ -221,6 +223,35 @@ public class Blog {
      */
     public void setOperation(String operation) {
         this.operation = operation;
+    }
+
+
+    /**
+     * @return Boolean return the open
+     */
+    public Boolean isOpen() {
+        return open;
+    }
+
+    /**
+     * @param open the open to set
+     */
+    public void setOpen(Boolean open) {
+        this.open = open;
+    }
+
+    /**
+     * @return String return the kind
+     */
+    public String getKind() {
+        return kind;
+    }
+
+    /**
+     * @param kind the kind to set
+     */
+    public void setKind(String kind) {
+        this.kind = kind;
     }
 
 }

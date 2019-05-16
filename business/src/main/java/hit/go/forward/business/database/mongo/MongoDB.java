@@ -39,6 +39,13 @@ public class MongoDB {
     //     }
     // }
 
+    public static void main(String[] args) {
+        connect("localhost", 27017);
+        Document doc = new Document("test", "1");
+        collection.insertOne(doc);
+        System.out.println();
+    }
+
     public static void connect(String host, int port) {
         try {
             client = new MongoClient(host, port);
@@ -50,8 +57,10 @@ public class MongoDB {
         }
     }
 
-    public static void insert(Blog blog) {
-        collection.insertOne(BlogEntityUtil.toDocument(blog));
+    public static String insert(Blog blog) {
+        Document doc = BlogEntityUtil.toDocument(blog);
+        collection.insertOne(doc);
+        return ((ObjectId)doc.get("_id")).toHexString();
     }
 
     public static boolean deleteById(String id) {

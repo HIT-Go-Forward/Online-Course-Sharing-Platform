@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - MongoDB",
+            "request": "launch",
+            "mainClass": "hit.go.forward.business.database.mongo.MongoDB",
+            "projectName": "business"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - PlatformConfig",
             "request": "launch",
             "mainClass": "hit.go.forward.common.config.PlatformConfig",
