@@ -132,12 +132,16 @@ public class MongoDB {
     }
 
     public static List<Document> getBlogByField(String field, Object value, Integer start, Integer length) {
-        FindIterable<Document> result = collection.find(Filters.eq(field, value)).sort(Filters.eq("_id", 1)).skip(start).limit(length);
+        FindIterable<Document> result;
+        if (start != null && length != null) result = collection.find(Filters.eq(field, value)).sort(Filters.eq("_id", 1)).skip(start).limit(length);
+        else result = collection.find(Filters.eq(field, value));
         return docItrToList(result.iterator());
     }
 
     public static List<Document> queryBlogByUser(String userId, Integer start, Integer length) {
-        FindIterable<Document> result = collection.find(Filters.eq("userId", userId)).sort(Filters.eq("_id", 1)).skip(start).limit(length);
+        FindIterable<Document> result;
+        if (start != null && length != null) result = collection.find(Filters.eq("userId", userId)).sort(Filters.eq("_id", 1)).skip(start).limit(length);
+        else result = collection.find(Filters.eq("userId", userId));
         if (result == null) return null;
         return docItrToList(result.iterator());
     }
