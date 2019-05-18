@@ -7,6 +7,7 @@
         <result column="comment_course_id" property="courseId"/>
         <result column="comment_comment_id" property="commentId"/>
         <result column="comment_lesson_id" property="lessonId"/>
+        <result column="comment_blog_id" property="blogId"/>
         <result column="comment_type" property="type"/>
         <result column="comment_content" property="content"/>
         <result column="comment_time" property="date"/>
