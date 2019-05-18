@@ -43,7 +43,7 @@ public class SystemConfig {
         config = JSONConfigReader.readConfig("config.json", ActionServerConfig.class);
         emailConfig = config.getEmailConfig();
         mongoConfig = config.getMongoConfig();
-        MongoDB.connect(mongoConfig.getUri());
+        MongoDB.connect(mongoConfig.getHost(), mongoConfig.getPort());
         logger.debug("config.json读取完成");
     }
 
