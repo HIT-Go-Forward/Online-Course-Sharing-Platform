@@ -46,20 +46,22 @@
         comment_course_id,
         comment_comment_id,
         comment_lesson_id,
+        comment_blog_id,
         comment_type,
         comment_content,
         note,
         comment_under)
         VALUES
         (
-          #{userId},
-          #{courseId, jdbcType=INTEGER},
-          #{commentId, jdbcType=INTEGER},
-          #{lessonId, jdbcType=INTEGER},
-          #{type},
-          #{content, jdbcType=VARCHAR},
-          #{note, jdbcType=VARCHAR},
-          #{under, jdbcType=INTEGER}
+            #{userId},
+            #{courseId, jdbcType=INTEGER},
+            #{commentId, jdbcType=INTEGER},
+            #{lessonId, jdbcType=INTEGER},
+            #{blogId, jdbcType=VARCHAR},
+            #{type},
+            #{content, jdbcType=VARCHAR},
+            #{note, jdbcType=VARCHAR},
+            #{under, jdbcType=INTEGER}
         )
     </insert>
 
