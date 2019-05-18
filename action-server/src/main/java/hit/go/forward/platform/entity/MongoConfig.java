@@ -3,6 +3,7 @@ package hit.go.forward.platform.entity;
 public class MongoConfig {
     private String host;
     private Integer port;
+    private String uri;
 
     /**
      * @return String return the host
@@ -31,4 +32,19 @@ public class MongoConfig {
     public void setPort(Integer port) {
         this.port = port;
     }
+
+    /**
+     * @return String return the uri
+     */
+    public String getUri() {
+        return uri;
+    }
+
+    /**
+     * @param uri the uri to set
+     */
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
 }

@@ -57,6 +57,17 @@ public class MongoDB {
         }
     }
 
+    public static void connect(String uri) {
+        try {
+            client = new MongoClient(uri);
+            db = client.getDatabase(BASE_NAME);
+            collection = db.getCollection(BLOG_COLLECTION_NAME);
+            likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String insert(Blog blog) {
         Document doc = BlogEntityUtil.toDocument(blog);
         collection.insertOne(doc);
