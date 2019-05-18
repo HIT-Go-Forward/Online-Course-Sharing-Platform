@@ -1,5 +1,5 @@
 {
-    "version": "0.0.2",
+    "version": "0.0.3",
     "email": {
         "account": "",
         "password": "",
@@ -11,7 +11,7 @@
 
     },
     "mongo": {
-        "host": "2001:da8:270:2020:f816:3eff:fe1a:9ef8",
+        "host": "localhost",
         "port": 27017,
         "uri": "mongodb://[2001:da8:270:2020:f816:3eff:fe1a:9ef8]:27017"
     }
