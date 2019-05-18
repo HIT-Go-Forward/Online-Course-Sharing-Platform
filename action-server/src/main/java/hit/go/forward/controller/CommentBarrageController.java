@@ -45,7 +45,7 @@ public class CommentBarrageController {
     }
 
     @RequestMapping("/getComment")
-    public RequestResult getComment(String type, String courseId, String lessonId, Integer start, Integer length) {
+    public RequestResult getComment(String type, String courseId, String lessonId, String blogId, Integer start, Integer length) {
         Map<String, Object> paras;
         if (type == null) return RequestResults.lackNecessaryParam("type");
         switch (type) {
@@ -63,6 +63,13 @@ public class CommentBarrageController {
                 paras.put("start", start);
                 paras.put("length", length);
                 return RequestResults.success(commentMapper.selectCommentByLessonId(paras));
+            case "blog":
+                if (blogId == null) return RequestResults.lackNecessaryParam("blogId");
+                paras = new HashMap<>();
+                paras.put("blogId", blogId);
+                paras.put("start", start);
+                paras.put("length", length);
+                return RequestResults.success(commentMapper.selectCommentByBlogId(paras));
                 default:
                     return RequestResults.invalidParamValue("type");
         }

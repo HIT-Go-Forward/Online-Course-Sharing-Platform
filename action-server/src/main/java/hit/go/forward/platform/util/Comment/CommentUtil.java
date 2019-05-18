@@ -16,6 +16,8 @@ public class CommentUtil {
                     return comment.getCourseId() != null;
                 case Comment.TYPE_COMMENT:
                     return comment.getCourseId() != null && comment.getCommentId() != null && comment.getUnder() != null;
+                case Comment.TYPE_BLOG:
+                    return comment.getBlogId() != null;
                     default:
                         return false;
             }

@@ -9,6 +9,7 @@ public class Comment {
     public static final int TYPE_LESSON = 0;
     public static final int TYPE_COURSE = 1;
     public static final int TYPE_COMMENT = 2;
+    public static final int TYPE_BLOG = 3;
 
     private Integer id;
     private Integer userId;
@@ -21,6 +22,7 @@ public class Comment {
     private String note;
     private Integer state;
     private Integer under;
+    private String blogId;
 
     public Integer getId() {
         return id;
@@ -114,6 +116,21 @@ public class Comment {
      */
     public void setUnder(Integer under) {
         this.under = under;
+    }
+
+
+    /**
+     * @return Integer return the blogId
+     */
+    public String getBlogId() {
+        return blogId;
+    }
+
+    /**
+     * @param blogId the blogId to set
+     */
+    public void setBlogId(String blogId) {
+        this.blogId = blogId;
     }
 
 }

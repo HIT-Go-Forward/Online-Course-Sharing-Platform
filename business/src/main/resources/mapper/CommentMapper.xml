@@ -82,7 +82,7 @@
         <include refid="commentColumns"/>
         where comment.comment_course_id = #{courseId} and comment_type = 1
         <if test="length != null and start != null">
-            limit start, length
+            limit #{start}, #{length}
         </if>
     </select>
 
@@ -91,7 +91,7 @@
         <include refid="commentColumns"/>
         where comment.comment_lesson_id = #{lessonId}
         <if test="length != null and start != null">
-            limit start, length
+            limit #{start}, #{length}
         </if>
     </select>
 
@@ -100,7 +100,16 @@
         <include refid="commentColumns"/>
         where comment.comment_user_id = #{userId}
         <if test="length != null and start != null">
-            limit start, length
+            limit #{start}, #{length}
+        </if>
+    </select>
+
+    <select id="selectCommentByBlogId"  parameterType="Map" resultMap="commentMap">
+        select
+        <include refid="commentColumns"/>
+        where comment.comment_blog_id = #{blogId}
+        <if test="length != null and start != null">
+            limit #{start}, #{length}
         </if>
     </select>
 </mapper>

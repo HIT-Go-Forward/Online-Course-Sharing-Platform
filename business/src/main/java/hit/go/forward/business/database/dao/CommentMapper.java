@@ -20,4 +20,5 @@ public interface CommentMapper {
 
     List<CommentEntity> selectCommentByUserId(Map<String, Object> paras);
 
+    List<CommentEntity> selectCommentByBlogId(Map<String, Object> paras);
 }
