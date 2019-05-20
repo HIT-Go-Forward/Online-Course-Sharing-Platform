@@ -166,7 +166,9 @@ public class MongoDB {
     private static List<Document> docItrToList(Iterator<Document> itr) {
         List<Document> list = new ArrayList<>();
         while (itr.hasNext()) {
-            list.add(itr.next());
+            Document doc = itr.next();
+            doc.put("id", ((ObjectId)doc.get("_id")).toHexString());
+            list.add(doc);
         }
         return list;
     }
