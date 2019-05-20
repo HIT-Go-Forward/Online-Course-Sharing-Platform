@@ -14,6 +14,8 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 
 import hit.go.forward.common.entity.blog.Blog;
+import hit.go.forward.common.entity.comment.PrimaryComment;
+import hit.go.forward.common.entity.comment.SecondaryComment;
 import hit.go.forward.common.entity.user.User;
 import hit.go.forward.common.util.blog.BlogEntityUtil;
 
@@ -21,12 +23,14 @@ public class MongoDB {
     private static final String BASE_NAME = "hgf";
     private static final String BLOG_COLLECTION_NAME = "blog";
     private static final String BLOG_LIKE_COLLECTION_NAME = "blog_like";
+    private static final String COMMENT_COLLECTION_NAME = "comment";
 
 
     private static MongoClient client;
     private static MongoDatabase db;
     private static MongoCollection<Document> collection;
     private static MongoCollection<Document> likeCollection;
+    private static MongoCollection<Document> commentCollection;
 
     // static {
     //     try {
@@ -50,8 +54,23 @@ public class MongoDB {
         try {
             client = new MongoClient(host, port);
             db = client.getDatabase(BASE_NAME);
+            
             collection = db.getCollection(BLOG_COLLECTION_NAME);
             likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
+            commentCollection = db.getCollection(COMMENT_COLLECTION_NAME);
+
+            if (collection == null) {
+                db.createCollection(BLOG_COLLECTION_NAME);
+                collection = db.getCollection(BLOG_COLLECTION_NAME);
+            }
+            if (likeCollection == null) {
+                db.createCollection(BLOG_LIKE_COLLECTION_NAME);
+                likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
+            }
+            if (commentCollection == null) {
+                db.createCollection(COMMENT_COLLECTION_NAME);
+                commentCollection = db.getCollection(COMMENT_COLLECTION_NAME);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,6 +82,20 @@ public class MongoDB {
             db = client.getDatabase(BASE_NAME);
             collection = db.getCollection(BLOG_COLLECTION_NAME);
             likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
+            commentCollection = db.getCollection(COMMENT_COLLECTION_NAME);
+
+            if (collection == null) {
+                db.createCollection(BLOG_COLLECTION_NAME);
+                collection = db.getCollection(BLOG_COLLECTION_NAME);
+            }
+            if (likeCollection == null) {
+                db.createCollection(BLOG_LIKE_COLLECTION_NAME);
+                likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
+            }
+            if (commentCollection == null) {
+                db.createCollection(COMMENT_COLLECTION_NAME);
+                commentCollection = db.getCollection(COMMENT_COLLECTION_NAME);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -171,9 +204,35 @@ public class MongoDB {
         return likeCollection.deleteOne(Filters.and(Filters.eq("userId", userId), Filters.eq("blogId", blogId))).getDeletedCount() > 0;
     }
 
+    public static boolean insertComment(PrimaryComment comment) {
+        Document doc = new Document();
+        doc.put("replyTo", comment.getReplyTo());
+        doc.put("content", comment.getContent());
+        doc.put("commentDate", comment.getCommentDate());
+        doc.put("replies", comment.getReplies());
+        doc.put("type", comment.getType());
+        doc.put("userName", comment.getUserName());
+        doc.put("userAvatar", comment.getUserAvatar());
+        doc.put("userId", comment.getUserId());
+        commentCollection.insertOne(doc);
+        return false;
+    }
+
+    public static boolean insertComment(SecondaryComment comment) {
+        Document doc = new Document();
+        doc.put("replyTo", comment.getReplyTo());
+        doc.put("content", comment.getContent());
+        doc.put("commentDate", comment.getCommentDate());
+        doc.put("userName", comment.getUserName());
+        doc.put("userAvatar", comment.getUserAvatar());
+        doc.put("userId", comment.getUserId());
+        
+        return commentCollection.updateOne(Filters.eq("_id", new ObjectId(comment.getUnder())), new Document("$push", new Document("replies", doc))).getModifiedCount() >= 1;
+    }
+
     private static List<Document> docItrToList(Iterator<Document> itr) {
         List<Document> list = new ArrayList<>();
-        while (itr.hasNext()) {
+        while (itr.hasNext()) { 
             Document doc = itr.next();
             doc.put("id", ((ObjectId)doc.get("_id")).toHexString());
             list.add(doc);

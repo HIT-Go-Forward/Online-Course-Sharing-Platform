@@ -2,7 +2,11 @@ package hit.go.forward.controller;
 
 import hit.go.forward.business.database.dao.CommentMapper;
 import hit.go.forward.common.entity.comment.Comment;
+import hit.go.forward.common.entity.comment.PrimaryComment;
+import hit.go.forward.common.entity.comment.SecondaryComment;
+import hit.go.forward.common.entity.user.User;
 import hit.go.forward.common.exception.DatabaseWriteException;
+import hit.go.forward.platform.SystemStorage;
 import hit.go.forward.platform.util.Comment.CommentUtil;
 import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
@@ -13,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -74,12 +79,64 @@ public class CommentBarrageController {
                     return RequestResults.invalidParamValue("type");
         }
     }
+
+    @RequestMapping("/comment")
+    public RequestResult comment(CommentParam com, String $userId) {
+        User user = SystemStorage.getUser($userId);
+        if (CommentParam.isValid(com)) {
+            if (com.isSecondary()) {
+                SecondaryComment comm = new SecondaryComment();
+                comm.setCommentDate(new Date());
+                comm.setContent(com.getContent());
+                comm.setReplyTo(com.getReplyTo());
+                comm.setUserAvatar(user.getImg());
+                comm.setUserId($userId);
+                comm.setUserName(user.getName());
+            } else {
+                PrimaryComment comm = new PrimaryComment();
+                comm.setCommentDate(new Date());
+                comm.setContent(com.getContent());
+                comm.setReplyTo(com.getReplyTo());
+                comm.setUserAvatar(user.getImg());
+                comm.setUserId($userId);
+                comm.setUserName(user.getName());
+                comm.setType(com.getType());
+            }
+        }
+        return RequestResults.invalidParam();
+    }
 }
 
 class CommentParam {
     private String type;
     private String replyTo;
     private String content;
+    private Boolean secondary = false;
+    private String underId;
+
+    public static boolean isValid(CommentParam param) {
+        if (param.getReplyTo() != null && param.getContent() != null) {
+            if (param.isSecondary()) return param.getUnderId() != null;
+            return param.getType() != null;
+        }
+        return false;
+    }
+    
+    public Boolean isSecondary() {
+        return secondary;
+    }
+
+    public void setSecondary(Boolean secondary) {
+        this.secondary = secondary;
+    }
+
+    public String getUnderId() {
+        return underId;
+    }
+
+    public void setUnderId(String underId) {
+        this.underId = underId;
+    }
 
     public String getType() {
         return type;

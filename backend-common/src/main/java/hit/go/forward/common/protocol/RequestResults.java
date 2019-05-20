@@ -116,6 +116,10 @@ public class RequestResults {
         return new RequestResult(40000, "缺少必须参数：" + params);
     }
 
+    public static RequestResult invalidParam() {
+        return new RequestResult(40001, "参数错误！");
+    }
+
     public static RequestResult invalidParamValue(String detail) {
         return new RequestResult(40001, "参数值错误：" + detail);
     }

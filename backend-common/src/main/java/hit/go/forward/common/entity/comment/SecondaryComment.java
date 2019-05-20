@@ -9,6 +9,7 @@ public class SecondaryComment {
     private String userName;
     private String userAvatar;
     private Date commentDate;
+    private String under;
 
     /**
      * @return String return the replyTo
@@ -92,6 +93,21 @@ public class SecondaryComment {
      */
     public void setCommentDate(Date commentDate) {
         this.commentDate = commentDate;
+    }
+
+
+    /**
+     * @return String return the under
+     */
+    public String getUnder() {
+        return under;
+    }
+
+    /**
+     * @param under the under to set
+     */
+    public void setUnder(String under) {
+        this.under = under;
     }
 
 }
