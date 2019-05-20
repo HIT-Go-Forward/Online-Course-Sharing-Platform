@@ -1,6 +1,7 @@
 package hit.go.forward.controller;
 
 import hit.go.forward.business.database.dao.CommentMapper;
+import hit.go.forward.business.database.mongo.MongoDB;
 import hit.go.forward.common.entity.comment.Comment;
 import hit.go.forward.common.entity.comment.PrimaryComment;
 import hit.go.forward.common.entity.comment.SecondaryComment;
@@ -92,6 +93,7 @@ public class CommentBarrageController {
                 comm.setUserAvatar(user.getImg());
                 comm.setUserId($userId);
                 comm.setUserName(user.getName());
+                MongoDB.insertComment(comm)
             } else {
                 PrimaryComment comm = new PrimaryComment();
                 comm.setCommentDate(new Date());
@@ -101,6 +103,7 @@ public class CommentBarrageController {
                 comm.setUserId($userId);
                 comm.setUserName(user.getName());
                 comm.setType(com.getType());
+                MongoDB.insertComment(comm)
             }
         }
         return RequestResults.invalidParam();
