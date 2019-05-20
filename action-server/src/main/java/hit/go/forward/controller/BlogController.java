@@ -125,8 +125,8 @@ public class BlogController {
     }
 
     @RequestMapping("/queryBlogByType")
-    public RequestResult viewBlogByType(String $userId, String typeId, Integer start, Integer length) {
-        return RequestResults.success();
+    public RequestResult viewBlogByType(String $userId, Integer $userType, Integer typeId, Integer start, Integer length) {
+        return RequestResults.success(MongoDB.getBlogByType(typeId, $userType, $userId, start, length));
     }
 
     @RequestMapping("/viewBlogById")

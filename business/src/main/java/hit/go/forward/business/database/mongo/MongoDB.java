@@ -127,15 +127,14 @@ public class MongoDB {
     public static List<Document> getBlogByType(Integer type, Integer level, String userId, Integer start, Integer length) {
         FindIterable<Document> result = filterByUserPage(collection.find(Filters.eq("type", type)), userId, level, start, length);
         if (result == null) return null;
-
-        return docItrToList(result.iterator());
+        return simplify(docItrToList(result.iterator()));
     }
 
     public static List<Document> getBlogByField(String field, Object value, Integer start, Integer length) {
         FindIterable<Document> result;
         if (start != null && length != null) result = collection.find(Filters.eq(field, value)).sort(Filters.eq("_id", 1)).skip(start).limit(length);
         else result = collection.find(Filters.eq(field, value));
-        return docItrToList(result.iterator());
+        return simplify(docItrToList(result.iterator()));
     }
 
     public static List<Document> queryBlogByUser(String userId, Integer start, Integer length) {
@@ -143,7 +142,16 @@ public class MongoDB {
         if (start != null && length != null) result = collection.find(Filters.eq("userId", userId)).sort(Filters.eq("_id", 1)).skip(start).limit(length);
         else result = collection.find(Filters.eq("userId", userId));
         if (result == null) return null;
-        return docItrToList(result.iterator());
+        return simplify(docItrToList(result.iterator()));
+    }
+
+    private static List<Document> simplify(List<Document> docs) {
+        for (Document doc : docs) {
+            String blog = (String) doc.get("blog");
+            if (blog != null && blog.length() > 40) blog = blog.substring(0, 40); 
+            doc.put("blog", blog);
+        }
+        return docs;
     }
 
     public static boolean likeBlog(String userId, String blogId) {
@@ -192,7 +200,7 @@ public class MongoDB {
     }
 
     private static FindIterable<Document> filterByUserPage(FindIterable<Document> docs, String userId, Integer userType, Integer start, Integer length) {
-        if (start == null || length == null) return null;
+        if (start == null || length == null) return filterByUser(docs, userId, userType);
         return filterByUser(docs, userId, userType).sort(Filters.eq("_id", 1)).skip(start).limit(length);
     }
 }
