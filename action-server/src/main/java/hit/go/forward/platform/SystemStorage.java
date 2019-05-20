@@ -1,6 +1,8 @@
 package hit.go.forward.platform;
 
+import hit.go.forward.business.database.dao.UserMapper;
 import hit.go.forward.common.entity.blog.Blog;
+import hit.go.forward.common.entity.user.User;
 import hit.go.forward.common.entity.validate.ValidateCode;
 
 import java.io.BufferedReader;
@@ -16,6 +18,13 @@ public class SystemStorage {
     private static Map<String, Integer> actionPower = new HashMap<>();
     private static final Map<String, ValidateCode> vdMap = new HashMap<>();
     private static final Map<String, Blog> blogCache = new HashMap<>();
+    private static final Map<String, User> userCache = new HashMap<>();
+
+    private static UserMapper userMapper;
+
+    public SystemStorage(UserMapper userMapper) {
+        init(userMapper);
+    }
     
     static {
         InputStream in = SystemStorage.class.getClassLoader().getResourceAsStream("actions.conf");
@@ -35,6 +44,10 @@ public class SystemStorage {
                 e.printStackTrace();
             }
         }
+    }
+
+    private static void init(UserMapper um) {
+        userMapper = um;
     }
 
     public static Integer getActionPower(String url) {
@@ -57,5 +70,14 @@ public class SystemStorage {
     public static void cacheBlog(Blog blog) {
         if (blog.getId() == null) return;
         blogCache.put(blog.getId(), blog);
+    }
+
+    public static User getUser(String id) {
+        User user = userCache.get(id);
+        if (user == null) {
+            user = userMapper.queryById(id);
+            userCache.put(id, user);
+        }
+        return user;
     }
 }

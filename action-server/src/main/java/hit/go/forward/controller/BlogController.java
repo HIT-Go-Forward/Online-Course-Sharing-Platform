@@ -102,6 +102,7 @@ public class BlogController {
         blog.setUserId($userId);
         blog.setUpdateDate(new Date());
         if (blog.getOperation().equals("draft")) {
+
             blog.setStatus(Blog.STATUS_DRAFT);
             if (blog.getId() != null) {
                 MongoDB.updateBlog(blog, $userId);
@@ -109,13 +110,12 @@ public class BlogController {
             }
         }
         else if (blog.getOperation().equals("release")) {
-            blog.setDislikeCount(0);
-            blog.setLikeCount(0);
-            blog.setVisitCount(0);
-            blog.setUploadDate(new Date());
             blog.setStatus(Blog.STATUS_PENDING);
-        }
-        else return RequestResults.invalidParamValue("operation");
+        } else return RequestResults.invalidParamValue("operation");
+        blog.setDislikeCount(0);
+        blog.setLikeCount(0);
+        blog.setVisitCount(0);
+        blog.setUploadDate(new Date());
         return RequestResults.success(MongoDB.insert(blog));
     }
 
