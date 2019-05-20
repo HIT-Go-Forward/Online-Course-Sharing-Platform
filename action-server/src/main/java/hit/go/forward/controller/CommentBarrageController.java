@@ -93,7 +93,8 @@ public class CommentBarrageController {
                 comm.setUserAvatar(user.getImg());
                 comm.setUserId($userId);
                 comm.setUserName(user.getName());
-                MongoDB.insertComment(comm)
+                if (MongoDB.insertComment(comm)) return RequestResults.success();
+                return RequestResults.serverError();
             } else {
                 PrimaryComment comm = new PrimaryComment();
                 comm.setCommentDate(new Date());
@@ -103,7 +104,8 @@ public class CommentBarrageController {
                 comm.setUserId($userId);
                 comm.setUserName(user.getName());
                 comm.setType(com.getType());
-                MongoDB.insertComment(comm)
+                if (MongoDB.insertComment(comm)) return RequestResults.success();
+                return RequestResults.serverError();
             }
         }
         return RequestResults.invalidParam();
