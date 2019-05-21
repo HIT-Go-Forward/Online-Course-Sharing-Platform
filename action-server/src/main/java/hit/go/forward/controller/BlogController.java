@@ -134,6 +134,7 @@ public class BlogController {
     public RequestResult viewBlogById(String $userId, Integer $userType, String blogId) {
         Document result = MongoDB.getBlogById(blogId, $userId, $userType);
         MongoDB.increaseField(blogId, "visitCount");
+        MongoDB.incBlogUserField($userId, "visitCount");
         return RequestResults.success(result);
     }
 
@@ -159,6 +160,7 @@ public class BlogController {
         else if (operation.equals("like")) {
             if (MongoDB.likeBlog($userId, blogId)) {
                 MongoDB.increaseField(blogId, "likeCount");
+                MongoDB.incBlogUserField($userId, "likeCount");
                 return RequestResults.success();
             }
             return RequestResults.operationDenied("你已经点过赞啦");
@@ -166,6 +168,7 @@ public class BlogController {
         else if (operation.equals("cancel")) {
             if (MongoDB.cancelLikeBlog($userId, blogId)) {
                 MongoDB.decreaseField(blogId, "likeCount");
+                MongoDB.decBlogUserField($userId, "likeCount");
                 return RequestResults.success();
             }
             return RequestResults.operationDenied("你已取消赞啦");
