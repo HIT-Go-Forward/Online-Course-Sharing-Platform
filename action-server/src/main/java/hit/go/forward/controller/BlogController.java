@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import hit.go.forward.business.database.dao.BlogMapper;
 import hit.go.forward.business.database.mongo.MongoDB;
 import hit.go.forward.common.entity.blog.Blog;
+import hit.go.forward.common.entity.blog.BlogUserSummary;
 import hit.go.forward.common.entity.blog.param.BlogPostParam;
 import hit.go.forward.common.entity.blog.param.BlogQuery;
 import hit.go.forward.common.exception.DatabaseWriteException;
@@ -170,5 +171,12 @@ public class BlogController {
             return RequestResults.operationDenied("你已取消赞啦");
         }
         return RequestResults.invalidParamValue("operation=" + operation);
+    }
+
+    @RequestMapping("/getUserBlogSummary")
+    public RequestResult getUserBlogSummary(String userId) {
+        BlogUserSummary summary = MongoDB.getBlogUserSummary(userId);
+        if (summary == null) summary = MongoDB.calcBlogUserSummary(userId);
+        return RequestResults.success(summary);
     }
 }

@@ -14,6 +14,7 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 
 import hit.go.forward.common.entity.blog.Blog;
+import hit.go.forward.common.entity.blog.BlogUserSummary;
 import hit.go.forward.common.entity.comment.PrimaryComment;
 import hit.go.forward.common.entity.comment.SecondaryComment;
 import hit.go.forward.common.entity.user.User;
@@ -24,6 +25,7 @@ public class MongoDB {
     private static final String BLOG_COLLECTION_NAME = "blog";
     private static final String BLOG_LIKE_COLLECTION_NAME = "blog_like";
     private static final String COMMENT_COLLECTION_NAME = "comment";
+    private static final String BLOG_USER_COLLECTION_NAME = "blog_user";
 
 
     private static MongoClient client;
@@ -31,6 +33,7 @@ public class MongoDB {
     private static MongoCollection<Document> collection;
     private static MongoCollection<Document> likeCollection;
     private static MongoCollection<Document> commentCollection;
+    private static MongoCollection<Document> blogUserCollection;
 
     // static {
     //     try {
@@ -54,23 +57,7 @@ public class MongoDB {
         try {
             client = new MongoClient(host, port);
             db = client.getDatabase(BASE_NAME);
-            
-            collection = db.getCollection(BLOG_COLLECTION_NAME);
-            likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
-            commentCollection = db.getCollection(COMMENT_COLLECTION_NAME);
-
-            if (collection == null) {
-                db.createCollection(BLOG_COLLECTION_NAME);
-                collection = db.getCollection(BLOG_COLLECTION_NAME);
-            }
-            if (likeCollection == null) {
-                db.createCollection(BLOG_LIKE_COLLECTION_NAME);
-                likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
-            }
-            if (commentCollection == null) {
-                db.createCollection(COMMENT_COLLECTION_NAME);
-                commentCollection = db.getCollection(COMMENT_COLLECTION_NAME);
-            }
+            getCollections();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -80,24 +67,33 @@ public class MongoDB {
         try {
             client = new MongoClient(uri);
             db = client.getDatabase(BASE_NAME);
-            collection = db.getCollection(BLOG_COLLECTION_NAME);
-            likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
-            commentCollection = db.getCollection(COMMENT_COLLECTION_NAME);
-
-            if (collection == null) {
-                db.createCollection(BLOG_COLLECTION_NAME);
-                collection = db.getCollection(BLOG_COLLECTION_NAME);
-            }
-            if (likeCollection == null) {
-                db.createCollection(BLOG_LIKE_COLLECTION_NAME);
-                likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
-            }
-            if (commentCollection == null) {
-                db.createCollection(COMMENT_COLLECTION_NAME);
-                commentCollection = db.getCollection(COMMENT_COLLECTION_NAME);
-            }
+            getCollections();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void getCollections() {
+        collection = db.getCollection(BLOG_COLLECTION_NAME);
+        likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
+        commentCollection = db.getCollection(COMMENT_COLLECTION_NAME);
+        blogUserCollection = db.getCollection(BLOG_USER_COLLECTION_NAME);
+
+        if (collection == null) {
+            db.createCollection(BLOG_COLLECTION_NAME);
+            collection = db.getCollection(BLOG_COLLECTION_NAME);
+        }
+        if (likeCollection == null) {
+            db.createCollection(BLOG_LIKE_COLLECTION_NAME);
+            likeCollection = db.getCollection(BLOG_LIKE_COLLECTION_NAME);
+        }
+        if (commentCollection == null) {
+            db.createCollection(COMMENT_COLLECTION_NAME);
+            commentCollection = db.getCollection(COMMENT_COLLECTION_NAME);
+        }
+        if (blogUserCollection == null) {
+            db.createCollection(BLOG_USER_COLLECTION_NAME);
+            commentCollection = db.getCollection(BLOG_USER_COLLECTION_NAME);
         }
     }
 
@@ -228,6 +224,46 @@ public class MongoDB {
         doc.put("userId", comment.getUserId());
         
         return commentCollection.updateOne(Filters.eq("_id", new ObjectId(comment.getUnder())), new Document("$push", new Document("replies", doc))).getModifiedCount() >= 1;
+    }
+
+    public static BlogUserSummary getBlogUserSummary(String id) {
+        Document document = blogUserCollection.find(Filters.eq("userId", id)).first();
+        if (document == null) return null;
+        BlogUserSummary summary = new BlogUserSummary();
+        summary.fromDocument(document);
+        return summary;
+    }
+
+    public static BlogUserSummary calcBlogUserSummary(String userId) {
+        BlogUserSummary summary = new BlogUserSummary();
+        FindIterable<Document> result = collection.find(Filters.eq("userId", userId));
+        List<Document> docs = docItrToList(result.iterator());
+        int visitCount = 0;
+        int likeCount = 0;
+        int blogCount = 0;
+        int commentCount = 0;
+
+        for (Document doc : docs) {
+            visitCount += (Integer) doc.get("visitCount");
+            likeCount += (Integer) doc.get("likeCount");
+            blogCount += (Integer) doc.get("blogCount");
+            commentCount += (Integer) doc.get("commentCount");
+        }
+
+        summary.setBlogCount(blogCount);
+        summary.setCommentCount(commentCount);
+        summary.setLikeCount(likeCount);
+        summary.setVisitCount(visitCount);
+        summary.setUserId(userId);
+        return summary;
+    }
+
+    public static void insertBlogUserSummary(BlogUserSummary summary) {
+        blogUserCollection.insertOne(summary.toDocument());
+    }
+
+    public static boolean incBlogUserField(String id, String field) {
+        return blogUserCollection.updateOne(Filters.eq("-id", new ObjectId(id)), new Document("$inc", new Document(field, 1))).getModifiedCount() >= 1;
     }
 
     private static List<Document> docItrToList(Iterator<Document> itr) {
