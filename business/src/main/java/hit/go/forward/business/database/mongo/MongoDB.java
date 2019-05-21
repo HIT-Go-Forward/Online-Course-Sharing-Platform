@@ -245,7 +245,7 @@ public class MongoDB {
 
         for (Document doc : docs) {
             visitCount += (Integer) doc.get("visitCount");
-            commentCount += (Integer) doc.get("commentCount");
+            likeCount += (Integer) doc.get("likeCount");
         }
 
         blogCount = docs.size();
