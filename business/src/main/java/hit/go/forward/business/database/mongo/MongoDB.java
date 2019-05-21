@@ -263,11 +263,11 @@ public class MongoDB {
     }
 
     public static boolean incBlogUserField(String id, String field) {
-        return blogUserCollection.updateOne(Filters.eq("-id", new ObjectId(id)), new Document("$inc", new Document(field, 1))).getModifiedCount() >= 1;
+        return blogUserCollection.updateOne(Filters.eq("userId", id), new Document("$inc", new Document(field, 1))).getModifiedCount() >= 1;
     }
 
     public static boolean decBlogUserField(String id, String field) {
-        return blogUserCollection.updateOne(Filters.eq("-id", new ObjectId(id)), new Document("$inc", new Document(field, -1))).getModifiedCount() >= 1;
+        return blogUserCollection.updateOne(Filters.eq("userId", id), new Document("$inc", new Document(field, -1))).getModifiedCount() >= 1;
     }
 
     private static List<Document> docItrToList(Iterator<Document> itr) {
