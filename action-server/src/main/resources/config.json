@@ -1,10 +1,10 @@
 {
     "version": "0.0.3",
     "email": {
-        "account": "",
-        "password": "",
-        "authCode": "",
-        "smtpHost":"",
+        "account": "15846376962@163.com",
+        "password": "cfmy0714..",
+        "authCode": "byq163",
+        "smtpHost":"smtp.163.com",
         "templates": {
             "validateCodeMail": "验证码 {valdateCode}, 15分钟内有效\n"
         }

@@ -9,7 +9,9 @@ import hit.go.forward.business.database.mongo.MongoDB;
 import hit.go.forward.common.exception.RequestHandleException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
@@ -92,15 +94,37 @@ public class ApplyController {
         return RequestResults.success(result);
     }
 
-    @RequestMapping("/handleBlogApplies")
-    public RequestResult handleBlogApplies(String[] ids, String operation) {
-        long successCount = MongoDB.updateBlog(ids, "status", operation.equals("accept") ? Blog.STATUS_RELEASED : Blog.STATUS_REJECTED);
-        if (successCount == ids.length) return RequestResults.success();
-        return RequestResults.partSucceeded(successCount, ids.length - successCount);
+    @RequestMapping(value = "/handleBlogApplies", method = RequestMethod.POST)
+    public RequestResult handleBlogApplies(@RequestBody BlogApplyParam param) {
+        if (param.getIds() == null || param.getOperation() == null) return RequestResults.lackNecessaryParam("ids || operation");
+        long successCount = MongoDB.updateBlog(param.getIds(), "status", param.getOperation().equals("accept") ? Blog.STATUS_RELEASED : Blog.STATUS_REJECTED);
+        if (successCount == param.getIds().length) return RequestResults.success();
+        return RequestResults.partSucceeded(successCount, param.getIds().length - successCount);
     }
 
     @RequestMapping("/getBlogApplies")
     public RequestResult getBlogApplies(Integer start, Integer length) {
         return RequestResults.success(MongoDB.getBlogByField("status", Blog.STATUS_PENDING, start, length));
+    }
+}
+
+class BlogApplyParam {
+    private String[] ids;
+    private String operation;
+
+    public void setIds(String[] ids) {
+        this.ids = ids;
+    }
+
+    public String[] getIds() {
+        return ids;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    public String getOperation() {
+        return operation;
     }
 }
