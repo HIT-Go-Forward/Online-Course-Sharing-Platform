@@ -1,6 +1,8 @@
 package hit.go.forward.common.entity.comment;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class PrimaryComment {
     public static final String TYPE_COURSE = "course";
@@ -15,7 +17,7 @@ public class PrimaryComment {
     private String userName;
     private String userAvatar;
     private Date commentDate;
-    private SecondaryComment[] replies = {};
+    private List<SecondaryComment> replies = new ArrayList<>();
 
     /**
      * @return String return the type
@@ -118,14 +120,14 @@ public class PrimaryComment {
     /**
      * @return SecondaryComment[] return the replies
      */
-    public SecondaryComment[] getReplies() {
+    public List<SecondaryComment> getReplies() {
         return replies;
     }
 
     /**
      * @param replies the replies to set
      */
-    public void setReplies(SecondaryComment[] replies) {
+    public void setReplies(List<SecondaryComment> replies) {
         this.replies = replies;
     }
 

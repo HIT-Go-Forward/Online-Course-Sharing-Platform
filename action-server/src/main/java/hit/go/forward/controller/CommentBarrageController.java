@@ -110,7 +110,7 @@ public class CommentBarrageController {
                 comm.setUserId($userId);
                 comm.setUserName(user.getName());
                 comm.setType(com.getType());
-                MongoDB.insertComment(comm) ;
+                MongoDB.insertComment(comm);
                 return RequestResults.success();
             }
         }
