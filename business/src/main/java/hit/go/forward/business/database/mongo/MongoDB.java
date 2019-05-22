@@ -226,6 +226,11 @@ public class MongoDB {
         return commentCollection.updateOne(Filters.eq("_id", new ObjectId(comment.getUnder())), new Document("$push", new Document("replies", doc))).getModifiedCount() >= 1;
     }
 
+    public static List<Document> getComment(String type, String id) {
+        FindIterable<Document> result = commentCollection.find(Filters.and(Filters.eq("type", type), Filters.eq("replyTo", id)));
+        return docItrToList(result.iterator());
+    }
+
     public static BlogUserSummary getBlogUserSummary(String id) {
         Document document = blogUserCollection.find(Filters.eq("userId", id)).first();
         if (document == null) return null;
@@ -237,18 +242,18 @@ public class MongoDB {
     public static BlogUserSummary calcBlogUserSummary(String userId) {
         BlogUserSummary summary = new BlogUserSummary();
         FindIterable<Document> result = collection.find(Filters.eq("userId", userId));
+        FindIterable<Document> comments = commentCollection.find(Filters.eq("userId", userId));
         List<Document> docs = docItrToList(result.iterator());
+        List<Document> commList = docItrToList(comments.iterator());
         int visitCount = 0;
         int likeCount = 0;
-        int blogCount = 0;
-        int commentCount = 0;
+        int blogCount = docs.size();
+        int commentCount = commList.size();
 
         for (Document doc : docs) {
             visitCount += (Integer) doc.get("visitCount");
             likeCount += (Integer) doc.get("likeCount");
         }
-
-        blogCount = docs.size();
 
         summary.setBlogCount(blogCount);
         summary.setCommentCount(commentCount);

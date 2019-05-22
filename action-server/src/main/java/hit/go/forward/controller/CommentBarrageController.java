@@ -85,34 +85,38 @@ public class CommentBarrageController {
 
     @RequestMapping("/comment")
     public RequestResult comment(CommentParam com, String $userId) {
-        User user = SystemStorage.getUser($userId);
-        if (CommentParam.isValid(com)) {
-            if (com.isSecondary()) {
-                SecondaryComment comm = new SecondaryComment();
-                ObjectId objectId = new ObjectId();
-                comm.setCommentDate(new Date());
-                comm.setContent(com.getContent());
-                comm.setReplyTo(com.getReplyTo());
-                comm.setUserAvatar(user.getImg());
-                comm.setUserId($userId);
-                comm.setUserName(user.getName());
-                comm.setObjectId(objectId);
-                comm.setId(objectId.toHexString());
-                comm.setUnder(com.getUnderId());
-                if (MongoDB.insertComment(comm)) return RequestResults.success();
-                return RequestResults.serverError();
-            } else {
-                PrimaryComment comm = new PrimaryComment();
-                comm.setCommentDate(new Date());
-                comm.setContent(com.getContent());
-                comm.setReplyTo(com.getReplyTo());
-                comm.setUserAvatar(user.getImg());
-                comm.setUserId($userId);
-                comm.setUserName(user.getName());
-                comm.setType(com.getType());
-                MongoDB.insertComment(comm);
-                return RequestResults.success();
+        if (com.getGet() == null) {
+            User user = SystemStorage.getUser($userId);
+            if (CommentParam.isValid(com)) {
+                if (com.isSecondary()) {
+                    SecondaryComment comm = new SecondaryComment();
+                    ObjectId objectId = new ObjectId();
+                    comm.setCommentDate(new Date());
+                    comm.setContent(com.getContent());
+                    comm.setReplyTo(com.getReplyTo());
+                    comm.setUserAvatar(user.getImg());
+                    comm.setUserId($userId);
+                    comm.setUserName(user.getName());
+                    comm.setObjectId(objectId);
+                    comm.setId(objectId.toHexString());
+                    comm.setUnder(com.getUnderId());
+                    if (MongoDB.insertComment(comm)) return RequestResults.success();
+                    return RequestResults.serverError();
+                } else {
+                    PrimaryComment comm = new PrimaryComment();
+                    comm.setCommentDate(new Date());
+                    comm.setContent(com.getContent());
+                    comm.setReplyTo(com.getReplyTo());
+                    comm.setUserAvatar(user.getImg());
+                    comm.setUserId($userId);
+                    comm.setUserName(user.getName());
+                    comm.setType(com.getType());
+                    MongoDB.insertComment(comm);
+                    return RequestResults.success();
+                }
             }
+        } else if (com.getType() != null && com.getReplyTo() != null) {
+            return RequestResults.success(MongoDB.getComment(com.getType(), com.getReplyTo()));
         }
         return RequestResults.invalidParam();
     }
@@ -124,6 +128,7 @@ class CommentParam {
     private String content;
     private Boolean secondary = false;
     private String underId;
+    private String get;
 
     public static boolean isValid(CommentParam param) {
         if (param.getReplyTo() != null && param.getContent() != null) {
@@ -131,6 +136,14 @@ class CommentParam {
             return param.getType() != null;
         }
         return false;
+    }
+
+    public String getGet() {
+        return get;
+    }
+
+    public void setGet(String get) {
+        this.get = get;
     }
     
     public Boolean isSecondary() {
