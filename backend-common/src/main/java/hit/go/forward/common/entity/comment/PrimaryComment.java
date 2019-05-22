@@ -7,6 +7,7 @@ public class PrimaryComment {
     public static final String TYPE_LESSON = "lesson";
     public static final String TYPE_BLOG = "blog";
 
+    private String id;
     private String type;
     private String replyTo;
     private String content;
@@ -14,7 +15,7 @@ public class PrimaryComment {
     private String userName;
     private String userAvatar;
     private Date commentDate;
-    private SecondaryComment[] replies;
+    private SecondaryComment[] replies = {};
 
     /**
      * @return String return the type
@@ -126,6 +127,21 @@ public class PrimaryComment {
      */
     public void setReplies(SecondaryComment[] replies) {
         this.replies = replies;
+    }
+
+
+    /**
+     * @return String return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
     }
 
 }

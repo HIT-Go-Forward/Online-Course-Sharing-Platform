@@ -2,7 +2,11 @@ package hit.go.forward.common.entity.comment;
 
 import java.util.Date;
 
+import org.bson.types.ObjectId;
+
 public class SecondaryComment {
+    private String id;
+    private ObjectId objectId;
     private String replyTo;
     private String content;
     private String userId;
@@ -108,6 +112,35 @@ public class SecondaryComment {
      */
     public void setUnder(String under) {
         this.under = under;
+    }
+
+
+    /**
+     * @return String return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return ObjectId return the objectId
+     */
+    public ObjectId getObjectId() {
+        return objectId;
+    }
+
+    /**
+     * @param objectId the objectId to set
+     */
+    public void setObjectId(ObjectId objectId) {
+        this.objectId = objectId;
     }
 
 }

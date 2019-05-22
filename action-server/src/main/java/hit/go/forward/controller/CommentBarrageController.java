@@ -11,6 +11,8 @@ import hit.go.forward.platform.SystemStorage;
 import hit.go.forward.platform.util.Comment.CommentUtil;
 import hit.go.forward.common.protocol.RequestResult;
 import hit.go.forward.common.protocol.RequestResults;
+
+import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -87,12 +89,16 @@ public class CommentBarrageController {
         if (CommentParam.isValid(com)) {
             if (com.isSecondary()) {
                 SecondaryComment comm = new SecondaryComment();
+                ObjectId objectId = new ObjectId();
                 comm.setCommentDate(new Date());
                 comm.setContent(com.getContent());
                 comm.setReplyTo(com.getReplyTo());
                 comm.setUserAvatar(user.getImg());
                 comm.setUserId($userId);
                 comm.setUserName(user.getName());
+                comm.setObjectId(objectId);
+                comm.setId(objectId.toHexString());
+                comm.setUnder(com.getUnderId());
                 if (MongoDB.insertComment(comm)) return RequestResults.success();
                 return RequestResults.serverError();
             } else {
@@ -104,8 +110,8 @@ public class CommentBarrageController {
                 comm.setUserId($userId);
                 comm.setUserName(user.getName());
                 comm.setType(com.getType());
-                if (MongoDB.insertComment(comm)) return RequestResults.success();
-                return RequestResults.serverError();
+                MongoDB.insertComment(comm) ;
+                return RequestResults.success();
             }
         }
         return RequestResults.invalidParam();

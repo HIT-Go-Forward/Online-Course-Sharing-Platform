@@ -200,7 +200,7 @@ public class MongoDB {
         return likeCollection.deleteOne(Filters.and(Filters.eq("userId", userId), Filters.eq("blogId", blogId))).getDeletedCount() > 0;
     }
 
-    public static boolean insertComment(PrimaryComment comment) {
+    public static void insertComment(PrimaryComment comment) {
         Document doc = new Document();
         doc.put("replyTo", comment.getReplyTo());
         doc.put("content", comment.getContent());
@@ -211,7 +211,6 @@ public class MongoDB {
         doc.put("userAvatar", comment.getUserAvatar());
         doc.put("userId", comment.getUserId());
         commentCollection.insertOne(doc);
-        return false;
     }
 
     public static boolean insertComment(SecondaryComment comment) {
@@ -222,7 +221,8 @@ public class MongoDB {
         doc.put("userName", comment.getUserName());
         doc.put("userAvatar", comment.getUserAvatar());
         doc.put("userId", comment.getUserId());
-        
+        doc.put("_id", comment.getObjectId());
+        doc.put("id", comment.getId());
         return commentCollection.updateOne(Filters.eq("_id", new ObjectId(comment.getUnder())), new Document("$push", new Document("replies", doc))).getModifiedCount() >= 1;
     }
 
