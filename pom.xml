@@ -17,7 +17,6 @@
         <module>business</module>
         <module>action-server</module>
         <module>resource-server</module>
-        <module>im-server</module>
     </modules>
 
     <dependencies>
