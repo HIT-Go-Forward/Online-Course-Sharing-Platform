@@ -7,7 +7,7 @@ cd $BACKEND_ROOT
 git reset HEAD --hard
 git pull origin master
 
-sed -i 's/$mysqlPasswd/HGFroot123#/g' action-server/src/main/webapp/WEB-INF/dispatcher-servlet.xml
+sed -i 's/$mysqlPasswd/xxxxxx#/g' action-server/src/main/webapp/WEB-INF/dispatcher-servlet.xml
 
 mvn clean
 mvn package

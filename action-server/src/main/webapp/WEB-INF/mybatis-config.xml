@@ -3,38 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <!--<properties>-->
-        <!--<property name="driver" value="com.mysql.cj.jdbc.Driver" />-->
-        <!--<property name="url"-->
-                  <!--value="jdbc:mysql://39.106.156.178:3306/zabbix?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=true&amp;allowMultiQueries=true" />-->
-        <!--<property name="username" value="root" />-->
-        <!--<property name="password" value="123456789" />-->
-    <!--</properties>-->
-
     <typeAliases>
         <package name="hit.go.forward.common.entity" />
     </typeAliases>
-
-    <!--<environments default="development">-->
-        <!--<environment id="development">-->
-            <!--<transactionManager type="JDBC"/>-->
-            <!--<dataSource type="POOLED">-->
-                <!--<property name="driver" value="${driver}"/>-->
-                <!--<property name="url" value="${url}"/>-->
-                <!--<property name="username" value="${username}"/>-->
-                <!--<property name="password" value="${password}"/>-->
-            <!--</dataSource>-->
-        <!--</environment>-->
-    <!--</environments>-->
-
-    <!--<mappers>-->
-        <!--<mapper resource="mybatis/mapper/UserMapper.xml" />-->
-        <!--<mapper resource="mybatis/mapper/FileMapper.xml" />-->
-        <!--<mapper resource="mybatis/mapper/ApplyMapper.xml" />-->
-        <!--<mapper resource="mybatis/mapper/CourseMapper.xml" />-->
-        <!--<mapper resource="mybatis/mapper/HistoryMapper.xml" />-->
-        <!--<mapper resource="mybatis/mapper/ActionMapper.xml" />-->
-        <!--<mapper resource="mybatis/mapper/SchoolMapper.xml" />-->
-        <!--<mapper resource="mybatis/mapper/LessonMapper.xml" />-->
-    <!--</mappers>-->
 </configuration>
