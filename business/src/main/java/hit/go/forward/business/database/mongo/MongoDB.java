@@ -166,6 +166,12 @@ public class MongoDB {
         return simplify(docItrToList(result.iterator()));
     }
 
+    public static List<Document> getBlog(Integer start, Integer length) {
+        FindIterable<Document> result;
+        result = collection.find(Filters.and(Filters.eq("status", Blog.STATUS_RELEASED))).sort(Filters.eq("_id", 1)).skip(start).limit(length);
+        return simplify(docItrToList(result.iterator()));
+    }
+
     public static List<Document> queryBlogByUser(String userId, Integer start, Integer length) {
         FindIterable<Document> result;
         if (start != null && length != null) result = collection.find(Filters.eq("userId", userId)).sort(Filters.eq("_id", 1)).skip(start).limit(length);

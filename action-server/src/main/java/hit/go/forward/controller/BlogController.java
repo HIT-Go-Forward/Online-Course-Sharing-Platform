@@ -130,6 +130,12 @@ public class BlogController {
         return RequestResults.success(MongoDB.getBlogByType(typeId, $userType, $userId, start, length));
     }
 
+    @RequestMapping("/queryBlog")
+    public RequestResult queryBlog(String $userId, Integer $userType, Integer start, Integer length) {
+        if (start == null || length == null) return RequestResults.lackNecessaryParam("start || length");
+        return RequestResults.success(MongoDB.getBlog(start, length));
+    }
+
     @RequestMapping("/viewBlogById")
     public RequestResult viewBlogById(String $userId, Integer $userType, String blogId) {
         Document result = MongoDB.getBlogById(blogId, $userId, $userType);
