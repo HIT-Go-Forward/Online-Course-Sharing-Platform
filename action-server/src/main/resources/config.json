@@ -6,7 +6,7 @@
         "authCode": "byq163",
         "smtpHost":"smtp.163.com",
         "templates": {
-            "validateCodeMail": "验证码 {valdateCode}, 15分钟内有效\n"
+            "validateCodeMail": "验证码 {validateCode}, 15分钟内有效\n"
         }
 
     },

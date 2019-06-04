@@ -183,7 +183,7 @@ public class MongoDB {
     private static List<Document> simplify(List<Document> docs) {
         for (Document doc : docs) {
             String blog = (String) doc.get("blog");
-            if (blog != null && blog.length() > 40) blog = blog.substring(0, 40); 
+            if (blog != null && blog.length() > 100) blog = blog.substring(0, 100); 
             doc.put("blog", blog);
         }
         return docs;
