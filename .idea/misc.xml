@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/action-server" />
+    <file type="web" url="file://$PROJECT_DIR$/barrage-server" />
     <file type="web" url="file://$PROJECT_DIR$/im-server" />
     <file type="web" url="file://$PROJECT_DIR$/resource-server" />
   </component>

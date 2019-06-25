@@ -5,38 +5,36 @@
       <artifact name="action-server:war exploded" />
     </artifacts-to-build>
   </component>
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/platform/filter/ConnectionFilter.java" line="19" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="aa185bdc-43aa-4430-957b-c6e72affbf6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test-client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-client/src/main/java/hit/go/forward/testclient/TestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-client/test-client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/action_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/action_server_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/barrage/Barrage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/barrage-server/barrage-server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/barrage-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/action_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/action_server_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/im_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/im_server_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/im_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/im_server_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/resource_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/resource_server_war.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/resource_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/resource_server_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_2_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_websocket_4_3_18_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/action-server/action-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/action-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action-server/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action-server/src/main/webapp/actions.html" beforeDir="false" afterPath="$PROJECT_DIR$/action-server/src/main/webapp/actions.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-common/backend-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend-common/backend-common.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend-main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business/business.iml" beforeDir="false" afterPath="$PROJECT_DIR$/business/business.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im-server/im-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/im-server/im-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/mongo/MongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/mongo/MongoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business/src/main/java/hit/go/forward/service/impl/UserAuthorityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/business/src/main/java/hit/go/forward/service/impl/UserAuthorityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business/src/main/resources/mapper/LessonMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business/src/main/resources/mapper/LessonMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resource-server/resource-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/resource-server/resource-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/asdeploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/asdeploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/rsdeplot.sh" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/backend-common/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,6 +43,7 @@
     <ignored path="$PROJECT_DIR$/business/target/" />
     <ignored path="$PROJECT_DIR$/im-server/target/" />
     <ignored path="$PROJECT_DIR$/test-client/target/" />
+    <ignored path="$PROJECT_DIR$/barrage-server/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,92 +76,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/SystemConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/main/resources/server-config.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test-client/pom.xml">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/barrage-server/src/main/java/hit/go/forward/barrage/controller/BarrageController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test-client/src/main/java/hit/go/forward/testclient/TestMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+              <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/diagram/MongoDB.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/mongo/MongoDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="67" selection-start-line="67" selection-end-line="72" selection-end-column="21" />
+            <state relative-caret-position="4237">
+              <caret line="244" selection-start-line="244" selection-end-line="244" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/test/java/hit/go/forward/test/TestMailUtil.java">
+        <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/barrage/Barrage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/test/java/hit/go/forward/test/TestResourceTransmissionUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/test/java/hit/go/forward/test/TestValidate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/action-server/src/main/resources/common/dtd/server-config.dtd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+            <state relative-caret-position="57">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -196,10 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/business/pom.xml" />
-        <option value="$PROJECT_DIR$/business/src/test/java/hit/go/forward/test/RedisServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/SystemStorage.java" />
-        <option value="$PROJECT_DIR$/im-server/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/business/src/main/resources/mapper/FileMapper.xml" />
         <option value="$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/platform/interceptor/AuthorityInterceptor.java" />
         <option value="$PROJECT_DIR$/action-server/src/main/webapp/less.html" />
@@ -211,7 +151,6 @@
         <option value="$PROJECT_DIR$/im-server/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/im-server/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
         <option value="$PROJECT_DIR$/im-server/src/main/java/hit/go/forward/im/platform/IMGroup.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/ApplyController.java" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CommentBarrageController.java" />
         <option value="$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/HistoryController.java" />
@@ -247,6 +186,11 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/test-client/src/main/java/hit/go/forward/testclient/TestMain.java" />
         <option value="$PROJECT_DIR$/test-client/pom.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/barrage-server/pom.xml" />
+        <option value="$PROJECT_DIR$/barrage-server/src/main/java/hit/go/forward/barrage/controller/BarrageController.java" />
+        <option value="$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/mongo/MongoDB.java" />
+        <option value="$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/barrage/Barrage.java" />
       </list>
     </option>
   </component>
@@ -287,8 +231,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="611" />
-    <option name="width" value="1197" />
+    <option name="x" value="726" />
+    <option name="width" value="1208" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -310,88 +254,47 @@
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="testclient" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="hit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="hit" type="462c0819:PsiDirectoryNode" />
-              <item name="go" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="hit" type="462c0819:PsiDirectoryNode" />
-              <item name="go" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="forward" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend-main" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Course-Sharing-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="test-client" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="hit" type="462c0819:PsiDirectoryNode" />
-              <item name="go" type="462c0819:PsiDirectoryNode" />
+              <item name="action-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="forward" type="462c0819:PsiDirectoryNode" />
-              <item name="testclient" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -410,16 +313,16 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552196306454" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560520286306" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/diagram" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15429688" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -701,11 +604,19 @@
       <workItem from="1546083420819" duration="5179000" />
       <workItem from="1546327585529" duration="6167000" />
       <workItem from="1552195789913" duration="515000" />
+      <workItem from="1560384998253" duration="319000" />
+      <workItem from="1560385374598" duration="4264000" />
+      <workItem from="1560392079491" duration="1654000" />
+      <workItem from="1560419114817" duration="454000" />
+      <workItem from="1560419599854" duration="1792000" />
+      <workItem from="1560478270404" duration="795000" />
+      <workItem from="1560520224014" duration="66000" />
+      <workItem from="1560520360859" duration="18000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76100000" />
+    <option name="totallyTimeSpent" value="85462000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -717,10 +628,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="611" y="0" width="1197" height="1047" extended-state="0" />
+    <frame x="726" y="0" width="1208" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2471416" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30052266" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -728,6 +639,7 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info id="simpleUML" order="8" weight="0.49782294" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.30887187" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.28806135" />
@@ -738,9 +650,9 @@
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32879046" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Database Console" order="9" weight="0.21229868" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.27382258" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.13123645" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.26279864" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.26506025" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" show_stripe_button="false" />
@@ -755,6 +667,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Maven" order="9" weight="0.12362031" />
+      <window_info anchor="right" id="PlantUML" order="10" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -765,139 +678,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/SchoolController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/course/CourseChapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/course/CourseChapterDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/net/DualStackPlainSocketImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="282" column="22" selection-start-line="282" selection-start-column="22" selection-end-line="282" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/RequestFilter.java" />
-    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/platform/filter/UserAuthorityFilter.java" />
-    <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/filter/RequestFilter.java" />
-    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/platform/filter/RequestFilter.java" />
-    <entry file="file://$PROJECT_DIR$/resource-server/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/course/Lesson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/test/java/hit/go/forward/test/TestController.java" />
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/UserAuthorityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2052">
-          <caret line="132" column="77" selection-start-line="132" selection-start-column="77" selection-end-line="132" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-common/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/filter/UserAuthorityFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="57" column="59" selection-start-line="57" selection-start-column="59" selection-end-line="57" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/platform/filter/RequestFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="54" column="89" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/operation/OperationResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="46" selection-start-column="8" selection-end-column="46" />
-          <folding>
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#170#171#0" expanded="true" />
-            <element signature="e#216#217#0" expanded="true" />
-            <element signature="e#254#255#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/CourseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/handler/CenterExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson_study">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/dao/LessonMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/action-server/src/main/webapp/less.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -936,26 +716,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="83" column="20" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1021,24 +781,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test-client/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/test-client/src/main/java/hit/go/forward/testclient/TestMain.java" />
     <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/platform/SystemConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <caret line="42" column="73" lean-forward="true" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action-server/src/main/resources/common/dtd/server-config.dtd">
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/ApplyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+        <state relative-caret-position="190">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1046,6 +801,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1273">
+          <caret line="67" selection-start-line="67" selection-end-line="72" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1070,24 +832,747 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/resources/common/dtd/server-config.dtd">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="67" selection-start-line="67" selection-end-line="72" selection-end-column="21" />
+        <state relative-caret-position="266">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-client/pom.xml">
+    <entry file="das://11c3bb38-0c4e-4315-97e5-f3d9fe1e5a91/schema/zabbix/table/lesson">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://SPRING/mappedClass=hit.go.forward.controller.BlogController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>SPRING</ID>
+          <OriginalElement>mappedClass=hit.go.forward.controller.BlogController</OriginalElement>
+          <nodes>
+            <node x="" y="">module=action-server;bean_class=org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;tag=mvc:annotation-driven;offset=3250</node>
+            <node x="" y="">module=action-server;bean_class=org.springframework.http.converter.StringHttpMessageConverter;bean_name=stringHttpMessageConverter</node>
+            <node x="" y="">module=action-server;bean_class=org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;bean_name=mappingJackson2HttpMessageConverter</node>
+            <node x="" y="">module=action-server;bean_class=org.springframework.http.converter.ResourceHttpMessageConverter;tag=bean;offset=3440</node>
+            <node x="" y="">module=action-server;tag=tx:annotation-driven;offset=2835</node>
+            <node x="" y="">module=action-server;bean_class=org.springframework.jdbc.datasource.DataSourceTransactionManager;bean_name=transactionManager</node>
+            <node x="" y="">module=action-server;bean_name=(hit.go.forward) [Component]</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.controller.UserAuthorityController;bean_name=userAuthorityController</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.controller.SchoolController;bean_name=schoolController</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.controller.platform.ErrorController;bean_name=errorController</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.controller.CommentBarrageController;bean_name=commentBarrageController</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.controller.BlogController;bean_name=blogController</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.controller.ApplyController;bean_name=applyController</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.controller.CourseController;bean_name=courseController</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.controller.HistoryController;bean_name=historyController</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.controller.develop.OnlyForDevelopController;bean_name=onlyForDevelopController</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.service.impl.UserAuthorityServiceImpl;bean_name=userAuthorityServiceImpl</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.service.impl.RedisServiceImpl;bean_name=redisServiceImpl</node>
+            <node x="" y="">module=action-server;bean_class=org.springframework.web.multipart.commons.CommonsMultipartResolver;bean_name=multipartResolver</node>
+            <node x="" y="">module=action-server;bean_class=org.apache.commons.dbcp2.BasicDataSource;bean_name=dataSource</node>
+            <node x="" y="">module=action-server;bean_class=org.mybatis.spring.SqlSessionFactoryBean;bean_name=sqlSessionFactory</node>
+            <node x="" y="">module=action-server;bean_class=org.mybatis.spring.mapper.MapperScannerConfigurer;bean_name=mapperScannerConfigurer</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.platform.SystemStorage;bean_name=systemStorage</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.platform.SystemConfig;bean_name=systemConfig</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.platform.handler.CenterExceptionHandler;bean_name=exceptionHandler</node>
+            <node x="" y="">module=action-server;bean_class=org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;tag=bean;offset=2905</node>
+            <node x="" y="">module=action-server;bean_class=com.fasterxml.jackson.databind.ObjectMapper;tag=bean;offset=4224</node>
+            <node x="" y="">module=action-server;bean_class=java.text.SimpleDateFormat;tag=bean;offset=4348</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.business.database.dao.HistoryMapper;bean_name=historyMapper</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.business.database.dao.ActionMapper;bean_name=actionMapper</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.business.database.dao.LessonMapper;bean_name=lessonMapper</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.business.database.dao.CommentMapper;bean_name=commentMapper</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.business.database.dao.SchoolMapper;bean_name=schoolMapper</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.business.database.dao.ApplyMapper;bean_name=applyMapper</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.business.database.dao.FileMapper;bean_name=fileMapper</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.business.database.dao.BlogMapper;bean_name=blogMapper</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.business.database.dao.CourseMapper;bean_name=courseMapper</node>
+            <node x="" y="">module=action-server;bean_class=hit.go.forward.business.database.dao.UserMapper;bean_name=userMapper</node>
+            <node x="" y="">module=action-server;bean_class=org.springframework.core.env.Environment;bean_name=environment</node>
+            <node x="" y="">module=action-server;bean_class=org.springframework.core.env.PropertyResolver;bean_name=propertyResolver</node>
+            <node x="" y="">module=action-server;bean_class=org.springframework.core.convert.ConversionService;bean_name=conversionService</node>
+            <node x="" y="">module=action-server;bean_class=javax.servlet.http.HttpServletRequest;bean_name=httpServletRequest</node>
+            <node x="" y="">module=action-server;bean_class=javax.servlet.http.HttpSession;bean_name=httpSession</node>
+            <node x="" y="">module=action-server;bean_class=javax.servlet.ServletConfig;bean_name=servletConfig</node>
+            <node x="" y="">module=action-server;bean_class=javax.servlet.ServletContext;bean_name=servletContext</node>
+            <node x="" y="">module=action-server;bean_class=org.springframework.web.context.WebApplicationContext;bean_name=webApplicationContext</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.1226689478186485" x="544.0" y="1054.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Local context</Category>
+            <Category>Properties</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CommentBarrageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1691">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/hit.go.forward.controller.CommentBarrageController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>hit.go.forward.controller.CommentBarrageController</OriginalElement>
+          <nodes>
+            <node x="247.5" y="716.0">hit.go.forward.controller.CommentBarrageController</node>
+            <node x="0.0" y="473.5">hit.go.forward.business.database.dao.CommentMapper</node>
+            <node x="275.7083333333333" y="0.0">hit.go.forward.common.entity.comment.Comment</node>
+            <node x="780.0" y="507.5">hit.go.forward.common.protocol.RequestResult</node>
+            <node x="503.0" y="450.0">hit.go.forward.controller.CommentParam</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="hit.go.forward.controller.CommentBarrageController" target="hit.go.forward.common.entity.comment.Comment">
+              <point x="0.0" y="-73.5" />
+              <point x="492.5" y="425.0" />
+              <point x="412.9583333333333" y="425.0" />
+              <point x="45.75" y="200.0" />
+            </edge>
+            <edge source="hit.go.forward.controller.CommentBarrageController" target="hit.go.forward.common.protocol.RequestResult">
+              <point x="196.0" y="-73.5" />
+              <point x="688.5" y="691.0" />
+              <point x="859.0" y="691.0" />
+              <point x="0.0" y="50.5" />
+            </edge>
+            <edge source="hit.go.forward.business.database.dao.CommentMapper" target="hit.go.forward.common.entity.comment.Comment">
+              <point x="0.0" y="-84.5" />
+              <point x="241.0" y="425.0" />
+              <point x="321.4583333333333" y="425.0" />
+              <point x="-45.75" y="200.0" />
+            </edge>
+            <edge source="hit.go.forward.controller.CommentBarrageController" target="hit.go.forward.business.database.dao.CommentMapper">
+              <point x="-196.0" y="-73.5" />
+              <point x="296.5" y="691.0" />
+              <point x="120.5" y="691.0" />
+              <point x="-120.5" y="84.5" />
+            </edge>
+            <edge source="hit.go.forward.controller.CommentBarrageController" target="hit.go.forward.controller.CommentParam">
+              <point x="98.0" y="-73.5" />
+              <point x="590.5" y="691.0" />
+              <point x="631.5" y="691.0" />
+              <point x="0.0" y="108.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-338.0" y="375.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/CourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/src/main/java/hit/go/forward/controller/HistoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/hit.go.forward.controller.HistoryController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>hit.go.forward.controller.HistoryController</OriginalElement>
+          <nodes>
+            <node x="128.375" y="635.0">hit.go.forward.controller.HistoryController</node>
+            <node x="27.625" y="496.0">hit.go.forward.business.database.dao.HistoryMapper</node>
+            <node x="-155.5" y="308.0">hit.go.forward.common.entity.history.History</node>
+            <node x="-163.0" y="466.0">hit.go.forward.common.entity.history.CourseHistory</node>
+            <node x="459.625" y="484.0">hit.go.forward.common.protocol.RequestResult</node>
+            <node x="317.25" y="406.5">hit.go.forward.common.entity.history.param.HistoryQueryParam</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="hit.go.forward.controller.HistoryController" target="hit.go.forward.common.entity.history.param.HistoryQueryParam">
+              <point x="83.0" y="-50.5" />
+              <point x="418.875" y="615.0" />
+              <point x="449.125" y="615.0" />
+              <point x="448.125" y="483.0" />
+              <point x="440.0" y="482.0" />
+              <point x="40.25" y="27.0" />
+            </edge>
+            <edge source="hit.go.forward.business.database.dao.HistoryMapper" target="hit.go.forward.common.entity.history.CourseHistory">
+              <point x="-102.75" y="-38.5" />
+              <point x="132.375" y="463.0" />
+              <point x="19.5" y="466.0" />
+              <point x="40.5" y="130.5" />
+            </edge>
+            <edge source="hit.go.forward.common.entity.history.CourseHistory" target="hit.go.forward.common.entity.history.History">
+              <point x="0.0" y="-130.5" />
+              <point x="0.0" y="61.5" />
+            </edge>
+            <edge source="hit.go.forward.business.database.dao.HistoryMapper" target="hit.go.forward.common.entity.history.param.HistoryQueryParam">
+              <point x="102.75" y="-38.5" />
+              <point x="332.875" y="480.0" />
+              <point x="358.5" y="479.0" />
+              <point x="-40.25" y="27.0" />
+            </edge>
+            <edge source="hit.go.forward.controller.HistoryController" target="hit.go.forward.business.database.dao.HistoryMapper">
+              <point x="0.0" y="-50.5" />
+              <point x="102.75" y="38.5" />
+            </edge>
+            <edge source="hit.go.forward.controller.HistoryController" target="hit.go.forward.common.entity.history.CourseHistory">
+              <point x="-166.0" y="-50.5" />
+              <point x="169.875" y="615.0" />
+              <point x="17.125" y="615.0" />
+              <point x="16.125" y="614.0" />
+              <point x="16.5" y="617.0" />
+              <point x="-40.5" y="130.5" />
+            </edge>
+            <edge source="hit.go.forward.controller.HistoryController" target="hit.go.forward.common.protocol.RequestResult">
+              <point x="166.0" y="-50.5" />
+              <point x="501.875" y="615.0" />
+              <point x="538.625" y="615.0" />
+              <point x="0.0" y="50.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-338.0" y="248.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/hit.go.forward.controller.SchoolController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>hit.go.forward.controller.SchoolController</OriginalElement>
+          <nodes>
+            <node x="62.0" y="393.0">hit.go.forward.controller.SchoolController</node>
+            <node x="0.0" y="265.5">hit.go.forward.business.database.dao.SchoolMapper</node>
+            <node x="62.0" y="47.0">hit.go.forward.common.entity.school.School</node>
+            <node x="280.0" y="242.0">hit.go.forward.common.protocol.RequestResult</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="hit.go.forward.controller.SchoolController" target="hit.go.forward.common.protocol.RequestResult">
+              <point x="88.66666666666669" y="-39.0" />
+              <point x="283.6666666666667" y="368.0" />
+              <point x="359.0" y="368.0" />
+              <point x="0.0" y="50.5" />
+            </edge>
+            <edge source="hit.go.forward.controller.SchoolController" target="hit.go.forward.business.database.dao.SchoolMapper">
+              <point x="-88.66666666666669" y="-39.0" />
+              <point x="106.33333333333331" y="368.0" />
+              <point x="65.0" y="368.0" />
+              <point x="-65.0" y="27.0" />
+            </edge>
+            <edge source="hit.go.forward.business.database.dao.SchoolMapper" target="hit.go.forward.common.entity.school.School">
+              <point x="0.0" y="-27.0" />
+              <point x="0.0" y="96.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-338.0" y="-17.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/hit.go.forward.controller.UserAuthorityController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>hit.go.forward.controller.UserAuthorityController</OriginalElement>
+          <nodes>
+            <node x="5.500000000000057" y="680.0">hit.go.forward.service.UserAuthorityService</node>
+            <node x="301.50000000000006" y="565.0">hit.go.forward.business.database.dao.UserMapper</node>
+            <node x="465.2879464285715" y="0.0">hit.go.forward.common.entity.user.User</node>
+            <node x="0.0" y="219.0">hit.go.forward.common.entity.jwt.AuthorityVO</node>
+            <node x="254.96428571428578" y="945.0">hit.go.forward.controller.UserAuthorityController</node>
+            <node x="725.5" y="679.5">hit.go.forward.common.protocol.RequestResult</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="hit.go.forward.service.UserAuthorityService" target="hit.go.forward.common.entity.user.User">
+              <point x="69.0" y="-50.0" />
+              <point x="212.50000000000006" y="535.0" />
+              <point x="496.6629464285715" y="535.0" />
+              <point x="-94.125" y="257.5" />
+            </edge>
+            <edge source="hit.go.forward.controller.UserAuthorityController" target="hit.go.forward.business.database.dao.UserMapper">
+              <point x="-87.85714285714278" y="-200.0" />
+              <point x="474.607142857143" y="925.0" />
+              <point x="399.50000000000006" y="925.0" />
+              <point x="-98.0" y="165.0" />
+            </edge>
+            <edge source="hit.go.forward.controller.UserAuthorityController" target="hit.go.forward.common.entity.user.User">
+              <point x="87.85714285714289" y="-200.0" />
+              <point x="650.3214285714287" y="925.0" />
+              <point x="704.0" y="925.0" />
+              <point x="704.0" y="545.0" />
+              <point x="622.1629464285716" y="545.0" />
+              <point x="31.375" y="257.5" />
+            </edge>
+            <edge source="hit.go.forward.business.database.dao.UserMapper" target="hit.go.forward.common.entity.user.User">
+              <point x="0.0" y="-165.0" />
+              <point x="497.50000000000006" y="545.0" />
+              <point x="559.4129464285716" y="545.0" />
+              <point x="-31.375" y="257.5" />
+            </edge>
+            <edge source="hit.go.forward.controller.UserAuthorityController" target="hit.go.forward.common.protocol.RequestResult">
+              <point x="263.57142857142856" y="-200.0" />
+              <point x="826.0357142857143" y="925.0" />
+              <point x="804.5" y="925.0" />
+              <point x="0.0" y="50.5" />
+            </edge>
+            <edge source="hit.go.forward.controller.UserAuthorityController" target="hit.go.forward.service.UserAuthorityService">
+              <point x="-263.57142857142844" y="-200.0" />
+              <point x="298.89285714285734" y="925.0" />
+              <point x="74.50000000000006" y="925.0" />
+              <point x="-69.0" y="50.0" />
+            </edge>
+            <edge source="hit.go.forward.service.UserAuthorityService" target="hit.go.forward.common.entity.jwt.AuthorityVO">
+              <point x="-69.0" y="-50.0" />
+              <point x="0.0" y="38.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.9440000000000001" x="-59.0" y="886.0" />
+          <SelectedNodes>
+            <node>hit.go.forward.controller.UserAuthorityController</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource-server/src/main/java/hit/go/forward/rserver/controller/ResourceUploadController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="734">
+          <caret line="83" column="20" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/hit.go.forward.controller.CourseController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>hit.go.forward.controller.CourseController</OriginalElement>
+          <nodes>
+            <node x="644.0" y="104.0">hit.go.forward.common.entity.course.Lesson</node>
+            <node x="389.5000000000001" y="1370.0">hit.go.forward.controller.CourseController</node>
+            <node x="293.5892857142857" y="0.0">hit.go.forward.common.entity.course.Course</node>
+            <node x="968.0" y="910.0">hit.go.forward.common.protocol.RequestResult</node>
+            <node x="526.0" y="807.0">hit.go.forward.business.database.dao.LessonMapper</node>
+            <node x="0.0" y="611.0">hit.go.forward.business.database.dao.CourseMapper</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="hit.go.forward.controller.CourseController" target="hit.go.forward.common.protocol.RequestResult">
+              <point x="138.28571428571422" y="-315.5" />
+              <point x="769.7857142857143" y="1340.0" />
+              <point x="1007.5" y="1340.0" />
+              <point x="-39.5" y="50.5" />
+            </edge>
+            <edge source="hit.go.forward.controller.CourseController" target="hit.go.forward.business.database.dao.CourseMapper">
+              <point x="-138.2857142857144" y="-315.5" />
+              <point x="493.21428571428567" y="1340.0" />
+              <point x="378.75" y="1340.0" />
+              <point x="126.25" y="349.5" />
+            </edge>
+            <edge source="hit.go.forward.controller.CourseController" target="hit.go.forward.business.database.dao.LessonMapper">
+              <point x="-5.6843418860808015E-14" y="-315.5" />
+              <point x="-105.5" y="153.5" />
+            </edge>
+            <edge source="hit.go.forward.business.database.dao.CourseMapper" target="hit.go.forward.common.entity.course.Course">
+              <point x="0.0" y="-349.5" />
+              <point x="252.5" y="586.0" />
+              <point x="340.5892857142857" y="586.0" />
+              <point x="-47.0" y="280.5" />
+            </edge>
+            <edge source="hit.go.forward.controller.CourseController" target="hit.go.forward.common.entity.course.Course">
+              <point x="-69.14285714285722" y="-315.5" />
+              <point x="562.3571428571429" y="1350.0" />
+              <point x="515.5" y="1350.0" />
+              <point x="515.5" y="586.0" />
+              <point x="434.5892857142857" y="586.0" />
+              <point x="47.0" y="280.5" />
+            </edge>
+            <edge source="hit.go.forward.business.database.dao.LessonMapper" target="hit.go.forward.common.entity.course.Lesson">
+              <point x="0.0" y="-153.5" />
+              <point x="0.0" y="176.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="-502.0" y="489.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/hit.go.forward.controller.BlogController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>hit.go.forward.controller.BlogController</OriginalElement>
+          <nodes>
+            <node x="178.00000000000003" y="635.0">hit.go.forward.common.entity.blog.param.BlogPostParam</node>
+            <node x="344.0" y="566.0">hit.go.forward.business.database.dao.BlogMapper</node>
+            <node x="144.25" y="808.0">hit.go.forward.controller.BlogController</node>
+            <node x="606.09375" y="162.0">hit.go.forward.common.entity.blog.param.BlogQuery</node>
+            <node x="0.0" y="611.5">hit.go.forward.common.protocol.RequestResult</node>
+            <node x="239.55208333333331" y="0.0">hit.go.forward.common.entity.blog.Blog</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="hit.go.forward.controller.BlogController" target="hit.go.forward.common.entity.blog.param.BlogPostParam">
+              <point x="-121.0" y="-211.5" />
+              <point x="265.25" y="788.0" />
+              <point x="250.50000000000003" y="788.0" />
+              <point x="0.0" y="27.0" />
+            </edge>
+            <edge source="hit.go.forward.controller.BlogController" target="hit.go.forward.common.entity.blog.Blog">
+              <point x="-40.333333333333314" y="-211.5" />
+              <point x="345.9166666666667" y="788.0" />
+              <point x="333.5" y="788.0" />
+              <point x="333.5" y="541.0" />
+              <point x="336.0520833333333" y="541.0" />
+              <point x="0.0" y="258.0" />
+            </edge>
+            <edge source="hit.go.forward.controller.BlogController" target="hit.go.forward.common.protocol.RequestResult">
+              <point x="-201.66666666666669" y="-211.5" />
+              <point x="184.58333333333331" y="788.0" />
+              <point x="79.0" y="788.0" />
+              <point x="0.0" y="50.5" />
+            </edge>
+            <edge source="hit.go.forward.business.database.dao.BlogMapper" target="hit.go.forward.common.entity.blog.Blog">
+              <point x="-95.0" y="-96.0" />
+              <point x="439.0" y="541.0" />
+              <point x="400.3854166666667" y="541.0" />
+              <point x="64.33333333333337" y="258.0" />
+            </edge>
+            <edge source="hit.go.forward.business.database.dao.BlogMapper" target="hit.go.forward.common.entity.blog.param.BlogQuery">
+              <point x="95.0" y="-96.0" />
+              <point x="629.0" y="541.0" />
+              <point x="643.34375" y="541.0" />
+              <point x="-37.25" y="96.0" />
+            </edge>
+            <edge source="hit.go.forward.controller.BlogController" target="hit.go.forward.common.entity.blog.param.BlogQuery">
+              <point x="201.66666666666674" y="-211.5" />
+              <point x="587.9166666666667" y="788.0" />
+              <point x="734.5" y="788.0" />
+              <point x="734.5" y="541.0" />
+              <point x="717.84375" y="541.0" />
+              <point x="37.25" y="96.0" />
+            </edge>
+            <edge source="hit.go.forward.common.entity.blog.param.BlogPostParam" target="hit.go.forward.common.entity.blog.Blog">
+              <point x="0.0" y="-27.0" />
+              <point x="250.50000000000003" y="541.0" />
+              <point x="271.71875" y="541.0" />
+              <point x="-64.33333333333331" y="258.0" />
+            </edge>
+            <edge source="hit.go.forward.controller.BlogController" target="hit.go.forward.business.database.dao.BlogMapper">
+              <point x="121.0" y="-211.5" />
+              <point x="507.25" y="778.0" />
+              <point x="629.0" y="778.0" />
+              <point x="95.0" y="96.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-322.0" y="745.0" />
+          <SelectedNodes>
+            <node>hit.go.forward.controller.BlogController</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://MODULES/mdl-backend-main">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MODULES</ID>
+          <OriginalElement>mdl-backend-main</OriginalElement>
+          <nodes>
+            <node x="" y="">mdl-backend-common</node>
+            <node x="" y="">mdl-barrage-server</node>
+            <node x="" y="">mdl-business</node>
+            <node x="" y="">mdl-resource-server</node>
+            <node x="" y="">mdl-action-server</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="85.0" y="16.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/hit.go.forward.barrage.controller.BarrageController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>hit.go.forward.barrage.controller.BarrageController</OriginalElement>
+          <nodes>
+            <node x="" y="">hit.go.forward.business.database.mongo.MongoDB</node>
+            <node x="" y="">hit.go.forward.common.entity.barrage.Barrage</node>
+            <node x="" y="">hit.go.forward.barrage.controller.BarrageController</node>
+            <node x="" y="">hit.go.forward.common.protocol.RequestResult</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="215.0" y="646.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/hit.go.forward.business.database.mongo.MongoDB">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>hit.go.forward.business.database.mongo.MongoDB</OriginalElement>
+          <nodes>
+            <node x="369.00000000000006" y="392.0">hit.go.forward.common.entity.comment.PrimaryComment</node>
+            <node x="222.12500000000006" y="854.0">hit.go.forward.business.database.mongo.MongoDB</node>
+            <node x="472.4642857142858" y="0.0">hit.go.forward.common.entity.comment.SecondaryComment</node>
+            <node x="0.0" y="427.0">hit.go.forward.common.entity.barrage.Barrage</node>
+            <node x="637.0" y="449.5">hit.go.forward.common.entity.blog.BlogUserSummary</node>
+            <node x="156.00000000000006" y="288.0">hit.go.forward.common.entity.blog.Blog</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="hit.go.forward.business.database.mongo.MongoDB" target="hit.go.forward.common.entity.blog.Blog">
+              <point x="-163.5" y="-533.5" />
+              <point x="385.62500000000006" y="824.0" />
+              <point x="252.50000000000006" y="824.0" />
+              <point x="0.0" y="258.0" />
+            </edge>
+            <edge source="hit.go.forward.business.database.mongo.MongoDB" target="hit.go.forward.common.entity.comment.PrimaryComment">
+              <point x="-54.5" y="-533.5" />
+              <point x="494.62500000000006" y="834.0" />
+              <point x="492.50000000000006" y="834.0" />
+              <point x="0.0" y="154.0" />
+            </edge>
+            <edge source="hit.go.forward.common.entity.comment.PrimaryComment" target="hit.go.forward.common.entity.comment.SecondaryComment">
+              <point x="61.75" y="-154.0" />
+              <point x="0.0" y="119.0" />
+            </edge>
+            <edge source="hit.go.forward.business.database.mongo.MongoDB" target="hit.go.forward.common.entity.barrage.Barrage">
+              <point x="-272.5" y="-533.5" />
+              <point x="276.62500000000006" y="834.0" />
+              <point x="68.0" y="834.0" />
+              <point x="0.0" y="119.0" />
+            </edge>
+            <edge source="hit.go.forward.business.database.mongo.MongoDB" target="hit.go.forward.common.entity.comment.SecondaryComment">
+              <point x="54.5" y="-533.5" />
+              <point x="603.625" y="834.0" />
+              <point x="626.5" y="834.0" />
+              <point x="626.5" y="263.0" />
+              <point x="609.9642857142858" y="263.0" />
+              <point x="55.000000000000014" y="119.0" />
+            </edge>
+            <edge source="hit.go.forward.business.database.mongo.MongoDB" target="hit.go.forward.common.entity.blog.BlogUserSummary">
+              <point x="272.5" y="-533.5" />
+              <point x="821.625" y="834.0" />
+              <point x="823.75" y="834.0" />
+              <point x="62.25" y="96.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="395.0" y="566.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/hit.go.forward.controller.ApplyController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>hit.go.forward.controller.ApplyController</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="215.0" y="56.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="66" column="30" lean-forward="true" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/barrage-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="823">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/hit.go.forward.rserver.controller.ResourceUploadController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>hit.go.forward.rserver.controller.ResourceUploadController</OriginalElement>
+          <nodes>
+            <node x="606.0" y="769.0">hit.go.forward.rserver.controller.ResourceUploadController</node>
+            <node x="343.2929642445213" y="839.2629757785467">hit.go.forward.business.database.dao.FileMapper</node>
+            <node x="797.3910034602077" y="-63.35467128027682">hit.go.forward.business.database.dao.UserMapper</node>
+            <node x="1192.297577854671" y="804.6805074971165">hit.go.forward.common.protocol.RequestResult</node>
+            <node x="781.3021914648214" y="294.2871972318339">hit.go.forward.business.database.dao.LessonMapper</node>
+            <node x="262.0" y="0.0">hit.go.forward.business.database.dao.CourseMapper</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="hit.go.forward.rserver.controller.ResourceUploadController" target="hit.go.forward.business.database.dao.UserMapper">
+              <point x="127.33333333333337" y="-223.0" />
+              <point x="780.5253748558246" y="751.7912341407152" />
+              <point x="777.161476355248" y="283.14648212226064" />
+              <point x="-98.0" y="165.0" />
+            </edge>
+            <edge source="hit.go.forward.rserver.controller.ResourceUploadController" target="hit.go.forward.business.database.dao.FileMapper">
+              <point x="-254.66666666666652" y="-223.0" />
+              <point x="637.8333333333335" y="749.0" />
+              <point x="406.6418685121107" y="749.0" />
+              <point x="-60.5" y="61.5" />
+            </edge>
+            <edge source="hit.go.forward.rserver.controller.ResourceUploadController" target="hit.go.forward.business.database.dao.CourseMapper">
+              <point x="-63.66666666666663" y="-223.0" />
+              <point x="828.8333333333334" y="719.0" />
+              <point x="640.75" y="719.0" />
+              <point x="126.25" y="349.5" />
+            </edge>
+            <edge source="hit.go.forward.rserver.controller.ResourceUploadController" target="hit.go.forward.common.protocol.RequestResult">
+              <point x="254.66666666666674" y="-223.0" />
+              <point x="1147.1666666666667" y="749.0" />
+              <point x="1267.024221453287" y="750.4244521337947" />
+              <point x="0.0" y="50.5" />
+            </edge>
+            <edge source="hit.go.forward.rserver.controller.ResourceUploadController" target="hit.go.forward.business.database.dao.LessonMapper">
+              <point x="63.66666666666674" y="-223.0" />
+              <point x="956.1666666666667" y="719.0" />
+              <point x="1103.5" y="719.0" />
+              <point x="105.5" y="153.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.7020242914979757" x="900.0" y="618.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/barrage-server/src/main/java/hit/go/forward/barrage/controller/BarrageController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-client/src/main/java/hit/go/forward/testclient/TestMain.java">
+    <entry file="file://$PROJECT_DIR$/diagram/MongoDB.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business/src/main/java/hit/go/forward/business/database/mongo/MongoDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        <state relative-caret-position="4237">
+          <caret line="244" selection-start-line="244" selection-end-line="244" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend-common/src/main/java/hit/go/forward/common/entity/barrage/Barrage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>

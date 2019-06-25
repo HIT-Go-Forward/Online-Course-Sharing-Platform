@@ -98,7 +98,7 @@
         lesson_course_id = #{courseId},
         lesson_update_date = NOW(),
         lesson_state = 1
-        where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId} and (lesson_state = 2 or lesson_state = 3)
+        where lesson_id = #{lessonId} and lesson_teacher_id = #{teacherId}
     </update>
 
     <update id="updateLessonVideo" parameterType="Map">

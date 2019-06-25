@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="action-server" />
         <module name="backend-common" />
+        <module name="barrage-server" />
         <module name="business" />
         <module name="im-server" />
         <module name="resource-server" />
@@ -18,6 +19,7 @@
       <module name="action-server" target="1.8" />
       <module name="backend-common" target="1.8" />
       <module name="backend-main" target="1.8" />
+      <module name="barrage-server" target="1.8" />
       <module name="business" target="1.8" />
       <module name="im-server" target="1.8" />
       <module name="resource-server" target="1.8" />

@@ -17,6 +17,7 @@
         <module>business</module>
         <module>action-server</module>
         <module>resource-server</module>
+        <module>barrage-server</module>
     </modules>
 
     <dependencies>

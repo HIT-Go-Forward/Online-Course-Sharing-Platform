@@ -22,8 +22,12 @@
     <table>
         <tr>
             <td>
-                action:<input type="text" id="actionUrl">
+                action:
+                <select id="action"></select>
             </td>
+        </tr>
+        <tr>
+            <td id="show"></td>
         </tr>
         <tr>
             <td>
@@ -50,9 +54,78 @@
     <script>
         const $ = document.querySelector.bind(document);
         const actionUrl = $("#actionUrl");
+        const action = $("#action");
+        const show = $("#show");
         const getParams = $("#getParams");
         const addParams = $("#addPostParam");
         const postParams = $("#postParams");
+        const actions = ["/authority/login.action","/authority/register.action", "/authority/modifyInfo.action", "/authority/logout.action",
+                        "/authority/changePassword.action", "/authority/getUserInfo.action", "/authority/sendValidateCode.action", "/authority/validateCode.action", 
+                        "/authority/uniqueEmail.action", "/authority/updateUserImg.action",
+                        "/authority/autoLogin.action","/authority/sendValidateCodeToCurrentUser.action",
+                        "/apply/applyTeacher.action","/apply/acceptTeacherApply.action",
+                        "/apply/rejectTeacherApply.action",
+                        "/apply/getManageableApplies.action",
+                        "/apply/handleBlogApplies.action",
+                        "/apply/getBlogApplies.action",
+                        "/course/addNewCourse.action",
+                        "/course/getCourses.action",
+                        "/course/getCourseById.action",
+                        "/course/handleCourseApply.action",
+                        "/course/getUserCourses.action",
+                        "/course/getAllCourseType.action",
+                        "/course/updateCourseImg.action",
+                        "/course/uploadLessonVideo.action",
+                        "/course/uploadLessonFile.action",
+                        "/course/getCourseOutline.action",
+                        "/course/getCourseOutlineDetail.action",
+                        "/course/addNewLesson.action",
+                        "/course/updateLesson.action",
+                        "/course/updateLessonVideo.action",
+                        "/course/updateLessonFile.action",
+                        "/course/getCourseLessons.action",
+                        "/course/getCourseByType.action",
+                        "/course/updateCourse.action",
+                        "/course/getLessonById.action",
+                        "/course/getManageableCourseLessons.action",
+                        "/course/handleLessonApplies.action",
+                        "/course/hasJoined.action",
+                        "/course/joinCourse.action",
+                        "/course/completeCourseStudy.action",
+                        "/course/startLearnLesson.action",
+                        "/course/completeLessonLearn.action",
+                        "/history/addNewHistory.action",
+                        "/history/getCourseHistory.action",
+                        "/school/querySchool.action",
+                        "/CommentAndBarrage/sendComment.action",
+                        "/CommentAndBarrage/getComment.action",
+                        "/CommentAndBarrage/comment.action",
+                        "/blog/uploadBlog.action",
+                        "/blog/getBlog.action",
+                        "/blog/deleteBlog.action",
+                        "/blog/updateBlog.action",
+                        "/blog/getBlogListByType.action",
+                        "/blog/saveBlog.action",
+                        "/blog/queryBlogByUser.action",
+                        "/blog/queryBlogByType.action",
+                        "/blog/viewBlogById.action",
+                        "/blog/editBlog.action",
+                        "/blog/deleteBlogById.action",
+                        "/blog/likeBlog.action",
+                        "/blog/getUserBlogSummary.action",
+                        "/blog/queryBlog.action"];
+
+        actions.forEach(e => {
+            e = e.substring(1);
+            const option = document.createElement("option");
+            option.setAttribute("value", e);
+            option.innerText = e;
+            action.append(option);
+        });
+
+        action.addEventListener("change", event => {
+            show.innerText = action.value();
+        });
         const GET = $("#GET");
         const POST = $("#POST");
         addParams.addEventListener("click", event => {
@@ -64,20 +137,20 @@
             postParams.append(li);
         });
         GET.addEventListener("click", event => {
-            const action = actionUrl.value;
+            const act = action.value;
             const params = getParams.value;
-            axios.get(`${action}?${params}&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJoaXQuZ28uZm9yd2FyZCIsInVzZXJUeXBlIjoiMiIsInVzZXJJZCI6IjMiLCJ2ZXJzaW9uIjoiMCJ9.yRcWHZunRs6KZBvI_3yhTXbk6QvFkCIFtfvMS_6IhM0uo4g4BjQU8izeaxX3Ok_GVuHKlObW6ARfjnGUlgXzlw`)
+            axios.get(`${act}?${params}&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJoaXQuZ28uZm9yd2FyZCIsInVzZXJUeXBlIjoiMiIsInVzZXJJZCI6IjMiLCJ2ZXJzaW9uIjoiMCJ9.yRcWHZunRs6KZBvI_3yhTXbk6QvFkCIFtfvMS_6IhM0uo4g4BjQU8izeaxX3Ok_GVuHKlObW6ARfjnGUlgXzlw`)
             .then(response => console.log(response));
         });
         POST.addEventListener("click", event => {
-            const action = actionUrl.value;
+            const act = action.value;
             const params = document.querySelectorAll(".postParam");
             const p = {};
             params.forEach(e => {
                 const tmp = e.value.split("=");
                 p[tmp[0]] = tmp[1];
             })
-            axios.post(`${action}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJoaXQuZ28uZm9yd2FyZCIsInVzZXJUeXBlIjoiMiIsInVzZXJJZCI6IjMiLCJ2ZXJzaW9uIjoiMCJ9.yRcWHZunRs6KZBvI_3yhTXbk6QvFkCIFtfvMS_6IhM0uo4g4BjQU8izeaxX3Ok_GVuHKlObW6ARfjnGUlgXzlw`, p)
+            axios.post(`${act}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJoaXQuZ28uZm9yd2FyZCIsInVzZXJUeXBlIjoiMiIsInVzZXJJZCI6IjMiLCJ2ZXJzaW9uIjoiMCJ9.yRcWHZunRs6KZBvI_3yhTXbk6QvFkCIFtfvMS_6IhM0uo4g4BjQU8izeaxX3Ok_GVuHKlObW6ARfjnGUlgXzlw`, p)
             .then(response => console.log(response));
         });
     </script>

@@ -35,7 +35,7 @@ public class UserAuthorityServiceImpl implements UserAuthorityService {
         Map<String, String> data = new HashMap<>();
         data.put(USER_ID, user.getId().toString());
         data.put(USER_TYPE, user.getType().toString());
-        data.put(VERSION, user.getTokenVersion().toString());
+        // data.put(VERSION, user.getTokenVersion().toString());
         return JWTUtil.generateToken(data, duration);
     }
 

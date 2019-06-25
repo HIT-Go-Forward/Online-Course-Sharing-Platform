@@ -13,6 +13,7 @@ import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import hit.go.forward.common.entity.barrage.Barrage;
 import hit.go.forward.common.entity.blog.Blog;
 import hit.go.forward.common.entity.blog.BlogUserSummary;
 import hit.go.forward.common.entity.comment.PrimaryComment;
@@ -235,6 +236,14 @@ public class MongoDB {
     public static List<Document> getComment(String type, String id) {
         FindIterable<Document> result = commentCollection.find(Filters.and(Filters.eq("type", type), Filters.eq("replyTo", id)));
         return docItrToList(result.iterator());
+    }
+
+    public static List<Document> getBarrage(String lessonId) {
+        return null;
+    }
+
+    public static void insertBarrage(Barrage barrage) {
+        
     }
 
     public static BlogUserSummary getBlogUserSummary(String id) {
